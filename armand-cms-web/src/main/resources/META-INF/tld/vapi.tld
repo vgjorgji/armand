@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+	<description>VAPI JSP Tag Library</description>
+	<display-name>VAPI web</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>vapi</short-name>
+	<uri>http://www.vcms.com/tags/vapi</uri>
+
+	<tag-file>
+		<description>Renders the given DesignComponent object.</description>
+		<name>designComponent</name>
+		<path>/META-INF/tags/vapi/designComponent.tag</path>
+	</tag-file>
+	<tag-file>
+		<description>Renders the given Categories object.</description>
+		<name>category</name>
+		<path>/META-INF/tags/vapi/category.tag</path>
+	</tag-file>
+	<tag-file>
+		<description>Renders the given HashTags object.</description>
+		<name>hashTags</name>
+		<path>/META-INF/tags/vapi/hashTags.tag</path>
+	</tag-file>
+</taglib>
