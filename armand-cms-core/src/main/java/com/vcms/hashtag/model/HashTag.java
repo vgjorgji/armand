@@ -5,17 +5,17 @@ import com.vcms.persist.model.HistoryModel;
 
 public class HashTag extends HistoryModel {
 	
-	private long websiteViewId;
+	private long parentId;
 	private LocalText name;
 	
-	public long getWebsiteViewId() {
-		return websiteViewId;
+	public long getParentId() {
+		return parentId;
 	}
-	
-	public void setWebsiteViewId(long websiteViewId) {
-		this.websiteViewId = websiteViewId;
+
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
 	}
-	
+
 	public LocalText getName() {
 		return name;
 	}

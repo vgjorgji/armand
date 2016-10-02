@@ -1,11 +1,8 @@
 package com.vcms.website.model;
 
-import java.util.List;
-
 import com.vcms.conf.cms.Font;
 import com.vcms.conf.cms.ModernColor;
 import com.vcms.conf.cms.Style;
-import com.vcms.design.model.Page;
 import com.vcms.persist.model.HistoryModel;
 
 public class WebsiteView extends HistoryModel {
@@ -16,7 +13,6 @@ public class WebsiteView extends HistoryModel {
 	private ModernColor color;
 	private ModernColor selectColor;
 	private Font font;
-	private List<Page> pages;
 	
 	public WebsiteViewType getViewType() {
 		return viewType;
@@ -66,12 +62,4 @@ public class WebsiteView extends HistoryModel {
 		this.selectColor = selectColor;
 	}
 
-	public List<Page> getPages() {
-		return pages;
-	}
-
-	public void setPages(List<Page> pages) {
-		this.pages = pages;
-	}
-	
 }

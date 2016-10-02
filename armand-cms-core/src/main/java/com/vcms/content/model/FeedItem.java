@@ -4,12 +4,12 @@ import java.util.Date;
 
 import com.vcms.classify.model.Categories;
 import com.vcms.comment.model.Comments;
-import com.vcms.design.model.FeedPage;
-import com.vcms.design.model.Link;
 import com.vcms.hashtag.model.HashTags;
 import com.vcms.localization.model.LocalText;
 import com.vcms.media.model.Media;
 import com.vcms.persist.model.ContentModel;
+import com.vcms.website.model.FeedPage;
+import com.vcms.website.model.Link;
 
 public class FeedItem extends ContentModel {
 	

@@ -1,8 +1,8 @@
 package com.vcms.content.model;
 
-import com.vcms.design.model.Link;
-import com.vcms.design.model.Page;
 import com.vcms.persist.model.ContentModel;
+import com.vcms.website.model.Link;
+import com.vcms.website.model.Page;
 
 public class FooterItem extends ContentModel {
 

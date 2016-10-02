@@ -30,13 +30,10 @@ import com.vcms.content.model.ParagraphLayout;
 import com.vcms.content.model.SubNavItem;
 import com.vcms.content.model.Title;
 import com.vcms.content.model.TitleItem;
-import com.vcms.design.model.CmsPage;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.design.model.DesignComponentRepository;
-import com.vcms.design.model.ExternalPage;
 import com.vcms.design.model.FeedDesignComponent;
 import com.vcms.design.model.FeedFilter;
-import com.vcms.design.model.FeedPage;
 import com.vcms.design.model.LayoutPosition;
 import com.vcms.hashtag.model.HashTag;
 import com.vcms.hashtag.model.HashTags;
@@ -47,6 +44,9 @@ import com.vcms.media.model.Media;
 import com.vcms.media.model.MediaType;
 import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.Utils;
+import com.vcms.website.model.CmsPage;
+import com.vcms.website.model.ExternalPage;
+import com.vcms.website.model.FeedPage;
 
 @Repository
 public class DesignComponentStubRepository implements DesignComponentRepository {

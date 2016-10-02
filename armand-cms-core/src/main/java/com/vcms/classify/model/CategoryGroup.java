@@ -1,24 +1,21 @@
 package com.vcms.classify.model;
 
-import java.util.List;
-
 import com.vcms.conf.cms.ModernColor;
 import com.vcms.localization.model.LocalText;
 import com.vcms.persist.model.HistoryModel;
 
 public class CategoryGroup extends HistoryModel {
 	
-	private long websiteViewId;
+	private long parentId;
 	private LocalText name;
 	private ModernColor color;
-	private List<Category> categories;
 	
-	public long getWebsiteViewId() {
-		return websiteViewId;
+	public long getParentId() {
+		return parentId;
 	}
 
-	public void setWebsiteViewId(long websiteViewId) {
-		this.websiteViewId = websiteViewId;
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
 	}
 
 	public LocalText getName() {
@@ -37,12 +34,4 @@ public class CategoryGroup extends HistoryModel {
 		this.color = color;
 	}
 
-	public List<Category> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
-	
 }

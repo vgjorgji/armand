@@ -1,8 +1,6 @@
 package com.vcms.user.model;
 
-import org.springframework.security.core.GrantedAuthority;
-
-public enum Role implements GrantedAuthority {
+public enum Role {
 	ROOT, 
 	Administrator, 
 	Reviewer, 
@@ -10,10 +8,5 @@ public enum Role implements GrantedAuthority {
 	ContentWriter, 
 	CMSMember, 
 	Member,
-	Visitor;
-	
-	@Override
-	public String getAuthority() {
-		return "ROLE_" + name();
-	}
+	Visitor
 }

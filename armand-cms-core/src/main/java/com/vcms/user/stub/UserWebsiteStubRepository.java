@@ -1,9 +1,7 @@
 package com.vcms.user.stub;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -11,45 +9,49 @@ import org.springframework.stereotype.Repository;
 
 import com.vcms.localization.model.Language;
 import com.vcms.user.model.PowerGroup;
-import com.vcms.user.model.User;
-import com.vcms.user.model.UserRepository;
-import com.vcms.user.model.UserWebsite;
-import com.vcms.user.model.UserWebsiteRepository;
+import com.vcms.user.model.WebsiteUser;
+import com.vcms.user.model.WebsiteUserRepository;
 import com.vcms.utils.Utils;
-import com.vcms.website.model.Website;
 
 @Repository
-public class UserWebsiteStubRepository implements UserWebsiteRepository {
+public class UserWebsiteStubRepository implements WebsiteUserRepository {
 
-	private List<UserWebsite> list = new ArrayList<>();
+	private List<WebsiteUser> list = new ArrayList<>();
 	
 	@PostConstruct
 	public void init() {
-		User user = new User();
-		user.setUsername("demo");
-		user.setPassword("demo");
-		user.setEnabled(true);
-		user.setPowerGroup(PowerGroup.Roots);
+		WebsiteUser websiteUser = Utils.createStubDbModel(new WebsiteUser(), 1000);
+		websiteUser.setUserId(1000);
+		websiteUser.setWebsiteId(1000);
+		websiteUser.setPowerGroup(PowerGroup.Roots);
+		websiteUser.setLanguage(Language.English);
+		websiteUser.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
+		list.add(websiteUser);
 		
-		user.setWebsites(new ArrayList<Website>());
-		Website website = new Website();
-		website.setName("Demo");
-		user.getWebsites().add(website);
+		websiteUser = Utils.createStubDbModel(new WebsiteUser(), 1001);
+		websiteUser.setUserId(1001);
+		websiteUser.setWebsiteId(1000);
+		websiteUser.setPowerGroup(PowerGroup.Administrators);
+		websiteUser.setLanguage(Language.English);
+		websiteUser.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
+		list.add(websiteUser);
 		
-		user.setFirstName(Utils.createLocalTextSmall("Demo", "Демо"));
-		user.setLastName(Utils.createLocalTextSmall("User", "Корисник"));
-		user.setEmail("demo.user@email.com");
-		user.setLanguage(Language.Macedonian);
-		
-		user.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		user.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
-		map.put(user.getUsername(), user);
+		websiteUser = Utils.createStubDbModel(new WebsiteUser(), 1002);
+		websiteUser.setUserId(1002);
+		websiteUser.setWebsiteId(1000);
+		websiteUser.setPowerGroup(PowerGroup.Members);
+		websiteUser.setLanguage(Language.Macedonian);
+		websiteUser.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
+		list.add(websiteUser);
 	}
 
 	@Override
-	public List<UserWebsite> getWebsitesForUser(long userId) {
-		List<UserWebsite> result = new ArrayList<>();
-		for (UserWebsite userWebsite : list) {
+	public List<WebsiteUser> getWebsitesForUser(long userId) {
+		List<WebsiteUser> result = new ArrayList<>();
+		for (WebsiteUser userWebsite : list) {
 			if (userWebsite.getUserId() == userId) {
 				result.add(userWebsite);
 			}
@@ -58,14 +60,24 @@ public class UserWebsiteStubRepository implements UserWebsiteRepository {
 	}
 
 	@Override
-	public List<UserWebsite> getUsersForWebsite(long websiteId) {
-		List<UserWebsite> result = new ArrayList<>();
-		for (UserWebsite userWebsite : list) {
+	public List<WebsiteUser> getUsersForWebsite(long websiteId) {
+		List<WebsiteUser> result = new ArrayList<>();
+		for (WebsiteUser userWebsite : list) {
 			if (userWebsite.getWebsiteId() == websiteId) {
 				result.add(userWebsite);
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public WebsiteUser getWebsiteUser(long userId, long websiteId) {
+		for (WebsiteUser userWebsite : list) {
+			if (userWebsite.getUserId() == userId && userWebsite.getWebsiteId() == websiteId) {
+				return userWebsite;
+			}
+		}
+		return null;
 	}
 	
 }

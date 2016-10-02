@@ -1,16 +1,10 @@
 package com.vcms.user.model;
 
-import java.util.List;
-import java.util.Set;
-
 import com.vcms.localization.model.LocalText;
 import com.vcms.persist.model.HistoryModel;
-import com.vcms.utils.Utils;
 
 public class User extends HistoryModel {
 	
-	public static final Set<Role> DEFAULT_ROLES = Utils.asSet(Role.CMSMember, Role.Member);
-
 	private String username;
 	private String password;
 	private boolean enabled;
@@ -18,8 +12,7 @@ public class User extends HistoryModel {
 	private LocalText firstName;
 	private LocalText lastName;
 	private String email;
-	
-	private List<UserWebsite> userWebsites;
+	private String phone;
 	
 	public String getUsername() {
 		return username;
@@ -35,14 +28,6 @@ public class User extends HistoryModel {
 	
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public List<UserWebsite> getUserWebsites() {
-		return userWebsites;
-	}
-
-	public void setUserWebsites(List<UserWebsite> userWebsites) {
-		this.userWebsites = userWebsites;
 	}
 
 	public LocalText getFirstName() {
@@ -69,6 +54,14 @@ public class User extends HistoryModel {
 		this.email = email;
 	}
 	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}

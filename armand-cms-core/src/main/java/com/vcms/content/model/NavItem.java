@@ -2,9 +2,9 @@ package com.vcms.content.model;
 
 import java.util.List;
 
-import com.vcms.design.model.Link;
-import com.vcms.design.model.Page;
 import com.vcms.persist.model.ContentModel;
+import com.vcms.website.model.Link;
+import com.vcms.website.model.Page;
 
 public class NavItem extends ContentModel {
 	

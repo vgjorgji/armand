@@ -8,8 +8,6 @@ import org.apache.commons.collections4.CollectionUtils;
 import com.vcms.conf.cms.CmsPackage;
 import com.vcms.localization.model.Language;
 import com.vcms.persist.model.HistoryModel;
-import com.vcms.user.model.UserGroup;
-import com.vcms.user.model.UserWebsite;
 
 public class Website extends HistoryModel {
 	
@@ -19,11 +17,7 @@ public class Website extends HistoryModel {
 	private CmsPackage cmsPackage;
 	private List<Language> languages;
 	private WebsiteStatus status;
-	private Date maintenanceExpiryDate;
-	
-	private List<WebsiteView> websiteViews;
-	private List<UserGroup> groups;
-	private List<UserWebsite> userWebsites;
+	private Date expiryDate;
 
 	public String getName() {
 		return name;
@@ -80,36 +74,12 @@ public class Website extends HistoryModel {
 		this.companyId = companyId;
 	}
 
-	public Date getMaintenanceExpiryDate() {
-		return maintenanceExpiryDate;
+	public Date getExpiryDate() {
+		return expiryDate;
 	}
 
-	public void setMaintenanceExpiryDate(Date maintenanceExpiryDate) {
-		this.maintenanceExpiryDate = maintenanceExpiryDate;
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
 	}
 
-	public List<WebsiteView> getWebsiteViews() {
-		return websiteViews;
-	}
-
-	public void setWebsiteViews(List<WebsiteView> websiteViews) {
-		this.websiteViews = websiteViews;
-	}
-
-	public List<UserGroup> getGroups() {
-		return groups;
-	}
-
-	public void setGroups(List<UserGroup> groups) {
-		this.groups = groups;
-	}
-
-	public List<UserWebsite> getUserWebsites() {
-		return userWebsites;
-	}
-
-	public void setUserWebsites(List<UserWebsite> userWebsites) {
-		this.userWebsites = userWebsites;
-	}
-	
 }

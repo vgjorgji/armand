@@ -8,28 +8,17 @@ import java.util.Map;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import com.vcms.conf.cms.Icon;
 import com.vcms.conf.cms.SingleColor;
-import com.vcms.user.model.UserGroup;
 
-public class CmsPage extends Page {
-	
+public class CmsPageDesign {
+
 	private Layout layout = new Layout();
 	private Map<LayoutPosition, List<DesignComponent>> designComponents = new HashMap<>();
-	private List<UserGroup> allowedGroups;
 	
 	public Layout getLayout() {
 		return layout;
 	}
 	
-	public List<UserGroup> getAllowedGroups() {
-		return allowedGroups;
-	}
-	
-	public void setAllowedGroups(List<UserGroup> allowedGroups) {
-		this.allowedGroups = allowedGroups;
-	}
-
 	public Map<LayoutPosition, List<DesignComponent>> getDesignComponents() {
 		return designComponents;
 	}
@@ -39,10 +28,6 @@ public class CmsPage extends Page {
 			designComponents.put(component.getLayoutPosition(), new ArrayList<DesignComponent>());
 		}
 		designComponents.get(component.getLayoutPosition()).add(component);
-	}
-	
-	public void clearDesignComponents() {
-		designComponents.clear();
 	}
 	
 	public List<DesignComponent> getHeaderComponents() {
@@ -88,14 +73,4 @@ public class CmsPage extends Page {
 		return Collections.emptyList();
 	}
 	
-	@Override
-	public Link createLink() {
-		Link link = new Link();
-		link.setUrl("/page/" + getUrl());
-		link.setText(getTitle());
-		link.setIcon(Icon.Link);
-		link.setExternal(false);
-		return link;
-	}
-
 }

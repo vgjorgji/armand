@@ -1,14 +1,10 @@
 package com.vcms.design.model;
 
-import java.util.List;
-
 import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.ComponentStyle;
 import com.vcms.conf.cms.ItemsLayout;
 import com.vcms.conf.cms.SingleColor;
-import com.vcms.persist.model.ContentModel;
 import com.vcms.persist.model.HistoryModel;
-import com.vcms.user.model.UserGroup;
 
 public class DesignComponent extends HistoryModel {
 	
@@ -19,8 +15,6 @@ public class DesignComponent extends HistoryModel {
 	private LayoutPosition layoutPosition;
 	private SingleColor backgroundColor = SingleColor.White;
 	private ItemsLayout itemsLayout = ItemsLayout.OneColumn;
-	private List<ContentModel> contentModels;
-	private List<UserGroup> allowedGroups;
 	
 	public long getPageId() {
 		return pageId;
@@ -78,22 +72,6 @@ public class DesignComponent extends HistoryModel {
 		this.itemsLayout = itemsLayout;
 	}
 
-	public List<UserGroup> getAllowedGroups() {
-		return allowedGroups;
-	}
-	
-	public void setAllowedGroups(List<UserGroup> allowedGroups) {
-		this.allowedGroups = allowedGroups;
-	}
-
-	public List<ContentModel> getContentModels() {
-		return contentModels;
-	}
-
-	public void setContentModels(List<ContentModel> contentModels) {
-		this.contentModels = contentModels;
-	}
-	
 	public String getCssClass() {
 		return component + "-" + componentStyle;
 	}

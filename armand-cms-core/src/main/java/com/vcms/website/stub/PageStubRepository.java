@@ -1,37 +1,36 @@
-package com.vcms.design.stub;
+package com.vcms.website.stub;
 
-import javax.annotation.PostConstruct;
-
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
-import com.vcms.design.model.CmsPage;
-import com.vcms.design.model.PageRepository;
 import com.vcms.localization.model.Language;
 import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.Utils;
+import com.vcms.website.model.CmsPage;
+import com.vcms.website.model.PageRepository;
 
 @Repository
 public class PageStubRepository implements PageRepository {
-
-	private CmsPage page;
 	
-	@PostConstruct
-	public void init() {
-		page = Utils.createStubDbModel(new CmsPage(), 1000);
+	@Override
+	public CmsPage getCmsPage(long websiteViewId, String url) {
+		if (StringUtils.equals("home", url)) {
+			return createHomePage();
+		}
+		return null;
+	}
+	
+	private CmsPage createHomePage() {
+		CmsPage page = Utils.createStubDbModel(new CmsPage(), 1000);
 		page.setWebsiteViewId(1000);
 		page.setUrl("home");
-		page.getLayout().setTop(true);
-		page.getLayout().setRight(true);
-		page.getLayout().setBottom(true);
 		page.setTitle(new LocalText(LocalTextType.Small));
 		page.getTitle().addText(Language.English, "Home");
 		page.getTitle().addText(Language.Macedonian, "Почетна");
-	}
-	
-	@Override
-	public CmsPage getCmsPage(long websiteViewId, String name) {
-		page.clearDesignComponents();
+		//page.getLayout().setTop(true);
+		//page.getLayout().setRight(true);
+		//page.getLayout().setBottom(true);
 		return page;
 	}
 

@@ -4,19 +4,19 @@ import com.vcms.persist.model.DbModel;
 
 public class Comment extends DbModel {
 	
-	private long websiteViewId;
+	private long parentId;
 	private String name;
 	private String email;
 	private String text;
 	
-	public long getWebsiteViewId() {
-		return websiteViewId;
+	public long getParentId() {
+		return parentId;
 	}
 
-	public void setWebsiteViewId(long websiteViewId) {
-		this.websiteViewId = websiteViewId;
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
 	}
-	
+
 	public String getName() {
 		return name;
 	}

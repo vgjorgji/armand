@@ -1,14 +1,11 @@
 package com.vcms.user.model;
 
-import java.util.List;
-
 import com.vcms.persist.model.HistoryModel;
 
-public class UserGroup extends HistoryModel {
+public class WebsiteGroup extends HistoryModel {
 	
-	private String name;
 	private long websiteId;
-	private List<User> users;
+	private String name;
 	
 	public String getName() {
 		return name;
@@ -24,14 +21,6 @@ public class UserGroup extends HistoryModel {
 
 	public void setWebsiteId(long websiteId) {
 		this.websiteId = websiteId;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-	
-	public void setUsers(List<User> users) {
-		this.users = users;
 	}
 
 }

@@ -1,8 +1,7 @@
 package com.vcms.website.model;
 
-import java.util.List;
-
 import com.vcms.persist.model.HistoryModel;
+import com.vcms.user.model.User;
 
 public class Company extends HistoryModel {
 
@@ -12,11 +11,7 @@ public class Company extends HistoryModel {
 	private String phone1;
 	private String phone2;
 	private String email;
-	
-	private String contactName;
-	private String contactPhone;
-	private String contactEmail;
-	private List<Website> websites;
+	private User contactUser;
 	
 	public String getName() {
 		return name;
@@ -66,36 +61,12 @@ public class Company extends HistoryModel {
 		this.email = email;
 	}
 	
-	public String getContactName() {
-		return contactName;
-	}
-	
-	public void setContactName(String contactName) {
-		this.contactName = contactName;
-	}
-	
-	public String getContactPhone() {
-		return contactPhone;
-	}
-	
-	public void setContactPhone(String contactPhone) {
-		this.contactPhone = contactPhone;
-	}
-	
-	public String getContactEmail() {
-		return contactEmail;
-	}
-	
-	public void setContactEmail(String contactEmail) {
-		this.contactEmail = contactEmail;
+	public User getContactUser() {
+		return contactUser;
 	}
 
-	public List<Website> getWebsites() {
-		return websites;
-	}
-
-	public void setWebsites(List<Website> websites) {
-		this.websites = websites;
+	public void setContactUser(User contactUser) {
+		this.contactUser = contactUser;
 	}
 	
 }

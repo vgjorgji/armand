@@ -1,4 +1,4 @@
-package com.vcms.design.model;
+package com.vcms.website.model;
 
 import com.vcms.conf.cms.FeedType;
 

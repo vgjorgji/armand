@@ -1,33 +1,37 @@
 package com.vcms.user.model;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.vcms.localization.model.Language;
-import com.vcms.website.model.Website;
+import com.vcms.utils.Utils;
 
 public class UserSettings implements UserDetails {
 	
 	private static final long serialVersionUID = 8749204172625676869L;
+	public static final Language DEFAULT_LANGUAGE = Language.English;
+	public static final Set<Role> DEFAULT_ROLES = Utils.asSet(Role.Visitor);
 	
+	// identifiers
 	private Visitor visitor;
 	private User user;
-	private List<UserGroup> groups = Collections.emptyList();
 	
-	// selecting
-	private Website selectedWebsite;
-	private UserWebsite selectedUserWebsite;
+	// select
+	private long selectedWebsiteId = -1;
+	private WebsiteUser selectedWebsiteUser = null;
 	
-	// resolving
-	private Set<Role> roles = Visitor.DEFAULT_ROLES;
-	private Language language = Visitor.DEFAULT_LANGUAGE;
+	// resolve
+	private Language language = DEFAULT_LANGUAGE;
+	private Set<Role> roles = DEFAULT_ROLES;
+	
+	public long getId() {
+		return user != null ? user.getId() : -1;
+	}
 	
 	public Visitor getVisitor() {
 		return visitor;
@@ -45,30 +49,24 @@ public class UserSettings implements UserDetails {
 		this.user = user;
 	}
 
-	public List<UserGroup> getGroups() {
-		return groups;
+	public long getSelectedWebsiteId() {
+		return selectedWebsiteId;
 	}
 
-	public void setGroups(List<UserGroup> groups) {
-		this.groups = groups;
-	}
-	
-	public Website getSelectedWebsite() {
-		return selectedWebsite;
+	public WebsiteUser getSelectedWebsiteUser() {
+		return selectedWebsiteUser;
 	}
 
-	public void setSelectedWebsite(Website selectedWebsite) {
-		this.selectedWebsite = selectedWebsite;
+	public void setSelectedWebsiteUser(WebsiteUser selectedWebsiteUser) {
+		if (selectedWebsiteUser != null) {
+			this.selectedWebsiteId = selectedWebsiteUser.getWebsiteId();
+			this.selectedWebsiteUser = selectedWebsiteUser;
+		} else {
+			this.selectedWebsiteId = -1;
+			this.selectedWebsiteUser = null;
+		}
 	}
 
-	public UserWebsite getSelectedUserWebsite() {
-		return selectedUserWebsite;
-	}
-
-	public void setSelectedUserWebsite(UserWebsite userWebsite) {
-		selectedUserWebsite = userWebsite;
-	}
-	
 	public Language getLanguage() {
 		return language;
 	}
@@ -77,40 +75,18 @@ public class UserSettings implements UserDetails {
 		this.language = language;
 	}
 	
-	
-	/**
-	 * Settings resolving.
-	 */
-	public void resolveSettings() {
-		resolveRoles();
-		resolveLanguage();
-	}
-	
-	private void resolveRoles() {
-		roles = null;
-		if (selectedUserWebsite != null) {
-			roles = selectedUserWebsite.getUserRolesForWebsite();
-		}
-		
-		// fall-back
-		if (CollectionUtils.isEmpty(roles)) {
-			roles = Visitor.DEFAULT_ROLES;
-		}
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	private void resolveLanguage() {
-		language = null;
-		if (selectedUserWebsite != null) {
-			language = selectedUserWebsite.getUserLanguageForWebsite();
-		}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
-		// fall-back
-		if (language == null) {
-			language = Visitor.DEFAULT_LANGUAGE;
-		}
+	public boolean isVisitor() {
+		return roles.contains(Role.Visitor);
 	}
 	
-
 	@Override
 	public String getUsername() {
 		return user != null ? user.getUsername() : null;
@@ -121,17 +97,9 @@ public class UserSettings implements UserDetails {
 		return user != null ? user.getPassword() : null;
 	}
 	
-	public Set<Role> getRoles() {
-		return roles;
-	}
-	
-	public boolean isVisitor() {
-		return roles.contains(Role.Visitor);
-	}
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(Role.values());
+		return Collections.singletonList(new SimpleGrantedAuthority("AUTHENTICATED"));
 	}
 
 	@Override

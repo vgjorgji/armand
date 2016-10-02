@@ -22,9 +22,6 @@ public class CompanyStubRepository implements CompanyRepository {
 		company.setPhone1("XXX 123 456 789");
 		company.setPhone2("XXX 009 456 789");
 		company.setEmail("demo.company@email.com");
-		company.setContactName("Demo Contact Person");
-		company.setContactPhone("XXX 001 456 789");
-		company.setContactEmail("demo.company.person@email.com");
 	}
 	
 	@Override

@@ -2,7 +2,6 @@ package com.vcms.website.repo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -32,10 +31,4 @@ public class WebsiteJdbcRepository implements WebsiteRepository {
 				});
 	}
 
-	@Override
-	public List<Website> getUserWebsites(long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 }

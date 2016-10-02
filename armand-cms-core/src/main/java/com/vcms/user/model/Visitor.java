@@ -1,16 +1,10 @@
 package com.vcms.user.model;
 
 import java.util.Date;
-import java.util.Set;
 
-import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModel;
-import com.vcms.utils.Utils;
 
 public class Visitor extends DbModel {
-	
-	public static final Set<Role> DEFAULT_ROLES = Utils.asSet(Role.Visitor);
-	public static final Language DEFAULT_LANGUAGE = Language.English;
 	
 	private long userId;
 	private Date startDate;

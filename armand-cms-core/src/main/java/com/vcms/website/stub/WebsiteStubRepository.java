@@ -1,9 +1,7 @@
 package com.vcms.website.stub;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -33,7 +31,7 @@ public class WebsiteStubRepository implements WebsiteRepository {
 		website.setStatus(WebsiteStatus.ONLINE);
 		map.put(website.getName(), website);
 		
-		website = Utils.createStubDbModel(new Website(), 1000);
+		website = Utils.createStubDbModel(new Website(), 1001);
 		website.setCompanyId(1000);
 		website.setName("Sample");
 		website.setBaseUrl("www.sample-demo.noip.com");
@@ -46,11 +44,6 @@ public class WebsiteStubRepository implements WebsiteRepository {
 	@Override
 	public Website getWebsite(String name) {
 		return map.get(name);
-	}
-
-	@Override
-	public List<Website> getUserWebsites(long userId) {
-		return new ArrayList<>(map.values());
 	}
 
 }
