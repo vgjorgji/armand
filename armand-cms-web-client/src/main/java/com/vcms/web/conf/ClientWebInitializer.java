@@ -26,7 +26,7 @@ public class ClientWebInitializer extends AbstractAnnotationConfigDispatcherServ
 	
 	@Override
 	protected String getServletName() {
-		return "vcms-servlet-client";
+		return "armand-cms-client-servlet";
 	}	
 	
 	@Override

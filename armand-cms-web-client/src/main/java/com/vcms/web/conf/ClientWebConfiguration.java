@@ -11,11 +11,11 @@ public class ClientWebConfiguration extends WebConfiguration {
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(getVisitorWebsiteInterceptor());
+		registry.addInterceptor(getClientVisitorInterceptor());
 	}
 	
 	@Bean
-	public ClientVisitorInterceptor getVisitorWebsiteInterceptor() {
+	public ClientVisitorInterceptor getClientVisitorInterceptor() {
 		return new ClientVisitorInterceptor();
 	}
 

@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.user.service.UserSettingsService;
 import com.vcms.web.service.ClientConfigurationService;
 
 public class ClientVisitorInterceptor implements HandlerInterceptor {
@@ -16,13 +17,15 @@ public class ClientVisitorInterceptor implements HandlerInterceptor {
 	@Autowired
 	private ClientConfigurationService clientConfigurationService;
 	
+	@Autowired
+	private UserSettingsService userSettingsService;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-		if (userSettings.getSelectedWebsite() == null) {
-			userSettings.setSelectedWebsite(clientConfigurationService.getWebsite());
-			userSettings.resolveSettings();
+		if (userSettings.getSelectedWebsiteId() == -1) {
+			userSettingsService.changeSettingsForWebsite(userSettings, clientConfigurationService.getWebsite());
 		}
 		return true;
 	}

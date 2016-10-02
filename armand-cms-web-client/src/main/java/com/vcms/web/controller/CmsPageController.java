@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.vcms.design.model.Page;
-import com.vcms.design.service.PageService;
 import com.vcms.web.service.ClientConfigurationService;
+import com.vcms.website.model.Page;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteView;
+import com.vcms.website.service.PageService;
 
 @Controller
 public class CmsPageController {
