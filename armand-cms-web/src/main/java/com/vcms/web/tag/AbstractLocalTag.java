@@ -18,9 +18,6 @@ public abstract class AbstractLocalTag extends TagSupport {
 		try {
 			// user settings language
 			Language language = UserSettingsProvider.getCurrentUser().getLanguage();
-			if (language == null) {
-				language = Language.English;
-			}
 
 			// context writer
 			JspWriter out = pageContext.getOut();
