@@ -27,7 +27,7 @@ public class AdminWebInitializer extends AbstractAnnotationConfigDispatcherServl
 	
 	@Override
 	protected String getServletName() {
-		return "vcms-servlet-admin";
+		return "armand-cms-admin-servlet";
 	}
 	
 	@Override
