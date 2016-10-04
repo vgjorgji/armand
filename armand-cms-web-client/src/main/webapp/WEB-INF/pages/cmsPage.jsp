@@ -94,8 +94,8 @@
 	<body>
 		<!-- Header -->
 		<div class="header-position">
-			<c:if test="${not empty page.getHeaderComponents()}">
-				<c:forEach items="${page.getHeaderComponents()}" var="designComponent">
+			<c:if test="${not empty pageDesign.getHeaderComponents()}">
+				<c:forEach items="${pageDesign.getHeaderComponents()}" var="designComponent">
 					<div class="${designComponent.getCssClass()}">
 						<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
 					</div>
@@ -104,8 +104,8 @@
 		</div>
 		
 		<!-- Top Row -->
-		<c:if test="${page.layout.top and not empty page.getTopComponents()}">
-			<c:forEach items="${page.getTopComponents()}" var="designComponent">
+		<c:if test="${pageDesign.layout.top and not empty pageDesign.getTopComponents()}">
+			<c:forEach items="${pageDesign.getTopComponents()}" var="designComponent">
 				<div class="design-component ${designComponent.getCssClass()}" style="background-color: ${designComponent.backgroundColor.hex}">
 					<div class="container">
 						<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
@@ -115,16 +115,16 @@
 		</c:if>
 		
 		<!-- Main Content background -->
-		<div style="background-color: ${page.getCenterComponentsColor().hex}">
+		<div style="background-color: ${pageDesign.getCenterComponentsColor().hex}">
 		
 			<!-- Main Content -->
 			<div class="container">
 				<div class="row">
 			
 					<!-- Left Column -->
-					<c:if test="${page.layout.left}">
+					<c:if test="${pageDesign.layout.left}">
 						<div class="col-md-4">
-							<c:forEach items="${page.getLeftComponents()}" var="designComponent">
+							<c:forEach items="${pageDesign.getLeftComponents()}" var="designComponent">
 								<div class="design-component ${designComponent.getCssClass()}">
 									<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
 								</div>
@@ -133,8 +133,8 @@
 					</c:if>
 					
 					<!-- Center -->
-					<div class="${page.layout.getCenterColumnCss()}">
-						<c:forEach items="${page.getCenterComponents()}" var="designComponent">
+					<div class="${pageDesign.layout.getCenterColumnCss()}">
+						<c:forEach items="${pageDesign.getCenterComponents()}" var="designComponent">
 							<div class="design-component ${designComponent.getCssClass()}">
 								<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
 							</div>
@@ -142,9 +142,9 @@
 					</div>
 					
 					<!-- Right Column -->
-					<c:if test="${page.layout.right}">
+					<c:if test="${pageDesign.layout.right}">
 						<div class="col-md-4">
-							<c:forEach items="${page.getRightComponents()}" var="designComponent">
+							<c:forEach items="${pageDesign.getRightComponents()}" var="designComponent">
 								<div class="design-component ${designComponent.getCssClass()}">
 									<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
 								</div>
@@ -157,9 +157,9 @@
 		</div>
 		
 		<!-- Bottom -->
-		<c:if test="${page.layout.bottom and not empty page.getBottomComponents()}">
+		<c:if test="${pageDesign.layout.bottom and not empty pageDesign.getBottomComponents()}">
 			<div class="container">
-				<c:forEach items="${page.getBottomComponents()}" var="designComponent">
+				<c:forEach items="${pageDesign.getBottomComponents()}" var="designComponent">
 					<div class="design-component ${designComponent.getCssClass()}" style="background-color: ${designComponent.backgroundColor.hex}">
 						<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
 					</div>
@@ -169,7 +169,7 @@
 		
 		<!-- Footer -->
 		<div class="footer-position">
-			<c:forEach items="${page.getFooterComponents()}" var="designComponent">
+			<c:forEach items="${pageDesign.getFooterComponents()}" var="designComponent">
 				<div class="${designComponent.getCssClass()}">
 					<vapi:designComponent website="${website}" websiteView="${websiteView}" page="${page}" designComponent="${designComponent}" />
 				</div>
