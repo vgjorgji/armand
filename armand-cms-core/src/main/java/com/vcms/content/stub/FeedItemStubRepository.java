@@ -6,9 +6,10 @@ import java.util.List;
 
 import com.vcms.classify.model.Categories;
 import com.vcms.classify.model.Category;
+import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.FeedType;
 import com.vcms.conf.cms.ModernColor;
-import com.vcms.content.model.ContentRepository;
+import com.vcms.content.model.ContactInfoItemRepository;
 import com.vcms.content.model.FeedItem;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.design.model.FeedDesignComponent;
@@ -24,20 +25,25 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.Utils;
 import com.vcms.website.model.FeedPage;
 
-public class FeedItemRepository implements ContentRepository {
+public class FeedItemStubRepository implements ContactInfoItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
-		if (designComponent instanceof FeedDesignComponent) {
-			FeedDesignComponent feedDesignComponent = (FeedDesignComponent) designComponent;
-			
-			// choose from type
-			if (FeedType.Album.equals(feedDesignComponent.getFeedType())) {
-				return createGallery();
-			} else if (feedDesignComponent.getFeedType() == null) {
-				return createNews();
-			}
+		if (!Component.Feed.equals(designComponent.getComponent()) || !(designComponent instanceof FeedDesignComponent)) {
+			return Collections.emptyList();
 		}
+		
+		// safe cast
+		FeedDesignComponent feedDesignComponent = (FeedDesignComponent) designComponent;
+		
+		// choose from type
+		if (FeedType.Album.equals(feedDesignComponent.getFeedType())) {
+			return createGallery();
+		} else if (feedDesignComponent.getFeedType() == null) {
+			return createNews();
+		}
+		
+		// no option
 		return Collections.emptyList();
 	}
 	

@@ -11,7 +11,7 @@ import com.vcms.localization.model.Language;
 import com.vcms.user.model.PowerGroup;
 import com.vcms.user.model.WebsiteUser;
 import com.vcms.user.model.WebsiteUserRepository;
-import com.vcms.utils.Utils;
+import com.vcms.utils.StubUtils;
 
 @Repository
 public class UserWebsiteStubRepository implements WebsiteUserRepository {
@@ -20,31 +20,31 @@ public class UserWebsiteStubRepository implements WebsiteUserRepository {
 	
 	@PostConstruct
 	public void init() {
-		WebsiteUser websiteUser = Utils.createStubDbModel(new WebsiteUser(), 1000);
+		WebsiteUser websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1000);
 		websiteUser.setUserId(1000);
 		websiteUser.setWebsiteId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Roots);
 		websiteUser.setLanguage(Language.English);
-		websiteUser.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		websiteUser.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
+		websiteUser.setJobPosition(StubUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(StubUtils.createLocalTextSmall("Biography...", "Биографија..."));
 		list.add(websiteUser);
 		
-		websiteUser = Utils.createStubDbModel(new WebsiteUser(), 1001);
+		websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1001);
 		websiteUser.setUserId(1001);
 		websiteUser.setWebsiteId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Administrators);
 		websiteUser.setLanguage(Language.English);
-		websiteUser.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		websiteUser.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
+		websiteUser.setJobPosition(StubUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(StubUtils.createLocalTextSmall("Biography...", "Биографија..."));
 		list.add(websiteUser);
 		
-		websiteUser = Utils.createStubDbModel(new WebsiteUser(), 1002);
+		websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1002);
 		websiteUser.setUserId(1002);
 		websiteUser.setWebsiteId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Members);
 		websiteUser.setLanguage(Language.Macedonian);
-		websiteUser.setJobPosition(Utils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		websiteUser.setBiography(Utils.createLocalTextSmall("Biography...", "Биографија..."));
+		websiteUser.setJobPosition(StubUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(StubUtils.createLocalTextSmall("Biography...", "Биографија..."));
 		list.add(websiteUser);
 	}
 

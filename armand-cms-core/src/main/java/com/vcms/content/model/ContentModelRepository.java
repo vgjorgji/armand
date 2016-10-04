@@ -5,7 +5,7 @@ import java.util.List;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.persist.model.ContentModel;
 
-public interface ContentRepository {
+public interface ContentModelRepository {
 	
 	List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent);
 

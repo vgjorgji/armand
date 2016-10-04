@@ -4,7 +4,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
-import com.vcms.utils.Utils;
+import com.vcms.utils.StubUtils;
 import com.vcms.website.model.Company;
 import com.vcms.website.model.CompanyRepository;
 
@@ -15,7 +15,7 @@ public class CompanyStubRepository implements CompanyRepository {
 	
 	@PostConstruct
 	public void init() {
-		company = Utils.createStubDbModel(new Company(), 1000);
+		company = StubUtils.createStubDbModel(new Company(), 1000);
 		company.setName("Demo Company");
 		company.setAddress1("st. 'Demo Street', nr. 1000");
 		company.setAddress2("City, Contry");

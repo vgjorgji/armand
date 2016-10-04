@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
-import com.vcms.utils.Utils;
+import com.vcms.utils.StubUtils;
 
 @Repository
 public class UserStubRepository implements UserRepository {
@@ -18,30 +18,30 @@ public class UserStubRepository implements UserRepository {
 	
 	@PostConstruct
 	public void init() {
-		User user = Utils.createStubDbModel(new User(), 1000);
+		User user = StubUtils.createStubDbModel(new User(), 1000);
 		user.setUsername("root");
 		user.setPassword("root");
 		user.setEnabled(true);
-		user.setFirstName(Utils.createLocalTextSmall("Root", "Root"));
-		user.setLastName(Utils.createLocalTextSmall("User", "Корисник"));
+		user.setFirstName(StubUtils.createLocalTextSmall("Root", "Root"));
+		user.setLastName(StubUtils.createLocalTextSmall("User", "Корисник"));
 		user.setEmail("root.user@email.com");
 		map.put(user.getUsername(), user);
 		
-		user = Utils.createStubDbModel(new User(), 1001);
+		user = StubUtils.createStubDbModel(new User(), 1001);
 		user.setUsername("admin");
 		user.setPassword("admin");
 		user.setEnabled(true);
-		user.setFirstName(Utils.createLocalTextSmall("Admin", "Администратор"));
-		user.setLastName(Utils.createLocalTextSmall("User", "Корисник"));
+		user.setFirstName(StubUtils.createLocalTextSmall("Admin", "Администратор"));
+		user.setLastName(StubUtils.createLocalTextSmall("User", "Корисник"));
 		user.setEmail("admin.user@email.com");
 		map.put(user.getUsername(), user);
 		
-		user = Utils.createStubDbModel(new User(), 1002);
+		user = StubUtils.createStubDbModel(new User(), 1002);
 		user.setUsername("demo");
 		user.setPassword("demo");
 		user.setEnabled(true);
-		user.setFirstName(Utils.createLocalTextSmall("Demo", "Демо"));
-		user.setLastName(Utils.createLocalTextSmall("User", "Корисник"));
+		user.setFirstName(StubUtils.createLocalTextSmall("Demo", "Демо"));
+		user.setLastName(StubUtils.createLocalTextSmall("User", "Корисник"));
 		user.setEmail("demo.user@email.com");
 		map.put(user.getUsername(), user);
 	}

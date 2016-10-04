@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.vcms.conf.cms.FeedType;
 import com.vcms.conf.cms.Icon;
 import com.vcms.localization.model.LocalTextType;
-import com.vcms.utils.Utils;
+import com.vcms.utils.StubUtils;
 import com.vcms.website.model.CmsPage;
 import com.vcms.website.model.ExternalPage;
 import com.vcms.website.model.FeedPage;
@@ -25,25 +25,25 @@ public class PageStubRepository implements PageRepository {
 	
 	@PostConstruct
 	public void init() {
-		CmsPage cmsPage = Utils.createStubDbModel(new CmsPage(), 1000);
+		CmsPage cmsPage = StubUtils.createStubDbModel(new CmsPage(), 1000);
 		cmsPage.setWebsiteViewId(1000);
 		cmsPage.setUrl("home");
-		cmsPage.setTitle(Utils.createLocalText(LocalTextType.Small, "Home", "Почетна"));
+		cmsPage.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Home", "Почетна"));
 		list.add(cmsPage);
 		
-		cmsPage = Utils.createStubDbModel(new CmsPage(), 1001);
+		cmsPage = StubUtils.createStubDbModel(new CmsPage(), 1001);
 		cmsPage.setWebsiteViewId(1000);
 		cmsPage.setUrl("about_us");
-		cmsPage.setTitle(Utils.createLocalText(LocalTextType.Small, "About us", "За нас"));
+		cmsPage.setTitle(StubUtils.createLocalText(LocalTextType.Small, "About us", "За нас"));
 		list.add(cmsPage);
 		
-		ExternalPage externalPage = Utils.createStubDbModel(new ExternalPage(), 1002);
+		ExternalPage externalPage = StubUtils.createStubDbModel(new ExternalPage(), 1002);
 		externalPage.setWebsiteViewId(1000);
 		externalPage.setIcon(Icon.Facebook);
 		externalPage.setUrl("https://www.facebook.com/");
 		list.add(externalPage);
 		
-		FeedPage feedPage = Utils.createStubDbModel(new FeedPage(), 1003);
+		FeedPage feedPage = StubUtils.createStubDbModel(new FeedPage(), 1003);
 		feedPage.setWebsiteViewId(1000);
 		feedPage.setUrl("gallery");
 		feedPage.setFeedType(FeedType.Aricle);

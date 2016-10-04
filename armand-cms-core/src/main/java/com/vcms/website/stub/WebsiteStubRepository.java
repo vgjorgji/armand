@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.vcms.conf.cms.CmsPackage;
 import com.vcms.localization.model.Language;
-import com.vcms.utils.Utils;
+import com.vcms.utils.StubUtils;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 import com.vcms.website.model.WebsiteStatus;
@@ -22,7 +22,7 @@ public class WebsiteStubRepository implements WebsiteRepository {
 	
 	@PostConstruct
 	public void init() {
-		Website website = Utils.createStubDbModel(new Website(), 1000);
+		Website website = StubUtils.createStubDbModel(new Website(), 1000);
 		website.setCompanyId(1000);
 		website.setName("Demo");
 		website.setBaseUrl("www.vcms-demo.noip.com");
@@ -31,7 +31,7 @@ public class WebsiteStubRepository implements WebsiteRepository {
 		website.setStatus(WebsiteStatus.ONLINE);
 		map.put(website.getName(), website);
 		
-		website = Utils.createStubDbModel(new Website(), 1001);
+		website = StubUtils.createStubDbModel(new Website(), 1001);
 		website.setCompanyId(1000);
 		website.setName("Sample");
 		website.setBaseUrl("www.sample-demo.noip.com");

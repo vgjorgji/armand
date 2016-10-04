@@ -9,19 +9,19 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vcms.conf.cms.Component;
-import com.vcms.content.model.ContentRepository;
+import com.vcms.content.model.ContentModelRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.persist.model.ContentModel;
 
 public class ContentService {
 	
 	@Autowired
-	private ContentRepository contactInfoItemRepository;
+	private ContentModelRepository contactInfoItemRepository;
 	
 	@Autowired
-	private ContentRepository feedItemRepository;
+	private ContentModelRepository feedItemRepository;
 	
-	private Map<Component, ContentRepository> repositoryMap;
+	private Map<Component, ContentModelRepository> repositoryMap;
 	
 	@PostConstruct
 	public void init() {

@@ -5,47 +5,47 @@ import java.util.List;
 
 import com.vcms.design.model.FeedFilter;
 import com.vcms.localization.model.LocalText;
-import com.vcms.utils.Utils;
+import com.vcms.utils.StubUtils;
 
 public enum FeedType {
 	Aricle(Icon.Article, 
-			Utils.createLocalTextSmall("Read More", "Прочитај Повеќе"),
+			StubUtils.createLocalTextSmall("Read More", "Прочитај Повеќе"),
 			Arrays.asList(FeedFilter.Latest, FeedFilter.Popular, FeedFilter.Viws)),
 	
 	Album(Icon.Album, 
-			Utils.createLocalTextSmall("Open Album", "Отвори го Албумот"),
+			StubUtils.createLocalTextSmall("Open Album", "Отвори го Албумот"),
 			Arrays.asList(FeedFilter.Latest, FeedFilter.Popular, FeedFilter.Viws)),
 	
 	Event(Icon.Event, 
-			Utils.createLocalTextSmall("View Event", "Види го Настанот"),
+			StubUtils.createLocalTextSmall("View Event", "Види го Настанот"),
 			Arrays.asList(FeedFilter.Upcoming, FeedFilter.Current, FeedFilter.Past, FeedFilter.Latest, 
 					FeedFilter.Popular, FeedFilter.Viws)),
 	
 	Survey(Icon.Survey, 
-			Utils.createLocalTextSmall("Answer Survery", "Одговори на Анкетата"),
+			StubUtils.createLocalTextSmall("Answer Survery", "Одговори на Анкетата"),
 			Arrays.asList(FeedFilter.Active, FeedFilter.Finished, FeedFilter.Latest, FeedFilter.Popular, 
 					FeedFilter.Viws)),
 	
 	Quiz(Icon.Quiz, 
-			Utils.createLocalTextSmall("Start Quiz", "Започни со Квизот"),
+			StubUtils.createLocalTextSmall("Start Quiz", "Започни со Квизот"),
 			Arrays.asList(FeedFilter.Latest, FeedFilter.Popular, FeedFilter.Viws)),
 	
 	Research(Icon.Research, 
-			Utils.createLocalTextSmall("Read Research", "Прочитај го Истражувањето"),
+			StubUtils.createLocalTextSmall("Read Research", "Прочитај го Истражувањето"),
 			Arrays.asList(FeedFilter.Latest, FeedFilter.Popular, FeedFilter.Viws)),
 	
 	PublicProcurement(Icon.PublicProcurement, 
-			Utils.createLocalTextSmall("Announcement for Public Procurement", "Оглас за Јавна Набавка"),
+			StubUtils.createLocalTextSmall("Announcement for Public Procurement", "Оглас за Јавна Набавка"),
 			Arrays.asList(FeedFilter.Active, FeedFilter.Finished, FeedFilter.Latest, FeedFilter.Popular, 
 					FeedFilter.Viws)),
 	
 	Project(Icon.Project, 
-			Utils.createLocalTextSmall("Project Info", "Информации за Проектот"),
+			StubUtils.createLocalTextSmall("Project Info", "Информации за Проектот"),
 			Arrays.asList(FeedFilter.Preparing, FeedFilter.Constructing, FeedFilter.Maintenance, FeedFilter.Finished, 
 					FeedFilter.Latest, FeedFilter.Popular, FeedFilter.Viws)),
 	
 	Partner(Icon.Partner, 
-			Utils.createLocalTextSmall("Partner Info", "Информации за Партнерот"),
+			StubUtils.createLocalTextSmall("Partner Info", "Информации за Партнерот"),
 			Arrays.asList(FeedFilter.Latest, FeedFilter.Popular, FeedFilter.Viws, FeedFilter.VIP));
 	
 

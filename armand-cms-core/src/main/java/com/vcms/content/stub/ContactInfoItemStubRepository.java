@@ -1,10 +1,12 @@
 package com.vcms.content.stub;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import com.vcms.conf.cms.Component;
 import com.vcms.content.model.ContactInfoItem;
-import com.vcms.content.model.ContentRepository;
+import com.vcms.content.model.ContactInfoItemRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.localization.model.Language;
 import com.vcms.localization.model.LocalText;
@@ -12,12 +14,24 @@ import com.vcms.localization.model.LocalTextType;
 import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
 
-public class ContactInfoItemRepository implements ContentRepository {
+public class ContactInfoItemStubRepository implements ContactInfoItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
-		List<ContentModel> result = new ArrayList<>();
-
+		// check
+		if (!Component.ContactInfos.equals(designComponent.getComponent())) {
+			return Collections.emptyList();
+		}
+		
+		// get models
+		List<ContactInfoItem> models = getModels(designComponent.getId());
+		return new ArrayList<>(models);
+	}
+	
+	@Override
+	public List<ContactInfoItem> getModels(long designComponentId) {
+		List<ContactInfoItem> result = new ArrayList<>();
+		
 		// footer
 		ContactInfoItem contactInfo = StubUtils.createStubDbModel(new ContactInfoItem(), 1000);
 		contactInfo.setLongitude(41.636513);
@@ -36,5 +50,5 @@ public class ContactInfoItemRepository implements ContentRepository {
 		// result
 		return result;
 	}
-	
+
 }
