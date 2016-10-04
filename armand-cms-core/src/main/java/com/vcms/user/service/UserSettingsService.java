@@ -52,10 +52,11 @@ public class UserSettingsService {
 	public void changeSettingsForWebsite(UserSettings userSettings, Website website) {
 		// find
 		WebsiteUser websiteUser = null;
-		if (userSettings.getId() != -1) {
+		if (userSettings.hasUser() && website != null) {
 			websiteUser = websiteUserRepository.getWebsiteUser(userSettings.getId(), website.getId());
 		}
 		// set
+		userSettings.setSelectedWebsiteId(website);
 		userSettings.setSelectedWebsiteUser(websiteUser);
 		// resolve
 		resolveRoles(userSettings, website, websiteUser);
@@ -78,47 +79,45 @@ public class UserSettingsService {
 
 	private void resolveLanguage(UserSettings userSettings, Website website, WebsiteUser websiteUser) {
 		Language language = null;
-		if (websiteUser != null) {
-			language = getUserLanguageForWebsite(userSettings, website, websiteUser);
-		}
-		// fall-back
-		if (language == null) {
-			language = UserSettings.DEFAULT_LANGUAGE;
-		}
-		// set language
-		userSettings.setLanguage(language);
-	}
-	
-	private Language getUserLanguageForWebsite(UserSettings userSettings, Website website, WebsiteUser websiteUser) {
-		Language websiteLanguage = null;
-
+		
 		// 1. has webiste
 		if (website != null) {
 			if (CollectionUtils.isEmpty(website.getLanguages())) {
 				throw new IllegalStateException("No Languages defined for website: " + website);
 			}
 
+			// get language from websiteUser or just from user
+			Language languageCandidate = null;
+			if (userSettings.hasUser()) {
+				languageCandidate = userSettings.getUser().getLanguage();
+			}
+			if (websiteUser != null) {
+				languageCandidate = websiteUser.getLanguage();
+			}
+			
 			// has set language: validate against the website languages
-			if (websiteUser.getLanguage() != null) {
-				if (website.getLanguages().contains(websiteUser.getLanguage())) {
-					websiteLanguage = websiteUser.getLanguage();
+			if (languageCandidate != null) {
+				if (website.getLanguages().contains(languageCandidate)) {
+					language = languageCandidate;
 				} else {
-					websiteLanguage = website.getPrimaryLanguage();
+					language = website.getPrimaryLanguage();
 				}
-
 			} else {
-				websiteLanguage = website.getPrimaryLanguage();
+				language = website.getPrimaryLanguage();
 			}
 
-		} else {
-			// 2. no website, use only language
-			if (websiteUser.getLanguage() != null) {
-				websiteLanguage = websiteUser.getLanguage();
-			}
+		} else if (userSettings.hasUser()) {
+			// 2. no website, use user
+			language = userSettings.getUser().getLanguage();
 		}
-
-		// user language for the website, can be null
-		return websiteLanguage;
+		
+		// fall-back
+		if (language == null) {
+			language = UserSettings.DEFAULT_LANGUAGE;
+		}
+		
+		// set language
+		userSettings.setLanguage(language);
 	}
 	
 }

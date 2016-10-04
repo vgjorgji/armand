@@ -1,29 +1,34 @@
 package com.vcms.design.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.ComponentStyle;
 import com.vcms.conf.cms.ItemsLayout;
 import com.vcms.conf.cms.SingleColor;
+import com.vcms.persist.model.ContentModel;
 import com.vcms.persist.model.HistoryModel;
 
 public class DesignComponent extends HistoryModel {
 	
-	private long pageId;
+	private long pageDesignId;
 	private int sortOrder;
 	private Component component;
 	private ComponentStyle componentStyle;
 	private LayoutPosition layoutPosition;
 	private SingleColor backgroundColor = SingleColor.White;
 	private ItemsLayout itemsLayout = ItemsLayout.OneColumn;
-	
-	public long getPageId() {
-		return pageId;
+	private List<ContentModel> contentModels = new ArrayList<>();
+
+	public long getPageDesignId() {
+		return pageDesignId;
 	}
 
-	public void setPageId(long pageId) {
-		this.pageId = pageId;
+	public void setPageDesignId(long pageDesignId) {
+		this.pageDesignId = pageDesignId;
 	}
-	
+
 	public ComponentStyle getComponentStyle() {
 		return componentStyle;
 	}
@@ -70,6 +75,14 @@ public class DesignComponent extends HistoryModel {
 
 	public void setItemsLayout(ItemsLayout itemsLayout) {
 		this.itemsLayout = itemsLayout;
+	}
+	
+	public List<ContentModel> getContentModels() {
+		return contentModels;
+	}
+
+	public void setContentModels(List<ContentModel> contentModels) {
+		this.contentModels = contentModels;
 	}
 
 	public String getCssClass() {

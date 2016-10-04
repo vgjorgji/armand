@@ -1,5 +1,6 @@
 package com.vcms.user.model;
 
+import com.vcms.localization.model.Language;
 import com.vcms.localization.model.LocalText;
 import com.vcms.persist.model.HistoryModel;
 
@@ -13,6 +14,7 @@ public class User extends HistoryModel {
 	private LocalText lastName;
 	private String email;
 	private String phone;
+	private Language language;
 	
 	public String getUsername() {
 		return username;
@@ -68,6 +70,14 @@ public class User extends HistoryModel {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public Language getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(Language language) {
+		this.language = language;
 	}
 	
 }

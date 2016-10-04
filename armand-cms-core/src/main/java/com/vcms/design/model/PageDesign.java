@@ -9,12 +9,22 @@ import java.util.Map;
 import org.apache.commons.collections4.CollectionUtils;
 
 import com.vcms.conf.cms.SingleColor;
+import com.vcms.persist.model.HistoryModel;
 
-public class CmsPageDesign {
+public class PageDesign extends HistoryModel {
 
+	private long pageId;
 	private Layout layout = new Layout();
 	private Map<LayoutPosition, List<DesignComponent>> designComponents = new HashMap<>();
 	
+	public long getPageId() {
+		return pageId;
+	}
+
+	public void setPageId(long pageId) {
+		this.pageId = pageId;
+	}
+
 	public Layout getLayout() {
 		return layout;
 	}

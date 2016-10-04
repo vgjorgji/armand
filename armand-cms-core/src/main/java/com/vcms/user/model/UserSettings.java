@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.vcms.localization.model.Language;
 import com.vcms.utils.Utils;
+import com.vcms.website.model.Website;
 
 public class UserSettings implements UserDetails {
 	
@@ -30,7 +31,11 @@ public class UserSettings implements UserDetails {
 	private Set<Role> roles = DEFAULT_ROLES;
 	
 	public long getId() {
-		return user != null ? user.getId() : -1;
+		return hasUser() ? user.getId() : -1;
+	}
+
+	public boolean hasUser() {
+		return user != null;
 	}
 	
 	public Visitor getVisitor() {
@@ -52,19 +57,21 @@ public class UserSettings implements UserDetails {
 	public long getSelectedWebsiteId() {
 		return selectedWebsiteId;
 	}
+	
+	public void setSelectedWebsiteId(Website selectedWebsite) {
+		if (selectedWebsite != null) {
+			this.selectedWebsiteId = selectedWebsite.getId();
+		} else {
+			this.selectedWebsiteId = -1;
+		}
+	}
 
 	public WebsiteUser getSelectedWebsiteUser() {
 		return selectedWebsiteUser;
 	}
 
 	public void setSelectedWebsiteUser(WebsiteUser selectedWebsiteUser) {
-		if (selectedWebsiteUser != null) {
-			this.selectedWebsiteId = selectedWebsiteUser.getWebsiteId();
-			this.selectedWebsiteUser = selectedWebsiteUser;
-		} else {
-			this.selectedWebsiteId = -1;
-			this.selectedWebsiteUser = null;
-		}
+		this.selectedWebsiteUser = selectedWebsiteUser;
 	}
 
 	public Language getLanguage() {
@@ -89,12 +96,12 @@ public class UserSettings implements UserDetails {
 	
 	@Override
 	public String getUsername() {
-		return user != null ? user.getUsername() : null;
+		return hasUser() ? user.getUsername() : null;
 	}
 	
 	@Override
 	public String getPassword() {
-		return user != null ? user.getPassword() : null;
+		return hasUser() ? user.getPassword() : null;
 	}
 	
 	@Override
@@ -104,7 +111,7 @@ public class UserSettings implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return user != null ? user.isEnabled() : false;
+		return hasUser() ? user.isEnabled() : false;
 	}
 	
 	@Override

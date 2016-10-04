@@ -13,9 +13,6 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import com.vcms.localization.model.Language;
-import com.vcms.localization.model.LocalText;
-import com.vcms.localization.model.LocalTextType;
-import com.vcms.persist.model.HistoryModel;
 
 public final class Utils {
 	
@@ -65,15 +62,6 @@ public final class Utils {
 		return set;
 	}
 	
-	public static <T extends HistoryModel> T createStubDbModel(T dbModel, long id) {
-		dbModel.setId(id);
-		dbModel.setCreatedBy("ROOT");
-		dbModel.setCreatedDate(new Date());
-		dbModel.setChangedBy(dbModel.getCreatedBy());
-		dbModel.setChangedDate(dbModel.getCreatedDate());
-		return dbModel;
-	}
-	
 	public static String toDuration(Date date, Language language) {
 		long duration = System.currentTimeMillis() - date.getTime();
 		List<String> localList = TIMES_LOCAL_MAP.get(language);
@@ -102,15 +90,4 @@ public final class Utils {
 		return result.toString();
 	}
 	
-	public static LocalText createLocalTextSmall(String enText, String mkText) {
-		return createLocalText(LocalTextType.Small, enText, mkText);
-	}
-	
-	public static LocalText createLocalText(LocalTextType type, String enText, String mkText) {
-		LocalText localText = new LocalText(type);
-		localText.addText(Language.English, enText);
-		localText.addText(Language.Macedonian, mkText);
-		return localText;
-	}
-
 }
