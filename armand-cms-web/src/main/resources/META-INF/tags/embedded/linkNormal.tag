@@ -1,5 +1,5 @@
 <%@ tag body-content="scriptless" %>
-<%@ attribute name="link" type="com.vcms.design.model.Link" required="true" %>
+<%@ attribute name="link" type="com.vcms.website.model.Link" required="true" %>
 <%@ attribute name="showCaret" type="java.lang.Boolean" required="false" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
