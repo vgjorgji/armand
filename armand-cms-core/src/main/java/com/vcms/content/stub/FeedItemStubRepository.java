@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.vcms.classify.model.Categories;
 import com.vcms.classify.model.Category;
 import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.FeedType;
 import com.vcms.conf.cms.ModernColor;
-import com.vcms.content.model.ContactInfoItemRepository;
 import com.vcms.content.model.FeedItem;
+import com.vcms.content.model.FeedItemRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.design.model.FeedDesignComponent;
 import com.vcms.hashtag.model.HashTag;
@@ -25,7 +27,8 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.Utils;
 import com.vcms.website.model.FeedPage;
 
-public class FeedItemStubRepository implements ContactInfoItemRepository {
+@Repository
+public class FeedItemStubRepository implements FeedItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
@@ -47,6 +50,13 @@ public class FeedItemStubRepository implements ContactInfoItemRepository {
 		return Collections.emptyList();
 	}
 	
+	
+	@Override
+	public List<FeedItem> getModels(long designComponentId) {
+		return null;
+	}
+
+
 	private List<ContentModel> createGallery() {
 		List<ContentModel> gallery = new ArrayList<>();
 		

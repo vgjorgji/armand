@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.vcms.conf.cms.Component;
 import com.vcms.content.model.ContactInfoItem;
 import com.vcms.content.model.ContactInfoItemRepository;
@@ -14,24 +16,24 @@ import com.vcms.localization.model.LocalTextType;
 import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
 
+@Repository
 public class ContactInfoItemStubRepository implements ContactInfoItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
-		// check
 		if (!Component.ContactInfos.equals(designComponent.getComponent())) {
 			return Collections.emptyList();
 		}
-		
-		// get models
-		List<ContactInfoItem> models = getModels(designComponent.getId());
-		return new ArrayList<>(models);
+		return createResultList(new ArrayList<ContentModel>());
 	}
 	
 	@Override
 	public List<ContactInfoItem> getModels(long designComponentId) {
-		List<ContactInfoItem> result = new ArrayList<>();
-		
+		return createResultList(new ArrayList<ContactInfoItem>());
+	}
+
+	@SuppressWarnings("unchecked")
+	private <T extends ContentModel> List<T> createResultList(List<T> list) {
 		// footer
 		ContactInfoItem contactInfo = StubUtils.createStubDbModel(new ContactInfoItem(), 1000);
 		contactInfo.setLongitude(41.636513);
@@ -45,10 +47,10 @@ public class ContactInfoItemStubRepository implements ContactInfoItemRepository 
 		contactInfo.setPhone1("+1 800 254 5478");
 		contactInfo.setPhone2("+1 800 587 47895");
 		contactInfo.setEmail("info@email.com");
-		result.add(contactInfo);
+		list.add((T) contactInfo);
 
 		// result
-		return result;
+		return list;
 	}
 
 }

@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import com.vcms.localization.model.Language;
+import com.vcms.persist.model.DbModel;
 
 public final class Utils {
 	
@@ -60,6 +61,14 @@ public final class Utils {
 			set.add(objects[i]);
 		}
 		return set;
+	}
+	
+	public static <T extends DbModel> Map<Long, T> mapList(List<T> list) {
+		Map<Long, T> map = new HashMap<>();
+		for (T model : list) {
+			map.put(model.getId(), model);
+		}
+		return map;
 	}
 	
 	public static String toDuration(Date date, Language language) {

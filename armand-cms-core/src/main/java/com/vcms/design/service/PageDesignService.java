@@ -1,6 +1,5 @@
 package com.vcms.design.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,22 +33,20 @@ public class PageDesignService {
 	 * @return pageDesign
 	 */
 	public PageDesign getPageDesign(long pageId, Website website) {
+		// get and check
 		PageDesign pageDesign = pageDesignRepository.getPageDesign(pageId);
-
-		// check model
 		if (pageDesign != null) {
 			
 			// load
 			List<DesignComponent> designComponents = designComponentRepository.getDesignComponents(pageDesign.getPageId());
 			
 			// filter
-			List<DesignComponent> result = new ArrayList<>(designComponents.size());
 			for (DesignComponent designComponent : designComponents) {
 				if (website.getCmsPackage().isComponentSupported(designComponent.getComponent())) {
 					
 					// load content models
 					designComponent.setContentModels(contentService.getContentModels(designComponent));
-					result.add(designComponent);
+					pageDesign.addDesignComponent(designComponent);
 				}
 			}
 		}

@@ -5,13 +5,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.vcms.content.model.LinkItem;
-import com.vcms.content.model.LinkItemRepository;
+import com.vcms.content.model.MediaItem;
+import com.vcms.content.model.MediaItemRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.persist.model.ContentModel;
 
 @Repository
-public class LinkItemStubRepository implements LinkItemRepository {
+public class MediaItemStubRepository implements MediaItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
@@ -19,7 +19,7 @@ public class LinkItemStubRepository implements LinkItemRepository {
 	}
 
 	@Override
-	public List<LinkItem> getModels(long designComponentId) {
+	public List<MediaItem> getModels(long designComponentId) {
 		return null;
 	}
 	

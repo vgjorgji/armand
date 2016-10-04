@@ -1,5 +1,6 @@
 package com.vcms.content.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.vcms.persist.model.ContentModel;
@@ -35,6 +36,9 @@ public class NavItem extends ContentModel {
 	}
 	
 	public List<SubNavItem> getSubNavItems() {
+		if (subNavItems == null) {
+			subNavItems = new ArrayList<>();
+		}
 		return subNavItems;
 	}
 	
