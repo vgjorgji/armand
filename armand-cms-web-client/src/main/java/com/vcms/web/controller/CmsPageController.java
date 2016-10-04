@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.vcms.design.model.PageDesign;
+import com.vcms.design.service.PageDesignService;
 import com.vcms.web.service.ClientConfigurationService;
 import com.vcms.website.model.Page;
+import com.vcms.website.model.PageRepository;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteView;
-import com.vcms.website.service.PageService;
 
 @Controller
 public class CmsPageController {
@@ -20,32 +22,40 @@ public class CmsPageController {
 	private ClientConfigurationService clientConfigurationService;
 	
 	@Autowired
-	private PageService pageService;
+	private PageRepository pageRepository;
+	
+	@Autowired
+	private PageDesignService pageDesignService;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage() {
 		return "redirect:/page/home";
 	}
 
-	@RequestMapping(value = "/page/{pageName}", method = RequestMethod.GET)
-	public String showPage(@PathVariable String pageName, Model model) {
-		// models
+	@RequestMapping(value = "/page/{pageUrl}", method = RequestMethod.GET)
+	public String showPage(@PathVariable String pageUrl, Model model) {
+		// website
 		Website website = clientConfigurationService.getWebsite();
 		WebsiteView websiteView = clientConfigurationService.getWebsiteView();
-		Page page = getPage(website, websiteView, pageName);
+		
+		// design
+		Page page = getPage(websiteView, pageUrl);
+		PageDesign pageDesign = pageDesignService.getPageDesign(page.getId(), website);
 		
 		// view
 		model.addAttribute("website", website);
 		model.addAttribute("websiteView", websiteView);
 		model.addAttribute("page", page);
+		model.addAttribute("pageDesign", pageDesign);
 		return "/cmsPage";
 	}
 	
-	private Page getPage(Website website, WebsiteView websiteView, String pageName) {
-		Page page = pageService.getCmsPage(website, websiteView, pageName);
+	private Page getPage(WebsiteView websiteView, String pageUrl) {
+		Page page = pageRepository.getCmsPage(websiteView.getId(), pageUrl);
 		if (page == null) {
 			throw new IllegalStateException(
-					"No page found with name: " + pageName + " for website: " + clientConfigurationService.getWebsiteName());
+					"No page found with name: " + pageUrl + " for website: " + clientConfigurationService.getWebsiteName());
 		}
 		return page;
 	}
