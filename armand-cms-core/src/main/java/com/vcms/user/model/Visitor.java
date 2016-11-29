@@ -1,10 +1,13 @@
 package com.vcms.user.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.vcms.persist.model.DbModel;
 
-public class Visitor extends DbModel {
+public class Visitor extends DbModel implements Serializable {
+	
+	private static final long serialVersionUID = -1533341933678307075L;
 	
 	private long userId;
 	private Date startDate;

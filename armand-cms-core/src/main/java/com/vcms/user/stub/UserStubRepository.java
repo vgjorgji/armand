@@ -22,8 +22,8 @@ public class UserStubRepository implements UserRepository {
 		user.setUsername("root");
 		user.setPassword("root");
 		user.setEnabled(true);
-		user.setFirstName(StubUtils.createLocalTextSmall("Root", "Root"));
-		user.setLastName(StubUtils.createLocalTextSmall("User", "Корисник"));
+		user.setFirstName("User");
+		user.setLastName("Root");
 		user.setEmail("root.user@email.com");
 		map.put(user.getUsername(), user);
 		
@@ -31,8 +31,8 @@ public class UserStubRepository implements UserRepository {
 		user.setUsername("admin");
 		user.setPassword("admin");
 		user.setEnabled(true);
-		user.setFirstName(StubUtils.createLocalTextSmall("Admin", "Администратор"));
-		user.setLastName(StubUtils.createLocalTextSmall("User", "Корисник"));
+		user.setFirstName("User");
+		user.setLastName("Admin");
 		user.setEmail("admin.user@email.com");
 		map.put(user.getUsername(), user);
 		
@@ -40,8 +40,8 @@ public class UserStubRepository implements UserRepository {
 		user.setUsername("demo");
 		user.setPassword("demo");
 		user.setEnabled(true);
-		user.setFirstName(StubUtils.createLocalTextSmall("Demo", "Демо"));
-		user.setLastName(StubUtils.createLocalTextSmall("User", "Корисник"));
+		user.setFirstName("User");
+		user.setLastName("Demo");
 		user.setEmail("demo.user@email.com");
 		map.put(user.getUsername(), user);
 	}

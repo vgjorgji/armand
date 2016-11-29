@@ -1,17 +1,20 @@
 package com.vcms.user.model;
 
+import java.io.Serializable;
+
 import com.vcms.localization.model.Language;
-import com.vcms.localization.model.LocalText;
 import com.vcms.persist.model.HistoryModel;
 
-public class User extends HistoryModel {
+public class User extends HistoryModel implements Serializable {
+	
+	private static final long serialVersionUID = 3245779839673032603L;
 	
 	private String username;
 	private String password;
 	private boolean enabled;
 	
-	private LocalText firstName;
-	private LocalText lastName;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String phone;
 	private Language language;
@@ -32,19 +35,19 @@ public class User extends HistoryModel {
 		this.password = password;
 	}
 
-	public LocalText getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setFirstName(LocalText firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	public LocalText getLastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	public void setLastName(LocalText lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
