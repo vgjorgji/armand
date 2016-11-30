@@ -11,16 +11,16 @@
 <global:head title="Administration" />
 
 <body>
-	<global:navigation />
+	<global:navigation select="admin" />
 	
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2 sidebar">
-				<admin:navigation />
+				<admin:navigation select="overview" />
 			</div>
 			<div class="col-md-10 col-md-offset-2 main">
 			
-				<h1 class="page-header">Administration</h1>
+				<h2 class="page-header">Administration</h2>
 
 				<div class="row placeholders">
 					<div class="col-xs-6 col-sm-3 placeholder">

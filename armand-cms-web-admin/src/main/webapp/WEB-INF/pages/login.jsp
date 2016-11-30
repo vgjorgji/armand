@@ -19,13 +19,11 @@
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	
 				<div class="form-group">
-					<label for="username" class="sr-only">Email address</label>
 					<input id="username" name="username" placeholder="Username"
 						type="text" class="form-control" autocomplete="off" required autofocus>
 				</div>
 				
 				<div class="form-group">
-					<label for="password" class="sr-only">Password</label> 
 					<input id="password" name="password" placeholder="Password" 
 						type="password" class="form-control" autocomplete="off" required>
 				</div>

@@ -5,7 +5,7 @@
 
 <ul class="nav nav-sidebar">
 	<li class="<c:if test="${select eq 'overview'}">active</c:if>">
-		<a href="<c:url value="/dashboard" />"><i class="fa fa-desktop"></i>Overview</a>
+		<a href="<c:url value="/website" />"><i class="fa fa-desktop"></i>Overview</a>
 	</li>
 	<li>
 		<a href="#"><i class="fa fa-table"></i>Reports</a>

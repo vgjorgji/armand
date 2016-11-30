@@ -1,4 +1,5 @@
 <%@ tag body-content="scriptless" %>
+<%@ attribute name="select" type="java.lang.String" required="true" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -18,19 +19,19 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="<c:url value="/" />">Dashboard <span class="sr-only">(current)</span></a>
+				<li class="<c:if test="${select eq 'dashboard'}">active</c:if>">
+					<a href="<c:url value="/dashboard" />">Dashboard</a>
 				</li>
-				<li>
+				<li class="<c:if test="${select eq 'admin'}">active</c:if>">
 					<a href="<c:url value="/admin" />">Administration</a>
 				</li>
-				<li>
-					<a href="<c:url value="/website" />">Website</a>
+				<li class="<c:if test="${select eq 'websites'}">active</c:if>">
+					<a href="<c:url value="/websites" />">Websites</a>
 				</li>
-				<li>
+				<li class="<c:if test="${select eq 'mail'}">active</c:if>">
 					<a href="<c:url value="/mail" />">Mail</a>
 				</li>
-				<li>
+				<li class="<c:if test="${select eq 'faq'}">active</c:if>">
 					<a href="<c:url value="/faq" />">FAQ</a>
 				</li>
 			</ul>
