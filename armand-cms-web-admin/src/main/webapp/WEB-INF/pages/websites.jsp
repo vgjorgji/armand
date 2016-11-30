@@ -18,7 +18,7 @@
 			<div class="col-md-2">
 				<div class="thumbnail">
 					<p>Company Name</p>
-					<img src="http://placehold.it/185x185" alt="Website Logo">
+					<img src="http://placehold.it/120x120" alt="Website Logo">
 					<div class="caption">
 						<h4>Website Name</h4>
 						<table class="table">
