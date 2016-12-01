@@ -15,6 +15,26 @@ li {
 	max-width: 400px;
 }
 
+.inline {
+	display: inline;
+}
+.inline-block {
+	display: inline-block;
+}
+
+.page-header {
+	margin-top: 0;
+}
+
+/************** FA Padding **************/
+
+.fa {
+	margin-right: 7px;
+}
+table .fa {
+	margin-right: 0px;
+}
+
 /************** FLAGS **************/
 
 .flag {
@@ -135,15 +155,29 @@ li {
 	color: #fff;
 	background-color: #428bca;
 }
-.nav-sidebar .fa {
-	margin-right: 10px;
-}
 @media ( min-width : 768px) {
 	.main {
 		padding-right: 40px;
 		padding-left: 40px;
 	}
 }
-.main .page-header {
-	margin-top: 0;
+
+/************** Website Teaser **************/
+
+.website-teaser {
+	width: 320px;
 }
+.website-teaser .website-name>* {
+	vertical-align: middle;
+}
+.website-teaser img {
+	padding-right: 10px;
+}
+.website-teaser table {
+	margin: 20px 0 0 0;
+}
+.website-teaser table>tbody>tr>td {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+

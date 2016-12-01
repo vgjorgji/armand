@@ -13,41 +13,36 @@
 	<global:navigation select="websites" />
 	
 	<div class="container-fluid">
+		
+		<h2 class="page-header">Websites</h2>
+		<a href="#" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add</a>
+	
 		<div class="row">
 			
-			<div class="col-md-2">
+			<div class="col-md-2 website-teaser">
 				<div class="thumbnail">
-					<p>Company Name</p>
-					<img src="http://placehold.it/120x120" alt="Website Logo">
 					<div class="caption">
-						<h4>Website Name</h4>
+						<div class="website-name">
+							<img src="http://placehold.it/26x26" alt="Website Logo">
+							<h4 class="inline"><a href="#">Website Name</a></h4>
+						</div>
 						<table class="table">
-							<tbody>
-								<tr>
-									<td><a href="#">Edit</a></td>
-									<td><i class="fa fa-circle text-success"></i></td>
-								</tr>
-								<tr>
-									<td><a href="#">Design</a></td>
-									<td><i class="fa fa-circle text-success"></i></td>
-								</tr>
-								<tr>
-									<td><a href="#">Review Design</a></td>
-									<td><i class="fa fa-circle text-warning"></i></td>
-								</tr>
-								<tr>
-									<td><a href="#">Write Content</a></td>
-									<td><i class="fa fa-circle text-danger"></i></td>
-								</tr>
-								<tr>
-									<td><a href="#">Review Content</a></td>
-									<td><i class="fa fa-circle text-danger"></i></td>
-								</tr>
-								<tr>
-									<td><a href="#">Go Live!</a></td>
-									<td><i class="fa fa-circle text-danger"></i></td>
-								</tr>
-							</tbody>
+							<tr>
+								<td><i class="fa fa-building"></i></td>
+								<td colspan="3">Company Name</td>
+							</tr>
+							<tr>
+								<td><i class="fa fa-cube"></i></td>
+								<td>Businesse</td>
+								<td><i class="fa fa-file-powerpoint-o"></i></td>
+								<td>Pages: 10</td>
+							</tr>
+							<tr>
+								<td><i class="fa fa-leaf"></i></td>
+								<td>Online</td>
+								<td><i class="fa fa-link"></i></td>
+								<td><a href="https://www.google.com/" target="_blank">Link</a></td>
+							</tr>
 						</table>
 					</div>
 				</div>
