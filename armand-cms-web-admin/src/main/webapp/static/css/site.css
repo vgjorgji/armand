@@ -165,16 +165,32 @@ table .fa {
 /************** Website Teaser **************/
 
 .website-teaser {
-	width: 320px;
+	width: 330px;
 }
-.website-teaser .website-name>* {
-	vertical-align: middle;
+@media ( max-width : 768px) {
+	.website-teaser {
+		width: 100%;
+	}
 }
-.website-teaser img {
-	padding-right: 10px;
+.website-teaser .website-logo {
+	display: inline-block;
+	padding-right: 20px;
+	vertical-align: top;
+}
+.website-teaser .website-name {
+	display: inline-block;
+}
+.website-teaser .website-name>a {
+	display: block;
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.website-teaser .website-name>a:hover {
+	text-decoration: none;
 }
 .website-teaser table {
-	margin: 20px 0 0 0;
+	margin: 0;
 }
 .website-teaser table>tbody>tr>td {
 	padding-left: 4px;
