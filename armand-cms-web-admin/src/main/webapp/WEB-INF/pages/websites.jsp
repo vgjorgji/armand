@@ -28,8 +28,47 @@
 						<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
 						<div class="website-name">
 							<small>Company Name</small>
-							<a href="<c:url value="/website/1000" />">Website Name</a>
+							<a href="<c:url value="/website/1000/overview" />">Website Name</a>
 						</div>
+						<h5>Actions</h5>
+						<table class="table">
+							<tr>
+								<td><i class="fa fa-tv"></i></td>
+								<td><a href="<c:url value="/website/1000/design" />">Design</a></td>
+								<td><span class="badge btn-danger">3</span></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="fa-stack">
+										<i class="fa fa-tv fa-stack-1x"></i>
+										<i class="fa fa-check fa-stack-1x text-success"></i>
+									</span>
+								</td>
+								<td><a href="<c:url value="/website/1000/reviewdesign" />">Review Design</a></td>
+								<td><i class="fa fa-check text-success"></i></td>
+							</tr>
+							<tr>
+								<td><i class="fa fa-clone"></i></td>
+								<td><a href="<c:url value="/website/1000/content" />">Write Content</a></td>
+								<td><i class="fa fa-ban"></i></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="fa-stack">
+										<i class="fa fa-clone fa-stack-1x"></i>
+										<i class="fa fa-check fa-stack-1x text-success"></i>
+									</span>
+								</td>
+								<td><a href="<c:url value="/website/1000/reviewcontent" />">Review Content</a></td>
+								<td><span class="badge btn-danger">3</span></td>
+							</tr>
+							<tr>
+								<td><i class="fa fa-globe"></i></td>
+								<td><a href="<c:url value="/website/1000/golive" />">Go Live</a></td>
+								<td><i class="fa fa-ban"></i></td>
+							</tr>
+						</table>
+						<h5>Live Status</h5>
 						<table class="table">
 							<tr>
 								<td><i class="fa fa-cube"></i></td>
