@@ -22,7 +22,7 @@ li {
 	display: inline-block;
 }
 
-.page-header {
+.form-header {
 	margin-top: 0;
 }
 
@@ -197,3 +197,34 @@ table .fa {
 	padding-right: 4px;
 }
 
+/************** Lights **************/
+
+.light-success {
+	border-radius: 8px;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+}
+
+.light-warning {
+	border-radius: 8px;
+	background-color: #ec971f;
+	border: 1px solid #d58512;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+}
+
+.light-danger {
+	border-radius: 8px;
+	background-color: #d9534f;
+	border: 1px solid #d43f3a;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+}

@@ -14,9 +14,9 @@
 	
 	<div class="container-fluid">
 
-		<div class="form-header">
+		<div>
 			<a href="#" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Add</a>
-			<h2>Websites</h2>
+			<h2 class="form-header">Websites</h2>
 			<hr />
 		</div>
 
@@ -38,8 +38,8 @@
 								<td>Pages: 10</td>
 							</tr>
 							<tr>
-								<td><i class="fa fa-leaf"></i></td>
-								<td>Online</td>
+								<td><i class="light-success"></i></td>
+								<td><strong class="text-success">Online</strong></td>
 								<td><i class="fa fa-link"></i></td>
 								<td><a href="https://www.google.com/" target="_blank">Link</a></td>
 							</tr>
