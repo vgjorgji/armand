@@ -31,9 +31,6 @@ li {
 .fa {
 	margin-right: 7px;
 }
-table .fa {
-	margin-right: 0px;
-}
 
 /************** FLAGS **************/
 
@@ -165,7 +162,7 @@ table .fa {
 /************** Website Teaser **************/
 
 .website-teaser {
-	width: 330px;
+	width: 400px;
 }
 @media ( max-width : 768px) {
 	.website-teaser {
@@ -179,6 +176,7 @@ table .fa {
 }
 .website-teaser .website-name {
 	display: inline-block;
+	width: 193px;
 }
 .website-teaser .website-name>a {
 	display: block;
@@ -189,12 +187,35 @@ table .fa {
 .website-teaser .website-name>a:hover {
 	text-decoration: none;
 }
+.website-teaser h5 {
+	font-weight: bold;
+	color: #777;
+}
 .website-teaser table {
-	margin: 0;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 25px;
+}
+.website-teaser table.live {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+.website-teaser table.live .fa {
+	margin-right: 0px;
+}
+.website-teaser table .fa-check,
+.website-teaser table .fa-ban {
+	font-size: 16px;
+	margin-left: 3px;
 }
 .website-teaser table>tbody>tr>td {
 	padding-left: 4px;
 	padding-right: 4px;
+}
+.website-teaser table .no-access {
+	color: #bbb;
+}
+.website-teaser table .no-access p {
+	margin: 0;
 }
 
 /************** Lights **************/
