@@ -31,8 +31,6 @@
 							<a href="<c:url value="/website/1000/overview" />">Website Name</a>
 						</div>
 						<div>
-							<span class="btn btn-primary btn-xs disabled pull-right"><i class="fa fa-globe"></i>Go Live</span>
-							<!--  <a href="<c:url value="/website/1000/golive" />" class="btn btn-primary btn-xs pull-right"><i class="fa fa-globe"></i>Go Live</a>  -->
 							<h5>Actions</h5>
 						</div>
 						<table class="table">
@@ -70,27 +68,44 @@
 								</td>
 							</tr>
 						</table>
-						<h5>Reports</h5>
+						<h5>Live</h5>
 						<table class="table">
 							<tr>
-								<td><i class="fa fa-users"></i>1.250</td>
-								<td><i class="fa fa-user text-success"></i>59</td>
+								<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>10</td>
+								<td class="col-md-4"><i class="fa fa-star"></i><em>Business</em></td>
+								<td class="col-md-5"><i class="fa light-success"></i><strong class="text-success">Online</strong></td>
 							</tr>
 						</table>
 						<div>
 							<a href="https://www.google.com/" target="_blank" class="btn btn-info btn-xs pull-right">
-								<i class="fa fa-globe"></i>www
+								<i class="fa fa-globe"></i>www.therealwebsiteurl.com
 							</a>
-							<h5>Live</h5>
+							<h5>Reports</h5>
 						</div>
-						<table class="table live">
+						<table class="table last">
 							<tr>
-								<td><i class="light-success"></i></td>
-								<td><strong class="text-success">Online</strong></td>
-								<td><i class="fa fa-cube"></i></td>
-								<td>Business</td>
-								<td><i class="fa fa-file-powerpoint-o"></i></td>
-								<td>10</td>
+								<td>Now</td>
+								<td><i class="fa fa-user text-success"></i>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Today</td>
+								<td><i class="fa fa-users"></i>1.250</td>
+								<td><i class="fa fa-user"></i>59</td>
+								<td><i class="fa fa-clock-o"></i>25 %</td>
+							</tr>
+							<tr>
+								<td>January</td>
+								<td><i class="fa fa-users"></i>100.250</td>
+								<td><i class="fa fa-user"></i>190</td>
+								<td><i class="fa fa-clock-o"></i>33 %</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td><i class="fa fa-users"></i>2.125.250</td>
+								<td><i class="fa fa-user"></i>2.000</td>
+								<td><i class="fa fa-clock-o"></i>9 %</td>
 							</tr>
 						</table>
 					</div>
@@ -105,53 +120,178 @@
 							<small>Company Name</small>
 							<a href="<c:url value="/website/1000/overview" />">Website Name</a>
 						</div>
-						<h5>Actions</h5>
+						<div>
+							<span class="btn btn-primary btn-xs pull-right disabled"><i class="fa fa-globe"></i>Go Live</span>
+							<h5>Actions</h5>
+						</div>
 						<table class="table">
 							<tr>
-								<td><i class="fa fa-tv"></i></td>
-								<td><a href="<c:url value="/website/1000/design" />">Design</a></td>
-								<td><i class="fa fa-check text-success"></i></td>
+								<td class="col-md-3">
+									<i class="fa fa-tv"></i>
+									<a href="<c:url value="/website/1000/design" />">Design</a>
+								</td>
+								<td class="col-md-3">
+									<span class="badge btn-danger">3</span>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-delicious"></i>
+									<a href="<c:url value="/website/1000/reviewdesign" />">Review</a>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-check text-success"></i>
+								</td>
 							</tr>
 							<tr>
-								<td><i class="fa fa-delicious"></i></td>
-								<td><a href="<c:url value="/website/1000/reviewdesign" />">Review Design</a></td>
-								<td><i class="fa fa-check text-success"></i></td>
-							</tr>
-							<tr>
-								<td><i class="fa fa-pencil-square-o"></i></td>
-								<td><a href="<c:url value="/website/1000/content" />">Write Content</a></td>
-								<td><i class="fa fa-check text-success"></i></td>
-							</tr>
-							<tr>
-								<td><i class="fa fa-magic"></i></td>
-								<td><a href="<c:url value="/website/1000/reviewcontent" />">Review Content</a></td>
-								<td><i class="fa fa-check text-success"></i></td>
-							</tr>
-							<tr>
-								<td><i class="fa fa-globe"></i></td>
-								<td><a href="<c:url value="/website/1000/golive" />">Go Live</a></td>
-								<td><i class="fa fa-check text-success"></i></td>
+								<td class="col-md-3 no-access">
+									<i class="fa fa-pencil-square-o"></i>
+									<span>Content</span>
+								</td>
+								<td class="col-md-3 no-access">
+									<i class="fa fa-ban"></i>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-magic"></i>
+									<a href="<c:url value="/website/1000/reviewcontent" />">Review</a>
+								</td>
+								<td class="col-md-3">
+									<span class="badge btn-primary">99</span>
+								</td>
 							</tr>
 						</table>
 						<h5>Live</h5>
-						<table class="table live">
+						<table class="table">
 							<tr>
-								<td><i class="fa fa-cube"></i></td>
-								<td>Business</td>
-								<td><i class="fa fa-file-powerpoint-o"></i></td>
-								<td>257</td>
+								<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>0</td>
+								<td class="col-md-4"><i class="fa fa-cubes"></i><em>Dynamic</em></td>
+								<td class="col-md-5"><i class="fa light-warning"></i><strong class="text-warning">Construction</strong></td>
+							</tr>
+						</table>
+						<div>
+							<a href="https://www.google.com/" target="_blank" class="btn btn-info btn-xs pull-right">
+								<i class="fa fa-globe"></i>www.therealwebsiteurl.com
+							</a>
+							<h5>Reports</h5>
+						</div>
+						<table class="table last">
+							<tr>
+								<td>Now</td>
+								<td><i class="fa fa-user text-success"></i>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td><i class="light-success"></i></td>
-								<td><strong class="text-success">Online</strong></td>
-								<td><i class="fa fa-link"></i></td>
-								<td><a href="https://www.google.com/" target="_blank">Link</a></td>
+								<td>Today</td>
+								<td><i class="fa fa-users"></i>1.250</td>
+								<td><i class="fa fa-user"></i>59</td>
+								<td><i class="fa fa-clock-o"></i>25 %</td>
+							</tr>
+							<tr>
+								<td>January</td>
+								<td><i class="fa fa-users"></i>100.250</td>
+								<td><i class="fa fa-user"></i>190</td>
+								<td><i class="fa fa-clock-o"></i>33 %</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td><i class="fa fa-users"></i>2.125.250</td>
+								<td><i class="fa fa-user"></i>2.000</td>
+								<td><i class="fa fa-clock-o"></i>9 %</td>
 							</tr>
 						</table>
 					</div>
 				</div>
 			</div>
-
+			
+			<div class="col-md-2 website-teaser">
+				<div class="thumbnail">
+					<div class="caption">
+						<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
+						<div class="website-name">
+							<small>Company Name</small>
+							<a href="<c:url value="/website/1000/overview" />">Website Name</a>
+						</div>
+						<div>
+							<a href="<c:url value="/website/1000/golive" />" class="btn btn-primary btn-xs pull-right"><i class="fa fa-globe"></i>Go Live</a>
+							<h5>Actions</h5>
+						</div>
+						<table class="table">
+							<tr>
+								<td class="col-md-3">
+									<i class="fa fa-tv"></i>
+									<a href="<c:url value="/website/1000/design" />">Design</a>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-check text-success"></i>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-delicious"></i>
+									<a href="<c:url value="/website/1000/reviewdesign" />">Review</a>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-check text-success"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="col-md-3">
+									<i class="fa fa-pencil-square-o"></i>
+									<a href="<c:url value="/website/1000/content" />">Content</a>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-check text-success"></i>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-magic"></i>
+									<a href="<c:url value="/website/1000/reviewcontent" />">Review</a>
+								</td>
+								<td class="col-md-3">
+									<i class="fa fa-check text-success"></i>
+								</td>
+							</tr>
+						</table>
+						<h5>Live</h5>
+						<table class="table">
+							<tr>
+								<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>2</td>
+								<td class="col-md-4"><i class="fa fa-cube"></i><em>Basic</em></td>
+								<td class="col-md-5"><i class="fa light-danger"></i><strong class="text-danger">Offline</strong></td>
+							</tr>
+						</table>
+						<div>
+							<a href="https://www.google.com/" target="_blank" class="btn btn-info btn-xs pull-right">
+								<i class="fa fa-globe"></i>www.therealwebsiteurl.com
+							</a>
+							<h5>Reports</h5>
+						</div>
+						<table class="table last">
+							<tr>
+								<td>Now</td>
+								<td><i class="fa fa-user text-success"></i>20</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Today</td>
+								<td><i class="fa fa-users"></i>1.250</td>
+								<td><i class="fa fa-user"></i>59</td>
+								<td><i class="fa fa-clock-o"></i>25 %</td>
+							</tr>
+							<tr>
+								<td>January</td>
+								<td><i class="fa fa-users"></i>100.250</td>
+								<td><i class="fa fa-user"></i>190</td>
+								<td><i class="fa fa-clock-o"></i>33 %</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td><i class="fa fa-users"></i>2.125.250</td>
+								<td><i class="fa fa-user"></i>2.000</td>
+								<td><i class="fa fa-clock-o"></i>9 %</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
 		</div> <!-- /.row -->
 	</div> <!-- /.container-fluid -->
 </body>

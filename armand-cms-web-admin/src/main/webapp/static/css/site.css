@@ -162,7 +162,7 @@ li {
 /************** Website Teaser **************/
 
 .website-teaser {
-	width: 400px;
+	width: 430px;
 }
 @media ( max-width : 768px) {
 	.website-teaser {
@@ -195,12 +195,9 @@ li {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 25px;
 }
-.website-teaser table.live {
+.website-teaser table.last {
 	border-bottom: none;
 	margin-bottom: 0;
-}
-.website-teaser table.live .fa {
-	margin-right: 0px;
 }
 .website-teaser table .fa-check,
 .website-teaser table .fa-ban {
