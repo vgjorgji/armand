@@ -82,9 +82,9 @@
 								</div>
 								<table class="table">
 									<tr>
-										<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>10</td>
-										<td class="col-md-4"><i class="fa fa-star"></i><em>Business</em></td>
 										<td class="col-md-5"><i class="fa light-success"></i><strong class="text-success">Online</strong></td>
+										<td class="col-md-4"><i class="fa fa-star"></i><em>Business</em></td>
+										<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>10</td>
 									</tr>
 								</table>
 								<h5>Reports</h5>
@@ -160,9 +160,9 @@
 								</div>
 								<table class="table">
 									<tr>
-										<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>0</td>
-										<td class="col-md-4"><i class="fa fa-cubes"></i><em>Dynamic</em></td>
 										<td class="col-md-5"><i class="fa light-warning"></i><strong class="text-warning">Construction</strong></td>
+										<td class="col-md-4"><i class="fa fa-cubes"></i><em>Dynamic</em></td>
+										<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>0</td>
 									</tr>
 								</table>
 								<h5>Reports</h5>
@@ -238,9 +238,9 @@
 								</div>
 								<table class="table">
 									<tr>
-										<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>2</td>
-										<td class="col-md-4"><i class="fa fa-cube"></i><em>Basic</em></td>
 										<td class="col-md-5"><i class="fa light-danger"></i><strong class="text-danger">Offline</strong></td>
+										<td class="col-md-4"><i class="fa fa-cube"></i><em>Basic</em></td>
+										<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>2</td>
 									</tr>
 								</table>
 								<h5>Reports</h5>

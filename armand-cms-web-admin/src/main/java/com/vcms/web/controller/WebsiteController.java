@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/website/{websiteId}")
 public class WebsiteController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/overview", method = RequestMethod.GET)
 	public String getWebsiteOverviewPage(@PathVariable("websiteId") long websiteId) {
-		return "/website/index";
+		return "/website/overview";
 	}
 
 }

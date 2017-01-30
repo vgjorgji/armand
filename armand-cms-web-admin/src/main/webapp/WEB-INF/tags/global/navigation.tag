@@ -28,9 +28,9 @@
 				<li class="<c:if test="${select eq 'websites'}">active</c:if>">
 					<a href="<c:url value="/websites/overview" />">Websites</a>
 				</li>
-				<c:if test="${not empty selectedWebsite}">
+				<c:if test="${empty selectedWebsite}">
 					<li class="<c:if test="${select eq 'website'}">active</c:if>">
-						<a href="<c:url value="/website/1000/overview" />">Demo Website</a>
+						<a href="<c:url value="/website/1000/overview" />"><em>Demo Website</em></a>
 					</li>
 				</c:if>
 			</ul>
