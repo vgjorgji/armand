@@ -22,11 +22,11 @@ li {
 	display: inline-block;
 }
 
-.form-header {
+.page-header {
 	margin-top: 0;
 }
 
-/************** FA Padding **************/
+/************** FA Edit **************/
 
 .fa {
 	margin-right: 7px;
@@ -176,7 +176,7 @@ li {
 }
 .website-teaser .website-name {
 	display: inline-block;
-	width: 193px;
+	width: 295px;
 }
 .website-teaser .website-name>a {
 	display: block;

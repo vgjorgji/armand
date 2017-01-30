@@ -20,23 +20,25 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="<c:if test="${select eq 'dashboard'}">active</c:if>">
-					<a href="<c:url value="/dashboard" />">Dashboard</a>
+					<a href="<c:url value="/dashboard/overview" />">Dashboard</a>
 				</li>
 				<li class="<c:if test="${select eq 'admin'}">active</c:if>">
-					<a href="<c:url value="/admin" />">Administration</a>
+					<a href="<c:url value="/admin/overview" />">Administration</a>
 				</li>
 				<li class="<c:if test="${select eq 'websites'}">active</c:if>">
-					<a href="<c:url value="/websites" />">Websites</a>
+					<a href="<c:url value="/websites/overview" />">Websites</a>
 				</li>
-				<li class="<c:if test="${select eq 'mail'}">active</c:if>">
-					<a href="<c:url value="/mail" />">Mail</a>
-				</li>
-				<li class="<c:if test="${select eq 'faq'}">active</c:if>">
-					<a href="<c:url value="/faq" />">FAQ</a>
-				</li>
+				<c:if test="${not empty selectedWebsite}">
+					<li class="<c:if test="${select eq 'website'}">active</c:if>">
+						<a href="<c:url value="/website/1000/overview" />">Demo Website</a>
+					</li>
+				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
+					<a href="<c:url value="/faq/overview" />">FAQ</a>
+				</li>
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-list"></i><span> </span><span class="badge btn-danger">1</span>
 					</a>
@@ -55,6 +57,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
 						<li><a href="#">Settings</a></li>
+						<li><a href="#">Mail</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 					</ul>
