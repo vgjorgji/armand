@@ -42,7 +42,7 @@
 								<table class="table">
 									<tr>
 										<td class="col-md-3">
-											<i class="fa fa-tv"></i>
+											<i class="fa fa-square-o"></i>
 											<a href="<c:url value="/website/1000/design" />">Design</a>
 										</td>
 										<td class="col-md-3">
@@ -121,7 +121,7 @@
 								<table class="table">
 									<tr>
 										<td class="col-md-3">
-											<i class="fa fa-tv"></i>
+											<i class="fa fa-square-o"></i>
 											<a href="<c:url value="/website/1000/design" />">Design</a>
 										</td>
 										<td class="col-md-3">
@@ -199,7 +199,7 @@
 								<table class="table">
 									<tr>
 										<td class="col-md-3">
-											<i class="fa fa-tv"></i>
+											<i class="fa fa-square-o"></i>
 											<a href="<c:url value="/website/1000/design" />">Design</a>
 										</td>
 										<td class="col-md-3">
