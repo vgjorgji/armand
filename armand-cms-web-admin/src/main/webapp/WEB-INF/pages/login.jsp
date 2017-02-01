@@ -45,17 +45,17 @@
 				<div class="form-group">
 					<c:if test="${param.failure ne null}">
 						<div class="alert alert-danger" role="alert">
-							<p>Authentication error</p>
+							Authentication error
 						</div>
 					</c:if>
 					<c:if test="${param.error ne null}">
 						<div class="alert alert-danger" role="alert">
-							<p>Invalid username and password.</p>
+							Invalid username and password.
 						</div>
 					</c:if>
 					<c:if test="${param.logout ne null}">
 						<div class="alert alert-success" role="alert">
-							<p>You have been logged out.</p>
+							You have been logged out.
 						</div>
 					</c:if>
 				</div>

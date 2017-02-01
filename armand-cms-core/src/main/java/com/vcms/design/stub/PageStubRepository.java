@@ -1,4 +1,4 @@
-package com.vcms.website.stub;
+package com.vcms.design.stub;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 
 import com.vcms.conf.cms.FeedType;
 import com.vcms.conf.cms.Icon;
+import com.vcms.design.model.CmsPage;
+import com.vcms.design.model.ExternalPage;
+import com.vcms.design.model.FeedPage;
+import com.vcms.design.model.Page;
+import com.vcms.design.model.PageRepository;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
-import com.vcms.website.model.CmsPage;
-import com.vcms.website.model.ExternalPage;
-import com.vcms.website.model.FeedPage;
-import com.vcms.website.model.Page;
-import com.vcms.website.model.PageRepository;
 
 @Repository
 public class PageStubRepository implements PageRepository {

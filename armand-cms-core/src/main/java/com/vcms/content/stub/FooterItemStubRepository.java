@@ -9,9 +9,9 @@ import com.vcms.conf.cms.Icon;
 import com.vcms.content.model.FooterItem;
 import com.vcms.content.model.FooterItemRepository;
 import com.vcms.design.model.DesignComponent;
+import com.vcms.design.model.ExternalPage;
 import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
-import com.vcms.website.model.ExternalPage;
 
 @Repository
 public class FooterItemStubRepository implements FooterItemRepository {

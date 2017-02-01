@@ -36,21 +36,19 @@
 									<small>Company Name</small>
 									<a href="<c:url value="/website/1000/overview" />">Website Name</a>
 								</div>
-								<div>
-									<h5>Actions</h5>
-								</div>
+								<h5>Actions</h5>
 								<table class="table">
 									<tr>
 										<td class="col-md-3">
 											<i class="fa fa-square-o"></i>
-											<a href="<c:url value="/website/1000/design" />">Design</a>
+											<a href="<c:url value="/website/1000/design" />">Designer</a>
 										</td>
 										<td class="col-md-3">
 											<span class="badge btn-primary">3</span>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-delicious"></i>
-											<a href="<c:url value="/website/1000/reviewdesign" />">Review</a>
+											<a href="<c:url value="/website/1000/reviewdesign" />">Reviewer</a>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-check text-success"></i>
@@ -60,14 +58,14 @@
 										<!-- <td class="no-access"><i class="fa fa-pencil-square-o"></i><a href="<c:url value="/website/1000/content" />">Write Content</a></td>  -->
 										<td class="col-md-3 no-access">
 											<i class="fa fa-pencil-square-o"></i>
-											<span>Content</span>
+											<span>Writer</span>
 										</td>
 										<td class="col-md-3 no-access">
 											<i class="fa fa-ban"></i>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-magic"></i>
-											<a href="<c:url value="/website/1000/reviewcontent" />">Review</a>
+											<a href="<c:url value="/website/1000/reviewcontent" />">Reviewer</a>
 										</td>
 										<td class="col-md-3">
 											<span class="badge btn-primary">99</span>
@@ -90,13 +88,13 @@
 								<h5>Reports</h5>
 								<table class="table last">
 									<tr>
-										<td>Active</td>
+										<th role="row">Active</th>
 										<td><i class="fa fa-user text-success"></i>20</td>
 										<td><i class="fa fa-eye"></i>1h 20min</td>
 										<td><i class="fa fa-eye-slash"></i>20min</td>
 									</tr>
 									<tr>
-										<td>Visits</td>
+										<th role="row">Visits</th>
 										<td><i class="fa fa-user"></i>59</td>
 										<td><i class="fa fa-users"></i>1.250</td>
 										<td><i class="fa fa-clock-o"></i>25 %</td>
@@ -114,22 +112,19 @@
 									<small>Company Name</small>
 									<a href="<c:url value="/website/1000/overview" />">Website Name</a>
 								</div>
-								<div>
-									<span class="btn btn-primary btn-xs pull-right disabled"><i class="fa fa-globe"></i>Go Live</span>
-									<h5>Actions</h5>
-								</div>
+								<h5>Actions</h5>
 								<table class="table">
 									<tr>
 										<td class="col-md-3">
 											<i class="fa fa-square-o"></i>
-											<a href="<c:url value="/website/1000/design" />">Design</a>
+											<a href="<c:url value="/website/1000/design" />">Designer</a>
 										</td>
 										<td class="col-md-3">
 											<span class="badge btn-danger">3</span>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-delicious"></i>
-											<a href="<c:url value="/website/1000/reviewdesign" />">Review</a>
+											<a href="<c:url value="/website/1000/reviewdesign" />">Reviewer</a>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-check text-success"></i>
@@ -138,14 +133,14 @@
 									<tr>
 										<td class="col-md-3 no-access">
 											<i class="fa fa-pencil-square-o"></i>
-											<span>Content</span>
+											<span>Writer</span>
 										</td>
 										<td class="col-md-3 no-access">
 											<i class="fa fa-ban"></i>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-magic"></i>
-											<a href="<c:url value="/website/1000/reviewcontent" />">Review</a>
+											<a href="<c:url value="/website/1000/reviewcontent" />">Reviewer</a>
 										</td>
 										<td class="col-md-3">
 											<span class="badge btn-primary">99</span>
@@ -168,13 +163,13 @@
 								<h5>Reports</h5>
 								<table class="table last">
 									<tr>
-										<td>Active</td>
+										<th role="row">Active</th>
 										<td><i class="fa fa-user text-success"></i>20</td>
 										<td><i class="fa fa-eye"></i>1h 20min</td>
 										<td><i class="fa fa-eye-slash"></i>20min</td>
 									</tr>
 									<tr>
-										<td>Visits</td>
+										<th role="row">Visits</th>
 										<td><i class="fa fa-user"></i>59</td>
 										<td><i class="fa fa-users"></i>1.250</td>
 										<td><i class="fa fa-clock-o"></i>25 %</td>
@@ -192,22 +187,19 @@
 									<small>Company Name</small>
 									<a href="<c:url value="/website/1000/overview" />">Website Name</a>
 								</div>
-								<div>
-									<a href="<c:url value="/website/1000/golive" />" class="btn btn-primary btn-xs pull-right"><i class="fa fa-globe"></i>Go Live</a>
-									<h5>Actions</h5>
-								</div>
+								<h5>Actions</h5>
 								<table class="table">
 									<tr>
 										<td class="col-md-3">
 											<i class="fa fa-square-o"></i>
-											<a href="<c:url value="/website/1000/design" />">Design</a>
+											<a href="<c:url value="/website/1000/design" />">Designer</a>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-check text-success"></i>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-delicious"></i>
-											<a href="<c:url value="/website/1000/reviewdesign" />">Review</a>
+											<a href="<c:url value="/website/1000/reviewdesign" />">Reviewer</a>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-check text-success"></i>
@@ -216,14 +208,14 @@
 									<tr>
 										<td class="col-md-3">
 											<i class="fa fa-pencil-square-o"></i>
-											<a href="<c:url value="/website/1000/content" />">Content</a>
+											<a href="<c:url value="/website/1000/content" />">Writer</a>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-check text-success"></i>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-magic"></i>
-											<a href="<c:url value="/website/1000/reviewcontent" />">Review</a>
+											<a href="<c:url value="/website/1000/reviewcontent" />">Reviewer</a>
 										</td>
 										<td class="col-md-3">
 											<i class="fa fa-check text-success"></i>
@@ -246,13 +238,13 @@
 								<h5>Reports</h5>
 								<table class="table last">
 									<tr>
-										<td>Active</td>
+										<th role="row">Active</th>
 										<td><i class="fa fa-user text-success"></i>20</td>
 										<td><i class="fa fa-eye"></i>1h 20min</td>
 										<td><i class="fa fa-eye-slash"></i>20min</td>
 									</tr>
 									<tr>
-										<td>Visits</td>
+										<th role="row">Visits</th>
 										<td><i class="fa fa-user"></i>59</td>
 										<td><i class="fa fa-users"></i>1.250</td>
 										<td><i class="fa fa-clock-o"></i>25 %</td>

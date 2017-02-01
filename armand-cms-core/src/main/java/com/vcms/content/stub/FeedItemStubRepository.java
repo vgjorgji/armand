@@ -15,6 +15,7 @@ import com.vcms.content.model.FeedItem;
 import com.vcms.content.model.FeedItemRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.design.model.FeedDesignComponent;
+import com.vcms.design.model.FeedPage;
 import com.vcms.hashtag.model.HashTag;
 import com.vcms.hashtag.model.HashTags;
 import com.vcms.localization.model.Language;
@@ -25,7 +26,6 @@ import com.vcms.media.model.MediaType;
 import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
 import com.vcms.utils.Utils;
-import com.vcms.website.model.FeedPage;
 
 @Repository
 public class FeedItemStubRepository implements FeedItemRepository {

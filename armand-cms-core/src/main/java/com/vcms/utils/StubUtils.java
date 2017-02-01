@@ -2,11 +2,11 @@ package com.vcms.utils;
 
 import java.util.Date;
 
+import com.vcms.design.model.CmsPage;
 import com.vcms.localization.model.Language;
 import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.persist.model.HistoryModel;
-import com.vcms.website.model.CmsPage;
 
 public final class StubUtils {
 	

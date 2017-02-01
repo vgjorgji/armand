@@ -10,6 +10,7 @@ import com.vcms.content.model.Paragraph;
 import com.vcms.content.model.ParagraphItem;
 import com.vcms.content.model.ParagraphItemRepository;
 import com.vcms.content.model.ParagraphLayout;
+import com.vcms.design.model.CmsPage;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.localization.model.Language;
 import com.vcms.localization.model.LocalText;
@@ -18,7 +19,6 @@ import com.vcms.media.model.Media;
 import com.vcms.media.model.MediaType;
 import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
-import com.vcms.website.model.CmsPage;
 
 @Repository
 public class ParagraphItemStubRepository implements ParagraphItemRepository {

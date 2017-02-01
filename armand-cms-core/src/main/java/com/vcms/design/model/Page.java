@@ -1,4 +1,4 @@
-package com.vcms.website.model;
+package com.vcms.design.model;
 
 import com.vcms.localization.model.LocalText;
 import com.vcms.persist.model.HistoryModel;

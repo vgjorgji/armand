@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.vcms.content.model.MainNavItem;
 import com.vcms.content.model.MainNavItemRepository;
+import com.vcms.design.model.CmsPage;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
-import com.vcms.website.model.CmsPage;
 
 @Repository
 public class MainNavItemStubRepository implements MainNavItemRepository {

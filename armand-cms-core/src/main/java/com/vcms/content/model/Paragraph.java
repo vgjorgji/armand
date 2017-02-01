@@ -1,9 +1,9 @@
 package com.vcms.content.model;
 
+import com.vcms.design.model.Link;
+import com.vcms.design.model.Page;
 import com.vcms.localization.model.LocalText;
 import com.vcms.media.model.Media;
-import com.vcms.website.model.Link;
-import com.vcms.website.model.Page;
 
 public class Paragraph {
 
