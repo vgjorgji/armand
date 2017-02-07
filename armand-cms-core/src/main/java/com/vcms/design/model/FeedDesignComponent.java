@@ -1,6 +1,7 @@
 package com.vcms.design.model;
 
 import com.vcms.classify.model.Categories;
+import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.FeedType;
 
 public class FeedDesignComponent extends DesignComponent {
@@ -12,6 +13,15 @@ public class FeedDesignComponent extends DesignComponent {
 	private boolean showSearch;
 	private boolean showPagination;
 	private FeedItemLayout feedItemLayout = new FeedItemLayout();
+	
+	public FeedDesignComponent() {
+		super.setComponent(Component.Feed);
+	}
+	
+	@Override
+	public void setComponent(Component component) {
+		super.setComponent(Component.Feed);
+	}
 	
 	public FeedType getFeedType() {
 		return feedType;

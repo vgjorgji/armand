@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.vcms.conf.cms.Component;
 import com.vcms.content.model.ContactInfoItemRepository;
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.ContentModelRepository;
 import com.vcms.content.model.FeedItemRepository;
 import com.vcms.content.model.FooterItemRepository;
@@ -23,7 +24,6 @@ import com.vcms.content.model.MediaItemRepository;
 import com.vcms.content.model.ParagraphItemRepository;
 import com.vcms.content.model.TitleItemRepository;
 import com.vcms.design.model.DesignComponent;
-import com.vcms.persist.model.ContentModel;
 
 @Service
 public class ContentService {

@@ -2,7 +2,6 @@ package com.vcms.content.model;
 
 import com.vcms.conf.cms.Icon;
 import com.vcms.localization.model.LocalText;
-import com.vcms.persist.model.ContentModel;
 
 public class HighlightItem extends ContentModel {
 	

@@ -6,11 +6,11 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.conf.cms.Icon;
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.FooterItem;
 import com.vcms.content.model.FooterItemRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.design.model.ExternalPage;
-import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
 
 @Repository

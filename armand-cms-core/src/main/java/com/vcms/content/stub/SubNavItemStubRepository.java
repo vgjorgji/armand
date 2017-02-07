@@ -10,6 +10,7 @@ import com.vcms.content.model.SubNavItemRepository;
 import com.vcms.design.model.CmsPage;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class SubNavItemStubRepository implements SubNavItemRepository {
@@ -27,7 +28,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		CmsPage page = new CmsPage();
 		page.setUrl("about_us");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "About us", "За нас"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "About us", "За нас"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -36,7 +37,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("ethics_and_values");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Ethics and Values", "Eтика и Вредности"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Ethics and Values", "Eтика и Вредности"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -45,7 +46,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("our_mission");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Our mission", "Нашата мисија"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Our mission", "Нашата мисија"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -54,7 +55,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("patronage");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Patronage", "Патронат"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Patronage", "Патронат"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -63,7 +64,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("achievements");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Achievements", "Достигнувања"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Achievements", "Достигнувања"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -72,7 +73,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("testimonials");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Testimonials", "Што рекоа за нас"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Testimonials", "Што рекоа за нас"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -81,7 +82,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("partners");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Partners", "Партнери"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Partners", "Партнери"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 	}
@@ -92,7 +93,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		CmsPage page = new CmsPage();
 		page.setUrl("principal");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Principal", "Директор"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Principal", "Директор"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -101,7 +102,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("administration");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Administration", "Администрација"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Administration", "Администрација"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -110,7 +111,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("support_staff");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Support staff", "Стручни соработници"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Support staff", "Стручни соработници"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -119,7 +120,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("subject_teachers");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Subject teachers", "Предметна настава"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Subject teachers", "Предметна настава"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -128,7 +129,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("class_teachers");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Class teachers", "Одделенска настава"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Class teachers", "Одделенска настава"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 
@@ -137,7 +138,7 @@ public class SubNavItemStubRepository implements SubNavItemRepository {
 		subNavItem.setNavItemId(navItemId);
 		page = new CmsPage();
 		page.setUrl("technical_personnel");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Technical personnel", "Технички персонал"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Technical personnel", "Технички персонал"));
 		subNavItem.setPage(page);
 		result.add(subNavItem);
 	}

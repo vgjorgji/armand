@@ -17,6 +17,7 @@ import com.vcms.design.model.Page;
 import com.vcms.design.model.PageRepository;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class PageStubRepository implements PageRepository {
@@ -28,13 +29,13 @@ public class PageStubRepository implements PageRepository {
 		CmsPage cmsPage = StubUtils.createStubDbModel(new CmsPage(), 1000);
 		cmsPage.setWebsiteViewId(1000);
 		cmsPage.setUrl("home");
-		cmsPage.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Home", "Почетна"));
+		cmsPage.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Home", "Почетна"));
 		list.add(cmsPage);
 		
 		cmsPage = StubUtils.createStubDbModel(new CmsPage(), 1001);
 		cmsPage.setWebsiteViewId(1000);
 		cmsPage.setUrl("about_us");
-		cmsPage.setTitle(StubUtils.createLocalText(LocalTextType.Small, "About us", "За нас"));
+		cmsPage.setTitle(TextUtils.createLocalText(LocalTextType.Small, "About us", "За нас"));
 		list.add(cmsPage);
 		
 		ExternalPage externalPage = StubUtils.createStubDbModel(new ExternalPage(), 1002);

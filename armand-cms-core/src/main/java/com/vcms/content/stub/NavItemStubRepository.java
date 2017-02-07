@@ -10,6 +10,7 @@ import com.vcms.content.model.NavItemRepository;
 import com.vcms.design.model.CmsPage;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class NavItemStubRepository implements NavItemRepository {
@@ -29,7 +30,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		CmsPage page = new CmsPage();
 		page.setUrl("information");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Infromation", "Информации"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Infromation", "Информации"));
 		navItem.setPage(page);
 		result.add(navItem);
 
@@ -38,7 +39,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("staff");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Staff", "Вработени"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Staff", "Вработени"));
 		navItem.setPage(page);
 		result.add(navItem);
 
@@ -47,7 +48,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("school_board");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "School board", "Учлишен одбор"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "School board", "Учлишен одбор"));
 		navItem.setPage(page);
 		result.add(navItem);
 		
@@ -56,7 +57,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("parents_council");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Parents' Council", "Совет на родители"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Parents' Council", "Совет на родители"));
 		navItem.setPage(page);
 		result.add(navItem);
 
@@ -65,7 +66,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("documents");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Documents", "Документи"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Documents", "Документи"));
 		navItem.setPage(page);
 		result.add(navItem);
 	}
@@ -80,7 +81,7 @@ public class NavItemStubRepository implements NavItemRepository {
 			navItem.setMainNavItemId(mainNavItemId);
 			CmsPage page = new CmsPage();
 			page.setUrl(classNumber + "_class");
-			page.setTitle(StubUtils.createLocalText(LocalTextType.Small, classNumbers[i] + " class", classNumbers[i] + " одделение"));
+			page.setTitle(TextUtils.createLocalText(LocalTextType.Small, classNumbers[i] + " class", classNumbers[i] + " одделение"));
 			navItem.setPage(page);
 			result.add(navItem);
 		}
@@ -92,7 +93,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		CmsPage page = new CmsPage();
 		page.setUrl("news");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "News", "Новости"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "News", "Новости"));
 		navItem.setPage(page);
 		activities.add(navItem);
 		
@@ -101,7 +102,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("gallery");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Gallery", "Галерија"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Gallery", "Галерија"));
 		navItem.setPage(page);
 		activities.add(navItem);
 
@@ -110,7 +111,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("events");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Events", "Настани"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Events", "Настани"));
 		navItem.setPage(page);
 		activities.add(navItem);
 
@@ -119,7 +120,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("projects");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Projects", "Проекти"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Projects", "Проекти"));
 		navItem.setPage(page);
 		activities.add(navItem);
 
@@ -128,7 +129,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("surveys");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Surveys", "Анкети"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Surveys", "Анкети"));
 		navItem.setPage(page);
 		activities.add(navItem);
 	}
@@ -139,7 +140,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		CmsPage page = new CmsPage();
 		page.setUrl("songs_and_stories");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Songs and Stories", "Песни и Раскази"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Songs and Stories", "Песни и Раскази"));
 		navItem.setPage(page);
 		result.add(navItem);
 
@@ -148,7 +149,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("quizs");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Quizs", "Квизови"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Quizs", "Квизови"));
 		navItem.setPage(page);
 		result.add(navItem);
 
@@ -157,7 +158,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("interesting_things");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Interesting things", "Занимливости"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Interesting things", "Занимливости"));
 		navItem.setPage(page);
 		result.add(navItem);
 
@@ -166,7 +167,7 @@ public class NavItemStubRepository implements NavItemRepository {
 		navItem.setMainNavItemId(mainNavItemId);
 		page = new CmsPage();
 		page.setUrl("games");
-		page.setTitle(StubUtils.createLocalText(LocalTextType.Small, "Games", "Игри"));
+		page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Games", "Игри"));
 		navItem.setPage(page);
 		result.add(navItem);
 	}

@@ -9,7 +9,6 @@ import com.vcms.design.model.Link;
 import com.vcms.hashtag.model.HashTags;
 import com.vcms.localization.model.LocalText;
 import com.vcms.media.model.Media;
-import com.vcms.persist.model.ContentModel;
 
 public class FeedItem extends ContentModel {
 	

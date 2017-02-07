@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.MediaItem;
 import com.vcms.content.model.MediaItemRepository;
 import com.vcms.design.model.DesignComponent;
-import com.vcms.persist.model.ContentModel;
 
 @Repository
 public class MediaItemStubRepository implements MediaItemRepository {

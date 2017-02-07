@@ -1,7 +1,5 @@
 package com.vcms.content.model;
 
-import com.vcms.persist.model.ContentModel;
-
 public class ParagraphItem extends ContentModel {
 
 	private Paragraph paragraph;

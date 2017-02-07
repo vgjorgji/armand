@@ -1,7 +1,6 @@
 package com.vcms.content.model;
 
 import com.vcms.localization.model.LocalText;
-import com.vcms.persist.model.ContentModel;
 
 public class ContactInfoItem extends ContentModel {
 	

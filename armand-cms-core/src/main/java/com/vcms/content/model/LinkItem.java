@@ -2,7 +2,6 @@ package com.vcms.content.model;
 
 import com.vcms.design.model.Link;
 import com.vcms.design.model.Page;
-import com.vcms.persist.model.ContentModel;
 
 public class LinkItem extends ContentModel {
 	

@@ -1,7 +1,6 @@
 package com.vcms.content.model;
 
 import com.vcms.media.model.Media;
-import com.vcms.persist.model.ContentModel;
 
 public class MediaItem extends ContentModel {
 	

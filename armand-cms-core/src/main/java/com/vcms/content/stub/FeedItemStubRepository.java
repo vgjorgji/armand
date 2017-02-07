@@ -11,6 +11,7 @@ import com.vcms.classify.model.Category;
 import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.FeedType;
 import com.vcms.conf.cms.ModernColor;
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.FeedItem;
 import com.vcms.content.model.FeedItemRepository;
 import com.vcms.design.model.DesignComponent;
@@ -23,9 +24,9 @@ import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.media.model.Media;
 import com.vcms.media.model.MediaType;
-import com.vcms.persist.model.ContentModel;
+import com.vcms.utils.DateUtils;
 import com.vcms.utils.StubUtils;
-import com.vcms.utils.Utils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class FeedItemStubRepository implements FeedItemRepository {
@@ -64,14 +65,14 @@ public class FeedItemStubRepository implements FeedItemRepository {
 		FeedItem album = createFeedItem();
 		fillFeedItemAlbum(album);
 		album.getMedia().setSrc("/static/img/stub/a3.jpg");
-		album.setDate(Utils.getDateFromString("20.01.2015"));
+		album.setDate(DateUtils.getDateFromString("20.01.2015"));
 		gallery.add(album);
 		
 		// 2
 		album = createFeedItem();
 		fillFeedItemAlbum(album);
 		album.getMedia().setSrc("/static/img/stub/a4.jpg");
-		album.setDate(Utils.getDateFromString("20.01.2015"));
+		album.setDate(DateUtils.getDateFromString("20.01.2015"));
 		album.getLocation().addText(Language.English, "Big location name for look and feel");
 		album.getLocation().addText(Language.Macedonian, "Големо име за локација за да се осети дизајнот");
 		gallery.add(album);
@@ -80,14 +81,14 @@ public class FeedItemStubRepository implements FeedItemRepository {
 		album = createFeedItem();
 		fillFeedItemAlbum(album);
 		album.getMedia().setSrc("/static/img/stub/a5.jpg");
-		album.setDate(Utils.getDateFromString("10.04.2016"));
+		album.setDate(DateUtils.getDateFromString("10.04.2016"));
 		gallery.add(album);
 		
 		// 4
 		album = createFeedItem();
 		fillFeedItemAlbum(album);
 		album.getMedia().setSrc("/static/img/stub/a6.jpg");
-		album.setDate(Utils.getDateFromString("15.10.2016"));
+		album.setDate(DateUtils.getDateFromString("15.10.2016"));
 		gallery.add(album);
 		
 		// result
@@ -156,14 +157,14 @@ public class FeedItemStubRepository implements FeedItemRepository {
 		// category
 		Category category = new Category();
 		category.setColor(ModernColor.Amethyst);
-		category.setName(StubUtils.createLocalTextSmall("Category", "Категорија"));
+		category.setName(TextUtils.createLocalTextSmall("Category", "Категорија"));
 		Categories categories = new Categories();
 		categories.addModel(category);
 		feedItem.setCategories(categories);
 		
 		// hash tags
 		HashTag hashTag = new HashTag();
-		hashTag.setName(StubUtils.createLocalTextSmall("Hash Tag", "Ознака"));
+		hashTag.setName(TextUtils.createLocalTextSmall("Hash Tag", "Ознака"));
 		HashTags hashTags = new HashTags();
 		hashTags.addModel(hashTag);
 		feedItem.setHashTags(hashTags);
@@ -178,7 +179,7 @@ public class FeedItemStubRepository implements FeedItemRepository {
 		feedItem.setPage(page);
 		feedItem.getTitle().addText(Language.English, "Article");
 		feedItem.getTitle().addText(Language.Macedonian, "Статија");
-		feedItem.setCreatedDate(Utils.getDateFromString("03.05.2016"));
+		feedItem.setCreatedDate(DateUtils.getDateFromString("03.05.2016"));
 	}
 	
 	private void fillFeedItemAlbum(FeedItem feedItem) {
@@ -187,8 +188,8 @@ public class FeedItemStubRepository implements FeedItemRepository {
 		feedItem.setPage(page);
 		feedItem.getTitle().addText(Language.English, "Album");
 		feedItem.getTitle().addText(Language.Macedonian, "Албум");
-		feedItem.setDate(Utils.getDateFromString("01.03.2016"));
-		feedItem.setLocation(StubUtils.createLocalTextSmall("Location one", "Локација еден"));
+		feedItem.setDate(DateUtils.getDateFromString("01.03.2016"));
+		feedItem.setLocation(TextUtils.createLocalTextSmall("Location one", "Локација еден"));
 	}
 	
 	private void fillFeedItemEvent(FeedItem feedItem) {
@@ -197,9 +198,9 @@ public class FeedItemStubRepository implements FeedItemRepository {
 		feedItem.setPage(page);
 		feedItem.getTitle().addText(Language.English, "Event");
 		feedItem.getTitle().addText(Language.Macedonian, "Настан");
-		feedItem.setDateStart(Utils.getDateTimeFromString("03.04.2016 09:30"));
-		feedItem.setDateEnd(Utils.getDateTimeFromString("03.04.2016 10:30"));
-		feedItem.setLocation(StubUtils.createLocalTextSmall("Location Temp", "Локација Некаде"));
+		feedItem.setDateStart(DateUtils.getDateTimeFromString("03.04.2016 09:30"));
+		feedItem.setDateEnd(DateUtils.getDateTimeFromString("03.04.2016 10:30"));
+		feedItem.setLocation(TextUtils.createLocalTextSmall("Location Temp", "Локација Некаде"));
 	}
 	
 }

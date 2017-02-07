@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.content.model.Align;
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.JumbotronItem;
 import com.vcms.content.model.JumbotronItemRepository;
 import com.vcms.content.model.Paragraph;
@@ -17,8 +18,8 @@ import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.media.model.Media;
 import com.vcms.media.model.MediaType;
-import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class JumbotronItemStubRepository implements JumbotronItemRepository {
@@ -64,7 +65,7 @@ public class JumbotronItemStubRepository implements JumbotronItemRepository {
 	
 	private Title createTitle(String enText, String mkText) {
 		Title title = new Title();
-		title.setText(StubUtils.createLocalText(LocalTextType.Normal, enText, mkText));
+		title.setText(TextUtils.createLocalText(LocalTextType.Normal, enText, mkText));
 		return title;
 	}
 

@@ -9,11 +9,11 @@ import org.springframework.stereotype.Repository;
 import com.vcms.conf.cms.Component;
 import com.vcms.content.model.ContactInfoItem;
 import com.vcms.content.model.ContactInfoItemRepository;
+import com.vcms.content.model.ContentModel;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.localization.model.Language;
 import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
-import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
 
 @Repository

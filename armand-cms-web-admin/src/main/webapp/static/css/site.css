@@ -5,16 +5,27 @@ body {
 	font-family: Arial,sans-serif;
 	margin-bottom: 0;
 	padding-top: 70px;
+	background: #F7F7F7;
 }
 
 li {
 	list-style-type: none;
 }
 
+.page-header {
+	margin-top: 0;
+	border-color: #ddd;
+    color: #777;
+}
+.text-light-gray {
+	color: #ccc !important;
+}
+
+/************** HELPERS **************/
+
 .max-width-4 {
 	max-width: 400px;
 }
-
 .inline {
 	display: inline;
 }
@@ -22,11 +33,7 @@ li {
 	display: inline-block;
 }
 
-.page-header {
-	margin-top: 0;
-}
-
-/************** FA Edit **************/
+/************** FA EDIT **************/
 
 .fa {
 	margin-right: 7px;
@@ -132,9 +139,8 @@ li {
 		padding: 20px;
 		overflow-x: hidden;
 		overflow-y: auto;
-		/* Scrollable contents if viewport is shorter than content. */
-		background-color: #f5f5f5;
-		border-right: 1px solid #eee;
+		background-color: #fff;
+		border-right: 1px solid #ddd;
 	}
 }
 .nav-sidebar {
@@ -159,7 +165,7 @@ li {
 	}
 }
 
-/************** Website Teaser **************/
+/************** WEBSITE TEASER **************/
 
 .website-teaser {
 	width: 430px;
@@ -215,7 +221,7 @@ li {
 	margin: 0;
 }
 
-/************** Lights **************/
+/************** LIGHTS **************/
 
 .light-success {
 	border-radius: 8px;
@@ -245,4 +251,23 @@ li {
 	width: 16px;
 	height: 16px;
 	margin-bottom: -3px;
+}
+
+/************** TILE SUM **************/
+
+.tile-sum {
+	position: relative;
+}
+.tile-sum a {
+	position: absolute;
+    right: 15px;
+    top: 6px;
+}
+.tile-sum h1 {
+	margin: 0 0 20px 0;
+	font-weight: bold;
+	color: #777;
+}
+.tile-sum h4 {
+	margin-bottom: 0px;
 }

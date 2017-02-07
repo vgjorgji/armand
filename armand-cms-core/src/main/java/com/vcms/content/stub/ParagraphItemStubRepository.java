@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.Paragraph;
 import com.vcms.content.model.ParagraphItem;
 import com.vcms.content.model.ParagraphItemRepository;
@@ -17,7 +18,6 @@ import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.media.model.Media;
 import com.vcms.media.model.MediaType;
-import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.StubUtils;
 
 @Repository

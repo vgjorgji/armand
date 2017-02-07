@@ -1,4 +1,6 @@
-package com.vcms.persist.model;
+package com.vcms.content.model;
+
+import com.vcms.persist.model.HistoryModel;
 
 public abstract class ContentModel extends HistoryModel {
 	

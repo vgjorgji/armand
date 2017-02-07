@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vcms.conf.cms.Component;
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.ContentModelRepository;
 import com.vcms.content.model.MainNavItem;
 import com.vcms.content.model.MainNavItemRepository;
@@ -17,7 +18,6 @@ import com.vcms.content.model.NavItemRepository;
 import com.vcms.content.model.SubNavItem;
 import com.vcms.content.model.SubNavItemRepository;
 import com.vcms.design.model.DesignComponent;
-import com.vcms.persist.model.ContentModel;
 import com.vcms.utils.Utils;
 
 @Service

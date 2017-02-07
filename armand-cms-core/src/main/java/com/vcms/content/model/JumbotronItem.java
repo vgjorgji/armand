@@ -1,7 +1,5 @@
 package com.vcms.content.model;
 
-import com.vcms.persist.model.ContentModel;
-
 public class JumbotronItem extends ContentModel {
 	
 	private Title title;

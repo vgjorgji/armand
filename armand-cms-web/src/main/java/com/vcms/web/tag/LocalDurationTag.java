@@ -3,7 +3,7 @@ package com.vcms.web.tag;
 import java.util.Date;
 
 import com.vcms.localization.model.Language;
-import com.vcms.utils.Utils;
+import com.vcms.utils.DateUtils;
 
 public class LocalDurationTag extends AbstractLocalTag {
 
@@ -14,7 +14,7 @@ public class LocalDurationTag extends AbstractLocalTag {
 	@Override
 	protected String generateResponseString(Language language) {
 		if (value != null) {
-			return Utils.toDuration(value, language);
+			return DateUtils.toDuration(value, language);
 		}
 		return "";
 	}

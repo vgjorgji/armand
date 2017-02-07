@@ -7,7 +7,7 @@ import com.vcms.conf.cms.Component;
 import com.vcms.conf.cms.ComponentStyle;
 import com.vcms.conf.cms.ItemsLayout;
 import com.vcms.conf.cms.SingleColor;
-import com.vcms.persist.model.ContentModel;
+import com.vcms.content.model.ContentModel;
 import com.vcms.persist.model.HistoryModel;
 
 public class DesignComponent extends HistoryModel {

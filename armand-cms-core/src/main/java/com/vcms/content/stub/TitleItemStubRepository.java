@@ -5,13 +5,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.Title;
 import com.vcms.content.model.TitleItem;
 import com.vcms.content.model.TitleItemRepository;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.localization.model.LocalTextType;
-import com.vcms.persist.model.ContentModel;
-import com.vcms.utils.StubUtils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class TitleItemStubRepository implements TitleItemRepository {
@@ -44,7 +44,7 @@ public class TitleItemStubRepository implements TitleItemRepository {
 	
 	private Title createTitle(String enText, String mkText) {
 		Title title = new Title();
-		title.setText(StubUtils.createLocalText(LocalTextType.Normal, enText, mkText));
+		title.setText(TextUtils.createLocalText(LocalTextType.Normal, enText, mkText));
 		return title;
 	}
 	

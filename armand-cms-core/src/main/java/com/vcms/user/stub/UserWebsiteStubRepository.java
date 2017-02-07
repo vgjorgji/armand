@@ -12,6 +12,7 @@ import com.vcms.user.model.PowerGroup;
 import com.vcms.user.model.WebsiteUser;
 import com.vcms.user.model.WebsiteUserRepository;
 import com.vcms.utils.StubUtils;
+import com.vcms.utils.TextUtils;
 
 @Repository
 public class UserWebsiteStubRepository implements WebsiteUserRepository {
@@ -25,8 +26,8 @@ public class UserWebsiteStubRepository implements WebsiteUserRepository {
 		websiteUser.setWebsiteId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Roots);
 		websiteUser.setLanguage(Language.English);
-		websiteUser.setJobPosition(StubUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		websiteUser.setBiography(StubUtils.createLocalTextSmall("Biography...", "Биографија..."));
+		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(TextUtils.createLocalTextSmall("Biography...", "Биографија..."));
 		list.add(websiteUser);
 		
 		websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1001);
@@ -34,8 +35,8 @@ public class UserWebsiteStubRepository implements WebsiteUserRepository {
 		websiteUser.setWebsiteId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Administrators);
 		websiteUser.setLanguage(Language.English);
-		websiteUser.setJobPosition(StubUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		websiteUser.setBiography(StubUtils.createLocalTextSmall("Biography...", "Биографија..."));
+		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(TextUtils.createLocalTextSmall("Biography...", "Биографија..."));
 		list.add(websiteUser);
 		
 		websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1002);
@@ -43,8 +44,8 @@ public class UserWebsiteStubRepository implements WebsiteUserRepository {
 		websiteUser.setWebsiteId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Members);
 		websiteUser.setLanguage(Language.Macedonian);
-		websiteUser.setJobPosition(StubUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
-		websiteUser.setBiography(StubUtils.createLocalTextSmall("Biography...", "Биографија..."));
+		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(TextUtils.createLocalTextSmall("Biography...", "Биографија..."));
 		list.add(websiteUser);
 	}
 

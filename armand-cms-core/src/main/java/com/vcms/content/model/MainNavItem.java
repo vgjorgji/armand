@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.vcms.design.model.Link;
 import com.vcms.design.model.Page;
-import com.vcms.persist.model.ContentModel;
 
 public class MainNavItem extends ContentModel {
 
