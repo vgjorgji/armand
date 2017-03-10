@@ -3,6 +3,7 @@
 
 body {
 	font-family: Arial,sans-serif;
+	font-size: 15px;
 	margin-bottom: 0;
 	padding-top: 70px;
 	background: #F7F7F7;
@@ -17,7 +18,9 @@ li {
 	border-color: #ddd;
     color: #777;
 }
-.text-light-gray {
+
+.disabled,
+.disabled>* {
 	color: #ccc !important;
 }
 
@@ -262,6 +265,7 @@ li {
 	position: absolute;
     right: 15px;
     top: 6px;
+    color: #777;
 }
 .tile-sum h1 {
 	margin: 0 0 20px 0;
