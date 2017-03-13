@@ -35,11 +35,27 @@ li {
 .inline-block {
 	display: inline-block;
 }
-
-/************** FA EDIT **************/
-
 .fa {
 	margin-right: 7px;
+}
+
+/************** LOGO **************/
+
+.navbar-brand {
+	display: block;
+	padding: 5px 15px;
+	font-size: 22px;'
+}
+.navbar-brand>span {
+	display: inline-block;
+	margin-top: 10px;
+}
+.navbar-brand>.logo {
+	background: url('../img/logo.png') no-repeat;
+	background-size: 100%;
+	width: 48px;
+	height: 36px;
+	display: inline-block;
 }
 
 /************** FLAGS **************/
@@ -142,7 +158,7 @@ li {
 		padding: 20px;
 		overflow-x: hidden;
 		overflow-y: auto;
-		background-color: #fff;
+		background-color: #7f8c8d;
 		border-right: 1px solid #ddd;
 	}
 }
@@ -152,20 +168,30 @@ li {
 	margin-left: -20px;
 }
 .nav-sidebar>li>a {
-	padding-right: 20px;
-	padding-left: 20px;
-}
-.nav-sidebar>.active>a, 
-.nav-sidebar>.active>a:hover, 
-.nav-sidebar>.active>a:focus {
 	color: #fff;
-	background-color: #428bca;
+	padding: 15px 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.nav-sidebar>li>a:hover {
+	background-color: rgba(211, 214, 216, 0.2);
+} 
+.nav-sidebar>li.active>a, 
+.nav-sidebar>li.active>a:hover, 
+.nav-sidebar>li.active>a:focus {
+	background-color: rgba(211, 214, 216, 0.5);
 }
 @media ( min-width : 768px) {
 	.main {
 		padding-right: 40px;
 		padding-left: 40px;
 	}
+}
+.nav-sidebar .fa {
+	font-size: 20px;
+	margin-right: 15px;
 }
 
 /************** WEBSITE TEASER **************/
