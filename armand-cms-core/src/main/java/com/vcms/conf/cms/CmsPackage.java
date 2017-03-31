@@ -6,28 +6,28 @@ import java.util.Set;
 import com.vcms.utils.Utils;
 
 public enum CmsPackage {
-	BASIC(300, false, false, true, false,
+	BASIC(300, 
 			Utils.asSet(Component.Header, Component.Navigation, Component.Footer, 
 					Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
 					Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos),
-			new HashSet<FeedType>()),
+			new HashSet<FeedType>(),
+			Utils.asSet(CmsOption.Language)),
 	
-	DYNAMIC(400, true, false, true, false,
+	DYNAMIC(400,
 			Utils.asSet(Component.Header, Component.Navigation, Component.Footer, 
 					Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
 					Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos,
 					Component.Feed),
-			Utils.asSet(FeedType.Aricle, FeedType.Album, FeedType.Survey)),
+			Utils.asSet(FeedType.Aricle, FeedType.Album, FeedType.Survey),
+			Utils.asSet(CmsOption.Search, CmsOption.Language)),
 	
-	BUSINESS(500, true, true, true, true,
+	BUSINESS(500,
 			Utils.asSet(Component.values()),
-			Utils.asSet(FeedType.values()));
+			Utils.asSet(FeedType.values()),
+			Utils.asSet(CmsOption.values()));
 
 	private long price;
-	private boolean optionSearch;
-	private boolean optionNotification;
-	private boolean optionLanguage;
-	private boolean optionLogin;
+	private Set<CmsOption> options;
 	private Set<Component> components;
 	private Set<FeedType> feedTypes;
 	
@@ -36,41 +36,19 @@ public enum CmsPackage {
 	 * Constructor.
 	 */
 	private CmsPackage(long price,
-			boolean optionSearch,
-			boolean optionNotification,
-			boolean optionLanguage,
-			boolean optionLogin,
 			Set<Component> components,
-			Set<FeedType> feedTypes) {
+			Set<FeedType> feedTypes,
+			Set<CmsOption> options) {
 		this.price = price;
-		this.optionSearch = optionSearch;
-		this.optionNotification = optionNotification;
-		this.optionLanguage = optionLanguage;
-		this.optionLogin = optionLogin;
 		this.components = components;
 		this.feedTypes = feedTypes;
+		this.options = options;
 	}
 	
 	public long getPrice() {
 		return price;
 	}
 	
-	public boolean isOptionSearch() {
-		return optionSearch;
-	}
-
-	public boolean isOptionNotification() {
-		return optionNotification;
-	}
-
-	public boolean isOptionLanguage() {
-		return optionLanguage;
-	}
-
-	public boolean isOptionLogin() {
-		return optionLogin;
-	}
-
 	public Set<Component> getComponents() {
 		return components;
 	}
@@ -87,4 +65,11 @@ public enum CmsPackage {
 		return feedTypes.contains(feedType);
 	}
 	
+	public Set<CmsOption> getOptions() {
+		return options;
+	}
+	
+	public boolean isOptionSupported(CmsOption option) {
+		return options.contains(option);
+	}
 }
