@@ -5,17 +5,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/dashboard")
-public class DashboardController {
+@RequestMapping(value = "/overview")
+public class OverviewController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getHomePage() {
-		return "redirect:/dashboard/overview";
+		return "redirect:/overview/dashboard";
 	}
 	
-	@RequestMapping(value = "/overview", method = RequestMethod.GET)
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String getDashboardPage() {
-		return "/dashboard/overview";
+		return "/overview/dashboard";
 	}
 
 }

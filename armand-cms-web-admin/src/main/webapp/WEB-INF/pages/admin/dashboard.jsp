@@ -15,12 +15,12 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 sidebar">
-				<admin:navigation select="overview" />
+			<div class="col-md-2">
+				<admin:navigation select="dashboard" />
 			</div>
 			<div class="col-md-10 col-md-offset-2 main">
 			
-				<h2 class="page-header">Administration</h2>
+				<h2 class="page-header">Dashboard</h2>
 
 				<div class="row placeholders">
 					<div class="col-xs-6 col-sm-3 placeholder">

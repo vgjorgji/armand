@@ -16,14 +16,14 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 sidebar">
-				<websites:navigation select="overview" />
+			<div class="col-md-2">
+				<websites:navigation select="dashboard" />
 			</div>
 			
 			<div class="col-md-10 col-md-offset-2 main">
 				<div>
 					<a href="#" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Add</a>
-					<h2 class="page-header">Websites</h2>
+					<h2 class="page-header">Dashboard</h2>
 				</div>
 		
 				<div class="row">
@@ -88,13 +88,13 @@
 								<h5>Reports</h5>
 								<table class="table last">
 									<tr>
-										<th role="row">Active</th>
+										<td>Active</td>
 										<td><i class="fa fa-user text-success"></i>20</td>
 										<td><i class="fa fa-eye"></i>1h 20min</td>
 										<td><i class="fa fa-eye-slash"></i>20min</td>
 									</tr>
 									<tr>
-										<th role="row">Visits</th>
+										<td>Visits</td>
 										<td><i class="fa fa-user"></i>59</td>
 										<td><i class="fa fa-users"></i>1.250</td>
 										<td><i class="fa fa-clock-o"></i>25 %</td>
@@ -163,13 +163,13 @@
 								<h5>Reports</h5>
 								<table class="table last">
 									<tr>
-										<th role="row">Active</th>
+										<td>Active</td>
 										<td><i class="fa fa-user text-success"></i>20</td>
 										<td><i class="fa fa-eye"></i>1h 20min</td>
 										<td><i class="fa fa-eye-slash"></i>20min</td>
 									</tr>
 									<tr>
-										<th role="row">Visits</th>
+										<td>Visits</td>
 										<td><i class="fa fa-user"></i>59</td>
 										<td><i class="fa fa-users"></i>1.250</td>
 										<td><i class="fa fa-clock-o"></i>25 %</td>
@@ -238,13 +238,13 @@
 								<h5>Reports</h5>
 								<table class="table last">
 									<tr>
-										<th role="row">Active</th>
+										<td>Active</td>
 										<td><i class="fa fa-user text-success"></i>20</td>
 										<td><i class="fa fa-eye"></i>1h 20min</td>
 										<td><i class="fa fa-eye-slash"></i>20min</td>
 									</tr>
 									<tr>
-										<th role="row">Visits</th>
+										<td>Visits</td>
 										<td><i class="fa fa-user"></i>59</td>
 										<td><i class="fa fa-users"></i>1.250</td>
 										<td><i class="fa fa-clock-o"></i>25 %</td>

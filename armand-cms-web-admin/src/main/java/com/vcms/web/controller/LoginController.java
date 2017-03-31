@@ -15,14 +15,14 @@ public class LoginController {
 	public String getLoginPage() {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		if (!userSettings.isVisitor()) {
-			return "redirect:/dashboard";
+			return "redirect:/overview";
 		}
 		return "/login";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHomePage() {
-		return "redirect:/dashboard";
+		return "redirect:/overview";
 	}
 
 }

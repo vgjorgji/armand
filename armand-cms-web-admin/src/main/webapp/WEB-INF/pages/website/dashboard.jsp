@@ -9,15 +9,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<global:head title="Websites" />
+<global:head title="Demo Website" />
 
 <body>
 	<global:navigation select="website" />
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 sidebar">
-				<website:navigation select="overview" />
+			<div class="col-md-2">
+				<website:navigation select="dashboard" />
 			</div>
 			
 			<div class="col-md-10 col-md-offset-2 main">
@@ -26,7 +26,7 @@
 					<a href="<c:url value="/website/1000/golive" />" class="btn btn-danger pull-right">
 						<i class="fa fa-globe"></i>Go Live
 					</a>
-					<h2 class="page-header">Demo Website</h2>
+					<h2 class="page-header">Dashboard</h2>
 				</div>
 		
 				<!-- Actions -->
@@ -35,7 +35,7 @@
 					<div class="col-md-3">
 						<div class="panel panel-default tile-sum">
 							<div class="panel-body">
-								<a href="#"><i class="fa fa-paint-brush fa-5x"></i></a>
+								<a href="#"><i class="fa fa-paint-brush fa-4x"></i></a>
 								<h1>24</h1>
 								<h4>Designer</h4>
 								<small>Pages changed</small>
@@ -46,8 +46,8 @@
 					<div class="col-md-3">
 						<div class="panel panel-default tile-sum">
 							<div class="panel-body disabled">
-								<a href="#"><i class="fa fa-delicious fa-5x"></i></a>
-								<h1>0</h1>
+								<a href="#"><i class="fa fa-delicious fa-4x"></i></a>
+								<h1>1</h1>
 								<h4>Design Reviewer</h4>
 								<small>Pages to review</small>
 							</div>
@@ -57,8 +57,8 @@
 					<div class="col-md-3">
 						<div class="panel panel-default tile-sum">
 							<div class="panel-body">
-								<a href="#"><i class="fa fa-pencil-square-o fa-5x"></i></a>
-								<h1>3</h1>
+								<a href="#"><i class="fa fa-pencil-square-o fa-4x"></i></a>
+								<h1>0</h1>
 								<h4>Writer</h4>
 								<small>Pages content changed</small>
 							</div>
@@ -68,7 +68,7 @@
 					<div class="col-md-3">
 						<div class="panel panel-default tile-sum">
 							<div class="panel-body">
-								<a href="#"><i class="fa fa-magic fa-5x"></i></a>
+								<a href="#"><i class="fa fa-magic fa-4x"></i></a>
 								<h1>242</h1>
 								<h4>Content Reviewer</h4>
 								<small>Pages content to review</small>
@@ -77,15 +77,17 @@
 					</div>
 				</div><!-- /.row -->
 				
-				<!-- Website Info -->
+				<!-- Website + Company -->
 				<div class="row">
+				
+					<!-- Website -->
 					<div class="col-md-6">
 						<div class="panel panel-default">
 							<div class="panel-body form-horizontal">
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Name</label>
 									<div class="col-sm-9">
-										<p class="form-control-static">Demo</p>
+										<p class="form-control-static">Demo Website</p>
 									</div>
 								</div>
 								<div class="form-group">
@@ -126,7 +128,7 @@
 									<label class="col-sm-3 control-label">Expiry Date</label>
 									<div class="col-sm-9">
 										<p class="form-control-static">
-											23.05.2019
+											23.05.2019 (1 year 2 months 29 days)
 										</p>
 									</div>
 								</div>
@@ -134,6 +136,7 @@
 						</div> <!-- /.panel -->
 					</div> <!-- /.col-md-6 -->
 					
+					<!-- Company -->
 					<div class="col-md-6">
 						<div class="panel panel-default">
 							<div class="panel-body form-horizontal">
@@ -197,6 +200,7 @@
 					</div> <!-- /.col-md -->
 					
 				</div><!-- /.row -->
+				
 			</div> <!-- /.right menu -->
 			
 		</div>

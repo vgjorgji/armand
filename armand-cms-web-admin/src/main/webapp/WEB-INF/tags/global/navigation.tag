@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -15,32 +15,32 @@
 			</button>
 			<a class="navbar-brand" href="#">
 				<i class="logo"></i>
-				<span>Armand</span>
+				<span>ARMAND</span>
 			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="<c:if test="${select eq 'dashboard'}">active</c:if>">
-					<a href="<c:url value="/dashboard/overview" />">Dashboard</a>
+				<li class="<c:if test="${select eq 'overview'}">active</c:if>">
+					<a href="<c:url value="/overview/dashboard" />">Overview</a>
 				</li>
 				<li class="<c:if test="${select eq 'admin'}">active</c:if>">
-					<a href="<c:url value="/admin/overview" />">Administration</a>
+					<a href="<c:url value="/admin/dashboard" />">Administration</a>
 				</li>
 				<li class="<c:if test="${select eq 'websites'}">active</c:if>">
-					<a href="<c:url value="/websites/overview" />">Websites</a>
+					<a href="<c:url value="/websites/dashboard" />">Websites</a>
 				</li>
 				<c:if test="${empty selectedWebsite}">
-					<li class="<c:if test="${select eq 'website'}">active</c:if>">
-						<a href="<c:url value="/website/1000/overview" />"><em>Demo Website</em></a>
+					<li class="website <c:if test="${select eq 'website'}">active</c:if>">
+						<a href="<c:url value="/website/1000/dashboard" />"><em>Demo Website</em></a>
 					</li>
 				</c:if>
+				<li class="<c:if test="${select eq 'faq'}">active</c:if>">
+					<a href="<c:url value="/faq/dashboard" />">FAQ</a>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="<c:url value="/faq/overview" />">FAQ</a>
-				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-list"></i><span> </span><span class="badge btn-danger">1</span>
@@ -66,14 +66,6 @@
 					</ul>
 				</li>
 			</ul>
-			<form class="navbar-form navbar-right" role="search">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search for...">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">Go</button>
-					</span>
-				</div>
-			</form>
 		</div> <!-- /.navbar-collapse -->
 	</div> <!-- /.container-fluid -->
 </nav>

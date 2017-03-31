@@ -4,19 +4,19 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 <%@ taglib prefix="global" tagdir="/WEB-INF/tags/global"%>
-<%@ taglib prefix="dashboard" tagdir="/WEB-INF/tags/dashboard"%>
+<%@ taglib prefix="overview" tagdir="/WEB-INF/tags/overview"%>
 
 <!DOCTYPE html>
 <html lang="en">
 <global:head title="Dashboard" />
 
 <body>
-	<global:navigation select="dashboard" />
+	<global:navigation select="overview" />
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2 sidebar">
-				<dashboard:navigation select="overview" />
+			<div class="col-md-2">
+				<overview:navigation select="dashboard" />
 			</div>
 			<div class="col-md-10 col-md-offset-2 main">
 			

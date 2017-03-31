@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/websites")
 public class WebsitesController {
 	
-	@RequestMapping(value = "/overview", method = RequestMethod.GET)
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String getWebsitesPage() {
-		return "/websites/overview";
+		return "/websites/dashboard";
 	}
 
 }

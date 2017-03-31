@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/admin")
 public class AdminController {
 	
-	@RequestMapping(value = "/overview", method = RequestMethod.GET)
-	public String getOverviewPage() {
-		return "/admin/overview";
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+	public String getDashboardPage() {
+		return "/admin/dashboard";
 	}
 
 }
