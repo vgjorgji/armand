@@ -12,18 +12,18 @@
 			<a href="<c:url value="/website/1000/designer" />"><i class="fa fa-paint-brush"></i>Designer</a>
 			
 			<c:if test="${select eq 'designer'}">
-				<ul class="nav nav-sidebar">
+				<ul class="nav nav-sidebar-sub">
 					<li>
-						<a href="#"><i class="fa fa-delicious"></i>Theme</a>
+						<a href="#">Theme</a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-delicious"></i>Navigation</a>
+						<a href="#">Navigation</a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-delicious"></i>Pages</a>
+						<a href="#">Pages</a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-delicious"></i>Preview</a>
+						<a href="#">Preview</a>
 					</li>
 				</ul>
 			</c:if>
