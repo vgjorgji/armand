@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class WebsitesController {
 	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String getWebsitesPage() {
+	public String getDashboardPage() {
 		return "/websites/dashboard";
 	}
 

@@ -10,13 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class WebsiteController {
 	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String getWebsiteDashboardPage(@PathVariable("websiteId") long websiteId) {
+	public String getDashboardPage(@PathVariable("websiteId") long websiteId) {
 		return "/website/dashboard";
 	}
 	
-	@RequestMapping(value = "/designer", method = RequestMethod.GET)
-	public String getWebsiteDesignerPage(@PathVariable("websiteId") long websiteId) {
-		return "/website/designer";
-	}
-
 }

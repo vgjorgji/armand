@@ -47,6 +47,11 @@ li {
 .fa {
 	margin-right: 7px;
 }
+.fa-blank {
+	width: 20px;
+	height: 17px;
+	content: ' ';
+}
 
 /************** FLAGS **************/
 
@@ -165,12 +170,6 @@ li {
 	display: block;
 	background-color: #444;
 }
-.sidebar.designer {
-	background-color: #8e44ad;
-}
-.sidebar.designer {
-	background-color: #8e44ad;
-}
 @media ( min-width : 768px) {
 	.sidebar {
 		position: fixed;
@@ -180,7 +179,7 @@ li {
 		z-index: 1000;
 		overflow-x: hidden;
 		overflow-y: auto;
-		border-right: 1px solid #080808;
+		border-right: 1px solid #ddd;
 		width: 330px;
 	}
 }
@@ -232,8 +231,27 @@ li {
 }
 .nav-sidebar .nav-sidebar-sub>li>a {
 	color: #fff;
-	padding: 7px 70px;
+	padding: 7px 30px;
 }
+
+/************** SIDE BAR WEBSITE **************/
+
+.sidebar.design {
+	background-color: #8e44ad;
+}
+.sidebar.design-review {
+	background-color: #2980b9;
+}
+.sidebar.content {
+	background-color: #27ae60;
+}
+.sidebar.content-review {
+	background-color: #f39c12;
+}
+.sidebar.publish {
+	background-color: #c0392b;
+}
+
 
 /************** MAIN **************/
 
