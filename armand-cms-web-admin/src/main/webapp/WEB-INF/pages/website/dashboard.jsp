@@ -85,14 +85,14 @@
 						<div class="panel panel-default">
 							<div class="panel-body form-horizontal">
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Name</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Name</label>
+									<div class="col-md-9">
 										<p class="form-control-static">Demo Website</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">URL</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">URL</label>
+									<div class="col-md-9">
 										<p class="form-control-static">
 											<a href="https://www.google.com/" target="_blank">
 												<i class="fa fa-globe"></i>www.therealwebsiteurl.com
@@ -101,32 +101,32 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">CMS Package</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">CMS Package</label>
+									<div class="col-md-9">
 										<p class="form-control-static">
 											<i class="fa fa-star"></i><em><strong>Business</strong></em>
 										</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Languages</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Languages</label>
+									<div class="col-md-9">
 										<p class="form-control-static">
 											<i class="flag flag-usa"></i>English <br/><i class="flag flag-macedonia"></i>Macedonian
 										</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Status</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Status</label>
+									<div class="col-md-9">
 										<p class="form-control-static">
 											<i class="fa light-success"></i><strong class="text-success">Online</strong>
 										</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Expiry Date</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Expiry Date</label>
+									<div class="col-md-9">
 										<p class="form-control-static">
 											23.05.2019 (1 year 2 months 29 days)
 										</p>
@@ -141,57 +141,57 @@
 						<div class="panel panel-default">
 							<div class="panel-body form-horizontal">
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Company</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Company</label>
+									<div class="col-md-9">
 										<p class="form-control-static">Demo</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Address 1</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Address 1</label>
+									<div class="col-md-9">
 										<p class="form-control-static">XXX</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Address 2</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Address 2</label>
+									<div class="col-md-9">
 										<p class="form-control-static">no. 242</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Phone 1</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Phone 1</label>
+									<div class="col-md-9">
 										<p class="form-control-static">+389-2-2424-888</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Phone 2</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Phone 2</label>
+									<div class="col-md-9">
 										<p class="form-control-static"></p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Email</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Email</label>
+									<div class="col-md-9">
 										<p class="form-control-static">demo@email.com</p>
 									</div>
 								</div>
 								<hr/>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Contact User</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Contact User</label>
+									<div class="col-md-9">
 										<p class="form-control-static">Lastname Firstname</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Phone</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Phone</label>
+									<div class="col-md-9">
 										<p class="form-control-static">+389-70-424-888</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Email</label>
-									<div class="col-sm-9">
+									<label class="col-md-3 control-label">Email</label>
+									<div class="col-md-9">
 										<p class="form-control-static">contact.user@email.com</p>
 									</div>
 								</div>

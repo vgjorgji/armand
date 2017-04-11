@@ -1,9 +1,12 @@
 package com.vcms.web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.vcms.website.model.WebsiteView;
 
 @Controller
 @RequestMapping(value = "/website/{websiteId}/design")
@@ -21,7 +24,8 @@ public class WebsiteDesignController {
 	}
 	
 	@RequestMapping(value = "/theme", method = RequestMethod.GET)
-	public String getDesignerThemePage(@PathVariable("websiteId") long websiteId) {
+	public String getDesignerThemePage(@PathVariable("websiteId") long websiteId, Model model) {
+		model.addAttribute("b", new WebsiteView());
 		return THEME;
 	}
 	
