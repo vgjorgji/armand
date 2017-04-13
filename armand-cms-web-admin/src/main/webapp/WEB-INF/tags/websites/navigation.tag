@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="sidebar">
-	<ul class="nav nav-sidebar">
+	<ul class="nav nav-sidebar last">
 		<li class="<c:if test="${select eq 'dashboard'}">active</c:if>">
 			<a href="<c:url value="/dashboard" />"><i class="fa fa-desktop"></i>Dashboard</a>
 		</li>

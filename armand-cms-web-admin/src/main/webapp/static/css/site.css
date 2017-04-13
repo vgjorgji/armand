@@ -139,6 +139,10 @@ li {
 
 /************** GLOBAL BAR **************/
 
+.navbar {
+	margin-bottom: 0;
+	height: 51px;
+}
 .navbar-fixed-top {
 	font-size: 17px;
 	left: 0px;
@@ -169,6 +173,8 @@ li {
 	padding: 20px;
 	display: block;
 	background-color: #444;
+	position: relative;
+    top: -20px;
 }
 @media ( min-width : 768px) {
 	.sidebar {
@@ -199,6 +205,9 @@ li {
 	margin-right: -21px; /* 20px padding + 1px border */
 	margin-bottom: 25px;
 	margin-left: -20px;
+}
+.nav-sidebar.last {
+	margin-bottom: 0;
 }
 .nav-sidebar>li>a {
 	color: #fff;
@@ -249,10 +258,28 @@ li {
 
 /************** MAIN **************/
 
-.main {
-	padding: 0 40px;
+.main-wrap {
+	
 }
-
+.main {
+	padding: 23px 40px;
+	display: block;
+	position: fixed;
+	top: 51px;
+	left: 261px;
+	bottom: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1000;
+}
+@media ( max-width : 768px) {
+	.main {
+		position: relative;
+		top: -20px;
+		left: 0;
+	}
+}
 
 /************** WEBSITE TEASER **************/
 

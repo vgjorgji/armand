@@ -4,51 +4,38 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="global" tagdir="/WEB-INF/tags/global"%>
+<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="website" tagdir="/WEB-INF/tags/website"%>
 
-<!DOCTYPE html>
-<html lang="en">
-<global:head title="Demo Website | Design | Pages" />
-
-<body>
-	<global:navigation select="website" />
+<layout:template title="Demo Website | Design | Pages" select="website">
+	<jsp:body>
+		<website:navigation select="design" selectSub="pages" />
+			
+		<div class="main">
+			<h2 class="page-header">Pages</h2>
 	
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-2">
-				<website:navigation select="design" selectSub="pages" />
-			</div>
+			<!-- Actions -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							&nbsp;
+						</div>
+					</div> <!-- /.panel -->
+				</div> <!-- /.col-md-12 -->
+			</div><!-- /.row -->
 			
-			<div class="col-md-10 col-md-offset-2 main">
+			<!-- ??? -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							&nbsp;
+						</div>
+					</div> <!-- /.panel -->
+				</div> <!-- /.col-md-12 -->
+			</div><!-- /.row -->
 			
-				<h2 class="page-header">Pages</h2>
-		
-				<!-- Actions -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								&nbsp;
-							</div>
-						</div> <!-- /.panel -->
-					</div> <!-- /.col-md-12 -->
-				</div><!-- /.row -->
-				
-				<!-- ??? -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								&nbsp;
-							</div>
-						</div> <!-- /.panel -->
-					</div> <!-- /.col-md-12 -->
-				</div><!-- /.row -->
-				
-			</div> <!-- /.right menu -->
-			
-		</div>
-	</div> <!-- /.container-fluid -->
-</body>
-</html>
+		</div> <!-- /.main -->
+	</jsp:body>
+</layout:template>
