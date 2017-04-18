@@ -21,6 +21,7 @@ import com.vcms.user.model.Visitor;
 public class VisitorFilter extends AnonymousAuthenticationFilter {
 	
 	private static final String VISITOR_SESSION_ATTRIBUTE = "SPRING_SECURITY_VISITOR";
+	private static final String USERSETTINGS_SESSION_ATTRIBUTE = "userSettings";
 	
 	private WebAuthenticationDetailsSource webAuthenticationDetailsSource = new WebAuthenticationDetailsSource();
 	private String key;
@@ -57,6 +58,7 @@ public class VisitorFilter extends AnonymousAuthenticationFilter {
 				UserSettings userSettings = (UserSettings) authentication.getPrincipal();
 				userSettings.setVisitor(visitorSettings.getVisitor());
 				removeFromSession(request);
+				exposeInSession(request, userSettings);
 			}
 		}
 		
@@ -89,6 +91,10 @@ public class VisitorFilter extends AnonymousAuthenticationFilter {
 	
 	private void putInSession(HttpServletRequest request, UserSettings visitorSettings) {
 		request.getSession().setAttribute(VISITOR_SESSION_ATTRIBUTE, visitorSettings);
+	}
+	
+	private void exposeInSession(HttpServletRequest request, UserSettings userSettings) {
+		request.getSession().setAttribute(USERSETTINGS_SESSION_ATTRIBUTE, userSettings);
 	}
 	
 	private void removeFromSession(HttpServletRequest request) {
