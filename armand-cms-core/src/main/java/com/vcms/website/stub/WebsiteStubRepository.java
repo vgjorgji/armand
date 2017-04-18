@@ -1,11 +1,12 @@
 package com.vcms.website.stub;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.conf.cms.CmsPackage;
@@ -18,32 +19,47 @@ import com.vcms.website.model.WebsiteStatus;
 @Repository
 public class WebsiteStubRepository implements WebsiteRepository {
 	
-	private Map<String, Website> map = new HashMap<>();
+	private List<Website> list = new ArrayList<>();
 	
 	@PostConstruct
 	public void init() {
 		Website website = StubUtils.createStubDbModel(new Website(), 1000);
 		website.setCompanyId(1000);
-		website.setName("Demo");
+		website.setName("Demo Website");
 		website.setBaseUrl("www.vcms-demo.noip.com");
-		website.setCmsPackage(CmsPackage.BUSINESS);
+		website.setCmsPackage(CmsPackage.Business);
 		website.setLanguages(Arrays.asList(Language.Macedonian, Language.English));
-		website.setStatus(WebsiteStatus.ONLINE);
-		map.put(website.getName(), website);
+		website.setStatus(WebsiteStatus.Online);
+		list.add(website);
 		
 		website = StubUtils.createStubDbModel(new Website(), 1001);
 		website.setCompanyId(1000);
-		website.setName("Sample");
+		website.setName("Sample Website");
 		website.setBaseUrl("www.sample-demo.noip.com");
-		website.setCmsPackage(CmsPackage.DYNAMIC);
+		website.setCmsPackage(CmsPackage.Dynamic);
 		website.setLanguages(Arrays.asList(Language.English));
-		website.setStatus(WebsiteStatus.ONLINE);
-		map.put(website.getName(), website);
+		website.setStatus(WebsiteStatus.Online);
+		list.add(website);
+	}
+	
+	@Override
+	public Website getWebsite(long websiteId) {
+		for (Website website : list) {
+			if (website.getId() == websiteId) {
+				return website;
+			}
+		}
+		return null;
 	}
 
 	@Override
 	public Website getWebsite(String name) {
-		return map.get(name);
+		for (Website website : list) {
+			if (StringUtils.equals(website.getName(), name)) {
+				return website;
+			}
+		}
+		return null;
 	}
 
 }

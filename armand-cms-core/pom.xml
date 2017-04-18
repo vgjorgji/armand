@@ -10,7 +10,7 @@
 		<spring.version>4.3.0.RELEASE</spring.version>
 		<spring.security.version>4.1.0.RELEASE</spring.security.version>
 		<hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
-		<jackson.version>1.9.13</jackson.version>
+		<jackson.version>2.7.4</jackson.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -59,6 +59,13 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate.validator.version}</version>
+		</dependency>
+		
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 
 		<!-- Utils -->

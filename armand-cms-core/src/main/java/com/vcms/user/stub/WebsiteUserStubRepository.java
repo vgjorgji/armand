@@ -15,7 +15,7 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class UserWebsiteStubRepository implements WebsiteUserRepository {
+public class WebsiteUserStubRepository implements WebsiteUserRepository {
 
 	private List<WebsiteUser> list = new ArrayList<>();
 	
@@ -24,6 +24,15 @@ public class UserWebsiteStubRepository implements WebsiteUserRepository {
 		WebsiteUser websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1000);
 		websiteUser.setUserId(1000);
 		websiteUser.setWebsiteId(1000);
+		websiteUser.setPowerGroup(PowerGroup.Roots);
+		websiteUser.setLanguage(Language.English);
+		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
+		websiteUser.setBiography(TextUtils.createLocalTextSmall("Biography...", "Биографија..."));
+		list.add(websiteUser);
+		
+		websiteUser = StubUtils.createStubDbModel(new WebsiteUser(), 1003);
+		websiteUser.setUserId(1000);
+		websiteUser.setWebsiteId(1001);
 		websiteUser.setPowerGroup(PowerGroup.Roots);
 		websiteUser.setLanguage(Language.English);
 		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));

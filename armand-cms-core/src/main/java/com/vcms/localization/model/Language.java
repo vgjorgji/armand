@@ -2,6 +2,9 @@ package com.vcms.localization.model;
 
 import java.util.Locale;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
 public enum Language {
 	English("flag-usa", new Locale("en")),
 	Macedonian("flag-macedonia", new Locale("mk"));

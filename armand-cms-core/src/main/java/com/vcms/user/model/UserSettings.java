@@ -25,6 +25,7 @@ public class UserSettings implements UserDetails {
 	// select
 	private long selectedWebsiteId = -1;
 	private long selectedWebsiteUserId = -1;
+	private String selectedWebsiteName = "";
 	
 	// resolve
 	private Language language = DEFAULT_LANGUAGE;
@@ -58,11 +59,17 @@ public class UserSettings implements UserDetails {
 		return selectedWebsiteId;
 	}
 	
-	public void setSelectedWebsiteId(Website selectedWebsite) {
+	public String getSelectedWebsiteName() {
+		return selectedWebsiteName;
+	}
+
+	public void setSelectedWebsite(Website selectedWebsite) {
 		if (selectedWebsite != null) {
 			this.selectedWebsiteId = selectedWebsite.getId();
+			this.selectedWebsiteName = selectedWebsite.getName();
 		} else {
 			this.selectedWebsiteId = -1;
+			this.selectedWebsiteName = "";
 		}
 	}
 

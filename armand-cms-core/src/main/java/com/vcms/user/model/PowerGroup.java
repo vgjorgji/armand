@@ -14,59 +14,59 @@ import com.vcms.utils.Utils;
 public enum PowerGroup {
 	Roots(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BASIC, 
+					CmsPackage.Basic, 
 					Utils.asSet(Role.ROOT, Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter,
 							Role.CMSMember, Role.Member)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.DYNAMIC, 
+					CmsPackage.Dynamic, 
 					Utils.asSet(Role.ROOT, Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter,
 							Role.CMSMember, Role.Member)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BUSINESS, 
+					CmsPackage.Business, 
 					Utils.asSet(Role.ROOT, Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter,
 							Role.CMSMember, Role.Member))
 			)),
 	
 	Administrators(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BASIC, 
+					CmsPackage.Basic, 
 					Utils.asSet(Role.Administrator, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.DYNAMIC, 
+					CmsPackage.Dynamic, 
 					Utils.asSet(Role.Administrator, Role.Reviewer, Role.ContentWriter, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BUSINESS, 
+					CmsPackage.Business, 
 					Utils.asSet(Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter, Role.CMSMember,
 							Role.Member))
 			)),
 	
 	Reviewers(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.DYNAMIC, 
+					CmsPackage.Dynamic, 
 					Utils.asSet(Role.Reviewer, Role.ContentWriter, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BUSINESS, 
+					CmsPackage.Business, 
 					Utils.asSet(Role.Reviewer, Role.Designer, Role.ContentWriter, Role.CMSMember, Role.Member))
 			)),
 	
 	Designers(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BUSINESS, 
+					CmsPackage.Business, 
 					Utils.asSet(Role.Designer, Role.ContentWriter, Role.CMSMember, Role.Member))
 			)),
 	
 	ContentWriters(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.DYNAMIC, 
+					CmsPackage.Dynamic, 
 					Utils.asSet(Role.ContentWriter, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BUSINESS, 
+					CmsPackage.Business, 
 					Utils.asSet(Role.ContentWriter, Role.CMSMember, Role.Member))
 			)),
 	
 	Members(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
-					CmsPackage.BUSINESS, 
+					CmsPackage.Business, 
 					Utils.asSet(Role.Member))
 			));
 	

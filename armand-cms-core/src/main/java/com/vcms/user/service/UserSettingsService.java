@@ -56,7 +56,7 @@ public class UserSettingsService {
 			websiteUser = websiteUserRepository.getWebsiteUser(userSettings.getId(), website.getId());
 		}
 		// set
-		userSettings.setSelectedWebsiteId(website);
+		userSettings.setSelectedWebsite(website);
 		userSettings.setSelectedWebsiteUser(websiteUser);
 		// resolve
 		resolveRoles(userSettings, website, websiteUser);

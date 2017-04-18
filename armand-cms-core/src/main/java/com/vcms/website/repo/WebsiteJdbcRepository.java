@@ -17,6 +17,12 @@ public class WebsiteJdbcRepository implements WebsiteRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	
+	@Override
+	public Website getWebsite(long websiteId) {
+		return null;
+	}
+
 	@Override
 	public Website getWebsite(String name) {
 		return jdbcTemplate.queryForObject("select * from website where name = ?", new Object[] { name },

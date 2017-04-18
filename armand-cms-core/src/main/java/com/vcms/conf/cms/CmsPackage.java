@@ -6,14 +6,14 @@ import java.util.Set;
 import com.vcms.utils.Utils;
 
 public enum CmsPackage {
-	BASIC(300, 
+	Basic(300, 
 			Utils.asSet(Component.Header, Component.Navigation, Component.Footer, 
 					Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
 					Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos),
 			new HashSet<FeedType>(),
 			Utils.asSet(CmsOption.Language)),
 	
-	DYNAMIC(400,
+	Dynamic(400,
 			Utils.asSet(Component.Header, Component.Navigation, Component.Footer, 
 					Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
 					Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos,
@@ -21,7 +21,7 @@ public enum CmsPackage {
 			Utils.asSet(FeedType.Aricle, FeedType.Album, FeedType.Survey),
 			Utils.asSet(CmsOption.Search, CmsOption.Language)),
 	
-	BUSINESS(500,
+	Business(500,
 			Utils.asSet(Component.values()),
 			Utils.asSet(FeedType.values()),
 			Utils.asSet(CmsOption.values()));

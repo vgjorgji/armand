@@ -2,6 +2,8 @@ package com.vcms.persist.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public abstract class HistoryModel extends DbModel {
 	
 	// history
@@ -11,6 +13,7 @@ public abstract class HistoryModel extends DbModel {
 	private Date changedDate;
 	private int version;
 
+	@JsonIgnore
 	public String getCreatedBy() {
 		return createdBy;
 	}
@@ -19,6 +22,7 @@ public abstract class HistoryModel extends DbModel {
 		this.createdBy = createdBy;
 	}
 
+	@JsonIgnore
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -27,6 +31,7 @@ public abstract class HistoryModel extends DbModel {
 		this.createdDate = createdDate;
 	}
 
+	@JsonIgnore
 	public String getChangedBy() {
 		return changedBy;
 	}
@@ -35,6 +40,7 @@ public abstract class HistoryModel extends DbModel {
 		this.changedBy = changedBy;
 	}
 
+	@JsonIgnore
 	public Date getChangedDate() {
 		return changedDate;
 	}
@@ -43,6 +49,7 @@ public abstract class HistoryModel extends DbModel {
 		this.changedDate = changedDate;
 	}
 
+	@JsonIgnore
 	public int getVersion() {
 		return version;
 	}

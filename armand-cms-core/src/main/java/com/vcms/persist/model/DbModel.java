@@ -1,5 +1,7 @@
 package com.vcms.persist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public abstract class DbModel {
 	
 	private long id = 0;
@@ -13,6 +15,7 @@ public abstract class DbModel {
 		this.id = id;
 	}
 	
+	@JsonIgnore
 	public DbModelState getState() {
 		return state;
 	}
