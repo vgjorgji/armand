@@ -3,7 +3,7 @@
 
 body {
 	font-family: Arial,sans-serif;
-	font-size: 17px;
+	font-size: 15px;
 	margin-bottom: 0;
 	padding-top: 70px;
 	background: #F7F7F7;
@@ -21,6 +21,11 @@ h5, .h5 {
 li {
 	list-style-type: none;
 }
+a:hover,
+a:focus {
+	text-decoration: none;
+	background-color: rgba(211, 214, 216, 0.3);
+}
 
 .page-header {
 	margin-top: 0;
@@ -35,6 +40,17 @@ li {
 
 /************** HELPERS **************/
 
+.ajax-loader {
+	background-image: url("../../static/img/ajax-loader.gif");
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	position: absolute;
+}
+.main-wrap>.ajax-loader {
+	left: 260px;
+	top: 51px;
+}
 .max-width-4 {
 	max-width: 400px;
 }
@@ -46,6 +62,7 @@ li {
 }
 .fa {
 	margin-right: 7px;
+	width: 20px;
 }
 .fa-blank {
 	width: 20px;
@@ -142,6 +159,7 @@ li {
 .navbar {
 	margin-bottom: 0;
 	height: 51px;
+	font-size: 17px;
 }
 .navbar-fixed-top {
 	font-size: 17px;
@@ -262,8 +280,8 @@ li {
 	
 }
 .main {
+	display: none;
 	padding: 23px 40px;
-	display: block;
 	position: fixed;
 	top: 51px;
 	left: 261px;
@@ -284,7 +302,9 @@ li {
 /************** WEBSITE TEASER **************/
 
 .website-teaser {
-	width: 500px;
+	width: 410px;
+    display: inline-block;
+    margin-right: 20px;
 }
 @media ( max-width : 768px) {
 	.website-teaser {
@@ -296,45 +316,52 @@ li {
 	padding-right: 20px;
 	vertical-align: top;
 }
-.website-teaser .website-name {
+.website-teaser .website-url {
 	display: inline-block;
-	width: 295px;
+	width: 300px;
 }
-.website-teaser .website-name>a {
+.website-teaser .website-url>a {
 	display: block;
+	margin-top: 7px;
+	font-size: 14px;
+}
+.website-teaser .website-name {
+	display: block;
+	padding: 5px;
+	margin: 10px 0px;
+	color: #555;
 	font-size: 20px;
-	margin-top: 5px;
-	margin-bottom: 10px;
 }
-.website-teaser .website-name>a:hover {
-	text-decoration: none;
+.website-teaser hr {
+	margin-top: 10px;
+	margin-bottom: 7px;
 }
-.website-teaser h5 {
-	font-weight: bold;
+.website-teaser .website-group h5 {
 	color: #777;
+	padding: 5px;
+	margin: 5px 0;
+	background-color: rgba(211, 214, 216, 0.5);
 }
-.website-teaser table {
-	border-bottom: 1px solid #ddd;
-	margin-bottom: 25px;
+.website-teaser .website-group>div {
+	display: inline-block;
+	vertical-align: top;
 }
-.website-teaser table.last {
-	border-bottom: none;
-	margin-bottom: 0;
+.website-teaser .website-group .first {
+	width: 170px;
 }
-.website-teaser table .fa-check,
-.website-teaser table .fa-ban {
-	font-size: 16px;
-	margin-left: 3px;
+.website-teaser .website-group .second {
+	width: 200px;
 }
-.website-teaser table>tbody>tr>td {
-	padding-left: 4px;
-	padding-right: 4px;
+.website-teaser .website-group>div>a,
+.website-teaser .website-group>div>span {
+	padding: 2px;
+	display: block;
+	color: #555;
 }
-.website-teaser table .no-access {
-	color: #bbb;
-}
-.website-teaser table .no-access p {
-	margin: 0;
+.website-teaser .website-group>div>a>span,
+.website-teaser .website-group>div>span>span {
+	display: inline-block;
+	width: 110px;
 }
 
 /************** LIGHTS **************/

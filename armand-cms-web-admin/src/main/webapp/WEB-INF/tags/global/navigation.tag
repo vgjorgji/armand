@@ -31,9 +31,11 @@
 				<li class="<c:if test="${select eq 'websites'}">active</c:if>">
 					<a href="<c:url value="/websites/dashboard" />">Websites</a>
 				</li>
-				<c:if test="${empty selectedWebsite}">
+				<c:if test="${userSettings.selectedWebsiteId > 0}">
 					<li class="website <c:if test="${select eq 'website'}">active</c:if>">
-						<a href="<c:url value="/website/1000/dashboard" />"><em>Demo Website</em></a>
+						<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/dashboard" />">
+							<em>${userSettings.selectedWebsiteName}</em>
+						</a>
 					</li>
 				</c:if>
 				<li class="<c:if test="${select eq 'faq'}">active</c:if>">

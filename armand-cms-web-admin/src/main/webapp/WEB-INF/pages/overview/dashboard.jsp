@@ -5,34 +5,34 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<%@ taglib prefix="overview" tagdir="/WEB-INF/tags/overview"%>
+<c:url value="/overview" var="baseUrl"/>
 
-<layout:template title="Dashboard" select="overview">
-	<jsp:body>
-		<overview:navigation select="dashboard" />
+<layout:template title="Dashboard" 
+		selectGlobal="overview"
+		selectSide="dashboard"
+		loadUrl="${baseUrl}/dashboard/load">
 		
-		<div class="main">
-			<h2 class="page-header">Dashboard</h2>
+	<jsp:body>
+		<h2 class="page-header">Dashboard</h2>
 
-			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
+		<div class="row placeholders">
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">Something else</span>
 			</div>
-			
-		</div> <!-- /.main -->
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">Something else</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">Something else</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">Something else</span>
+			</div>
+		</div>
+		
 	</jsp:body>
 </layout:template>

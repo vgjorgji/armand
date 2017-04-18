@@ -5,37 +5,37 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<%@ taglib prefix="website" tagdir="/WEB-INF/tags/website"%>
+<c:url value="/website/${userSettings.selectedWebsiteId}" var="baseUrl"/>
 
-<layout:template title="Demo Website | Design | Navigation" select="website">
+<layout:template title="Demo Website | Design | Navigation" 
+		selectGlobal="website"
+		selectSide="design"
+		selectSideSub="navigation"
+		loadUrl="${baseUrl}/design/navigation/load">
+		
 	<jsp:body>
-		<website:navigation select="design" selectSub="navigation" />
-			
-		<div class="main">
-			<h2 class="page-header">Navigation</h2>
+		<h2 class="page-header">Navigation</h2>
 
-			<!-- Actions -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							&nbsp;
-						</div>
-					</div> <!-- /.panel -->
-				</div> <!-- /.col-md-12 -->
-			</div><!-- /.row -->
-			
-			<!-- ??? -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							&nbsp;
-						</div>
-					</div> <!-- /.panel -->
-				</div> <!-- /.col-md-12 -->
-			</div><!-- /.row -->
-			
-		</div> <!-- /.main -->
+		<!-- Actions -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						&nbsp;
+					</div>
+				</div> <!-- /.panel -->
+			</div> <!-- /.col-md-12 -->
+		</div><!-- /.row -->
+		
+		<!-- ??? -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						&nbsp;
+					</div>
+				</div> <!-- /.panel -->
+			</div> <!-- /.col-md-12 -->
+		</div><!-- /.row -->
 	</jsp:body>
 </layout:template>

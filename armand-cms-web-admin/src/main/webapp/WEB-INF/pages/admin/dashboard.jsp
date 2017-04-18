@@ -5,34 +5,33 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<%@ taglib prefix="admin" tagdir="/WEB-INF/tags/admin"%>
+<c:url value="/admin" var="baseUrl"/>
 
-<layout:template title="Administration" select="admin">
-	<jsp:body>
-		<admin:navigation select="dashboard" />
+<layout:template title="Administration" 
+		selectGlobal="admin"
+		selectSide="dashboard" 
+		loadUrl="${baseUrl}/dashboard/load">
 		
-		<div class="main">
-			<h2 class="page-header">Dashboard</h2>
+	<jsp:body>
+		<h2 class="page-header">Dashboard</h2>
 
-			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
+		<div class="row placeholders">
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">{{user.email}}</span>
 			</div>
-			
-		</div> <!-- /.main -->
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">${userSettings.selectedWebsiteId}</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">Something else</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<h4>Label</h4>
+				<span class="text-muted">Something else</span>
+			</div>
+		</div>
 	</jsp:body>
 </layout:template>

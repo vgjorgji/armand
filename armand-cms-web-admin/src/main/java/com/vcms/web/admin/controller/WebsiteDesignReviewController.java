@@ -1,4 +1,4 @@
-package com.vcms.web.controller;
+package com.vcms.web.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

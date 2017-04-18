@@ -1,4 +1,4 @@
-package com.vcms.web.conf;
+package com.vcms.web.admin.conf;
 
 import javax.servlet.Filter;
 
