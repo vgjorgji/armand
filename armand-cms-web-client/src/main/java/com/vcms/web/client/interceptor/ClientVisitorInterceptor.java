@@ -1,4 +1,4 @@
-package com.vcms.web.interceptor;
+package com.vcms.web.client.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
 import com.vcms.user.service.UserSettingsService;
-import com.vcms.web.service.ClientConfigurationService;
+import com.vcms.web.client.service.ClientConfigurationService;
 
 public class ClientVisitorInterceptor implements HandlerInterceptor {
 	

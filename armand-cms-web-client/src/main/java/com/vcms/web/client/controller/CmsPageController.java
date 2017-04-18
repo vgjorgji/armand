@@ -1,4 +1,4 @@
-package com.vcms.web.controller;
+package com.vcms.web.client.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import com.vcms.design.model.Page;
 import com.vcms.design.model.PageDesign;
 import com.vcms.design.model.PageRepository;
 import com.vcms.design.service.PageDesignService;
-import com.vcms.web.service.ClientConfigurationService;
+import com.vcms.web.client.service.ClientConfigurationService;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteView;
 

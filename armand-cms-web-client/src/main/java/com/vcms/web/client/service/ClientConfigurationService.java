@@ -1,4 +1,4 @@
-package com.vcms.web.service;
+package com.vcms.web.client.service;
 
 import javax.annotation.PostConstruct;
 
