@@ -17,16 +17,18 @@ public class Snippet {
 		return text;
 	}
 
-	public void setText(String text) {
+	public Snippet text(String text) {
 		this.text = text;
+		return this;
 	}
 	
 	public boolean isHtml() {
 		return html;
 	}
 	
-	public void setHtml(boolean html) {
+	public Snippet html(boolean html) {
 		this.html = html;
+		return this;
 	}
 	
 }

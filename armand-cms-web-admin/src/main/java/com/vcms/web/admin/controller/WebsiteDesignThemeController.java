@@ -13,46 +13,42 @@ import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.web.admin.model.Snippet;
-import com.vcms.web.admin.model.TemplateData;
-import com.vcms.website.model.WebsiteVeiwRepository;
 import com.vcms.website.model.WebsiteView;
 import com.vcms.website.model.WebsiteViewType;
+import com.vcms.website.service.WebsiteViewService;
 
 @RestController
 @RequestMapping(value = PageConst.WebsiteDesignTheme)
 public class WebsiteDesignThemeController {
 	
 	@Autowired
-	private WebsiteVeiwRepository websiteVeiwRepository;
+	private WebsiteViewService websiteViewService;
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
+		Response response = new Response();
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		
 		long websiteId = userSettings.getSelectedWebsiteId();
-		WebsiteView websiteView = websiteVeiwRepository.getWebsiteView(websiteId, WebsiteViewType.Design);
+		WebsiteView websiteView = websiteViewService.getWebsiteView(websiteId, WebsiteViewType.Design);
 		
-		TemplateData templateData = new TemplateData();
-		templateData.addObject("websiteView", websiteView);
-		templateData.addObject("styles", Style.values());
-		templateData.addObject("modernColors", ModernColor.values());
-		templateData.addObject("fonts", Font.values());
-		
-		Response response = new Response();
-		response.setMainTemplateData(templateData.getData());
+		response.mainTemplate().data()
+				.add("websiteView", websiteView)
+				.add("styles", Style.values())
+				.add("modernColors", ModernColor.values())
+				.add("fonts", Font.values());
 		return response;
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public Response save(@RequestBody WebsiteView websiteView) {
-		websiteVeiwRepository.save(websiteView);
+		websiteViewService.save(websiteView);
 		
 		// reload
 		Response response = load();
 		
 		// response
-		response.addSnippet("formResult", new Snippet("Success", false));
+		response.snippet("formResult").text("Success").html(false);
 		return response;
 	}
 }

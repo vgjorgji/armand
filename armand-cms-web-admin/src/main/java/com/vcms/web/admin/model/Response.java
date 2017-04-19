@@ -15,7 +15,7 @@ public class Response {
 		return redirect;
 	}
 	
-	public void setRedirect(String redirect) {
+	public void redirect(String redirect) {
 		this.redirect = redirect;
 	}
 	
@@ -23,32 +23,38 @@ public class Response {
 		return submitForm;
 	}
 	
-	public void setSubmitForm(String submitForm) {
+	public void submitForm(String submitForm) {
 		this.submitForm = submitForm;
 	}
 	
-	public void setMainTemplateData(Object mainTemplateData) {
-		addTemplate(new Template("template-main", "main", mainTemplateData));
+	public Template mainTemplate() {
+		return template("template-main", "main");
 	}
 	
-	public void addTemplate(Template template) {
-		templates.put(template.getId(), template);
+	public Template template(String templateId, String replaceId) {
+		Template template = new Template(templateId, replaceId);
+		templates.put(templateId, template);
+		return template;
 	}
 	
 	public Map<String, Template> getTemplates() {
 		return templates;
 	}
 
-	public void addMessage(String key, Message message) {
-		messages.put(key, message);
+	public Message message(String messageId) {
+		Message message = new Message();
+		messages.put(messageId, message);
+		return message;
 	}
 	
 	public Map<String, Message> getMessages() {
 		return messages;
 	}
 	
-	public void addSnippet(String key, Snippet snippet) {
-		snippets.put(key, snippet);
+	public Snippet snippet(String snippetId) {
+		Snippet snippet = new Snippet();
+		snippets.put(snippetId, snippet);
+		return snippet;
 	}
 	
 	public Map<String, Snippet> getSnippets() {

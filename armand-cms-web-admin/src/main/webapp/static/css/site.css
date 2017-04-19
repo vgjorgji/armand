@@ -406,6 +406,7 @@ a:focus {
     right: 15px;
     top: 6px;
     color: #777;
+    width: 60px;
 }
 .tile-sum h1 {
 	margin: 0 0 20px 0;

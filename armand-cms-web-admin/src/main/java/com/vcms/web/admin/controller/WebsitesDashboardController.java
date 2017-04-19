@@ -15,7 +15,6 @@ import com.vcms.user.model.WebsiteUserRepository;
 import com.vcms.user.service.UserSettingsProvider;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.web.admin.model.TemplateData;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 
@@ -31,6 +30,7 @@ public class WebsitesDashboardController {
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
+		Response response = new Response();
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		
 		List<WebsiteUser> websiteUsers = websiteUserRepository.getWebsitesForUser(userSettings.getId());
@@ -39,12 +39,9 @@ public class WebsitesDashboardController {
 			websites.add(websiteRepository.getWebsite(websiteUser.getWebsiteId()));
 		}
 		
-		TemplateData templateData = new TemplateData();
-		templateData.addObject("websites", websites);
-		templateData.addObject("languages", Language.values());
-		
-		Response response = new Response();
-		response.setMainTemplateData(templateData.getData());
+		response.mainTemplate().data()
+				.add("websites", websites)
+				.add("languages", Language.values());
 		return response;
 	}
 

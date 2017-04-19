@@ -7,11 +7,12 @@ public class TemplateData {
 
 	private Map<String, Object> map = new HashMap<>();
 	
-	public void addObject(String name, Object object) {
+	public TemplateData add(String name, Object object) {
 		map.put(name, object);
+		return this;
 	}
 	
-	public Map<String, Object> getData() {
+	public Map<String, Object> getMap() {
 		return map;
 	}
 	

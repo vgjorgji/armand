@@ -15,7 +15,7 @@ public class AdminDashboardController {
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
 		Response response = new Response();
-		response.setMainTemplateData(new WebsiteView());
+		response.mainTemplate().data().add("websiteView", new WebsiteView());
 		return response;
 	}
 

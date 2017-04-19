@@ -38,12 +38,12 @@
 						<div class="first">
 							<h5>Live</h5>
 							<span>
-								<i class="fa light-success"></i>
-								<span><strong class="text-success">{{status}}</strong></span>
+								<i class="{{status.cssClass}}"></i>
+								<span>{{status.id}}</span>
 							</span>
 							<span>
-								<i class="fa fa-star"></i>
-								<span><em>{{cmsPackage}}</em></span>
+								<i class="{{cmsPackage.cssClass}}"></i>
+								<span><em>{{cmsPackage.id}}</em></span>
 							</span>
 							<span>
 								<i class="fa fa-file-powerpoint-o"></i>

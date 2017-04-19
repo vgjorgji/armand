@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.web.admin.model.TemplateData;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 
@@ -21,13 +20,10 @@ public class WebsiteDashboardController {
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load(@PathVariable("websiteId") long websiteId) {
+		Response response = new Response();
 		Website website = websiteRepository.getWebsite(websiteId);
 		
-		TemplateData templateData = new TemplateData();
-		templateData.addObject("website", website);
-		
-		Response response = new Response();
-		response.setMainTemplateData(templateData.getData());
+		response.mainTemplate().data().add("website", website);
 		return response;
 	}
 	

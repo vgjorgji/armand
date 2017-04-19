@@ -10,6 +10,10 @@ public class Message {
 	public Message() {
 	}
 	
+	public Message(String text, boolean error, String field) {
+		this(text, true, error, field);
+	}
+	
 	public Message(String text, boolean ignorePrefix, boolean error, String field) {
 		this.text = text;
 		this.ignorePrefix = ignorePrefix;
@@ -21,31 +25,35 @@ public class Message {
 		return text;
 	}
 
-	public void setText(String text) {
+	public Message text(String text) {
 		this.text = text;
+		return this;
 	}
 
 	public boolean isIgnorePrefix() {
 		return ignorePrefix;
 	}
 	
-	public void setIgnorePrefix(boolean ignorePrefix) {
+	public Message ignorePrefix(boolean ignorePrefix) {
 		this.ignorePrefix = ignorePrefix;
+		return this;
 	}
 	public boolean isError() {
 		return error;
 	}
 	
-	public void setError(boolean error) {
+	public Message error(boolean error) {
 		this.error = error;
+		return this;
 	}
 	
 	public String getField() {
 		return field;
 	}
 	
-	public void setField(String field) {
+	public Message field(String field) {
 		this.field = field;
+		return this;
 	}
 	
 }

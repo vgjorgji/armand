@@ -25,6 +25,8 @@
 					<div class="panel-body">
 						{{#websiteView}}
 						<form class="form-horizontal">
+							<form:hidden id="id" field="id" group="websiteView" />
+							<input type="hidden" id="id" data-group="websiteView" data-field="true" value="{{id}}" />
 							<form:select id="style" field="style" group="websiteView"
 								options="styles" label="Style" />
 							<form:select id="color" field="color" group="websiteView"

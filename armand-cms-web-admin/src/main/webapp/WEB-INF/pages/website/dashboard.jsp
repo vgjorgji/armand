@@ -85,7 +85,7 @@
 							<label class="col-md-3 control-label">URL</label>
 							<div class="col-md-9">
 								<p class="form-control-static">
-									<a href="https://www.google.com/" target="_blank">
+									<a href="{{baseUrl}}" target="_blank">
 										<i class="fa fa-globe"></i>{{baseUrl}}
 									</a>
 								</p>
@@ -95,7 +95,8 @@
 							<label class="col-md-3 control-label">CMS Package</label>
 							<div class="col-md-9">
 								<p class="form-control-static">
-									<i class="fa fa-star"></i><em><strong>{{cmsPackage}}</strong></em>
+									<i class="{{cmsPackage.cssClass}}"></i>
+									<em><strong>{{cmsPackage.id}}</strong></em>
 								</p>
 							</div>
 						</div>
@@ -104,7 +105,7 @@
 							<div class="col-md-9">
 								<p class="form-control-static">
 									{{#languages}}
-										<i class="flag flag-usa"></i>{{.}} <br/>
+										<i class="{{cssClass}}"></i>{{id}} <br/>
 									{{/languages}}
 								</p>
 							</div>
@@ -113,7 +114,8 @@
 							<label class="col-md-3 control-label">Status</label>
 							<div class="col-md-9">
 								<p class="form-control-static">
-									<i class="fa light-success"></i><strong class="text-success">{{status}}</strong>
+									<i class="{{status.cssClass}}"></i>
+									<strong class="text-success">{{status.id}}</strong>
 								</p>
 							</div>
 						</div>
