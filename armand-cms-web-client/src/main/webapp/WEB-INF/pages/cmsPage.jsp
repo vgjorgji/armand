@@ -86,7 +86,7 @@
 		</style>
 		
 		<!-- Scripts -->
-		<script type="text/javascript" src="<c:url value="/static/js/jquery-1.12.1.min.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>
 		<script type="text/javascript" src="<c:url value="/static/js/bootstrap.min-3.3.6.js"/>"></script>
 		<script type="text/javascript" src="<c:url value="/static/js/site.js"/>"></script>
 	</head>
