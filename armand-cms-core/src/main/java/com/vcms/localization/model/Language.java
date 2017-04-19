@@ -2,23 +2,34 @@ package com.vcms.localization.model;
 
 import java.util.Locale;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@JsonFormat(shape = Shape.OBJECT)
 public enum Language {
-	English("flag-usa", new Locale("en")),
-	Macedonian("flag-macedonia", new Locale("mk"));
+	English("flag flag-usa", new Locale("en")),
+	Macedonian("flag flag-macedonia", new Locale("mk"));
 	
-	private String flagCss;
+	private String cssClass;
 	private Locale locale;
 	
-	private Language(String flagCss, Locale locale) {
-		this.flagCss = flagCss;
+	private Language(String cssClass, Locale locale) {
+		this.cssClass = cssClass;
 		this.locale = locale;
 	}
 	
-	public String getFlagCss() {
-		return flagCss;
+	public String getId() {
+		return name();
 	}
-	
+
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	@JsonIgnore
 	public Locale getLocale() {
 		return locale;
 	}
+	
 }

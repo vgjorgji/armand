@@ -3,17 +3,21 @@ package com.vcms.conf.cms;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.vcms.utils.Utils;
 
+@JsonFormat(shape = Shape.OBJECT)
 public enum CmsPackage {
-	Basic(300, 
+	Basic("fa fa-cube", 
 			Utils.asSet(Component.Header, Component.Navigation, Component.Footer, 
 					Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
 					Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos),
 			new HashSet<FeedType>(),
 			Utils.asSet(CmsOption.Language)),
 	
-	Dynamic(400,
+	Dynamic("fa fa-cubes",
 			Utils.asSet(Component.Header, Component.Navigation, Component.Footer, 
 					Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
 					Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos,
@@ -21,12 +25,12 @@ public enum CmsPackage {
 			Utils.asSet(FeedType.Aricle, FeedType.Album, FeedType.Survey),
 			Utils.asSet(CmsOption.Search, CmsOption.Language)),
 	
-	Business(500,
+	Business("fa fa-star",
 			Utils.asSet(Component.values()),
 			Utils.asSet(FeedType.values()),
 			Utils.asSet(CmsOption.values()));
 
-	private long price;
+	private String cssClass;
 	private Set<CmsOption> options;
 	private Set<Component> components;
 	private Set<FeedType> feedTypes;
@@ -35,20 +39,25 @@ public enum CmsPackage {
 	/**
 	 * Constructor.
 	 */
-	private CmsPackage(long price,
+	private CmsPackage(String cssClass,
 			Set<Component> components,
 			Set<FeedType> feedTypes,
 			Set<CmsOption> options) {
-		this.price = price;
+		this.cssClass = cssClass;
 		this.components = components;
 		this.feedTypes = feedTypes;
 		this.options = options;
 	}
-	
-	public long getPrice() {
-		return price;
+
+	public String getId() {
+		return name();
 	}
 	
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	@JsonIgnore
 	public Set<Component> getComponents() {
 		return components;
 	}
@@ -57,6 +66,7 @@ public enum CmsPackage {
 		return components.contains(component);
 	}
 	
+	@JsonIgnore
 	public Set<FeedType> getFeedTypes() {
 		return feedTypes;
 	}
@@ -65,6 +75,7 @@ public enum CmsPackage {
 		return feedTypes.contains(feedType);
 	}
 	
+	@JsonIgnore
 	public Set<CmsOption> getOptions() {
 		return options;
 	}
