@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.vcms.conf.cms.Component;
@@ -21,7 +22,8 @@ import com.vcms.design.model.DesignComponent;
 import com.vcms.utils.Utils;
 
 @Service
-public class NavigationService implements ContentModelRepository {
+@Qualifier("navigationService")
+public class NavigationServiceImpl implements ContentModelRepository {
 	
 	@Autowired
 	private MainNavItemRepository mainNavItemRepository;

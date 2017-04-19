@@ -61,5 +61,5 @@ public class WebsiteView extends HistoryModel {
 	public void setSelectColor(ModernColor selectColor) {
 		this.selectColor = selectColor;
 	}
-
+	
 }

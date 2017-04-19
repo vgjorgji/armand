@@ -1,10 +1,5 @@
 package com.vcms.conf.cms;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonFormat.Shape;
-
-@JsonFormat(shape = Shape.OBJECT)
 public enum ModernColor {
 	Turquoise("#1abc9c", "#ffffff"),
 	GreenSea("#16a085", "#ffffff"),
@@ -44,7 +39,6 @@ public enum ModernColor {
 		return backgroundHex;
 	}
 	
-	@JsonIgnore
 	public String getTextHex() {
 		return textHex;
 	}

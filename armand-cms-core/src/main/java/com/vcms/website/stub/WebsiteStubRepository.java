@@ -26,7 +26,7 @@ public class WebsiteStubRepository implements WebsiteRepository {
 		Website website = StubUtils.createStubDbModel(new Website(), 1000);
 		website.setCompanyId(1000);
 		website.setName("Demo Website");
-		website.setBaseUrl("www.vcms-demo.noip.com");
+		website.setBaseUrl("http://www.vcms-demo.noip.com");
 		website.setCmsPackage(CmsPackage.Business);
 		website.setLanguages(Arrays.asList(Language.Macedonian, Language.English));
 		website.setStatus(WebsiteStatus.Online);
@@ -35,10 +35,10 @@ public class WebsiteStubRepository implements WebsiteRepository {
 		website = StubUtils.createStubDbModel(new Website(), 1001);
 		website.setCompanyId(1000);
 		website.setName("Sample Website");
-		website.setBaseUrl("www.sample-demo.noip.com");
+		website.setBaseUrl("http://www.sample-demo.noip.com");
 		website.setCmsPackage(CmsPackage.Dynamic);
 		website.setLanguages(Arrays.asList(Language.English));
-		website.setStatus(WebsiteStatus.Online);
+		website.setStatus(WebsiteStatus.Construction);
 		list.add(website);
 	}
 	
