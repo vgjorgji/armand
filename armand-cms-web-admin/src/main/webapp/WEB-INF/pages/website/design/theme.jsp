@@ -6,13 +6,13 @@
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="form" tagdir="/WEB-INF/tags/form"%>
-<c:url value="/website/${userSettings.selectedWebsiteId}" var="baseUrl"/>
+<c:url value="/website/${userSettings.selectedWebsiteId}/design/theme" var="pageUrl"/>
 
 <layout:template title="Demo Website | Design | Theme" 
 		selectGlobal="website"
 		selectSide="design"
 		selectSideSub="theme"
-		loadUrl="${baseUrl}/design/theme/load">
+		loadUrl="${pageUrl}/load">
 		
 	<jsp:body>
 		<h2 class="page-header">Theme</h2>
@@ -20,49 +20,30 @@
 		<!-- Actions -->
 		<div class="row">
 			<div class="col-md-12">
+			
 				<div class="panel panel-default">
 					<div class="panel-body">
 						{{#websiteView}}
 						<form class="form-horizontal">
-							<form:select id="style"
-								field="style" 
-								group="websiteView" 
-								options="styles" 
-								label="Style" 
-								labelClass="3" 
-								controlClass="6" />
-							<form:select id="color"
-								field="color" 
-								group="websiteView" 
-								options="modernColors" 
-								label="Color" 
-								labelClass="3" 
-								controlClass="6" />
-							<form:select id="selectColor"
-								field="selectColor" 
-								group="websiteView" 
-								options="modernColors" 
-								label="Select Color" 
-								labelClass="3" 
-								controlClass="6" />
-							<form:select id="font"
-								field="font" 
-								group="websiteView" 
-								options="fonts" 
-								label="Font" 
-								labelClass="3" 
-								controlClass="6" />
+							<form:select id="style" field="style" group="websiteView"
+								options="styles" label="Style" />
+							<form:select id="color" field="color" group="websiteView"
+								options="modernColors" label="Color" />
+							<form:select id="selectColor" field="selectColor" group="websiteView" 
+								options="modernColors" label="Select Color" />
+							<form:select id="font" field="font" group="websiteView"
+								options="fonts" label="Font" />
 							<div class="form-group">
 								<div class="col-md-offset-3 col-md-6">
 									<button type="button" class="btn btn-default" id="reset"
-											data-url="${baseUrl}/design/theme/load" 
+											data-url="${pageUrl}/load" 
 											data-method="GET" 
 											data-spinner="true"
 											data-spinner-location="#submit">
 										Reset
 									</button>
 									<button type="submit" class="btn btn-primary" id="submit"
-											data-url="${baseUrl}/design/theme/save" 
+											data-url="${pageUrl}/save" 
 											data-method="POST" 
 											data-json="true"
 											data-group="websiteView"
@@ -71,7 +52,6 @@
 									</button>
 								</div>
 							</div>
-							<p id="formResult"></p>
 						</form>
 						{{/websiteView}}
 					</div>

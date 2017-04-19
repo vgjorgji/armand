@@ -5,13 +5,13 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<c:url value="/website/${userSettings.selectedWebsiteId}" var="baseUrl"/>
+<c:url value="/website/${userSettings.selectedWebsiteId}/design/pages" var="pageUrl"/>
 
 <layout:template title="Demo Website | Design | Pages" 
 		selectGlobal="website"
 		selectSide="design"
 		selectSideSub="pages"
-		loadUrl="${baseUrl}/design/pages/load">
+		loadUrl="${pageUrl}/load">
 		
 	<jsp:body>
 		<h2 class="page-header">Pages</h2>

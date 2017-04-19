@@ -5,12 +5,12 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<c:url value="/website/${userSettings.selectedWebsiteId}" var="baseUrl"/>
+<c:url value="/website/${userSettings.selectedWebsiteId}/design-review" var="pageUrl"/>
 
 <layout:template title="Demo Website | Design Review" 
 		selectGlobal="website"
 		selectSide="design-review"
-		loadUrl="${baseUrl}/design-review/load">
+		loadUrl="${pageUrl}/load">
 		
 	<jsp:body>
 		<h2 class="page-header">Design Review</h2>

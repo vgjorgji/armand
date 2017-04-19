@@ -5,16 +5,16 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<c:url value="/website/${userSettings.selectedWebsiteId}" var="baseUrl"/>
+<c:url value="/website/${userSettings.selectedWebsiteId}/dashboard" var="pageUrl"/>
 
 <layout:template title="Demo Website" 
 		selectGlobal="website" 
 		selectSide="dashboard"
-		loadUrl="${baseUrl}/dashboard/load">
+		loadUrl="${pageUrl}/load">
 		
 	<jsp:body>
 		<div>
-			<a href="<c:url value="${baseUrl}/publish" />" class="btn btn-danger pull-right">
+			<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/publish" />" class="btn btn-danger pull-right">
 				<i class="fa fa-globe"></i>Publish
 			</a>
 			<h2 class="page-header">Dashboard</h2>
@@ -72,62 +72,62 @@
 		<div class="row">
 		
 			{{#website}}
-				<div class="col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-body form-horizontal">
-							<div class="form-group">
-								<label class="col-md-3 control-label">Name</label>
-								<div class="col-md-9">
-									<p class="form-control-static">{{name}}</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">URL</label>
-								<div class="col-md-9">
-									<p class="form-control-static">
-										<a href="https://www.google.com/" target="_blank">
-											<i class="fa fa-globe"></i>{{baseUrl}}
-										</a>
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">CMS Package</label>
-								<div class="col-md-9">
-									<p class="form-control-static">
-										<i class="fa fa-star"></i><em><strong>{{cmsPackage}}</strong></em>
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">Languages</label>
-								<div class="col-md-9">
-									<p class="form-control-static">
-										{{#languages}}
-											<i class="flag flag-usa"></i>{{.}} <br/>
-										{{/languages}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">Status</label>
-								<div class="col-md-9">
-									<p class="form-control-static">
-										<i class="fa light-success"></i><strong class="text-success">{{status}}</strong>
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">Expiry Date</label>
-								<div class="col-md-9">
-									<p class="form-control-static">
-										{{expiryDate}} (1 year 2 months 29 days)
-									</p>
-								</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body form-horizontal">
+						<div class="form-group">
+							<label class="col-md-3 control-label">Name</label>
+							<div class="col-md-9">
+								<p class="form-control-static">{{name}}</p>
 							</div>
 						</div>
-					</div> <!-- /.panel -->
-				</div> <!-- /.col-md-6 -->
+						<div class="form-group">
+							<label class="col-md-3 control-label">URL</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									<a href="https://www.google.com/" target="_blank">
+										<i class="fa fa-globe"></i>{{baseUrl}}
+									</a>
+								</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">CMS Package</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									<i class="fa fa-star"></i><em><strong>{{cmsPackage}}</strong></em>
+								</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">Languages</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									{{#languages}}
+										<i class="flag flag-usa"></i>{{.}} <br/>
+									{{/languages}}
+								</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">Status</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									<i class="fa light-success"></i><strong class="text-success">{{status}}</strong>
+								</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">Expiry Date</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									{{expiryDate}} (1 year 2 months 29 days)
+								</p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- /.panel -->
+			</div> <!-- /.col-md-6 -->
 			{{/website}}
 			
 			<!-- Company -->

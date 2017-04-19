@@ -23,11 +23,11 @@ public enum Page {
 	private String url;
 	private String view;
 	
-	Page(String url) {
+	private Page(String url) {
 		this(url, url);
 	}
 	
-	Page(String url, String view) {
+	private Page(String url, String view) {
 		this.url = url;
 		this.view = view;
 	}

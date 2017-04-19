@@ -5,12 +5,12 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<c:url value="/websites" var="baseUrl"/>
+<c:url value="/websites/dashboard" var="pageUrl"/>
 
 <layout:template title="Websites" 
 		selectGlobal="websites" 
 		selectSide="dashboard"
-		loadUrl="${baseUrl}/dashboard/load">
+		loadUrl="${pageUrl}/load">
 		
 	<jsp:body>
 		<div>
@@ -19,98 +19,98 @@
 		</div>
 
 		{{#websites}}
-			<!-- Website teaser -->
-			<div class="website-teaser">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
-						<div class="website-url">
-							<small>Company Name</small>
-							<a href="https://www.google.com/" target="_blank">
-								<i class="fa fa-globe"></i>{{baseUrl}}
+		<!-- Website teaser -->
+		<div class="website-teaser">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
+					<div class="website-url">
+						<small>Company Name</small>
+						<a href="{{baseUrl}}" target="_blank">
+							<i class="fa fa-globe"></i>{{baseUrl}}
+						</a>
+					</div>
+					<a href="<c:url value="/website/{{id}}/dashboard" />" class="website-name">
+						{{name}}
+					</a>
+					<hr/>
+					<div class="website-group">
+						<div class="first">
+							<h5>Live</h5>
+							<span>
+								<i class="fa light-success"></i>
+								<span><strong class="text-success">{{status}}</strong></span>
+							</span>
+							<span>
+								<i class="fa fa-star"></i>
+								<span><em>{{cmsPackage}}</em></span>
+							</span>
+							<span>
+								<i class="fa fa-file-powerpoint-o"></i>
+								<span>X</span>
+							</span>
+						</div>
+						<div class="second">
+							<h5>Actions</h5>
+							<a href="<c:url value="/website/{{id}}/design" />">
+								<i class="fa fa-paint-brush"></i>
+								<span>Designer</span>
+								<i class="badge btn-primary">3</i>
+							</a>
+							<a href="<c:url value="/website/{{id}}/design-review" />">
+								<i class="fa fa-delicious"></i>
+								<span>Reviewer</span>
+								<i class="fa fa-check text-success"></i>
+							</a>
+							<a href="<c:url value="/website/{{id}}/content" />">
+								<i class="fa fa-pencil-square-o"></i>
+								<span>Writer</span>
+								<i class="badge btn-primary">2.243</i>
+							</a>
+							<a href="<c:url value="/website/{{id}}/content-review" />">
+								<i class="fa fa-magic"></i>
+								<span>Reviewer</span>
+								<i class="badge btn-danger">99</i>
 							</a>
 						</div>
-						<a href="<c:url value="/website/{{id}}/dashboard" />" class="website-name">
-							{{name}}
-						</a>
-						<hr/>
-						<div class="website-group">
-							<div class="first">
-								<h5>Live</h5>
-								<span>
-									<i class="fa light-success"></i>
-									<span><strong class="text-success">{{status}}</strong></span>
-								</span>
-								<span>
-									<i class="fa fa-star"></i>
-									<span><em>{{cmsPackage}}</em></span>
-								</span>
-								<span>
-									<i class="fa fa-file-powerpoint-o"></i>
-									<span>X</span>
-								</span>
-							</div>
-							<div class="second">
-								<h5>Actions</h5>
-								<a href="<c:url value="/website/{{id}}/design" />">
-									<i class="fa fa-paint-brush"></i>
-									<span>Designer</span>
-									<i class="badge btn-primary">3</i>
-								</a>
-								<a href="<c:url value="/website/{{id}}/design-review" />">
-									<i class="fa fa-delicious"></i>
-									<span>Reviewer</span>
-									<i class="fa fa-check text-success"></i>
-								</a>
-								<a href="<c:url value="/website/{{id}}/content" />">
-									<i class="fa fa-pencil-square-o"></i>
-									<span>Writer</span>
-									<i class="badge btn-primary">2.243</i>
-								</a>
-								<a href="<c:url value="/website/{{id}}/content-review" />">
-									<i class="fa fa-magic"></i>
-									<span>Reviewer</span>
-									<i class="badge btn-danger">99</i>
-								</a>
-							</div>
-						</div>
-						<hr/>
-						<div class="website-group">
-							<div class="first">
-								<h5>Active</h5>
-								<span>
-									<i class="fa fa-user text-success"></i>
-									<span>20</span>
-								</span>
-								<span>
-									<i class="fa fa-eye"></i>
-									<span>1h 20min</span>
-								</span>
-								<span>
-									<i class="fa fa-eye-slash"></i>
-									<span>20min</span>
-								</span>
-							</div>
-							<div class="second">
-								<h5>Visits</h5>
-								<span>
-									<i class="fa fa-user"></i>
-									<span>59</span>
-								</span>
-								<span>
-									<i class="fa fa-users"></i>
-									<span>1.250</span>
-								</span>
-								<span>
-									<i class="fa fa-clock-o"></i>
-									<span>25 %</span>
-								</span>
-							</div>
-						</div>
-						
 					</div>
-				</div> <!-- /.panel -->
-			</div> <!-- /.website-teaser -->
+					<hr/>
+					<div class="website-group">
+						<div class="first">
+							<h5>Active</h5>
+							<span>
+								<i class="fa fa-user text-success"></i>
+								<span>20</span>
+							</span>
+							<span>
+								<i class="fa fa-eye"></i>
+								<span>1h 20min</span>
+							</span>
+							<span>
+								<i class="fa fa-eye-slash"></i>
+								<span>20min</span>
+							</span>
+						</div>
+						<div class="second">
+							<h5>Visits</h5>
+							<span>
+								<i class="fa fa-user"></i>
+								<span>59</span>
+							</span>
+							<span>
+								<i class="fa fa-users"></i>
+								<span>1.250</span>
+							</span>
+							<span>
+								<i class="fa fa-clock-o"></i>
+								<span>25 %</span>
+							</span>
+						</div>
+					</div>
+					
+				</div>
+			</div> <!-- /.panel -->
+		</div> <!-- /.website-teaser -->
 		{{/websites}}
 			
 			<!-- 
