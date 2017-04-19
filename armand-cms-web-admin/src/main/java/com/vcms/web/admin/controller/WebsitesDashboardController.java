@@ -13,14 +13,15 @@ import com.vcms.user.model.UserSettings;
 import com.vcms.user.model.WebsiteUser;
 import com.vcms.user.model.WebsiteUserRepository;
 import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.web.admin.model.TemplateData;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 
 @RestController
-@RequestMapping(value = "/websites")
-public class WebsitesController {
+@RequestMapping(value = PageConst.WebsitesDashboard)
+public class WebsitesDashboardController {
 	
 	@Autowired
 	private WebsiteRepository websiteRepository;
@@ -28,8 +29,8 @@ public class WebsitesController {
 	@Autowired
 	private WebsiteUserRepository websiteUserRepository;
 	
-	@RequestMapping(value = "/dashboard/load", method = RequestMethod.GET)
-	public Response loadDashboardPage() {
+	@RequestMapping(value = "/load", method = RequestMethod.GET)
+	public Response load() {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		
 		List<WebsiteUser> websiteUsers = websiteUserRepository.getWebsitesForUser(userSettings.getId());

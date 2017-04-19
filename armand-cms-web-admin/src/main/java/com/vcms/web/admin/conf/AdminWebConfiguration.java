@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import com.vcms.web.admin.interceptor.SelectedWebsiteInterceptor;
+import com.vcms.web.admin.model.Page;
 import com.vcms.web.conf.WebConfiguration;
 
 @Configuration
@@ -16,11 +17,10 @@ public class AdminWebConfiguration extends WebConfiguration {
 	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/admin/dashboard").setViewName("/admin/dashboard");
-		registry.addViewController("/websites/dashboard").setViewName("/websites/dashboard");
-		registry.addViewController("/website/{websiteId}/dashboard").setViewName("/website/dashboard");
-		registry.addViewController("/website/{websiteId}/design").setViewName("/website/design");
-		registry.addViewController("/website/{websiteId}/design/theme").setViewName("/website/design/theme");
+		Page[] pages = Page.values();
+		for (Page page : pages) {
+			registry.addViewController(page.getUrl()).setViewName(page.getView());
+		}
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 	

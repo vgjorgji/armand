@@ -38,7 +38,10 @@
 		</c:choose>
 		
 		<div class="main" id="main" data-load="${loadUrl}" data-spinner="true">
-			<jsp:doBody />
 		</div>
 	</div>
+	
+	<script type="text/html" id="template-main">
+		<jsp:doBody />
+	</script>
 </body>

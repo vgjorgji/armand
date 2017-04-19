@@ -5,6 +5,7 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="form" tagdir="/WEB-INF/tags/form"%>
 <c:url value="/website/${userSettings.selectedWebsiteId}" var="baseUrl"/>
 
 <layout:template title="Demo Website | Design | Theme" 
@@ -21,48 +22,40 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-					
+						{{#websiteView}}
 						<form class="form-horizontal">
-							<div class="form-group">
-								<label class="col-md-3 control-label">Style</label>
-								<div class="col-md-6">
-									<select class="form-control" id="style"
-											data-group="websiteView" data-field="true">
-										{{#styles}}<option>{{.}}</option>{{/styles}}
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">Color</label>
-								<div class="col-md-6">
-									<select class="form-control" id="color"
-											data-group="websiteView" data-field="true">
-										{{#modernColors}}<option>{{.}}</option>{{/modernColors}}
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">Select Color</label>
-								<div class="col-md-6">
-									<select class="form-control" id="selectColor"
-											data-group="websiteView" data-field="true">
-										{{#modernColors}}<option>{{.}}</option>{{/modernColors}}
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label">Font</label>
-								<div class="col-md-6">
-									<select class="form-control" id="font"
-											data-group="websiteView" data-field="true">
-										{{#fonts}}<option>{{.}}</option>{{/fonts}}
-									</select>
-								</div>
-							</div>
+							<form:select id="style"
+								field="style" 
+								group="websiteView" 
+								options="styles" 
+								label="Style" 
+								labelClass="3" 
+								controlClass="6" />
+							<form:select id="color"
+								field="color" 
+								group="websiteView" 
+								options="modernColors" 
+								label="Color" 
+								labelClass="3" 
+								controlClass="6" />
+							<form:select id="selectColor"
+								field="selectColor" 
+								group="websiteView" 
+								options="modernColors" 
+								label="Select Color" 
+								labelClass="3" 
+								controlClass="6" />
+							<form:select id="font"
+								field="font" 
+								group="websiteView" 
+								options="fonts" 
+								label="Font" 
+								labelClass="3" 
+								controlClass="6" />
 							<div class="form-group">
 								<div class="col-md-offset-3 col-md-6">
-									<button type="button" class="btn btn-default"
-											data-url="${baseUrl}/design/theme/reset" 
+									<button type="button" class="btn btn-default" id="reset"
+											data-url="${baseUrl}/design/theme/load" 
 											data-method="GET" 
 											data-spinner="true"
 											data-spinner-location="#submit">
@@ -80,7 +73,7 @@
 							</div>
 							<p id="formResult"></p>
 						</form>
-						
+						{{/websiteView}}
 					</div>
 				</div> <!-- /.panel -->
 				

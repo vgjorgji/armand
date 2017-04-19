@@ -9,10 +9,6 @@ public class Template {
 	public Template() {
 	}
 	
-	public Template(String id, Object data) {
-		this(id, id, data);
-	}
-
 	public Template(String id, String replaceId, Object data) {
 		this.id = id;
 		this.replaceId = replaceId;

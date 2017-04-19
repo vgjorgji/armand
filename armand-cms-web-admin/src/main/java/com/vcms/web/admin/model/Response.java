@@ -28,7 +28,7 @@ public class Response {
 	}
 	
 	public void setMainTemplateData(Object mainTemplateData) {
-		addTemplate(new Template("main", mainTemplateData));
+		addTemplate(new Template("template-main", "main", mainTemplateData));
 	}
 	
 	public void addTemplate(Template template) {

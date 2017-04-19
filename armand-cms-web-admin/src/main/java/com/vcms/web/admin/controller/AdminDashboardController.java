@@ -4,17 +4,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
+import com.vcms.website.model.WebsiteView;
 
 @RestController
-@RequestMapping(value = "/admin")
-public class AdminController {
+@RequestMapping(value = PageConst.AdminDashboard)
+public class AdminDashboardController {
 	
-	@RequestMapping(value = "/dashboard/load", method = RequestMethod.GET)
-	public Response loadDashboardPage() {
+	@RequestMapping(value = "/load", method = RequestMethod.GET)
+	public Response load() {
 		Response response = new Response();
-		response.setMainTemplateData(UserSettingsProvider.getCurrentUser());
+		response.setMainTemplateData(new WebsiteView());
 		return response;
 	}
 

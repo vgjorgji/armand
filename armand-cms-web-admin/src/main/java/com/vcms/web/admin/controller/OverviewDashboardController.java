@@ -8,13 +8,13 @@ import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 
 @RestController
-@RequestMapping(value = PageConst.WebsiteDesign)
-public class WebsiteDesignController {
+@RequestMapping(value = PageConst.OverviewDashboard)
+public class OverviewDashboardController {
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
 		Response response = new Response();
 		return response;
 	}
-	
+
 }

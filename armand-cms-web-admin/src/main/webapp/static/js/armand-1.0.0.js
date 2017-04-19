@@ -38,7 +38,7 @@
 	 * Initalizaes all needed hoocks for javascript logic
 	 */
 	function init() {
-		fixInit();
+		selectedInit();
 		validateInit();
 		ajaxInit();
 		showHideInit();
@@ -47,12 +47,14 @@
 	
 
 	/*
-	 * Do some fixes on the way
+	 * Select the options where data-selected is set.
 	 */
-	function fixInit() {
+	function selectedInit() {
 		// do selection if some option is selected
-		$("option[value='copy']:selected").each(function() {
-			doSelectOption($(this).parent());
+		$("select[data-selected]").each(function() {
+			var element = $(this);
+			var value = element.attr("data-selected");
+			setValue(element, value, false);
 		});
 	}
 	
@@ -100,7 +102,6 @@
      *
      *  Field value special handling attributes:
      *    - data-frozen: (true or false) if the field has "true" set, then it's value will never be changed
-     *    - data-copy: gets the value from the given element and copies it
      *    - data-clear: clears the validation before triggering a new validation and before sending the AJAX request
      *
      *  Front-end displaying attribute:
@@ -243,64 +244,21 @@
 	}
 
 	/*
-	 * Check the selected option's value and take the needed action. Also handles
-	 * the show / hide.
+	 * Check the selected option's value and take the needed action. 
+	 * Also handles the show / hide.
 	 */
 	function doSelectOption(element) {
 		var selected = element.find(":selected");
-		var elementId = element.attr("id");
-		var group = element.attr('data-group');
-		var extendsGroup = element.attr('data-extends');
 		var value = selected.attr("value");
 		var url = undefined;
 
 		// create the url for the ajax call for standard case
-		if (value !== "new" && value !== "copy" && value !== "empty") {
+		if (value !== "empty") {
 			url = element.attr("data-url") + "/" + value;
 		}
 
-		// empty the fields for "new"
-		// set fixed data for "copy" (for validation success)
-		if (value === "new" || value === "copy") {
-			var copy = (value === "copy");
-			$("[data-group='" + group + "'][data-field]")
-					.add("[data-group='" + extendsGroup + "'][data-field]").each(function() {
-
-				// init
-				var innerElement = $(this);
-
-				// empty the fields
-				if (innerElement.attr("id") !== elementId && innerElement.attr("data-frozen") !== "true") {
-					if (innerElement.is("input")) {
-						if (copy) {
-							// dummy value if copy is
-							// selected
-							innerElement.val("0000");
-						} else {
-							innerElement.val("");
-						}
-
-					} else if (innerElement.is("select")) {
-						if (copy) {
-							// select dummy value: the 2-nd
-							// option (1-st is usualy the
-							// empty one), if copy is
-							// selected
-							innerElement.find(":first").next().attr("selected", "selected");
-						} else {
-							innerElement.find(":first").attr("selected", "selected");
-						}
-
-					}
-
-					// clear validation for "new" and "copy"
-					validateClear(innerElement);
-				}
-			});
-		}
-
 		// show / hide
-		doShowHide(value !== "copy" && value !== "empty", element);
+		doShowHide(true, element);
 
 		// return url
 		return url;
@@ -417,25 +375,14 @@
 				// check if flag is set
 				if (mainElement.attr("data-spinner") === "true") {
 
-					// get element
+					// get the element
 					var element = $(mainElement.attr("data-spinner-location"));
 					if (element.length === 0) {
 						element = mainElement;
 					}
-					var offset = element.offset();
-
+					
 					// create ajax spinner img
 					$(element).after("<span id='" + this.elementId + "_ajax' class='ajax-loader'></span>");
-
-					// position the spinner
-					/*
-					var left = offset.left + element.outerWidth() + 10;
-					var top = offset.top + 5;
-					$("img[id='" + this.elementId + "_ajax']").offset({
-						left : left,
-						top : top
-					});
-					*/
 				}
 			},
 
@@ -565,15 +512,6 @@
 					}
 				}
 
-				// sets the copy value
-				$("[data-copy]").each(function() {
-					var copyElement = $($(this).attr("data-copy"));
-					if (copyElement.length > 0) {
-						var copyValue = getValue(copyElement);
-						setValue($(this), copyValue, false);
-					}
-				});
-
 				// checks if a submit of some form is set
 				if (x.submitForm !== undefined) {
 					var temp = $("form[id='" + x.submitForm + "']");
@@ -627,7 +565,7 @@
 			element.attr("src", value);
 
 		} else if (element.is("select")) {
-			element.val(value).attr("selected", "selected");
+			element.val(value);
 			fieldElement = true;
 
 		} else if (element.is("textarea")) {
