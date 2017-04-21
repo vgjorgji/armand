@@ -7,11 +7,11 @@ public abstract class DbModel {
 	private long id = 0;
 	private DbModelState state = DbModelState.NEW;  // persistence
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

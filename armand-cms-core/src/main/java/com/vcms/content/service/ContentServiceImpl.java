@@ -43,7 +43,7 @@ public class ContentServiceImpl implements ContentService {
 	@Autowired
 	private LinkItemRepository linkItemRepository;
 	@Autowired
-	private ContentModelRepository navigationService;
+	private NavigationService navigationService;
 	@Autowired
 	private MediaItemRepository mediaItemRepository;
 	@Autowired
