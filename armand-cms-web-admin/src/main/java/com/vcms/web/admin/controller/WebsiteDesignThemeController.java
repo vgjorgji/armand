@@ -44,10 +44,7 @@ public class WebsiteDesignThemeController {
 	public Response save(@RequestBody WebsiteView websiteView) {
 		websiteViewService.save(websiteView);
 		
-		// reload
 		Response response = load();
-		
-		// response
 		response.snippet("formResult").text("Success").html(false);
 		return response;
 	}
