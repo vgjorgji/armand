@@ -14,7 +14,7 @@ import com.vcms.design.model.ExternalPage;
 import com.vcms.utils.StubUtils;
 
 @Repository
-public class FooterItemStubRepository implements FooterItemRepository {
+public class FooterItemRepositoryStub implements FooterItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

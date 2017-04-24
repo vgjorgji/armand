@@ -1,11 +1,9 @@
 package com.vcms.website.model;
 
-public interface WebsiteViewRepository {
+import com.vcms.persist.model.HistoryModelRepository;
+
+public interface WebsiteViewRepository extends HistoryModelRepository<WebsiteView> {
 	
-	WebsiteView getWebsiteView(long websiteViewId);
-	
-	WebsiteView getWebsiteView(long websiteId, WebsiteViewType viewType);
-	
-	void save(WebsiteView websiteView);
+	WebsiteView getModel(long websiteId, WebsiteViewType viewType);
 
 }

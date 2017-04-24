@@ -21,7 +21,7 @@ import com.vcms.media.model.MediaType;
 import com.vcms.utils.StubUtils;
 
 @Repository
-public class ParagraphItemStubRepository implements ParagraphItemRepository {
+public class ParagraphItemRepositoryStub implements ParagraphItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

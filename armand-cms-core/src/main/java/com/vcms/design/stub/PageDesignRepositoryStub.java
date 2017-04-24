@@ -6,7 +6,7 @@ import com.vcms.design.model.PageDesign;
 import com.vcms.design.model.PageDesignRepository;
 
 @Repository
-public class PageDesignStubRepository implements PageDesignRepository {
+public class PageDesignRepositoryStub implements PageDesignRepository {
 
 	@Override
 	public PageDesign getPageDesign(long pageId) {

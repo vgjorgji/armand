@@ -1,9 +1,9 @@
 package com.vcms.website.model;
 
-public interface WebsiteRepository {
+import com.vcms.persist.model.HistoryModelRepository;
+
+public interface WebsiteRepository extends HistoryModelRepository<Website> {
 	
-	Website getWebsite(long websiteId);
-	
-	Website getWebsite(String name);
+	Website getModel(String name);
 	
 }

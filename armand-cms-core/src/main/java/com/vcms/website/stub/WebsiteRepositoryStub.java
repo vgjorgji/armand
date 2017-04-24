@@ -1,8 +1,6 @@
 package com.vcms.website.stub;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -11,55 +9,52 @@ import org.springframework.stereotype.Repository;
 
 import com.vcms.conf.cms.CmsPackage;
 import com.vcms.localization.model.Language;
-import com.vcms.utils.StubUtils;
+import com.vcms.persist.stub.HistoryModelRepositoryStub;
+import com.vcms.utils.DateUtils;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 import com.vcms.website.model.WebsiteStatus;
 
 @Repository
-public class WebsiteStubRepository implements WebsiteRepository {
-	
-	private List<Website> list = new ArrayList<>();
+public class WebsiteRepositoryStub 
+		extends HistoryModelRepositoryStub<Website> 
+		implements WebsiteRepository {
 	
 	@PostConstruct
 	public void init() {
-		Website website = StubUtils.createStubDbModel(new Website(), 1000);
+		Website website = new Website();
 		website.setCompanyId(1000);
 		website.setName("Demo Website");
 		website.setBaseUrl("http://www.vcms-demo.noip.com");
 		website.setCmsPackage(CmsPackage.Business);
 		website.setLanguages(Arrays.asList(Language.Macedonian, Language.English));
 		website.setStatus(WebsiteStatus.Online);
-		list.add(website);
+		website.setExpiryDate(DateUtils.getDateFromString("14.12.2018"));
+		saveModel(website);
 		
-		website = StubUtils.createStubDbModel(new Website(), 1001);
+		website = new Website();
 		website.setCompanyId(1000);
 		website.setName("Sample Website");
 		website.setBaseUrl("http://www.sample-demo.noip.com");
 		website.setCmsPackage(CmsPackage.Dynamic);
 		website.setLanguages(Arrays.asList(Language.English));
 		website.setStatus(WebsiteStatus.Construction);
-		list.add(website);
+		saveModel(website);
 	}
 	
 	@Override
-	public Website getWebsite(long websiteId) {
-		for (Website website : list) {
-			if (website.getId() == websiteId) {
-				return website;
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public Website getWebsite(String name) {
-		for (Website website : list) {
+	public Website getModel(String name) {
+		for (Website website : getList()) {
 			if (StringUtils.equals(website.getName(), name)) {
 				return website;
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	protected void merge(Website current, Website model) {
+		model.setCompanyId(current.getCompanyId());
 	}
 
 }

@@ -22,7 +22,7 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class JumbotronItemStubRepository implements JumbotronItemRepository {
+public class JumbotronItemRepositoryStub implements JumbotronItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

@@ -12,7 +12,7 @@ import com.vcms.user.model.UserRepository;
 import com.vcms.utils.StubUtils;
 
 @Repository
-public class UserStubRepository implements UserRepository {
+public class UserRepositoryStub implements UserRepository {
 
 	private Map<String, User> map = new HashMap<>();
 	

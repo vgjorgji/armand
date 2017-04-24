@@ -15,7 +15,7 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class WebsiteUserStubRepository implements WebsiteUserRepository {
+public class WebsiteUserRepositoryStub implements WebsiteUserRepository {
 
 	private List<WebsiteUser> list = new ArrayList<>();
 	

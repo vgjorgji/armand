@@ -1,7 +1,7 @@
 package com.vcms.website.model;
 
-public interface CompanyRepository {
+import com.vcms.persist.model.HistoryModelRepository;
 
-	Company getCompany(long id);
+public interface CompanyRepository extends HistoryModelRepository<Company> {
 	
 }

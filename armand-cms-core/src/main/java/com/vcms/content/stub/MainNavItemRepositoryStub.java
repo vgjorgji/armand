@@ -13,7 +13,7 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class MainNavItemStubRepository implements MainNavItemRepository {
+public class MainNavItemRepositoryStub implements MainNavItemRepository {
 
 	public List<MainNavItem> getModels(long designComponentId) {
 		List<MainNavItem> result = new ArrayList<>();

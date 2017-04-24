@@ -6,12 +6,12 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.content.model.ContentModel;
-import com.vcms.content.model.MediaItem;
-import com.vcms.content.model.MediaItemRepository;
+import com.vcms.content.model.HeaderItem;
+import com.vcms.content.model.HeaderItemRepository;
 import com.vcms.design.model.DesignComponent;
 
 @Repository
-public class MediaItemStubRepository implements MediaItemRepository {
+public class HeaderItemRepositoryStub implements HeaderItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
@@ -19,7 +19,7 @@ public class MediaItemStubRepository implements MediaItemRepository {
 	}
 
 	@Override
-	public List<MediaItem> getModels(long designComponentId) {
+	public List<HeaderItem> getModels(long designComponentId) {
 		return null;
 	}
 	

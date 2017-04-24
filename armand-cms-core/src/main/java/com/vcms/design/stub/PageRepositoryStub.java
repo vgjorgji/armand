@@ -20,7 +20,7 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class PageStubRepository implements PageRepository {
+public class PageRepositoryStub implements PageRepository {
 	
 	private List<Page> list = new ArrayList<>();
 	

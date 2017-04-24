@@ -17,7 +17,7 @@ import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
 
 @Repository
-public class ContactInfoItemStubRepository implements ContactInfoItemRepository {
+public class ContactInfoItemRepositoryStub implements ContactInfoItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

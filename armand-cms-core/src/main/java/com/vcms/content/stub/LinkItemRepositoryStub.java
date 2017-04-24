@@ -11,7 +11,7 @@ import com.vcms.content.model.LinkItemRepository;
 import com.vcms.design.model.DesignComponent;
 
 @Repository
-public class LinkItemStubRepository implements LinkItemRepository {
+public class LinkItemRepositoryStub implements LinkItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

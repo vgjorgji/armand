@@ -14,7 +14,7 @@ import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class TitleItemStubRepository implements TitleItemRepository {
+public class TitleItemRepositoryStub implements TitleItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

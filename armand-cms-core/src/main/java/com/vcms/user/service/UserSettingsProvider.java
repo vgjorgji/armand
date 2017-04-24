@@ -8,13 +8,18 @@ import com.vcms.user.model.UserSettings;
 public class UserSettingsProvider {
 	
 	public static UserSettings getCurrentUser() {
-		Authentication authentication = UserSettingsProvider.getAuthentication();
+		Authentication authentication = UserSettingsProvider.getAuthentication(false);
 		return (UserSettings) authentication.getPrincipal();
 	}
 	
-	private static Authentication getAuthentication() {
+	public static UserSettings getCurrentUserRelax() {
+		Authentication authentication = UserSettingsProvider.getAuthentication(true);
+		return authentication != null ? (UserSettings) authentication.getPrincipal() : null;
+	}
+	
+	private static Authentication getAuthentication(boolean relax) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null) {
+		if (authentication == null && !relax) {
 			throw new IllegalStateException("No authentication found");
 		}
 		return authentication;

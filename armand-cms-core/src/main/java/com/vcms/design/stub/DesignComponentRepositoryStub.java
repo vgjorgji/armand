@@ -19,7 +19,7 @@ import com.vcms.design.model.LayoutPosition;
 import com.vcms.utils.StubUtils;
 
 @Repository
-public class DesignComponentStubRepository implements DesignComponentRepository {
+public class DesignComponentRepositoryStub implements DesignComponentRepository {
 	
 	@Override
 	public List<DesignComponent> getDesignComponents(long pageId) {

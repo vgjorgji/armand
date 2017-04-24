@@ -16,7 +16,7 @@ import com.vcms.localization.model.LocalTextType;
 import com.vcms.utils.StubUtils;
 
 @Repository
-public class HighlightItemStubRepository implements HighlightItemRepository {
+public class HighlightItemRepositoryStub implements HighlightItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {

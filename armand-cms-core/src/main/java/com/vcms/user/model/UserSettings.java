@@ -23,8 +23,8 @@ public class UserSettings implements UserDetails {
 	private User user;
 	
 	// select
-	private long selectedWebsiteId = -1;
-	private long selectedWebsiteUserId = -1;
+	private long selectedWebsiteId = 0;
+	private long selectedWebsiteUserId = 0;
 	private String selectedWebsiteName = "";
 	
 	// resolve
@@ -32,7 +32,7 @@ public class UserSettings implements UserDetails {
 	private Set<Role> roles = DEFAULT_ROLES;
 	
 	public long getId() {
-		return hasUser() ? user.getId() : -1;
+		return hasUser() ? user.getId() : 0;
 	}
 
 	public boolean hasUser() {
@@ -139,5 +139,15 @@ public class UserSettings implements UserDetails {
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
+
+	public String toStringUser() {
+		if (hasUser()) {
+			return user.getId() + " - " + user.getLastName() + " " + user.getFirstName();
+		} else {
+			return visitor.getRemoteAddress();
+		}
+	}
+	
+	
 
 }

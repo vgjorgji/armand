@@ -29,7 +29,7 @@ import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 
 @Repository
-public class FeedItemStubRepository implements FeedItemRepository {
+public class FeedItemRepositoryStub implements FeedItemRepository {
 
 	@Override
 	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
