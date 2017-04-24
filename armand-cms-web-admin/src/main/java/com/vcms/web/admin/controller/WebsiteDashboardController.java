@@ -21,7 +21,7 @@ public class WebsiteDashboardController {
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load(@PathVariable("websiteId") long websiteId) {
 		Response response = new Response();
-		Website website = websiteRepository.getWebsite(websiteId);
+		Website website = websiteRepository.getModel(websiteId);
 		
 		response.mainTemplate().data().add("website", website);
 		return response;

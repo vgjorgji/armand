@@ -39,7 +39,7 @@ public class SelectedWebsiteInterceptor implements HandlerInterceptor {
 			if (userSettings.getSelectedWebsiteId() != websiteId) {
 				
 				// change the website
-				Website website = websiteRepository.getWebsite(websiteId);
+				Website website = websiteRepository.getModel(websiteId);
 				userSettingsService.changeSettingsForWebsite(userSettings, website);
 			}
 		}

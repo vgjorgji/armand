@@ -26,7 +26,6 @@
 						{{#websiteView}}
 						<form class="form-horizontal">
 							<form:hidden id="id" field="id" group="websiteView" />
-							<input type="hidden" id="id" data-group="websiteView" data-field="true" value="{{id}}" />
 							<form:select id="style" field="style" group="websiteView"
 								options="styles" label="Style" />
 							<form:select id="color" field="color" group="websiteView"
@@ -35,25 +34,7 @@
 								options="modernColors" label="Select Color" />
 							<form:select id="font" field="font" group="websiteView"
 								options="fonts" label="Font" />
-							<div class="form-group">
-								<div class="col-md-offset-3 col-md-6">
-									<button type="button" class="btn btn-default" id="reset"
-											data-url="${pageUrl}/load" 
-											data-method="GET" 
-											data-spinner="true"
-											data-spinner-location="#submit">
-										Reset
-									</button>
-									<button type="submit" class="btn btn-primary" id="submit"
-											data-url="${pageUrl}/save" 
-											data-method="POST" 
-											data-json="true"
-											data-group="websiteView"
-											data-spinner="true">
-										Save
-									</button>
-								</div>
-							</div>
+							<form:buttons pageUrl="${pageUrl}" group="websiteView" />
 						</form>
 						{{/websiteView}}
 					</div>

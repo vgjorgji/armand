@@ -6,23 +6,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vcms.conf.cms.Font;
-import com.vcms.conf.cms.ModernColor;
-import com.vcms.conf.cms.Style;
+import com.vcms.conf.cms.CmsPackage;
+import com.vcms.localization.model.Language;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.website.model.WebsiteView;
-import com.vcms.website.model.WebsiteViewRepository;
-import com.vcms.website.model.WebsiteViewType;
+import com.vcms.website.model.Website;
+import com.vcms.website.model.WebsiteRepository;
 
 @RestController
-@RequestMapping(value = PageConst.WebsiteDesignTheme)
-public class WebsiteDesignThemeController {
+@RequestMapping(value = PageConst.WebsiteAdminSite)
+public class WebsiteAdminSiteController {
 	
 	@Autowired
-	private WebsiteViewRepository websiteViewRepository;
+	private WebsiteRepository websiteRepository;
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
@@ -30,19 +28,18 @@ public class WebsiteDesignThemeController {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		
 		long websiteId = userSettings.getSelectedWebsiteId();
-		WebsiteView websiteView = websiteViewRepository.getModel(websiteId, WebsiteViewType.Design);
+		Website website = websiteRepository.getModel(websiteId);
 		
 		response.mainTemplate().data()
-				.add("websiteView", websiteView)
-				.add("styles", Style.values())
-				.add("modernColors", ModernColor.values())
-				.add("fonts", Font.values());
+				.add("website", website)
+				.add("cmsPackages", CmsPackage.values())
+				.add("allLanguages", Language.values());
 		return response;
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public Response save(@RequestBody WebsiteView websiteView) {
-		websiteViewRepository.saveModel(websiteView);
+	public Response save(@RequestBody Website website) {
+		websiteRepository.saveModel(website);
 		
 		Response response = load();
 		response.snippet("formResult").text("Success").html(false);

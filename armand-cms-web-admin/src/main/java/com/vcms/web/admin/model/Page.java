@@ -9,10 +9,14 @@ public enum Page {
 	WebsitesDashboard(PageConst.WebsitesDashboard),
 	
 	WebsiteDashboard(PageConst.WebsiteDashboard, "/website/dashboard"),
+	WebsiteAdmin(PageConst.WebsiteAdmin, "/website/admin"),
 	WebsiteDesign(PageConst.WebsiteDesign, "/website/design"),
 	WebsiteDesignReview(PageConst.WebsiteDesignPreview, "/website/design-review"),
 	WebsiteContent(PageConst.WebsiteContent, "/website/content"),
 	WebsiteContentReview(PageConst.WebsiteContentReview, "/website/content-review"),
+	
+	WebsiteAdminSite(PageConst.WebsiteAdminSite, "/website/admin/site"),
+	WebsiteAdminUsers(PageConst.WebsiteAdminUsers, "/website/admin/users"),
 	
 	WebsiteDesignTheme(PageConst.WebsiteDesignTheme, "/website/design/theme"),
 	WebsiteDesignNavigation(PageConst.WebsiteDesignNavigation, "/website/design/navigation"),

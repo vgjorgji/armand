@@ -36,7 +36,7 @@ public class WebsitesDashboardController {
 		List<WebsiteUser> websiteUsers = websiteUserRepository.getWebsitesForUser(userSettings.getId());
 		List<Website> websites = new ArrayList<>(websiteUsers.size());
 		for (WebsiteUser websiteUser : websiteUsers) {
-			websites.add(websiteRepository.getWebsite(websiteUser.getWebsiteId()));
+			websites.add(websiteRepository.getModel(websiteUser.getWebsiteId()));
 		}
 		
 		response.mainTemplate().data()

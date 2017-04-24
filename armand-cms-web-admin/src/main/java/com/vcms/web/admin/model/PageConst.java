@@ -14,10 +14,14 @@ public interface PageConst {
 	String WebsitesDashboard = Websites + "/dashboard";
 	
 	String WebsiteDashboard = Website + "/dashboard";
+	String WebsiteAdmin = Website + "/admin";
 	String WebsiteDesign = Website + "/design";
 	String WebsiteDesignReview = Website + "/design-review";
 	String WebsiteContent = Website + "/content";
 	String WebsiteContentReview = Website + "/content-review";
+	
+	String WebsiteAdminSite = WebsiteAdmin + "/site";
+	String WebsiteAdminUsers = WebsiteAdmin + "/users";
 	
 	String WebsiteDesignTheme = WebsiteDesign + "/theme";
 	String WebsiteDesignNavigation = WebsiteDesign + "/navigation";

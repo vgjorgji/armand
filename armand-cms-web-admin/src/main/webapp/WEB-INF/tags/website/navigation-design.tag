@@ -6,25 +6,25 @@
 
 <ul class="nav nav-sidebar-sub">
 	<li>
-		<a href="<c:url value="/website/1000/design/theme" />">
+		<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/design/theme" />">
 			<i class="fa ${select eq 'theme' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
 			Theme
 		</a>
 	</li>
 	<li>
-		<a href="<c:url value="/website/1000/design/navigation" />">
+		<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/design/navigation" />">
 			<i class="fa ${select eq 'navigation' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
 			Navigation
 		</a>
 	</li>
 	<li>
-		<a href="<c:url value="/website/1000/design/pages" />">
+		<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/design/pages" />">
 			<i class="fa ${select eq 'pages' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
 			Pages
 		</a>
 	</li>
 	<li>
-		<a href="<c:url value="/website/1000/design/preview" />">
+		<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/design/preview" />">
 			<i class="fa ${select eq 'preview' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
 			Preview
 		</a>
