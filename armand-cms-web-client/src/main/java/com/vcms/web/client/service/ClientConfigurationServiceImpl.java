@@ -29,11 +29,11 @@ public class ClientConfigurationServiceImpl implements ClientConfigurationServic
 	
 	@PostConstruct
 	public void init() {
-		website = websiteRepository.getWebsite(websiteName);
+		website = websiteRepository.getModel(websiteName);
 		if (website == null) {
 			throw new IllegalStateException("No website for: " + websiteName);
 		}
-		websiteView = websiteVeiwRepository.getWebsiteView(website.getId(), WebsiteViewType.Live);
+		websiteView = websiteVeiwRepository.getModel(website.getId(), WebsiteViewType.Live);
 		if (websiteView == null) {
 			throw new IllegalStateException("No website view for Live website :" + websiteName);
 		}
