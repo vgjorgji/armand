@@ -14,7 +14,7 @@ public abstract class HistoryModelRepositoryImpl<T extends HistoryModel>
 	@Override
 	protected void interceptBeforeInsertModel(T model) {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUserRelax();
-		model.setCreatedBy(userSettings != null ? userSettings.toStringUser() : "none");
+		model.setCreatedBy(userSettings != null ? userSettings.toStringUser() : "unknown");
 		model.setCreatedDate(new Date());
 		model.setChangedBy(model.getCreatedBy());
 		model.setChangedDate(model.getCreatedDate());
@@ -24,9 +24,15 @@ public abstract class HistoryModelRepositoryImpl<T extends HistoryModel>
 	@Override
 	protected void interceptBeforeUpdateModel(T current, T model) {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUserRelax();
-		model.setChangedBy(userSettings != null ? userSettings.toStringUser() : "none");
+		model.setChangedBy(userSettings != null ? userSettings.toStringUser() : "unknown");
 		model.setChangedDate(new Date());
 		model.setVersion(model.getVersion() + 1);
+	}
+	
+	@Override
+	protected void merge(T current, T model) {
+		model.setCreatedBy(current.getCreatedBy());
+		model.setCreatedDate(current.getCreatedDate());
 	}
 
 }

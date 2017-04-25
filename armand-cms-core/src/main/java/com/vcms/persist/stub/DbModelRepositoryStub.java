@@ -28,6 +28,20 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 			list.set(index, model);
 		}
 	}
+	
+	@Override
+	public void deleteModel(T model) {
+		int index = -1;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getId() == model.getId()) {
+				index = i;
+				break;
+			}
+		}
+		if (index >= 0) {
+			list.remove(index);
+		}
+	}
 
 	@Override
 	public T getModel(long id) {
@@ -49,8 +63,9 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 		}
 		return result;
 	}
-	
-	protected List<T> getList() {
+
+	@Override
+	public List<T> getAllModels() {
 		return list;
 	}
 

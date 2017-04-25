@@ -1,11 +1,8 @@
 package com.vcms.persist.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public abstract class DbModel {
 	
 	private long id = 0;
-	private DbModelState state = DbModelState.NEW;  // persistence
 	
 	public long getId() {
 		return id;
@@ -15,15 +12,6 @@ public abstract class DbModel {
 		this.id = id;
 	}
 	
-	@JsonIgnore
-	public DbModelState getState() {
-		return state;
-	}
-	
-	public void setState(DbModelState state) {
-		this.state = state;
-	}
-	
 	@Override
 	public String toString() {
 		return getClass().getSimpleName() + "[id=" + id + "]";
@@ -31,8 +19,8 @@ public abstract class DbModel {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof HistoryModel) {
-			return Long.valueOf(id).equals(((HistoryModel) obj).getId());
+		if (obj instanceof DbModel) {
+			return id == ((DbModel) obj).getId();
 		}
 		return false;
 	}

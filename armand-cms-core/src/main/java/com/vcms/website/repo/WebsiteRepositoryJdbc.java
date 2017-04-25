@@ -23,19 +23,25 @@ public class WebsiteRepositoryJdbc
 	private JdbcTemplate jdbcTemplate;
 	
 	@Override
-	public Website getModel(String name) {
-		return jdbcTemplate.queryForObject("select * from website where name = ?", new Object[] { name },
-				new RowMapper<Website>() {
-
-					@Override
-					public Website mapRow(ResultSet rs, int rowNum) throws SQLException {
-						Website website = new Website();
-						website.setName(rs.getString("name"));
-						return website;
-					}
-				});
+	protected void setNewModelId(Website model) {
+		// TODO Auto-generated method stub
 	}
 
+	@Override
+	protected void insertModel(Website model) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void updateModel(Website current, Website model) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void deleteModel(Website model) {
+		// TODO Auto-generated method stub
+	}
+	
 	@Override
 	public Website getModel(long id) {
 		// TODO Auto-generated method stub
@@ -47,23 +53,25 @@ public class WebsiteRepositoryJdbc
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	protected void setNewModelId(Website model) {
+	public List<Website> getAllModels() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
-
+	
 	@Override
-	protected void insertModel(Website model) {
-		// TODO Auto-generated method stub
-		
-	}
+	public Website getModel(String name) {
+		return jdbcTemplate.queryForObject("select * from website where name = ?", new Object[] { name },
+				new RowMapper<Website>() {
 
-	@Override
-	protected void updateModel(Website current, Website model) {
-		// TODO Auto-generated method stub
-		
+					@Override
+					public Website mapRow(ResultSet rs, int rowNum) throws SQLException {
+						Website website = new Website();
+						website.setName(rs.getString("name"));
+						return website;
+					}
+				});
 	}
 
 }

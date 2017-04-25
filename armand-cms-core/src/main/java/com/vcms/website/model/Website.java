@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.vcms.conf.cms.CmsPackage;
 import com.vcms.localization.model.Language;
 import com.vcms.persist.model.HistoryModel;
@@ -74,6 +76,7 @@ public class Website extends HistoryModel {
 		this.companyId = companyId;
 	}
 
+	@JsonFormat(shape = Shape.STRING, pattern = "dd.MM.yyyy")
 	public Date getExpiryDate() {
 		return expiryDate;
 	}
@@ -81,5 +84,5 @@ public class Website extends HistoryModel {
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
-
+	
 }

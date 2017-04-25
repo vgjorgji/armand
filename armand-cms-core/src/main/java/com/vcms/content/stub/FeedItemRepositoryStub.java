@@ -14,6 +14,7 @@ import com.vcms.conf.cms.ModernColor;
 import com.vcms.content.model.ContentModel;
 import com.vcms.content.model.FeedItem;
 import com.vcms.content.model.FeedItemRepository;
+import com.vcms.date.DateUtils;
 import com.vcms.design.model.DesignComponent;
 import com.vcms.design.model.FeedDesignComponent;
 import com.vcms.design.model.FeedPage;
@@ -24,7 +25,6 @@ import com.vcms.localization.model.LocalText;
 import com.vcms.localization.model.LocalTextType;
 import com.vcms.media.model.Media;
 import com.vcms.media.model.MediaType;
-import com.vcms.utils.DateUtils;
 import com.vcms.utils.StubUtils;
 import com.vcms.utils.TextUtils;
 

@@ -1,17 +1,16 @@
 package com.vcms.website.model;
 
 import com.vcms.persist.model.HistoryModel;
-import com.vcms.user.model.User;
 
 public class Company extends HistoryModel {
 
+	private long contactUserId;
 	private String name;
 	private String address1;
 	private String address2;
 	private String phone1;
 	private String phone2;
 	private String email;
-	private User contactUser;
 	
 	public String getName() {
 		return name;
@@ -60,13 +59,13 @@ public class Company extends HistoryModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public User getContactUser() {
-		return contactUser;
+
+	public long getContactUserId() {
+		return contactUserId;
 	}
 
-	public void setContactUser(User contactUser) {
-		this.contactUser = contactUser;
+	public void setContactUserId(long contactUserId) {
+		this.contactUserId = contactUserId;
 	}
 	
 }

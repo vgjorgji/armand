@@ -25,9 +25,4 @@ public class CompanyRepositoryStub
 		saveModel(company);
 	}
 	
-	@Override
-	protected void merge(Company current, Company model) {
-		model.setContactUser(current.getContactUser());
-	}
-	
 }
