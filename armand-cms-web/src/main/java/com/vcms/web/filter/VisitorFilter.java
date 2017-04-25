@@ -57,6 +57,7 @@ public class VisitorFilter extends AnonymousAuthenticationFilter {
 			if (visitorSettings != null) {
 				UserSettings userSettings = (UserSettings) authentication.getPrincipal();
 				userSettings.setVisitor(visitorSettings.getVisitor());
+				userSettings.getVisitor().setUserId(userSettings.getId());
 				removeFromSession(request);
 				exposeInSession(request, userSettings);
 			}

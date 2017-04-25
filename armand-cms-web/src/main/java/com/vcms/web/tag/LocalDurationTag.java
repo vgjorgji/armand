@@ -2,8 +2,9 @@ package com.vcms.web.tag;
 
 import java.util.Date;
 
+import com.vcms.date.Age;
+import com.vcms.date.DateUtils;
 import com.vcms.localization.model.Language;
-import com.vcms.utils.DateUtils;
 
 public class LocalDurationTag extends AbstractLocalTag {
 
@@ -14,7 +15,8 @@ public class LocalDurationTag extends AbstractLocalTag {
 	@Override
 	protected String generateResponseString(Language language) {
 		if (value != null) {
-			return DateUtils.toDuration(value, language);
+			Age age = DateUtils.toAge(value, language);
+			return age.getDuration().getTextShort();
 		}
 		return "";
 	}
