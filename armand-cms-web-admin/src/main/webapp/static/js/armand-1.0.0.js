@@ -383,6 +383,10 @@
 					
 					// create ajax spinner img
 					$(element).after("<span id='" + this.elementId + "_ajax' class='ajax-loader'></span>");
+					
+				} else {
+					// fall back are the alerts
+					$("#ajax-send").show();
 				}
 			},
 
@@ -395,6 +399,12 @@
 
 					// remove the loader gif
 					$("span[id='" + this.elementId + "_ajax']").remove();
+					
+				} else {
+					// fall back are the alerts
+					$("#ajax-send").hide();
+					$("#ajax-complete").show();
+					$("#ajax-complete").delay(1000).fadeOut(500);
 				}
 			}
 
@@ -565,7 +575,11 @@
 			element.attr("src", value);
 
 		} else if (element.is("select")) {
-			element.val(value);
+			if (element.attr("multiple") !== undefined) {
+				element.val(value.split(","));
+			} else {
+				element.val(value);
+			}
 			fieldElement = true;
 
 		} else if (element.is("textarea")) {
@@ -610,7 +624,15 @@
 			return element.attr("src");
 
 		} else if (element.is("select")) {
-			return element.find(":selected").val();
+			if (element.attr("multiple") !== undefined) {
+				var array = [];
+				element.find(":selected").each(function() {
+					array.push($(this).val());
+				});
+				return array;
+			} else {
+				return element.find(":selected").val();
+			}
 
 		} else if (element.is("textarea")) {
 			return element.val();

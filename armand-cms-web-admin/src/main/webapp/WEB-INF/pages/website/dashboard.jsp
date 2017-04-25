@@ -85,7 +85,7 @@
 							<label class="col-md-3 control-label">URL</label>
 							<div class="col-md-9">
 								<p class="form-control-static">
-									<a href="{{baseUrl}}" target="_blank">
+									<a href="http://{{baseUrl}}" target="_blank">
 										<i class="fa fa-globe"></i>{{baseUrl}}
 									</a>
 								</p>
@@ -123,7 +123,7 @@
 							<label class="col-md-3 control-label">Expiry Date</label>
 							<div class="col-md-9">
 								<p class="form-control-static">
-									{{expiryDate}} (1 year 2 months 29 days)
+									<i class="{{countdown.type.cssClass}}"></i>{{countdown.duration.textLong}} <br/>
 								</p>
 							</div>
 						</div>

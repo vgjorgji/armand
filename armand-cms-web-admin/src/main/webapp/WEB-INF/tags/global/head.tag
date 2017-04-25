@@ -12,14 +12,14 @@
 <meta name="_csrf" content="${_csrf.token}" />
 
 <!-- css -->
-<link type="text/css" rel="stylesheet" href="<c:url value="/static/css/bootstrap-3.3.6.min.css"/>" />
-<link type="text/css" rel="stylesheet" href="<c:url value="/static/css/bootstrap-theme-3.3.6.min.css"/>" />
+<link type="text/css" rel="stylesheet" href="<c:url value="/static/css/bootstrap-3.3.7.min.css"/>" />
+<link type="text/css" rel="stylesheet" href="<c:url value="/static/css/bootstrap-theme-3.3.7.min.css"/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value="/static/css/fontawesome.min.css"/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value="/static/css/site.css"/>" />
 
 <!-- Scripts -->
 <script type="text/javascript" src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/static/js/bootstrap-3.3.6.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/static/js/bootstrap-3.3.7.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/static/js/mustache-2.3.0.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/static/js/armand-1.0.0.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/static/js/site.js"/>"></script>

@@ -69,9 +69,19 @@ a:focus {
 	height: 17px;
 	content: ' ';
 }
+.alert {
+	position: fixed;
+	top: 51px;
+	left: 45%;
+	z-index: 10000;
+	width: 200px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 600;
+	display: none;
+}
 
 /************** FLAGS **************/
-
 .flag {
 	background: url('../img/flags.png') no-repeat scroll -4px -621px;
 	height: 11px;

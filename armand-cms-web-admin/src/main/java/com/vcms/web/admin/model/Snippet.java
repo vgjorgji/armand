@@ -3,7 +3,7 @@ package com.vcms.web.admin.model;
 public class Snippet {
 
 	private String text;
-	private boolean html;
+	private boolean html = false;
 	
 	public Snippet() {
 	}

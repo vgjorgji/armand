@@ -34,7 +34,7 @@
 				<c:if test="${userSettings.selectedWebsiteId > 0}">
 					<li class="website <c:if test="${select eq 'website'}">active</c:if>">
 						<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/dashboard" />">
-							<em>${userSettings.selectedWebsiteName}</em>
+							<em id="global-website-name">${userSettings.selectedWebsiteName}</em>
 						</a>
 					</li>
 				</c:if>

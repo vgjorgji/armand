@@ -26,12 +26,16 @@
 						{{#website}}
 						<form class="form-horizontal">
 							<form:hidden id="id" field="id" group="website" />
+							<form:select id="companyId" field="companyId" group="website"
+								options="allCompanies" optionValue="id" optionText="name" label="Company" />
 							<form:input id="name" field="name" group="website" label="Name" />
 							<form:input id="baseUrl" field="baseUrl" group="website" label="Base URL" />
 							<form:select id="cmsPackage" field="cmsPackage.id" group="website"
-								options="cmsPackages" optionsField="id" label="CMS Package" />
-							<form:select id="languages" field="languages" group="website"
-								options="allLanguages" optionsField="id" multi="true" label="Languages" />
+								options="cmsPackages" optionValue="id" label="CMS Package" />
+							<form:select id="languages" field="languages" fieldValues="id" group="website"
+								options="allLanguages" optionValue="id" multi="true" label="Languages" />
+							<form:select id="status" field="status.id" group="website"
+								options="statuses" optionValue="id" label="Status" />
 							<form:input id="expiryDate" field="expiryDate" group="website" label="Expiry Date" />
 							<form:buttons pageUrl="${pageUrl}" group="website" />
 						</form>

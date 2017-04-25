@@ -3,8 +3,8 @@ package com.vcms.web.admin.model;
 public class Message {
 
 	private String text;
-	private boolean ignorePrefix;
-	private boolean error;
+	private boolean ignorePrefix = false;
+	private boolean error = false;
 	private String field;
 	
 	public Message() {

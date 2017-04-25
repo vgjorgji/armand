@@ -32,8 +32,13 @@ public class Response {
 	}
 	
 	public Template template(String templateId, String replaceId) {
-		Template template = new Template(templateId, replaceId);
-		templates.put(templateId, template);
+		Template template = null;
+		if (templates.containsKey(templateId)) {
+			template = templates.get(templateId);
+		} else {
+			template = new Template(templateId, replaceId);
+			templates.put(templateId, template);
+		}
 		return template;
 	}
 	
@@ -42,8 +47,13 @@ public class Response {
 	}
 
 	public Message message(String messageId) {
-		Message message = new Message();
-		messages.put(messageId, message);
+		Message message = null;
+		if (messages.containsKey(messageId)) {
+			message = messages.get(messageId);
+		} else {
+			message = new Message();
+			messages.put(messageId, message);
+		}
 		return message;
 	}
 	
@@ -52,8 +62,13 @@ public class Response {
 	}
 	
 	public Snippet snippet(String snippetId) {
-		Snippet snippet = new Snippet();
-		snippets.put(snippetId, snippet);
+		Snippet snippet = null;
+		if (snippets.containsKey(snippetId)) {
+			snippet = snippets.get(snippetId);
+		} else {
+			snippet = new Snippet();
+			snippets.put(snippetId, snippet);
+		}
 		return snippet;
 	}
 	
