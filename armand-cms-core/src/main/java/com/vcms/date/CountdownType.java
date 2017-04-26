@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @JsonFormat(shape = Shape.OBJECT)
 public enum CountdownType {
-	Expired(0, "fa fa-clock-o text-danger"),
-	Warning(10, "fa fa-clock-o text-warning"),
-	TakeNote(30, "fa fa-clock-o text-primary"),
-	Normal(750, "fa fa-clock-o text-success"),
-	Infinity(Long.MAX_VALUE, "fa fa-clock-o");
+	Expired(0, "text-danger text-bold"),
+	Warning(10, "text-warning text-bold"),
+	TakeNote(30, "text-primary"),
+	Normal(750, ""),
+	Infinity(Long.MAX_VALUE, "");
 
 	private long threshold;
 	private String cssClass;

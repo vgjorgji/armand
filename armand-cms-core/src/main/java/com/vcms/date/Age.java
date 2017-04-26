@@ -2,13 +2,13 @@ package com.vcms.date;
 
 public class Age {
 	
-	private Duration duration;
+	private String duration;
 
-	public Duration getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Duration duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 

@@ -2,14 +2,14 @@ package com.vcms.date;
 
 public class Countdown {
 	
-	private Duration duration;
+	private String duration;
 	private CountdownType type;
 
-	public Duration getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Duration duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 	

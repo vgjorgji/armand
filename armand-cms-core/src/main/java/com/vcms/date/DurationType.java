@@ -1,29 +1,20 @@
 package com.vcms.date;
 
-import java.util.concurrent.TimeUnit;
+import java.util.Set;
+
+import com.vcms.utils.Utils;
 
 public enum DurationType {
-	Year(TimeUnit.DAYS.toMillis(365), true),
-	Month(TimeUnit.DAYS.toMillis(30), true),
-	Day(TimeUnit.DAYS.toMillis(1), true),
-	Hour(TimeUnit.HOURS.toMillis(1), false),
-	Minute(TimeUnit.MINUTES.toMillis(1), false),
-	Second(TimeUnit.SECONDS.toMillis(1), false);
-
-	private long millis;
-	private boolean partOfLongText;
+	Long(Utils.asSet(DurationUnit.Year, DurationUnit.Month, DurationUnit.Day)),
+	Short(Utils.asSet(DurationUnit.values()));
 	
-	private DurationType(long millis, boolean partOfLongText) {
-		this.millis = millis;
-		this.partOfLongText = partOfLongText;
-	}
+	private Set<DurationUnit> units;
 
-	public long getMillis() {
-		return millis;
-	}
-
-	public boolean isPartOfLongText() {
-		return partOfLongText;
+	private DurationType(Set<DurationUnit> units) {
+		this.units = units;
 	}
 	
+	public boolean isDurationUnitSupported(DurationUnit durationUnit) {
+		return units.contains(durationUnit);
+	}
 }
