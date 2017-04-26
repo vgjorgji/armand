@@ -16,7 +16,7 @@ public class LocalDurationTag extends AbstractLocalTag {
 	protected String generateResponseString(Language language) {
 		if (value != null) {
 			Age age = DateUtils.toAge(value, language);
-			return age.getDuration().getTextShort();
+			return age.getDuration();
 		}
 		return "";
 	}
