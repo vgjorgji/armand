@@ -80,6 +80,9 @@ a:focus {
 	font-weight: 600;
 	display: none;
 }
+.text-bold {
+	font-weight: bold;
+}
 
 /************** FLAGS **************/
 .flag {
