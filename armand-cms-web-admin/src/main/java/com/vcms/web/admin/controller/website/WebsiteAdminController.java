@@ -1,4 +1,4 @@
-package com.vcms.web.admin.controller;
+package com.vcms.web.admin.controller.website;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,13 +8,13 @@ import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 
 @RestController
-@RequestMapping(value = PageConst.WebsiteDesign)
-public class WebsiteDesignController {
+@RequestMapping(value = PageConst.WebsiteAdmin)
+public class WebsiteAdminController {
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
 		Response response = new Response();
 		return response;
 	}
-	
+
 }

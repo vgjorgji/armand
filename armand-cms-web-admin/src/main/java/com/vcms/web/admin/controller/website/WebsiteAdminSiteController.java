@@ -1,4 +1,4 @@
-package com.vcms.web.admin.controller;
+package com.vcms.web.admin.controller.website;
 
 import java.util.List;
 

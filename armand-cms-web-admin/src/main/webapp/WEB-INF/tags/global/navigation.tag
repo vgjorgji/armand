@@ -25,9 +25,11 @@
 				<li class="<c:if test="${select eq 'overview'}">active</c:if>">
 					<a href="<c:url value="/overview/dashboard" />">Overview</a>
 				</li>
-				<li class="<c:if test="${select eq 'admin'}">active</c:if>">
-					<a href="<c:url value="/admin/dashboard" />">Administration</a>
-				</li>
+				<c:if test="${userSettings.user.master}">
+					<li class="<c:if test="${select eq 'admin'}">active</c:if>">
+						<a href="<c:url value="/admin/dashboard" />">Administration</a>
+					</li>
+				</c:if>
 				<li class="<c:if test="${select eq 'websites'}">active</c:if>">
 					<a href="<c:url value="/websites/dashboard" />">Websites</a>
 				</li>
@@ -57,14 +59,16 @@
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle logged-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<img src="<c:url value="/static/img/stub/img.jpg" />" alt="" class="img-responsive img-circle"> Vlado Gjorgjiev <span class="caret"></span>
+						<img src="<c:url value="/static/img/stub/img.jpg" />" alt="" class="img-responsive img-circle">
+							&nbsp;${userSettings.user.firstName} ${userSettings.user.lastName}&nbsp;
+							<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
 						<li><a href="#">Settings</a></li>
 						<li><a href="#">Mail</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+						<li><a href="<c:url value="/logout" />"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 					</ul>
 				</li>
 			</ul>

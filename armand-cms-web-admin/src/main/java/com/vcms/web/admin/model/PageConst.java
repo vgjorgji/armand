@@ -10,6 +10,8 @@ public interface PageConst {
 	String OverviewDashboard = Overview + "/dashboard";
 	
 	String AdminDashboard = Admin + "/dashboard";
+	String AdminUsers = Admin + "/users";
+	String AdminCompanies = Admin + "/companies";
 	
 	String WebsitesDashboard = Websites + "/dashboard";
 	

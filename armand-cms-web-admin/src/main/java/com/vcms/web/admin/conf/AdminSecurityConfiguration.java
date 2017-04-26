@@ -23,6 +23,7 @@ import com.vcms.web.filter.VisitorFilter;
 public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	public static final String LOGIN_PAGE_URL = "/login";
+	public static final String LOGOUT_PAGE_URL = "/logout";
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -55,7 +56,7 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.loginPage(LOGIN_PAGE_URL).permitAll()
 			.and()
 				.logout()
-				.logoutUrl("/logout").permitAll()
+				.logoutUrl(LOGOUT_PAGE_URL).permitAll()
 			.and()
 				.authorizeRequests()
 				.antMatchers(LOGIN_PAGE_URL).permitAll()
