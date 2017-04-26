@@ -3,9 +3,10 @@ package com.vcms.user.model;
 public enum Role {
 	ROOT, 
 	Administrator, 
-	Reviewer, 
 	Designer, 
-	ContentWriter, 
+	DesignReviewer, 
+	Writer, 
+	WriteReviewer, 
 	CMSMember, 
 	Member,
 	Visitor

@@ -15,16 +15,16 @@ public enum PowerGroup {
 	Roots(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Basic, 
-					Utils.asSet(Role.ROOT, Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter,
-							Role.CMSMember, Role.Member)),
+					Utils.asSet(Role.ROOT, Role.Administrator, Role.Designer, Role.DesignReviewer, 
+							Role.Writer, Role.WriteReviewer, Role.CMSMember, Role.Member)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Dynamic, 
-					Utils.asSet(Role.ROOT, Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter,
-							Role.CMSMember, Role.Member)),
+					Utils.asSet(Role.ROOT, Role.Administrator, Role.Designer, Role.DesignReviewer, 
+							Role.Writer, Role.WriteReviewer, Role.CMSMember, Role.Member)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Business, 
-					Utils.asSet(Role.ROOT, Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter,
-							Role.CMSMember, Role.Member))
+					Utils.asSet(Role.ROOT, Role.Administrator, Role.Designer, Role.DesignReviewer, 
+							Role.Writer, Role.WriteReviewer, Role.CMSMember, Role.Member))
 			)),
 	
 	Administrators(Arrays.asList(
@@ -33,35 +33,35 @@ public enum PowerGroup {
 					Utils.asSet(Role.Administrator, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Dynamic, 
-					Utils.asSet(Role.Administrator, Role.Reviewer, Role.ContentWriter, Role.CMSMember)),
+					Utils.asSet(Role.Administrator, Role.Writer, Role.WriteReviewer, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Business, 
-					Utils.asSet(Role.Administrator, Role.Reviewer, Role.Designer, Role.ContentWriter, Role.CMSMember,
-							Role.Member))
+					Utils.asSet(Role.Administrator, Role.Designer, Role.DesignReviewer, 
+							Role.Writer, Role.WriteReviewer, Role.CMSMember, Role.Member))
 			)),
 	
 	Reviewers(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Dynamic, 
-					Utils.asSet(Role.Reviewer, Role.ContentWriter, Role.CMSMember)),
+					Utils.asSet(Role.WriteReviewer, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Business, 
-					Utils.asSet(Role.Reviewer, Role.Designer, Role.ContentWriter, Role.CMSMember, Role.Member))
+					Utils.asSet(Role.DesignReviewer, Role.WriteReviewer, Role.CMSMember, Role.Member))
 			)),
 	
 	Designers(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Business, 
-					Utils.asSet(Role.Designer, Role.ContentWriter, Role.CMSMember, Role.Member))
+					Utils.asSet(Role.Designer, Role.Writer, Role.CMSMember, Role.Member))
 			)),
 	
-	ContentWriters(Arrays.asList(
+	Writers(Arrays.asList(
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Dynamic, 
-					Utils.asSet(Role.ContentWriter, Role.CMSMember)),
+					Utils.asSet(Role.Writer, Role.CMSMember)),
 			new ImmutablePair<CmsPackage, Set<Role>>(
 					CmsPackage.Business, 
-					Utils.asSet(Role.ContentWriter, Role.CMSMember, Role.Member))
+					Utils.asSet(Role.Writer, Role.CMSMember, Role.Member))
 			)),
 	
 	Members(Arrays.asList(

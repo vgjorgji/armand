@@ -2,12 +2,14 @@ package com.vcms.user.model;
 
 import java.util.List;
 
-public interface WebsiteUserRepository {
+import com.vcms.persist.model.HistoryModelRepository;
+
+public interface WebsiteUserRepository extends HistoryModelRepository<WebsiteUser> {
 
 	List<WebsiteUser> getWebsitesForUser(long userId);
 	
 	List<WebsiteUser> getUsersForWebsite(long websiteId);
 	
-	WebsiteUser getWebsiteUser(long userId, long websiteId);
+	WebsiteUser getModel(long userId, long websiteId);
 	
 }

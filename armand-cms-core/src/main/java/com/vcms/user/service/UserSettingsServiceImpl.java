@@ -43,7 +43,7 @@ public class UserSettingsServiceImpl implements UserSettingsService {
 		// find
 		WebsiteUser websiteUser = null;
 		if (userSettings.hasUser() && website != null) {
-			websiteUser = websiteUserRepository.getWebsiteUser(userSettings.getId(), website.getId());
+			websiteUser = websiteUserRepository.getModel(userSettings.getId(), website.getId());
 		}
 		// set
 		userSettings.setSelectedWebsite(website);

@@ -1,54 +1,71 @@
 package com.vcms.user.stub;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
+import com.vcms.localization.model.Language;
+import com.vcms.persist.stub.HistoryModelRepositoryStub;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
-import com.vcms.utils.StubUtils;
 
 @Repository
-public class UserRepositoryStub implements UserRepository {
+public class UserRepositoryStub
+		extends HistoryModelRepositoryStub<User>
+		implements UserRepository {
 
-	private Map<String, User> map = new HashMap<>();
-	
 	@PostConstruct
 	public void init() {
-		User user = StubUtils.createStubDbModel(new User(), 1000);
+		User user = new User();
 		user.setUsername("root");
 		user.setPassword("root");
 		user.setEnabled(true);
 		user.setFirstName("User");
 		user.setLastName("Root");
 		user.setEmail("root.user@email.com");
-		map.put(user.getUsername(), user);
+		user.setMaster(true);
+		saveModel(user);
 		
-		user = StubUtils.createStubDbModel(new User(), 1001);
+		user = new User();
 		user.setUsername("admin");
 		user.setPassword("admin");
 		user.setEnabled(true);
 		user.setFirstName("User");
 		user.setLastName("Admin");
 		user.setEmail("admin.user@email.com");
-		map.put(user.getUsername(), user);
+		saveModel(user);
 		
-		user = StubUtils.createStubDbModel(new User(), 1002);
+		user = new User();
 		user.setUsername("demo");
 		user.setPassword("demo");
 		user.setEnabled(true);
 		user.setFirstName("User");
 		user.setLastName("Demo");
 		user.setEmail("demo.user@email.com");
-		map.put(user.getUsername(), user);
+		user.setPhone("070-226-480");
+		user.setLanguage(Language.Macedonian);
+		saveModel(user);
+		
+		user = new User();
+		user.setUsername("disabled");
+		user.setPassword("disabled");
+		user.setEnabled(false);
+		user.setFirstName("User");
+		user.setLastName("Disabled");
+		user.setEmail("disabled@email.com");
+		user.setLanguage(Language.English);
+		saveModel(user);
 	}
 	
 	@Override
 	public User getUser(String username) {
-		return map.get(username);
+		for (User user : getAllModels()) {
+			if (StringUtils.equals(user.getUsername(), username)) {
+				return user;
+			}
+		}
+		return null;
 	}
 
 }
