@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 
 import com.vcms.persist.model.DbModel;
+import com.vcms.persist.model.Paging;
+import com.vcms.persist.model.PagingResult;
 import com.vcms.persist.repo.DbModelRepositoryImpl;
 
 public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRepositoryImpl<T> {
@@ -67,6 +69,12 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	@Override
 	public List<T> getAllModels() {
 		return list;
+	}
+
+	@Override
+	public PagingResult<T> getPagingModels(Paging paging) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

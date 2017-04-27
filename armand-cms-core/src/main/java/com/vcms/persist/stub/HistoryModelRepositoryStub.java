@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 
 import com.vcms.persist.model.HistoryModel;
+import com.vcms.persist.model.Paging;
+import com.vcms.persist.model.PagingResult;
 import com.vcms.persist.repo.HistoryModelRepositoryImpl;
 
 public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends HistoryModelRepositoryImpl<T> {
@@ -69,4 +71,10 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 		return list;
 	}
 
+	@Override
+	public PagingResult<T> getPagingModels(Paging paging) {
+		// TODO Auto-generated method stub
+		return new PagingResult<>();
+	}
+	
 }
