@@ -19,18 +19,22 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-				<div class="table-controls">
-					<div class="table-search">
-						<form>
-							<div class="input-group">
+				<form>
+					<div class="table-controls">
+						<div class="table-search">
+							<div class="input-group input-group-sm">
 								<form:input-solo id="search" field="paging.search" group="paging" placeholder="Search" />
 								<span class="input-group-btn">
 									<form:button-submit id="searchBtn" submitUrl="${pageUrl}/paging" group="paging" label="Go" />
+									<form:button-submit id="searchBtn" submitUrl="${pageUrl}/paging" group="paging" label="Reset" />
 								</span>
 							</div>
-						</form>
+						</div>
+						<div class="table-size">
+							<form:select-solo id="size" field="paging.size" group="paging" options="paging.sizes"  />
+						</div>
 					</div>
-				</div>
+				</form>
 			
 				<!-- table -->
 				<div class="table-responsive">
@@ -46,7 +50,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{{#paging.users}}
+							{{#paging.models}}
 							<tr class="{{^enabled}}disabled{{/enabled}} {{#master}}info{{/master}}">
 								<td>{{username}}</td>
 								<td>{{firstName}}</td>
@@ -55,12 +59,12 @@
 								<td>{{phone}}</td>
 								<td>{{language.id}}</td>
 							</tr>
-							{{/paging.users}}
-							{{^paging.users}}
+							{{/paging.models}}
+							{{^paging.models}}
 							<tr>
 								<td colspan="7">No entries.</td>
 							</tr>
-							{{/paging.users}}
+							{{/paging.models}}
 						</tbody>
 					</table>
 				</div>
@@ -81,11 +85,8 @@
 							</li>
 						</ul>
 					</div>
-					<div class="table-size">
-						<form:select-solo id="size" field="paging.size" group="paging" options="paging.sizes"  />
-					</div>
 					<div>
-						<span>Showing {{paging.entriesStart}} to {{paging.entriesEnd}} of <strong>{{paging.entriesCount}}</strong> entries</span>
+						<small>Showing {{paging.modelsStart}} to {{paging.modelsEnd}} of <strong>{{paging.modelsCount}}</strong> entries</small>
 					</div>
 				</div>
 			</div>
