@@ -26,8 +26,10 @@
 			<div class="col-md-3">
 				<div class="panel panel-default tile-sum">
 					<div class="panel-body">
-						<a href="#"><i class="fa fa-paint-brush fa-4x"></i></a>
-						<h1>24</h1>
+						<a href="#" class="text-gray">
+							<i class="fa fa-paint-brush fa-4x"></i>
+						</a>
+						<h1 class="text-gray">24</h1>
 						<h4>Designer</h4>
 						<small>Pages changed</small>
 					</div>
@@ -37,8 +39,10 @@
 			<div class="col-md-3">
 				<div class="panel panel-default tile-sum">
 					<div class="panel-body disabled">
-						<a href="#"><i class="fa fa-delicious fa-4x"></i></a>
-						<h1>1</h1>
+						<a href="#" class="text-gray">
+							<i class="fa fa-delicious fa-4x"></i>
+						</a>
+						<h1 class="text-gray">1</h1>
 						<h4>Design Reviewer</h4>
 						<small>Pages to review</small>
 					</div>
@@ -48,8 +52,10 @@
 			<div class="col-md-3">
 				<div class="panel panel-default tile-sum">
 					<div class="panel-body">
-						<a href="#"><i class="fa fa-pencil-square-o fa-4x"></i></a>
-						<h1>0</h1>
+						<a href="#" class="text-gray">
+							<i class="fa fa-pencil-square-o fa-4x"></i>
+						</a>
+						<h1 class="text-gray">0</h1>
 						<h4>Writer</h4>
 						<small>Pages content changed</small>
 					</div>
@@ -59,8 +65,10 @@
 			<div class="col-md-3">
 				<div class="panel panel-default tile-sum">
 					<div class="panel-body">
-						<a href="#"><i class="fa fa-magic fa-4x"></i></a>
-						<h1>242</h1>
+						<a href="#" class="text-gray">
+							<i class="fa fa-magic fa-4x"></i>
+						</a>
+						<h1 class="text-gray">242</h1>
 						<h4>Content Reviewer</h4>
 						<small>Pages content to review</small>
 					</div>

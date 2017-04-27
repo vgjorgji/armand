@@ -27,19 +27,37 @@ a:focus {
 	background-color: rgba(211, 214, 216, 0.3);
 }
 
+/************** BOOSTRAP CHANGES **************/
+.table {
+	margin-top: 20px;
+}
+.alert {
+	position: fixed;
+	top: 51px;
+	left: 45%;
+	z-index: 10000;
+	width: 200px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 600;
+	display: none;
+}
+.fa {
+	margin-right: 7px;
+	width: 20px;
+}
+
+/************** HELPERS **************/
+
 .page-header {
 	margin-top: 0;
 	border-color: #ddd;
     font-weight: bold;
 }
-
 .disabled,
 .disabled>* {
 	color: #ccc !important;
 }
-
-/************** HELPERS **************/
-
 .ajax-loader {
 	background-image: url("../../static/img/ajax-loader.gif");
 	display: inline-block;
@@ -60,31 +78,20 @@ a:focus {
 .inline-block {
 	display: inline-block;
 }
-.fa {
-	margin-right: 7px;
-	width: 20px;
-}
 .fa-blank {
 	width: 20px;
 	height: 17px;
 	content: ' ';
 }
-.alert {
-	position: fixed;
-	top: 51px;
-	left: 45%;
-	z-index: 10000;
-	width: 200px;
-	text-align: center;
-	text-transform: uppercase;
-	font-weight: 600;
-	display: none;
-}
 .text-bold {
 	font-weight: bold;
 }
+.text-gray {
+	color: #777;
+}
 
 /************** FLAGS **************/
+
 .flag {
 	background: url('../img/flags.png') no-repeat scroll -4px -621px;
 	height: 11px;
@@ -350,7 +357,6 @@ a:focus {
 	margin-bottom: 7px;
 }
 .website-teaser .website-group h5 {
-	color: #777;
 	padding: 5px;
 	margin: 5px 0;
 	background-color: rgba(211, 214, 216, 0.5);
@@ -418,14 +424,32 @@ a:focus {
 	position: absolute;
     right: 15px;
     top: 6px;
-    color: #777;
     width: 60px;
 }
 .tile-sum h1 {
 	margin: 0 0 20px 0;
 	font-weight: bold;
-	color: #777;
 }
 .tile-sum h4 {
 	margin-bottom: 0px;
+}
+
+/************** TABLE CONTROLS **************/
+
+.table-controls>* {
+	display: inline-block;
+	margin-right: 20px;
+	vertical-align: middle;
+}
+.table-controls .pager {
+	margin: 0;
+}
+.table-controls .table-page {
+	width: 190px;
+}
+.table-controls .table-page .fa {
+	margin-right: 0;
+}
+.table-controls .table-search {
+	width: 200px;
 }

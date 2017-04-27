@@ -1,12 +1,12 @@
 package com.vcms.web.admin.controller.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vcms.persist.model.Paging;
+import com.vcms.persist.model.PagingResult;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
 import com.vcms.web.admin.model.PageConst;
@@ -24,10 +24,10 @@ public class AdminUsersController {
 	public Response load() {
 		Response response = new Response();
 		
-		List<User> users = userRepository.getAllModels();
+		PagingResult<User> paging = userRepository.getPagingModels(new Paging());
 		
 		response.mainTemplate().data()
-				.add("users", users);
+				.add("paging", paging);
 		return response;
 	}
 

@@ -36,7 +36,7 @@
 					<hr/>
 					<div class="website-group">
 						<div class="first">
-							<h5>Live</h5>
+							<h5 class="text-gray">Live</h5>
 							<span>
 								<i class="{{status.cssClass}}"></i>
 								<span>{{status.id}}</span>
@@ -51,7 +51,7 @@
 							</span>
 						</div>
 						<div class="second">
-							<h5>Actions</h5>
+							<h5 class="text-gray">Actions</h5>
 							<a href="<c:url value="/website/{{id}}/design" />">
 								<i class="fa fa-paint-brush"></i>
 								<span>Designer</span>
@@ -77,7 +77,7 @@
 					<hr/>
 					<div class="website-group">
 						<div class="first">
-							<h5>Active</h5>
+							<h5 class="text-gray">Active</h5>
 							<span>
 								<i class="fa fa-user text-success"></i>
 								<span>20</span>
@@ -92,7 +92,7 @@
 							</span>
 						</div>
 						<div class="second">
-							<h5>Visits</h5>
+							<h5 class="text-gray">Visits</h5>
 							<span>
 								<i class="fa fa-user"></i>
 								<span>59</span>
@@ -112,158 +112,6 @@
 			</div> <!-- /.panel -->
 		</div> <!-- /.website-teaser -->
 		{{/websites}}
-			
-			<!-- 
-			<div class="col-md-2 website-teaser">
-				<div class="thumbnail">
-					<div class="caption">
-						<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
-						<div class="website-name">
-							<small>Company Name</small>
-							<a href="<c:url value="/website/1000/overview" />">Website Name</a>
-						</div>
-						<h5>Actions</h5>
-						<table class="table">
-							<tr>
-								<td class="col-md-3">
-									<i class="fa fa-paint-brush"></i>
-									<a href="<c:url value="/website/1000/design" />">Designer</a>
-								</td>
-								<td class="col-md-3">
-									<span class="badge btn-danger">3</span>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-delicious"></i>
-									<a href="<c:url value="/website/1000/reviewdesign" />">Reviewer</a>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-check text-success"></i>
-								</td>
-							</tr>
-							<tr>
-								<td class="col-md-3 no-access">
-									<i class="fa fa-pencil-square-o"></i>
-									<span>Writer</span>
-								</td>
-								<td class="col-md-3 no-access">
-									<i class="fa fa-ban"></i>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-magic"></i>
-									<a href="<c:url value="/website/1000/reviewcontent" />">Reviewer</a>
-								</td>
-								<td class="col-md-3">
-									<span class="badge btn-primary">99</span>
-								</td>
-							</tr>
-						</table>
-						<div>
-							<a href="https://www.google.com/" target="_blank" class="pull-right">
-								<i class="fa fa-globe"></i>www.therealwebsiteurl.com
-							</a>
-							<h5>Live</h5>
-						</div>
-						<table class="table">
-							<tr>
-								<td class="col-md-5"><i class="fa light-warning"></i><strong class="text-warning">Construction</strong></td>
-								<td class="col-md-4"><i class="fa fa-cubes"></i><em>Dynamic</em></td>
-								<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>0</td>
-							</tr>
-						</table>
-						<h5>Reports</h5>
-						<table class="table last">
-							<tr>
-								<td>Active</td>
-								<td><i class="fa fa-user text-success"></i>20</td>
-								<td><i class="fa fa-eye"></i>1h 20min</td>
-								<td><i class="fa fa-eye-slash"></i>20min</td>
-							</tr>
-							<tr>
-								<td>Visits</td>
-								<td><i class="fa fa-user"></i>59</td>
-								<td><i class="fa fa-users"></i>1.250</td>
-								<td><i class="fa fa-clock-o"></i>25 %</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-2 website-teaser">
-				<div class="thumbnail">
-					<div class="caption">
-						<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
-						<div class="website-name">
-							<small>Company Name</small>
-							<a href="<c:url value="/website/1000/overview" />">Website Name</a>
-						</div>
-						<h5>Actions</h5>
-						<table class="table">
-							<tr>
-								<td class="col-md-3">
-									<i class="fa fa-paint-brush"></i>
-									<a href="<c:url value="/website/1000/design" />">Designer</a>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-check text-success"></i>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-delicious"></i>
-									<a href="<c:url value="/website/1000/reviewdesign" />">Reviewer</a>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-check text-success"></i>
-								</td>
-							</tr>
-							<tr>
-								<td class="col-md-3">
-									<i class="fa fa-pencil-square-o"></i>
-									<a href="<c:url value="/website/1000/content" />">Writer</a>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-check text-success"></i>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-magic"></i>
-									<a href="<c:url value="/website/1000/reviewcontent" />">Reviewer</a>
-								</td>
-								<td class="col-md-3">
-									<i class="fa fa-check text-success"></i>
-								</td>
-							</tr>
-						</table>
-						<div>
-							<a href="https://www.google.com/" target="_blank" class="pull-right">
-								<i class="fa fa-globe"></i>www.therealwebsiteurl.com
-							</a>
-							<h5>Live</h5>
-						</div>
-						<table class="table">
-							<tr>
-								<td class="col-md-5"><i class="fa light-danger"></i><strong class="text-danger">Offline</strong></td>
-								<td class="col-md-4"><i class="fa fa-cube"></i><em>Basic</em></td>
-								<td class="col-md-3"><i class="fa fa-file-powerpoint-o"></i>2</td>
-							</tr>
-						</table>
-						<h5>Reports</h5>
-						<table class="table last">
-							<tr>
-								<td>Active</td>
-								<td><i class="fa fa-user text-success"></i>20</td>
-								<td><i class="fa fa-eye"></i>1h 20min</td>
-								<td><i class="fa fa-eye-slash"></i>20min</td>
-							</tr>
-							<tr>
-								<td>Visits</td>
-								<td><i class="fa fa-user"></i>59</td>
-								<td><i class="fa fa-users"></i>1.250</td>
-								<td><i class="fa fa-clock-o"></i>25 %</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</div>
-			-->
 			
 	</jsp:body>
 </layout:template>
