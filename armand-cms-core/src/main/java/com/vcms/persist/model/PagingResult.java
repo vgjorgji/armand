@@ -10,7 +10,7 @@ public class PagingResult<T extends DbModel> {
 	private long modelsStart;
 	private long modelsEnd;
 	private long modelsCount;
-	private String search;
+	private String query;
 	private List<T> models;
 	
 	public int getPage() {
@@ -73,12 +73,12 @@ public class PagingResult<T extends DbModel> {
 		this.modelsCount = modelsCount;
 	}
 
-	public String getSearch() {
-		return search;
+	public String getQuery() {
+		return query;
 	}
 
-	public void setSearch(String search) {
-		this.search = search;
+	public void setQuery(String query) {
+		this.query = query;
 	}
 
 	public List<T> getModels() {

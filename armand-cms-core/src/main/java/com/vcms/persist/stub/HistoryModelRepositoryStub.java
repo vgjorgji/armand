@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.vcms.persist.model.HistoryModel;
 import com.vcms.persist.model.Paging;
-import com.vcms.persist.model.PagingResult;
 import com.vcms.persist.repo.HistoryModelRepositoryImpl;
 
 public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends HistoryModelRepositoryImpl<T> {
@@ -70,11 +71,41 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 	public List<T> getAllModels() {
 		return list;
 	}
+	
+	@Override
+	protected List<T> getModels(Paging paging) {
+		List<T> searchList = search(paging.getQuery());
+		int start = (paging.getPage() - 1) * paging.getSize();
+		int end = Math.min(searchList.size(), paging.getPage() * paging.getSize());
+		return searchList.subList(start, end);
+	}
 
 	@Override
-	public PagingResult<T> getPagingModels(Paging paging) {
-		// TODO Auto-generated method stub
-		return new PagingResult<>();
+	protected long countModels(Paging paging) {
+		return search(paging.getQuery()).size();
 	}
 	
+	private List<T> search(String query) {
+		List<T> result = null;
+		if (StringUtils.isBlank(query)) {
+			result = list;
+		} else {
+			result = new ArrayList<>();
+			for (T model : list) {
+				if (searchModel(model, query)) {
+					result.add(model);
+				}
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Searches for the given query string in any attributes in the given model.
+	 * @param model model to search in
+	 * @param query query to search for
+	 * @return true if the query exist in any model attribute
+	 */
+	protected abstract boolean searchModel(T model, String query);
+
 }

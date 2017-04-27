@@ -51,5 +51,15 @@ public class WebsiteRepositoryStub
 		}
 		return null;
 	}
+
+	@Override
+	protected boolean searchModel(Website model, String query) {
+		String text = model.getBaseUrl()
+				+ "%" + model.getName()
+				+ "%" + model.getCmsPackage().name()
+				+ "%" + model.getPrimaryLanguage().name()
+				+ "%" + model.getStatus().name();
+		return StringUtils.contains(text, query);
+	}
 	
 }

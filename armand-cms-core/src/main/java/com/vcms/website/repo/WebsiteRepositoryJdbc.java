@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.persist.model.Paging;
-import com.vcms.persist.model.PagingResult;
 import com.vcms.persist.repo.HistoryModelRepositoryImpl;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
@@ -61,11 +60,17 @@ public class WebsiteRepositoryJdbc
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
-	public PagingResult<Website> getPagingModels(Paging paging) {
+	protected List<Website> getModels(Paging paging) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	protected long countModels(Paging paging) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override

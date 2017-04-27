@@ -2,6 +2,7 @@ package com.vcms.website.stub;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.persist.stub.HistoryModelRepositoryStub;
@@ -23,6 +24,17 @@ public class CompanyRepositoryStub
 		company.setPhone2("XXX 009 456 789");
 		company.setEmail("demo.company@email.com");
 		saveModel(company);
+	}
+
+	@Override
+	protected boolean searchModel(Company model, String query) {
+		String text = model.getAddress1() 
+				+ "%" + model.getAddress2()
+				+ "%" + model.getEmail() 
+				+ "%" + model.getName()
+				+ "%" + model.getPhone1() 
+				+ "%" + model.getPhone2();
+		return StringUtils.contains(text, query);
 	}
 	
 }

@@ -89,5 +89,10 @@ public class WebsiteUserRepositoryStub
 		}
 		return null;
 	}
+
+	@Override
+	protected boolean searchModel(WebsiteUser model, String query) {
+		return true;
+	}
 	
 }

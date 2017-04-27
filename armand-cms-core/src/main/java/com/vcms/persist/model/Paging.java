@@ -6,7 +6,7 @@ public class Paging {
 
 	private int page = 1;
 	private int size = SIZES[0];
-	private String search;
+	private String query;
 	
 	public int getPage() {
 		return page;
@@ -23,13 +23,13 @@ public class Paging {
 	public void setSize(int size) {
 		this.size = size;
 	}
-	
-	public String getSearch() {
-		return search;
+
+	public String getQuery() {
+		return query;
 	}
-	
-	public void setSearch(String search) {
-		this.search = search;
+
+	public void setQuery(String query) {
+		this.query = query;
 	}
-	
+
 }

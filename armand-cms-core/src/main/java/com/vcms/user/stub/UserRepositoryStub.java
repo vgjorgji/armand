@@ -68,4 +68,15 @@ public class UserRepositoryStub
 		return null;
 	}
 
+	@Override
+	protected boolean searchModel(User model, String query) {
+		String text = model.getEmail()
+				+ "%" + model.getFirstName()
+				+ "%" + model.getLastName()
+				+ "%" + model.getPhone()
+				+ "%" + model.getUsername() 
+				+ "%" + (model.getLanguage() != null ? model.getLanguage().name() : "");
+		return StringUtils.contains(text, query);
+	}
+
 }

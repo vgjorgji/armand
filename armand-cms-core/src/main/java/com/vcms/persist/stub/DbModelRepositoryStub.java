@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.vcms.persist.model.DbModel;
 import com.vcms.persist.model.Paging;
-import com.vcms.persist.model.PagingResult;
 import com.vcms.persist.repo.DbModelRepositoryImpl;
 
 public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRepositoryImpl<T> {
@@ -72,9 +71,34 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	}
 
 	@Override
-	public PagingResult<T> getPagingModels(Paging paging) {
-		// TODO Auto-generated method stub
-		return null;
+	protected List<T> getModels(Paging paging) {
+		List<T> searchList = search(paging.getQuery());
+		int start = (paging.getPage() - 1) * paging.getSize();
+		int end = Math.min(searchList.size(), paging.getPage() * paging.getSize());
+		return searchList.subList(start, end);
 	}
+
+	@Override
+	protected long countModels(Paging paging) {
+		return search(paging.getQuery()).size();
+	}
+	
+	private List<T> search(String query) {
+		List<T> result = new ArrayList<>();
+		for (T model : list) {
+			if (searchModel(model, query)) {
+				result.add(model);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Searches for the given query string in any attributes in the given model.
+	 * @param model model to search in
+	 * @param query query to search for
+	 * @return true if the query exist in any model attribute
+	 */
+	protected abstract boolean searchModel(T model, String query);
 
 }

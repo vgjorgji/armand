@@ -12,13 +12,6 @@ public interface DbModelRepository<T extends DbModel> {
 	void saveModel(T model);
 	
 	/**
-	 * Saves the model (insert or update) depending of the ID.
-	 * This method will save all fields, meaning it will not call the merge method.
-	 * @param model model to save
-	 */
-	void saveModelFull(T model);
-	
-	/**
 	 * Deletes the given model.
 	 * @param model model to delete
 	 */
