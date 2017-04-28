@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.vcms.persist.model.DbModel;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.repo.DbModelRepositoryImpl;
@@ -69,25 +71,28 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	public List<T> getAllModels() {
 		return list;
 	}
-
-	@Override
-	protected List<T> getModels(Paging paging) {
-		List<T> searchList = search(paging.getQuery());
-		int start = (paging.getPage() - 1) * paging.getSize();
-		int end = Math.min(searchList.size(), paging.getPage() * paging.getSize());
-		return searchList.subList(start, end);
-	}
-
-	@Override
-	protected long countModels(Paging paging) {
-		return search(paging.getQuery()).size();
-	}
 	
+	@Override
+	protected long countModels(String query) {
+		return search(query).size();
+	}
+
+	@Override
+	protected List<T> getModels(Paging<T> paging) {
+		List<T> searchList = search(paging.getQuery());
+		return searchList.subList((int) paging.getModelsStart() - 1, (int) paging.getModelsEnd());
+	}
+
 	private List<T> search(String query) {
-		List<T> result = new ArrayList<>();
-		for (T model : list) {
-			if (searchModel(model, query)) {
-				result.add(model);
+		List<T> result = null;
+		if (StringUtils.isBlank(query)) {
+			result = list;
+		} else {
+			result = new ArrayList<>();
+			for (T model : list) {
+				if (searchModel(model, query)) {
+					result.add(model);
+				}
 			}
 		}
 		return result;

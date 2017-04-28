@@ -60,17 +60,17 @@ public class WebsiteRepositoryJdbc
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	protected List<Website> getModels(Paging paging) {
+	protected long countModels(String query) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	protected long countModels(Paging paging) {
+	protected List<Website> getModels(Paging<Website> paging) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	@Override

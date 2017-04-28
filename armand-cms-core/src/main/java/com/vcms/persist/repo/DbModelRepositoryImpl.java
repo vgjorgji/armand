@@ -2,12 +2,10 @@ package com.vcms.persist.repo;
 
 import java.util.List;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.vcms.persist.model.DbModel;
 import com.vcms.persist.model.DbModelRepository;
 import com.vcms.persist.model.Paging;
-import com.vcms.persist.model.PagingResult;
+import com.vcms.persist.model.PagingSearch;
 
 public abstract class DbModelRepositoryImpl<T extends DbModel> implements DbModelRepository<T> {
 	
@@ -78,46 +76,48 @@ public abstract class DbModelRepositoryImpl<T extends DbModel> implements DbMode
 
 
 	@Override
-	public final PagingResult<T> getPagingModels(Paging paging) {
+	public final Paging<T> getPagingModels(PagingSearch pagingSearch) {
 		// fix
-		if (paging.getPage() < 1) {
-			paging.setPage(1);
+		if (pagingSearch.getPage() < 1) {
+			pagingSearch.setPage(1);
 		}
-		if (!ArrayUtils.contains(Paging.SIZES, paging.getSize())) {
-			paging.setSize(Paging.SIZES[0]);
+		if (pagingSearch.getSize() < 1) {
+			pagingSearch.setSize(PagingSearch.SIZES[0]);
 		}
 		
-		// queries
+		// count
+		long count = countModels(pagingSearch.getQuery());
+		
+		// paging result
+		Paging<T> paging = new Paging<>();
+		paging.setSize(pagingSearch.getSize());
+		paging.setQuery(pagingSearch.getQuery());
+		paging.setModelsCount(count);
+		paging.setPageCount((int) Math.ceil(count / (paging.getSize() * 1.0)));
+		paging.setPage(pagingSearch.getPage() <= paging.getPageCount() ? pagingSearch.getPage() : 0);
+		paging.setModelsStart(count > 0 ? (paging.getPage() - 1) * paging.getSize() + 1 : 0);
+		paging.setModelsEnd(paging.getPageCount() == paging.getPage() ? count :  paging.getPage() * paging.getSize());
+		
+		// models
 		List<T> models = getModels(paging);
-		long count = countModels(paging);
-		
-		// create
-		PagingResult<T> result = new PagingResult<>();
-		result.setPage(count > 0 ? paging.getPage() : 0);
-		result.setSize(paging.getSize());
-		result.setQuery(paging.getQuery());
-		result.setModels(models);
-		result.setModelsCount(count);
-		result.setPageCount((int) Math.ceil(count / (paging.getSize() * 1.0)));
-		result.setModelsStart(count > 0 ? (paging.getPage() - 1) * paging.getSize() + 1 : 0);
-		result.setModelsEnd(result.getPageCount() == paging.getPage() ? count :  paging.getPage() * paging.getSize());
+		paging.setModels(models);
 		
 		// result
-		return result;
+		return paging;
 	}
+	
+	/**
+	 * Counts the total number of models for the given search query.
+	 * @param query search query
+	 * @return total number of models
+	 */
+	protected abstract long countModels(String query);
 	
 	/**
 	 * Returns the models for the given paging context.
 	 * @param paging paging context
 	 * @return list of models
 	 */
-	protected abstract List<T> getModels(Paging paging);
-	
-	/**
-	 * Counts the total number of models for the given paging context.
-	 * @param paging paging context
-	 * @return total number of models
-	 */
-	protected abstract long countModels(Paging paging);
+	protected abstract List<T> getModels(Paging<T> paging);
 	
 }

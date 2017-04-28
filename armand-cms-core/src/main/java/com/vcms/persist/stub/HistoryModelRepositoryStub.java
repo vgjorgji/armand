@@ -73,18 +73,16 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 	}
 	
 	@Override
-	protected List<T> getModels(Paging paging) {
-		List<T> searchList = search(paging.getQuery());
-		int start = (paging.getPage() - 1) * paging.getSize();
-		int end = Math.min(searchList.size(), paging.getPage() * paging.getSize());
-		return searchList.subList(start, end);
-	}
-
-	@Override
-	protected long countModels(Paging paging) {
-		return search(paging.getQuery()).size();
+	protected long countModels(String query) {
+		return search(query).size();
 	}
 	
+	@Override
+	protected List<T> getModels(Paging<T> paging) {
+		List<T> searchList = search(paging.getQuery());
+		return searchList.subList((int) paging.getModelsStart() - 1, (int) paging.getModelsEnd());
+	}
+
 	private List<T> search(String query) {
 		List<T> result = null;
 		if (StringUtils.isBlank(query)) {

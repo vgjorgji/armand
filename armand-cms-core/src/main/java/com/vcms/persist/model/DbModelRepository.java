@@ -38,8 +38,8 @@ public interface DbModelRepository<T extends DbModel> {
 	List<T> getAllModels();
 	
 	/**
-	 * Searches for models in the given paging context.
-	 * @return PagingResult
+	 * Searches for models in the given paging search.
+	 * @return Paging
 	 */
-	PagingResult<T> getPagingModels(Paging paging);
+	Paging<T> getPagingModels(PagingSearch paging);
 }
