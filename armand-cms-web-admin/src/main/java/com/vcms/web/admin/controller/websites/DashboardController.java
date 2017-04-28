@@ -13,14 +13,15 @@ import com.vcms.user.model.UserSettings;
 import com.vcms.user.model.WebsiteUser;
 import com.vcms.user.model.WebsiteUserRepository;
 import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.web.admin.controller.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 
-@RestController
+@RestController(value = Controller.WebsitesDashboard)
 @RequestMapping(value = PageConst.WebsitesDashboard)
-public class WebsitesDashboardController {
+public class DashboardController {
 	
 	@Autowired
 	private WebsiteRepository websiteRepository;

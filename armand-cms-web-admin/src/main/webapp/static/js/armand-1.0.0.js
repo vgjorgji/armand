@@ -45,26 +45,12 @@
 		disableInit();
 	}
 	
-
-	/*
-	 * Select the options where data-selected is set.
-	 */
-	function selectedInit() {
-		// do selection if some option is selected
-		$("select[data-selected]").each(function() {
-			var element = $(this);
-			var value = element.attr("data-selected");
-			setValue(element, value, false);
-		});
-	}
-	
 	
 	/**
      *  --> Loading. Loading is triggered only on data-load attribute.
      *  Sending data attributes:
      *    - data-load: URL for ajax call. The method is always GET. The result is object send to #main haze.
      */
-
 	/*
 	 * Set Ajax behavior for all elements that have "data-url" set.
 	 */
@@ -79,6 +65,19 @@
 	}
 	
 
+	/*
+	 * Select the options where data-selected is set.
+	 */
+	function selectedInit() {
+		// do selection if some option is selected
+		$("select[data-selected]").each(function() {
+			var element = $(this);
+			var value = element.attr("data-selected");
+			setValue(element, value, false);
+		});
+	}
+	
+	
 	/**
      *  --> AJAX. Ajax Support is set on any element with data-url attribute.
      *  Sending data attributes:
@@ -248,14 +247,8 @@
 	 * Also handles the show / hide.
 	 */
 	function doSelectOption(element) {
-		var selected = element.find(":selected");
-		var value = selected.attr("value");
-		var url = undefined;
-
-		// create the url for the ajax call for standard case
-		if (value !== "empty") {
-			url = element.attr("data-url") + "/" + value;
-		}
+		// url
+		var url = element.attr("data-url");
 
 		// show / hide
 		doShowHide(true, element);
@@ -337,7 +330,7 @@
 			}
 
 			// data elements
-			if (innerElement.hasClass("rich-dropdown") || innerElement.is("input") || innerElement.is("textarea") || innerElement.is("select") || innerElement.hasClass("fake-input")) {
+			if (innerElement.is("input") || innerElement.is("textarea") || innerElement.is("select") || innerElement.hasClass("fake-input")) {
 				dataWrap.attr(name, getValue(innerElement));
 
 			} else if (innerElement.is("span") || innerElement.is("p")) {
@@ -353,6 +346,17 @@
 	 * Makes AJAX call and process the response.
 	 */
 	function ajaxCall(method, url, dataVar, elementId) {
+		// for GET, add the parameters in URL query
+		var dataFinal = undefined;
+		if (dataVar !== undefined) {
+			if (method === 'GET') {
+				dataFinal = $.param(dataVar);
+			} else {
+				dataFinal = JSON.stringify(dataVar);
+			}
+		}
+		
+		// AJAX
 		var header = $("meta[name='_csrf_header']").attr("content");
 		var token = $("meta[name='_csrf']").attr("content");
 		$.ajax({
@@ -360,7 +364,7 @@
 			url : url,
 			contentType : "application/json; charset=UTF-8",
 			dataType : "json",
-			data : JSON.stringify(dataVar),
+			data : dataFinal,
 			context : {
 				elementId : elementId
 			},
@@ -610,10 +614,7 @@
 	 * Gets the value from the given element.
 	 */
 	function getValue(element) {
-		if (element.hasClass("rich-dropdown")) {
-			return element.find("h4 img").attr("value");
-
-		} else if (element.is("input")) {
+		if (element.is("input")) {
 			if (element.attr("type") === "checkbox") {
 				return element.prop("checked");
 			} else {

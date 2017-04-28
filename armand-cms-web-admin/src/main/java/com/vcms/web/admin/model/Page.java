@@ -37,7 +37,7 @@ public enum Page {
 		this.url = url;
 		this.view = view;
 	}
-
+	
 	public String getUrl() {
 		return url;
 	}

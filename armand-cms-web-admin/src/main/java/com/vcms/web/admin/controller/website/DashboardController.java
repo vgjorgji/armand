@@ -10,14 +10,15 @@ import com.vcms.date.Countdown;
 import com.vcms.date.DateUtils;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.web.admin.controller.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 
-@RestController
+@RestController(value = Controller.WebsiteDashboard)
 @RequestMapping(value = PageConst.WebsiteDashboard)
-public class WebsiteDashboardController {
+public class DashboardController {
 	
 	@Autowired
 	private WebsiteRepository websiteRepository;

@@ -12,6 +12,7 @@ import com.vcms.conf.cms.CmsPackage;
 import com.vcms.localization.model.Language;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.web.admin.controller.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.Company;
@@ -20,9 +21,9 @@ import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 import com.vcms.website.model.WebsiteStatus;
 
-@RestController
+@RestController(value = Controller.WebsiteAdminSite)
 @RequestMapping(value = PageConst.WebsiteAdminSite)
-public class WebsiteAdminSiteController {
+public class AdminSiteController {
 	
 	@Autowired
 	private WebsiteRepository websiteRepository;

@@ -453,3 +453,6 @@ a:focus {
 .table-controls .table-search {
 	width: 300px;
 }
+.table-controls .table-ajax {
+	height: 28px;
+}

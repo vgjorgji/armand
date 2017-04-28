@@ -11,15 +11,16 @@ import com.vcms.conf.cms.ModernColor;
 import com.vcms.conf.cms.Style;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
+import com.vcms.web.admin.controller.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.WebsiteView;
 import com.vcms.website.model.WebsiteViewRepository;
 import com.vcms.website.model.WebsiteViewType;
 
-@RestController
+@RestController(value = Controller.WebsiteDesignTheme)
 @RequestMapping(value = PageConst.WebsiteDesignTheme)
-public class WebsiteDesignThemeController {
+public class DesignThemeController {
 	
 	@Autowired
 	private WebsiteViewRepository websiteViewRepository;
@@ -43,9 +44,6 @@ public class WebsiteDesignThemeController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public Response save(@RequestBody WebsiteView websiteView) {
 		websiteViewRepository.saveModel(websiteView);
-		
-		Response response = load();
-		response.snippet("formResult").text("Success").html(false);
-		return response;
+		return load();
 	}
 }

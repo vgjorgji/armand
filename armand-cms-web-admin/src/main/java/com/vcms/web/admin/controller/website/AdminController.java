@@ -1,15 +1,16 @@
-package com.vcms.web.admin.controller.overview;
+package com.vcms.web.admin.controller.website;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vcms.web.admin.controller.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 
-@RestController
-@RequestMapping(value = PageConst.OverviewDashboard)
-public class OverviewDashboardController {
+@RestController(value = Controller.WebsiteAdmin)
+@RequestMapping(value = PageConst.WebsiteAdmin)
+public class AdminController {
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
