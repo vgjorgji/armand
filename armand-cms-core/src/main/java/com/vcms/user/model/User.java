@@ -51,6 +51,10 @@ public class User extends HistoryModel implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	public String getFullName() {
+		return lastName + " " + firstName;
+	}
 
 	public String getEmail() {
 		return email;

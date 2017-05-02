@@ -17,6 +17,7 @@ public class CompanyRepositoryStub
 	@PostConstruct
 	public void init() {
 		Company company = new Company();
+		company.setContactUserId(1000);
 		company.setName("Demo Company");
 		company.setAddress1("st. 'Demo Street', nr. 1000");
 		company.setAddress2("City, Contry");
@@ -28,7 +29,8 @@ public class CompanyRepositoryStub
 
 	@Override
 	protected boolean searchModel(Company model, String query) {
-		String text = model.getAddress1() 
+		String text = model.getId() 
+				+ "%" + model.getAddress1()
 				+ "%" + model.getAddress2()
 				+ "%" + model.getEmail() 
 				+ "%" + model.getName()

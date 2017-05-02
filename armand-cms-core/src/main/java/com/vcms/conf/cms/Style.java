@@ -1,7 +1,7 @@
 package com.vcms.conf.cms;
 
 public enum Style {
-	Black("#fff", "#000", "#000", "#000", "#000"),
+	Default("#fff", "#000", "#000", "#000", "#000"),
 	BlackModern("#fff", "#000", "#333", "#000", "#000"),
 	BlackLight("#fff", "#000", "#333", "#777", "#000");
 

@@ -54,7 +54,8 @@ public class WebsiteRepositoryStub
 
 	@Override
 	protected boolean searchModel(Website model, String query) {
-		String text = model.getBaseUrl()
+		String text = model.getId()
+				+ "%" + model.getBaseUrl()
 				+ "%" + model.getName()
 				+ "%" + model.getCmsPackage().name()
 				+ "%" + model.getPrimaryLanguage().name()

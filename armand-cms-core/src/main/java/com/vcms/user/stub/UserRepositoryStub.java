@@ -1,5 +1,8 @@
 package com.vcms.user.stub;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.StringUtils;
@@ -67,10 +70,22 @@ public class UserRepositoryStub
 		}
 		return null;
 	}
+	
+	@Override
+	public List<User> getMasterUsers() {
+		List<User> result = new ArrayList<>();
+		for (User user : getAllModels()) {
+			if (user.isMaster()) {
+				result.add(user);
+			}
+		}
+		return result;
+	}
 
 	@Override
 	protected boolean searchModel(User model, String query) {
-		String text = model.getEmail()
+		String text = model.getId()
+				+ "%" + model.getEmail()
 				+ "%" + model.getFirstName()
 				+ "%" + model.getLastName()
 				+ "%" + model.getPhone()

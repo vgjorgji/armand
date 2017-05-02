@@ -39,7 +39,7 @@ public class WebsiteRepositoryJdbc
 	}
 
 	@Override
-	public void deleteModel(Website model) {
+	public void deleteModel(long id) {
 		// TODO Auto-generated method stub
 	}
 	

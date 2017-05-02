@@ -33,10 +33,10 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	}
 	
 	@Override
-	public void deleteModel(T model) {
+	public void deleteModel(long id) {
 		int index = -1;
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getId() == model.getId()) {
+			if (list.get(i).getId() == id) {
 				index = i;
 				break;
 			}

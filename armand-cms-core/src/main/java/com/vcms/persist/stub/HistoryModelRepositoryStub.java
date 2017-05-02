@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.vcms.persist.model.HistoryModel;
@@ -33,10 +34,10 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 	}
 	
 	@Override
-	public void deleteModel(T model) {
+	public void deleteModel(long id) {
 		int index = -1;
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getId() == model.getId()) {
+			if (list.get(i).getId() == id) {
 				index = i;
 				break;
 			}
@@ -80,6 +81,9 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 	@Override
 	protected List<T> getModels(Paging<T> paging) {
 		List<T> searchList = search(paging.getQuery());
+		if (CollectionUtils.isEmpty(searchList)) {
+			return searchList;
+		}
 		return searchList.subList((int) paging.getModelsStart() - 1, (int) paging.getModelsEnd());
 	}
 

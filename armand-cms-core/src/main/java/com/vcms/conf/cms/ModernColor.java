@@ -1,6 +1,7 @@
 package com.vcms.conf.cms;
 
 public enum ModernColor {
+	Default("#778899", "#ffffff"),
 	Turquoise("#1abc9c", "#ffffff"),
 	GreenSea("#16a085", "#ffffff"),
 	Emerald("#2ecc71", "#ffffff"),

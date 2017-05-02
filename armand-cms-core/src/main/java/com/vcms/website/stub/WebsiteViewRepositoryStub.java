@@ -2,7 +2,6 @@ package com.vcms.website.stub;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.conf.cms.Font;
@@ -67,11 +66,7 @@ public class WebsiteViewRepositoryStub
 
 	@Override
 	protected boolean searchModel(WebsiteView model, String query) {
-		String text = model.getColor().name() 
-				+ "%" + model.getFont().name() 
-				+ "%" + model.getSelectColor().name() 
-				+ "%" + model.getFont().name();
-		return StringUtils.contains(text, query);
+		return true;
 	}
 
 }

@@ -12,10 +12,10 @@ public interface DbModelRepository<T extends DbModel> {
 	void saveModel(T model);
 	
 	/**
-	 * Deletes the given model.
-	 * @param model model to delete
+	 * Deletes the model for the given ID.
+	 * @param id id of the model
 	 */
-	void deleteModel(T model);
+	void deleteModel(long id);
 	
 	/**
 	 * Returns the model for the given ID.
