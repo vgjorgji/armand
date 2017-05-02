@@ -1,4 +1,4 @@
-package com.vcms.web.admin.controller;
+package com.vcms.web.admin.model;
 
 public interface Controller {
 	
@@ -9,6 +9,8 @@ public interface Controller {
 	String AdminDashboard = "AdminDashboard" + Controller;
 	String AdminUsers = "AdminUsers" + Controller;
 	String AdminCompanies = "AdminCompanies" + Controller;
+	String AdminWebsites = "AdminWebsites" + Controller;
+	String AdminWebsitesGroups = "AdminWebsitesGroups" + Controller;
 	
 	String WebsitesDashboard = "WebsitesDashboard" + Controller;
 	

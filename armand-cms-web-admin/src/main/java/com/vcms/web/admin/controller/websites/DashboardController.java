@@ -13,7 +13,7 @@ import com.vcms.user.model.UserSettings;
 import com.vcms.user.model.WebsiteUser;
 import com.vcms.user.model.WebsiteUserRepository;
 import com.vcms.user.service.UserSettingsProvider;
-import com.vcms.web.admin.controller.Controller;
+import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.Website;

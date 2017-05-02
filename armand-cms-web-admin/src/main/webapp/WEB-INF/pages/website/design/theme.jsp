@@ -4,17 +4,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <%@ taglib prefix="form" tagdir="/WEB-INF/tags/form"%>
 <c:url value="/website/${userSettings.selectedWebsiteId}/design/theme" var="pageUrl"/>
 
-<layout:template title="Demo Website | Design | Theme" 
+<template:main title="Demo Website | Design | Theme" 
 		selectGlobal="website"
 		selectSide="design"
 		selectSideSub="theme"
 		loadUrl="${pageUrl}/load">
 		
-	<jsp:body>
+	<jsp:attribute name="fragmentMain">
 		<h2 class="page-header">Theme</h2>
 
 		<!-- Actions -->
@@ -34,7 +34,9 @@
 								options="modernColors" label="Select Color" />
 							<form:select id="font" field="font" group="websiteView"
 								options="fonts" label="Font" />
-							<form:buttons pageUrl="${pageUrl}" group="websiteView" />
+							<form:buttons group="websiteView"
+								resetUrl="${pageUrl}/reset"
+								saveUrl="${pageUrl}/save" />
 						</form>
 						{{/websiteView}}
 					</div>
@@ -43,5 +45,5 @@
 			</div> <!-- /.col-md-12 -->
 		</div><!-- /.row -->
 		
-	</jsp:body>
-</layout:template>
+	</jsp:attribute>
+</template:main>

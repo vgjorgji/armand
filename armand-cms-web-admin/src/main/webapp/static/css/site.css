@@ -1,6 +1,5 @@
 
 /************** DEFAULTS **************/
-
 body {
 	font-family: Arial,sans-serif;
 	font-size: 15px;
@@ -27,6 +26,7 @@ a:focus {
 	background-color: rgba(211, 214, 216, 0.3);
 }
 
+
 /************** BOOSTRAP CHANGES **************/
 .table {
 	margin-top: 20px;
@@ -42,13 +42,20 @@ a:focus {
 	font-weight: 600;
 	display: none;
 }
+.dropdown button {
+	padding: 3px 20px;
+	color: #333 !important;
+}
 .fa {
 	margin-right: 7px;
 	width: 20px;
 }
+.table .fa {
+	margin-right: 0;
+}
+
 
 /************** HELPERS **************/
-
 .page-header {
 	margin-top: 0;
 	border-color: #ddd;
@@ -90,8 +97,8 @@ a:focus {
 	color: #777;
 }
 
-/************** FLAGS **************/
 
+/************** FLAGS **************/
 .flag {
 	background: url('../img/flags.png') no-repeat scroll -4px -621px;
 	height: 11px;
@@ -163,7 +170,6 @@ a:focus {
 
 
 /************** LOG IN **************/
-
 .logged-user {
 	padding-top: 10px !important;
 	padding-bottom: 10px !important;
@@ -174,8 +180,8 @@ a:focus {
 	margin-right: 10px;
 }
 
-/************** GLOBAL BAR **************/
 
+/************** GLOBAL BAR **************/
 .navbar {
 	margin-bottom: 0;
 	height: 51px;
@@ -205,8 +211,8 @@ a:focus {
     padding-bottom: 11px;
 }
 
-/************** SIDE BAR **************/
 
+/************** SIDE BAR **************/
 .sidebar {
 	padding: 20px;
 	display: block;
@@ -281,8 +287,8 @@ a:focus {
 	padding: 6px 30px;
 }
 
-/************** SIDE BAR COLORING **************/
 
+/************** SIDE BAR COLORING **************/
 .sidebar.design .nav-sidebar>li.active>a  {
 	background-color: #8e44ad;
 }
@@ -294,13 +300,8 @@ a:focus {
 }
 
 
-/************** MAIN **************/
-
-.main-wrap {
-	
-}
-.main {
-	display: none;
+/************** MAIN CONTENT **************/
+.main-content {
 	padding: 23px 40px;
 	position: fixed;
 	top: 51px;
@@ -312,15 +313,18 @@ a:focus {
 	z-index: 1000;
 }
 @media ( max-width : 768px) {
-	.main {
+	.main-content {
 		position: relative;
 		top: -20px;
 		left: 0;
 	}
 }
+.main-content>div {
+	display: none;
+}
+
 
 /************** WEBSITE TEASER **************/
-
 .website-teaser {
 	width: 410px;
     display: inline-block;
@@ -383,8 +387,8 @@ a:focus {
 	width: 110px;
 }
 
-/************** LIGHTS **************/
 
+/************** LIGHTS **************/
 .light-success {
 	border-radius: 8px;
 	background-color: #5cb85c;
@@ -415,8 +419,8 @@ a:focus {
 	margin-bottom: -3px;
 }
 
-/************** TILE SUM **************/
 
+/************** TILE SUM **************/
 .tile-sum {
 	position: relative;
 }
@@ -434,8 +438,8 @@ a:focus {
 	margin-bottom: 0px;
 }
 
-/************** TABLE CONTROLS **************/
 
+/************** TABLE CONTROLS **************/
 .table-controls>* {
 	display: inline-block;
 	margin-right: 20px;

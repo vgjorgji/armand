@@ -4,15 +4,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <c:url value="/overview/dashboard" var="pageUrl"/>
 
-<layout:template title="Dashboard" 
+<template:main title="Dashboard" 
 		selectGlobal="overview"
 		selectSide="dashboard"
 		loadUrl="${pageUrl}/load">
 		
-	<jsp:body>
+	<jsp:attribute name="fragmentMain">
 		<h2 class="page-header">Dashboard</h2>
 
 		<div class="row placeholders">
@@ -34,5 +34,5 @@
 			</div>
 		</div>
 		
-	</jsp:body>
-</layout:template>
+	</jsp:attribute>
+</template:main>

@@ -56,19 +56,4 @@
 			</a>
 		</li>
 	</ul>
-	<h3>TOOLS</h3>
-	<ul class="nav nav-sidebar">
-		<li>
-			<a href="#">
-				<i class="fa fa-bar-chart"></i>
-				Analytics
-			</a>
-		</li>
-		<li>
-			<a href="#">
-				<i class="fa fa-file"></i>
-				Export
-			</a>
-		</li>
-	</ul>
 </div>

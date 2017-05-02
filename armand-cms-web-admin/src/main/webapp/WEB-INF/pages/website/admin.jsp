@@ -4,15 +4,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <c:url value="/website/${userSettings.selectedWebsiteId}/admin" var="pageUrl"/>
 
-<layout:template title="Demo Website | Admin" 
+<template:main title="Demo Website | Admin" 
 		selectGlobal="website"
 		selectSide="admin"
 		loadUrl="${pageUrl}/load">
 		
-	<jsp:body>
+	<jsp:attribute name="fragmentMain">
 		<h2 class="page-header">Website Administration</h2>
 
 		<!-- Actions -->
@@ -36,5 +36,5 @@
 				</div> <!-- /.panel -->
 			</div> <!-- /.col-md-12 -->
 		</div><!-- /.row -->
-	</jsp:body>
-</layout:template>
+	</jsp:attribute>
+</template:main>

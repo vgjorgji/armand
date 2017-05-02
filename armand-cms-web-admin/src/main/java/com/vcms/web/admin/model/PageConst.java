@@ -12,6 +12,8 @@ public interface PageConst {
 	String AdminDashboard = Admin + "/dashboard";
 	String AdminUsers = Admin + "/users";
 	String AdminCompanies = Admin + "/companies";
+	String AdminWebsites = Admin + "/websites";
+	String AdminWebsitesGroups = Admin + "/websites-groups";
 	
 	String WebsitesDashboard = Websites + "/dashboard";
 	

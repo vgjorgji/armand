@@ -30,19 +30,19 @@
 
 	$.noConflict();
 	$(document).ready(function() {
-		init();
+		init("body");
 		loadingInit();
 	});
 
 	/*
 	 * Initalizaes all needed hoocks for javascript logic
 	 */
-	function init() {
-		selectedInit();
-		validateInit();
-		ajaxInit();
-		showHideInit();
-		disableInit();
+	function init(elementSelector) {
+		selectedInit(elementSelector);
+		validateInit(elementSelector);
+		ajaxInit(elementSelector);
+		showHideInit(elementSelector);
+		disableInit(elementSelector);
 	}
 	
 	
@@ -68,9 +68,9 @@
 	/*
 	 * Select the options where data-selected is set.
 	 */
-	function selectedInit() {
+	function selectedInit(elementSelector) {
 		// do selection if some option is selected
-		$("select[data-selected]").each(function() {
+		$(elementSelector).find("[data-selected]").each(function() {
 			var element = $(this);
 			var value = element.attr("data-selected");
 			setValue(element, value, false);
@@ -108,14 +108,14 @@
      *    - data-spinner-location: if the spinner flag is set to true and this attribute is not present then
      *                             the spinner img is created next to the element. But with this attribute
      *                             you can provide location (element selector) where to create the spinner.
-     *    - data-scroll: scroll to the first error field if the validation fails
+     *    - data-scroll: scroll to the given element selector
      */
 
 	/*
 	 * Set Ajax behavior for all elements that have "data-url" set.
 	 */
-	function ajaxInit() {
-		$('[data-url]').each(function() {
+	function ajaxInit(elementSelector) {
+		$(elementSelector).find('[data-url]').each(function() {
 			var element = $(this);
 
 			if (element.attr("data-self-submit") === "true") {
@@ -156,7 +156,7 @@
 			var url = element.attr('data-url');
 			ajaxBehaviour(element, url);
 
-		} else if (element.attr("data-scroll") === "true") {
+		} else if (element.attr("data-validation-scroll") === "true") {
 			scrollToFirstError();
 		}
 		return false;
@@ -175,7 +175,7 @@
 				ajaxBehaviour(element, url);
 			}
 
-		} else if (element.attr("data-scroll") === "true") {
+		} else if (element.attr("data-validation-scroll") === "true") {
 			scrollToFirstError();
 		}
 	}
@@ -318,7 +318,7 @@
 		var dataWrap = $(dataVar);
 
 		// create data
-		$("[data-group='" + prefix + group + "'][data-field]").add("[data-group='" + extendGroup + "'][data-field]").each(function() {
+		$("[data-group='" + group + "'][data-field]").add("[data-group='" + extendGroup + "'][data-field]").each(function() {
 
 			// init
 			var innerElement = $(this);
@@ -410,6 +410,14 @@
 					$("#ajax-complete").show();
 					$("#ajax-complete").delay(1000).fadeOut(500);
 				}
+				
+				// scroll to
+				if (element.attr("data-scroll") !== undefined) {
+					var scrollElement = $(element.attr("data-scroll"));
+					if (scrollElement.length > 0) {
+						scrollTo(scrollElement[0]);
+					}
+				}
 			}
 
 		}).done(function(x) {
@@ -422,22 +430,33 @@
 				var element = $("[id=" + this.elementId + "]");
 				element.removeAttr("disabled");
 				
-				// if load case, show the element
-				if (element.attr("data-load") !== undefined) {
-					$(element).show();
-				}
-
 				// prefix
 				var prefix = getPrefix(element);
 
 				// renders the Templates
 				for ( var key in x.templates) {
 					var template = x.templates[key];
+					
+					// find the HTML targets
 					var htmlTemplate = $("[id='" + template.id + "']");
 					var htmlReplace = $("[id='" + template.replaceId + "']");
+					
+					// check if the replacement can be done (is valid)
 					if (htmlTemplate.length > 0 && htmlReplace.length > 0) {
+						
+						// do replace
 						var newHtml = Mustache.render(htmlTemplate.html(), template.data);
 						htmlReplace.html(newHtml);
+						
+						// init all again in the template after the replace
+						init("[id='" + template.replaceId + "']");
+						
+						// show or hide
+						if (template.show) {
+							$(htmlReplace).show();
+						} else {
+							$(htmlReplace).hide();
+						}
 					}
 				}
 
@@ -457,7 +476,7 @@
 					if (temp.length > 0) {
 
 						// show and set the message
-						if (value.text !== undefined && !!value.text.trim()) {
+						if (value.text !== undefined && !!$.trim(value.text)) {
 							temp.show();
 							setValueHtml(temp, value.text);
 
@@ -527,20 +546,15 @@
 				}
 
 				// checks if a submit of some form is set
-				if (x.submitForm !== undefined) {
-					var temp = $("form[id='" + x.submitForm + "']");
+				if (x.clickElement !== undefined) {
+					var temp = $("[id='" + x.clickElement + "']");
 					if (temp.length > 0) {
-						temp.submit();
+						temp.click();
 					}
 				}
 
-				// init all again if new html is placed
-				if (!$.isEmptyObject(x.templates)) {
-					init();
-				}
-
 				// move to first error field
-				if (hasError && element.attr("data-scroll") === "true") {
+				if (hasError && element.attr("data-validation-scroll") === "true") {
 					scrollToFirstError();
 				}
 
@@ -569,7 +583,7 @@
 		// set the value
 		if (element.is("input")) {
 			if (element.attr("type") === "checkbox") {
-				element.prop("checked", value);
+				element.prop("checked", value === "true");
 			} else {
 				element.val(value);
 				fieldElement = true;
@@ -642,7 +656,7 @@
 			return element.attr("action");
 
 		} else {
-			return element.text();
+			return $.trim(element.text());
 		}
 	}
 
@@ -671,7 +685,7 @@
 	 * Scroll to the given id
 	 */
 	function scrollTo(element) {
-		$('html,body').animate({
+		$('.main-content').animate({
 			scrollTop : $(element).offset().top - 100
 		}, 'slow');
 	}
@@ -702,6 +716,7 @@
      *                           - length (requires attributes: num1, num2)
      *   - data-validation-num1: additional attribute needed for "range" and "length" validation types
      *   - data-validation-num2: same as num1
+     *   - data-validation-scroll: scroll to the first error field if the validation fails
      *
      * Data attributes for condition validation:
      *   - data-condition: type of condition
@@ -713,9 +728,9 @@
 	 * Sets validation triggers on all input:text with data-field attribute and
 	 * all select with data-field attribute.
 	 */
-	function validateInit() {
+	function validateInit(elementSelector) {
 		// focus in and out for a all input and selects
-		$("input[data-field='true'],select[data-field='true']").each(function() {
+		$(elementSelector).find("input[data-field='true'],select[data-field='true']").each(function() {
 
 			$(this).on("focusin", function() {
 				// save the first value
@@ -732,7 +747,7 @@
 			});
 		});
 
-		$("select[data-field='true']").each(function() {
+		$(elementSelector).find("select[data-field='true']").each(function() {
 			$(this).on("change", function() {
 				var element = $(this);
 				var elementId = element.attr("id");
@@ -881,7 +896,7 @@
 
 		if (!valid) {
 			// if the result is FALSE, then wrap the field as error
-			if (message !== undefined && !!message.trim()) {
+			if (message !== undefined && !!$.trim(message)) {
 				element.addClass("error");
 				element.removeClass("validated");
 				messageSpan.show();
@@ -928,7 +943,7 @@
 		if (element.is("select")) {
 			return element.find(":selected").val() !== "empty";
 		} else if (element.is("input")) {
-			return !!element.val().trim();
+			return !!$.trim(element.val());
 		} else {
 			return false;
 		}
@@ -1025,8 +1040,8 @@
 	/*
 	 * Initialize all elements that have data-show-hide
 	 */
-	function showHideInit() {
-		$("[data-show-hide]").each(function() {
+	function showHideInit(elementSelector) {
+		$(elementSelector).find("[data-show-hide]").each(function() {
 			var element = $(this);
 
 			if (element.is("input")) {
@@ -1073,8 +1088,8 @@
 	/*
 	 * Initialize all elements that have data-disable
 	 */
-	function disableInit() {
-		$("[data-disable]").each(function() {
+	function disableInit(elementSelector) {
+		$(elementSelector).find("[data-disable]").each(function() {
 			var element = $(this);
 
 			if (element.is("input")) {

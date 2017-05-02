@@ -4,19 +4,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <c:url value="/websites/dashboard" var="pageUrl"/>
 
-<layout:template title="Websites" 
+<template:main title="Websites" 
 		selectGlobal="websites" 
 		selectSide="dashboard"
 		loadUrl="${pageUrl}/load">
 		
-	<jsp:body>
-		<div>
-			<a href="#" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Add</a>
-			<h2 class="page-header">Dashboard</h2>
-		</div>
+	<jsp:attribute name="fragmentMain">
+		<h2 class="page-header">Dashboard</h2>
 
 		{{#websites}}
 		<!-- Website teaser -->
@@ -26,7 +23,7 @@
 					<img src="http://placehold.it/52x52" class="website-logo" alt="Website Logo">
 					<div class="website-url">
 						<small>Company Name</small>
-						<a href="{{baseUrl}}" target="_blank">
+						<a href="http://{{baseUrl}}" target="_blank">
 							<i class="fa fa-globe"></i>{{baseUrl}}
 						</a>
 					</div>
@@ -113,5 +110,5 @@
 		</div> <!-- /.website-teaser -->
 		{{/websites}}
 			
-	</jsp:body>
-</layout:template>
+	</jsp:attribute>
+</template:main>

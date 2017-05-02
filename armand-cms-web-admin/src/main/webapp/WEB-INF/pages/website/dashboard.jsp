@@ -4,15 +4,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <c:url value="/website/${userSettings.selectedWebsiteId}/dashboard" var="pageUrl"/>
 
-<layout:template title="Demo Website" 
+<template:main title="Demo Website" 
 		selectGlobal="website" 
 		selectSide="dashboard"
 		loadUrl="${pageUrl}/load">
 		
-	<jsp:body>
+	<jsp:attribute name="fragmentMain">
 		<div>
 			<a href="<c:url value="/website/${userSettings.selectedWebsiteId}/publish" />" class="btn btn-danger pull-right">
 				<i class="fa fa-globe"></i>Publish
@@ -204,5 +204,5 @@
 			</div> <!-- /.col-md -->
 			
 		</div><!-- /.row -->
-	</jsp:body>
-</layout:template>
+	</jsp:attribute>
+</template:main>

@@ -5,6 +5,7 @@
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 <%@ taglib prefix="global" tagdir="/WEB-INF/tags/global"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <global:head title="Login" />
@@ -13,7 +14,7 @@
 	<div class="container">
 		<div class="center-block max-width-4">
 		
-			<h2>Please sign in</h2>
+			<h1>Sign In</h1>
 			
 			<form id="form" action="<c:url value="/login" />" method="post" role="form" autocomplete="off">
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -26,14 +27,6 @@
 				<div class="form-group">
 					<input id="password" name="password" placeholder="Password" 
 						type="password" class="form-control" autocomplete="off" required>
-				</div>
-				
-				<div class="form-group">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="remember-me"> Remember me
-						</label>
-					</div>
 				</div>
 				
 				<div class="form-group">

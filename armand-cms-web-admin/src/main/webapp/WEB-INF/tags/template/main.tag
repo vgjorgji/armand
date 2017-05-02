@@ -1,4 +1,5 @@
-<%@ tag body-content="scriptless" %>
+<%@ tag pageEncoding="UTF-8" %>
+<%@ attribute name="fragmentMain" fragment="true" %>
 <%@ attribute name="title" type="java.lang.String" required="true" %>
 <%@ attribute name="selectGlobal" type="java.lang.String" required="true" %>
 <%@ attribute name="selectSide" type="java.lang.String" required="true" %>
@@ -40,11 +41,13 @@
 			</c:when>
 		</c:choose>
 		
-		<div class="main" id="main" data-load="${loadUrl}" data-spinner="true">
+		<div class="main-content">
+			<div id="main" data-load="${loadUrl}" data-spinner="true">
+			</div>
 		</div>
 	</div>
 	
 	<script type="text/html" id="template-main">
-		<jsp:doBody />
+		<jsp:invoke fragment="fragmentMain"/>
 	</script>
 </body>

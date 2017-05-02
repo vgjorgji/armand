@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModelRepository;
-import com.vcms.persist.model.Paging;
-import com.vcms.persist.model.PagingSearch;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
 import com.vcms.web.admin.controller.AbstractPagingController;
-import com.vcms.web.admin.controller.Controller;
+import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 
@@ -27,32 +26,43 @@ public class UsersController extends AbstractPagingController<User> {
 	
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
-		Paging<User> paging = userRepository.getPagingModels(new PagingSearch());
-		return createReponse(paging);
+		return pagingReset();
 	}
-	
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+
+	@Override
 	public Response add() {
 		User user = new User();
 		Response response = new Response();
-		response.template("template-details", "details").data().add("user", user);
+		response.detailsTemplate().data()
+				.add("user", user)
+				.add("languages", Language.values());
 		return response;
 	}
 	
-	@RequestMapping(value = "/edit/{modelId}", method = RequestMethod.GET)
+	@Override
 	public Response edit(@PathVariable long modelId) {
-		User user = userRepository.getModel(modelId);
+		User user = null;
+		if (modelId < 1) {
+			user = new User();
+		} else {
+			user = userRepository.getModel(modelId);
+		}
+		
 		Response response = new Response();
-		response.template("template-details", "details").data().add("user", user);
+		response.detailsTemplate().data()
+				.add("user", user)
+				.add("languages", Language.values());
 		return response;
 	}
 	
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@Override
 	public Response save(@RequestBody User user) {
 		userRepository.saveModel(user);
-		return edit(user.getId());
+		Response response = new Response();   // if there are errors then call edit
+		response.detailsTemplate().show(false);
+		response.setClickElement("table-search");
+		return response;
 	}
-
 
 	@Override
 	protected DbModelRepository<User> getDbModelRepository() {

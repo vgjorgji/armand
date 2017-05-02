@@ -7,6 +7,8 @@ public enum Page {
 	AdminDashboard(PageConst.AdminDashboard),
 	AdminUsers(PageConst.AdminUsers),
 	AdminCompanies(PageConst.AdminCompanies),
+	AdminWebsites(PageConst.AdminWebsites),
+	AdminWebsitesGroups(PageConst.AdminWebsitesGroups),
 	
 	WebsitesDashboard(PageConst.WebsitesDashboard),
 	

@@ -11,7 +11,7 @@ import com.vcms.conf.cms.ModernColor;
 import com.vcms.conf.cms.Style;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
-import com.vcms.web.admin.controller.Controller;
+import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.WebsiteView;

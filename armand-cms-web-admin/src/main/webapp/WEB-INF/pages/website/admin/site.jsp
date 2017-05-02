@@ -4,17 +4,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="vcms" uri="http://www.vcms.com/tags/vcms"%>
 
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <%@ taglib prefix="form" tagdir="/WEB-INF/tags/form"%>
 <c:url value="/website/${userSettings.selectedWebsiteId}/admin/site" var="pageUrl"/>
 
-<layout:template title="Demo Website | Admin | Website" 
+<template:main title="Demo Website | Admin | Website" 
 		selectGlobal="website"
 		selectSide="admin"
 		selectSideSub="site"
 		loadUrl="${pageUrl}/load">
 		
-	<jsp:body>
+	<jsp:attribute name="fragmentMain">
 		<h2 class="page-header">Website</h2>
 
 		<!-- Actions -->
@@ -37,7 +37,9 @@
 							<form:select id="status" field="status.id" group="website"
 								options="statuses" optionValue="id" label="Status" />
 							<form:input id="expiryDate" field="expiryDate" group="website" label="Expiry Date" />
-							<form:buttons pageUrl="${pageUrl}" group="website" />
+							<form:buttons group="website" 
+								resetUrl="${pageUrl}/load"
+								saveUrl="${pageUrl}/save" />
 						</form>
 						{{/website}}
 					</div>
@@ -46,5 +48,5 @@
 			</div> <!-- /.col-md-12 -->
 		</div><!-- /.row -->
 		
-	</jsp:body>
-</layout:template>
+	</jsp:attribute>
+</template:main>

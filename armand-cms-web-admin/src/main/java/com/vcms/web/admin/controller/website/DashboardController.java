@@ -10,7 +10,7 @@ import com.vcms.date.Countdown;
 import com.vcms.date.DateUtils;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.service.UserSettingsProvider;
-import com.vcms.web.admin.controller.Controller;
+import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
 import com.vcms.website.model.Website;
@@ -40,7 +40,7 @@ public class DashboardController {
 
 	private Countdown getWebsiteCountdown(Website website, UserSettings userSettings) {
 		Countdown countdown = null;
-		if (website.getExpiryDate() != null) {
+		if (website != null && website.getExpiryDate() != null) {
 			countdown = DateUtils.toCountdown(website.getExpiryDate(), userSettings.getLanguage());
 		}
 		return countdown;

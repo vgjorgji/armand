@@ -1,7 +1,5 @@
 package com.vcms.web.admin.controller.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModelRepository;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
@@ -16,15 +15,10 @@ import com.vcms.web.admin.controller.AbstractPagingController;
 import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.website.model.Company;
-import com.vcms.website.model.CompanyRepository;
 
-@RestController(value = Controller.AdminCompanies)
-@RequestMapping(value = PageConst.AdminCompanies)
-public class CompaniesController extends AbstractPagingController<Company> {
-	
-	@Autowired
-	private CompanyRepository companyRepository;
+@RestController(value = Controller.AdminWebsitesGroups)
+@RequestMapping(value = PageConst.AdminWebsitesGroups)
+public class WebsitesGroupsController extends AbstractPagingController<User> {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -37,38 +31,33 @@ public class CompaniesController extends AbstractPagingController<Company> {
 
 	@Override
 	public Response add() {
-		Company company = new Company();
-		
-		List<User> users = userRepository.getAllModels();
-		
+		User user = new User();
 		Response response = new Response();
 		response.detailsTemplate().data()
-				.add("company", company)
-				.add("allUsers", users);
+				.add("user", user)
+				.add("languages", Language.values());
 		return response;
 	}
 	
 	@Override
 	public Response edit(@PathVariable long modelId) {
-		Company company = null;
+		User user = null;
 		if (modelId < 1) {
-			company = new Company();
+			user = new User();
 		} else {
-			company = companyRepository.getModel(modelId);
+			user = userRepository.getModel(modelId);
 		}
-		
-		List<User> users = userRepository.getAllModels();
 		
 		Response response = new Response();
 		response.detailsTemplate().data()
-				.add("company", company)
-				.add("allUsers", users);
+				.add("user", user)
+				.add("languages", Language.values());
 		return response;
 	}
 	
 	@Override
-	public Response save(@RequestBody Company company) {
-		companyRepository.saveModel(company);
+	public Response save(@RequestBody User user) {
+		userRepository.saveModel(user);
 		Response response = new Response();   // if there are errors then call edit
 		response.detailsTemplate().show(false);
 		response.setClickElement("table-search");
@@ -76,8 +65,8 @@ public class CompaniesController extends AbstractPagingController<Company> {
 	}
 
 	@Override
-	protected DbModelRepository<Company> getDbModelRepository() {
-		return companyRepository;
+	protected DbModelRepository<User> getDbModelRepository() {
+		return userRepository;
 	}
 
 }

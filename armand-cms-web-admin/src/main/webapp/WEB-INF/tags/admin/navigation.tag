@@ -14,8 +14,26 @@
 		<li class="<c:if test="${select eq 'companies'}">active</c:if>">
 			<a href="<c:url value="/admin/companies" />"><i class="fa fa-building"></i>Companies</a>
 		</li>
-		<li class="<c:if test="${select eq 'groups'}">active</c:if>">
-			<a href="#"><i class="fa fa-users"></i>Groups</a>
+		<li class="<c:if test="${select eq 'websites'}">active</c:if>">
+			<a href="<c:url value="/admin/websites" />"><i class="fa fa-globe"></i>Websites</a>
+		</li>
+		<li class="<c:if test="${select eq 'website-groups'}">active</c:if>">
+			<a href="<c:url value="/admin/websites-groups" />"><i class="fa fa-users"></i>Groups</a>
+		</li>
+	</ul>
+	<h3>TOOLS</h3>
+	<ul class="nav nav-sidebar">
+		<li>
+			<a href="#">
+				<i class="fa fa-bar-chart"></i>
+				Analytics
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<i class="fa fa-file"></i>
+				Export
+			</a>
 		</li>
 	</ul>
 </div>

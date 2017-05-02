@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vcms.persist.model.DbModel;
-import com.vcms.persist.model.DbModelRepository;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.model.PagingSearch;
 import com.vcms.web.admin.model.Response;
 
-public abstract class AbstractPagingController<T extends DbModel> {
+public abstract class AbstractPagingController<T extends DbModel> extends AbstractTableController<T> {
 	
 	@RequestMapping(value = "/paging/reset", method = RequestMethod.GET)
 	public Response pagingReset() {
@@ -68,6 +67,4 @@ public abstract class AbstractPagingController<T extends DbModel> {
 		return response;
 	}
 	
-	protected abstract DbModelRepository<T> getDbModelRepository();
-
 }

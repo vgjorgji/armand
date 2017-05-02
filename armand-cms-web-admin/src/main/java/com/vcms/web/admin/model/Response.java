@@ -6,7 +6,7 @@ import java.util.Map;
 public class Response {
 	
 	private String redirect;
-	private String submitForm;
+	private String clickElement;
 	private Map<String, Template> templates = new HashMap<>();
 	private Map<String, Message> messages = new HashMap<>();
 	private Map<String, Snippet> snippets = new HashMap<>();
@@ -18,25 +18,29 @@ public class Response {
 	public void redirect(String redirect) {
 		this.redirect = redirect;
 	}
-	
-	public String getSubmitForm() {
-		return submitForm;
+
+	public String getClickElement() {
+		return clickElement;
 	}
-	
-	public void submitForm(String submitForm) {
-		this.submitForm = submitForm;
+
+	public void setClickElement(String clickElement) {
+		this.clickElement = clickElement;
 	}
-	
+
 	public Template mainTemplate() {
-		return template("template-main", "main");
+		return template("template-main").replaceId("main");
 	}
 	
-	public Template template(String templateId, String replaceId) {
+	public Template detailsTemplate() {
+		return template("template-details").replaceId("details");
+	}
+	
+	public Template template(String templateId) {
 		Template template = null;
 		if (templates.containsKey(templateId)) {
 			template = templates.get(templateId);
 		} else {
-			template = new Template(templateId, replaceId);
+			template = new Template(templateId);
 			templates.put(templateId, template);
 		}
 		return template;

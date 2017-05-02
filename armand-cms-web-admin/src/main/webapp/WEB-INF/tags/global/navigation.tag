@@ -68,7 +68,14 @@
 						<li><a href="#">Settings</a></li>
 						<li><a href="#">Mail</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="<c:url value="/logout" />"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+						<li>
+							<form action="<c:url value="/logout" />" method="post">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+								<button type="submit" class="btn btn-link">
+									<i class="fa fa-sign-out pull-right"></i> Log Out
+								</button>
+							</form>
+						</li>
 					</ul>
 				</li>
 			</ul>

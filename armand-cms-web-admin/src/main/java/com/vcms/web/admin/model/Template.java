@@ -6,14 +6,14 @@ public class Template {
 	
 	private String id;        // ID of HTML element containing the template
 	private String replaceId; // ID of HTML element to render the outcome template in
+	private boolean show = true;
 	private TemplateData templateData = new TemplateData();
 	
 	public Template() {
 	}
 	
-	public Template(String id, String replaceId) {
+	public Template(String id) {
 		this.id = id;
-		this.replaceId = replaceId;
 	}
 
 	public String getId() {
@@ -22,6 +22,20 @@ public class Template {
 
 	public String getReplaceId() {
 		return replaceId;
+	}
+	
+	public Template replaceId(String replaceId) {
+		this.replaceId = replaceId;
+		return this;
+	}
+
+	public boolean isShow() {
+		return show;
+	}
+
+	public Template show(boolean show) {
+		this.show = show;
+		return this;
 	}
 
 	public Map<String, Object> getData() {
