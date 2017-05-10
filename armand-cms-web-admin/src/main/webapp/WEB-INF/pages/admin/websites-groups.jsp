@@ -20,44 +20,54 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-				<table class="table">
+				<table class="tree">
 					<tbody>
-						<tr class="info">
-							<td style="width: 100px">1000</td>
-							<td colspan="3">Demo Website</td>
-							<td style="width: 40px">
-								<button class="btn btn-success btn-xs">
-									<i class="fa fa-plus"></i>
+						<tr class="tree-lvl-1">
+							<td>
+								<a href="#" class="title">
+									<small>1000</small>
+									<span>Demo Website</span>
+								</a>
+							</td>
+							<td>
+								<button class="btn btn-link btn-xs">
+									<i class="fa fa-plus text-success"></i>
 								</button>
 							</td>
-							<td style="width: 40px">&nbsp;</td>
-							<td style="width: 40px">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
 						</tr>
-						<tr class="active">
-							<td>1000</td>
-							<td>&nbsp;</td>
-							<td colspan="2">Group Masters</td>
+						<tr class="tree-lvl-2">
 							<td>
-								<button class="btn btn-success btn-xs">
-									<i class="fa fa-plus"></i>
+								<a href="#" class="title">
+									<small>1000</small>
+									<span>Group Masters</span>
+								</a>
+							</td>
+							<td>
+								<button class="btn btn-link btn-xs">
+									<i class="fa fa-plus text-success"></i>
 								</button>
 							</td>
 							<td>
-								<button class="btn btn-warning btn-xs">
-									<i class="fa fa-pencil"></i>
+								<button class="btn btn-link btn-xs">
+									<i class="fa fa-pencil text-warning"></i>
 								</button>
 							</td>
 							<td>
-								<button class="btn btn-danger btn-xs">
-									<i class="fa fa-times"></i>
+								<button class="btn btn-link btn-xs">
+									<i class="fa fa-times text-danger"></i>
 								</button>
 							</td>
 						</tr>
-						<tr>
-							<td>1000</td>
-							<td>&nbsp;</td>
-							<td>&nbsp;</td>
-							<td>Vlado Gjorgjiev</td>
+						<tr class="tree-lvl-3">
+							<td>
+								<a href="#" class="title">
+									<i class="fa fa-long-arrow-right"></i>
+									<small>1000</small>
+									<span>Vlado Gjorgjiev</span>
+								</a>
+							</td>
 							<td>
 								&nbsp;
 							</td>
@@ -65,8 +75,51 @@
 								&nbsp;
 							</td>
 							<td>
-								<button class="btn btn-danger btn-xs">
-									<i class="fa fa-times"></i>
+								<button class="btn btn-link btn-xs">
+									<i class="fa fa-times text-danger"></i>
+								</button>
+							</td>
+						</tr>
+						<tr class="tree-lvl-2">
+							<td>
+								<a href="#" class="title">
+									<small>1000</small>
+									<span>Group Masters</span>
+								</a>
+							</td>
+							<td>
+								<a class="" href="#">
+									<i class="fa fa-plus text-success"></i>
+								</a>
+							</td>
+							<td>
+								<a class="" href="#">
+									<i class="fa fa-pencil text-warning"></i>
+								</a>
+							</td>
+							<td>
+								<a class="" href="#">
+									<i class="fa fa-times text-danger"></i>
+								</a>
+							</td>
+						</tr>
+						<tr class="tree-lvl-3">
+							<td>
+								<a href="#" class="title">
+									<i class="fa fa-long-arrow-right"></i>
+									<small>1000</small>
+									<span>Vlado Gjorgjiev</span>
+								</a>
+							</td>
+							<td>
+								&nbsp;
+							</td>
+							<td>
+								&nbsp;
+							</td>
+							<td>
+								<button class="btn btn-link btn-xs">
+									<i class="fa fa-times text-danger"></i>
 								</button>
 							</td>
 						</tr>

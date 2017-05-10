@@ -50,7 +50,8 @@ a:focus {
 	margin-right: 7px;
 	width: 20px;
 }
-.table .fa {
+.tree .fa,
+.table-controls .table-page .fa {
 	margin-right: 0;
 }
 
@@ -451,12 +452,36 @@ a:focus {
 .table-controls .table-page {
 	width: 190px;
 }
-.table-controls .table-page .fa {
-	margin-right: 0;
-}
 .table-controls .table-search {
 	width: 300px;
 }
 .table-controls .table-ajax {
 	height: 28px;
+}
+
+
+/************** TREE **************/
+.tree .title {
+	display: block;
+	color: #555;
+	padding: 3px 20px 3px 0;
+}
+.tree .tree-lvl-3 .title {
+	padding-left: 20px;
+}
+.tree .title .fa {
+	margin-left: 5px;
+}
+.tree span {
+	margin-left: 10px;
+}
+.tree .tree-lvl-1 .title {
+	color: #337ab7;
+}
+.tree .tree-lvl-2 small,
+.tree .tree-lvl-3 small {
+	margin-left: 10px;
+}
+.tree a {
+	display: block;
 }

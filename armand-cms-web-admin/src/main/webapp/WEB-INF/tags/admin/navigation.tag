@@ -17,7 +17,7 @@
 		<li class="<c:if test="${select eq 'websites'}">active</c:if>">
 			<a href="<c:url value="/admin/websites" />"><i class="fa fa-globe"></i>Websites</a>
 		</li>
-		<li class="<c:if test="${select eq 'website-groups'}">active</c:if>">
+		<li class="<c:if test="${select eq 'websites-groups'}">active</c:if>">
 			<a href="<c:url value="/admin/websites-groups" />"><i class="fa fa-users"></i>Groups</a>
 		</li>
 	</ul>
