@@ -7,7 +7,7 @@ public class Response {
 	
 	private String redirect;
 	private String clickElement;
-	private Map<String, Template> templates = new HashMap<>();
+	private Map<String, Fragment> fragments = new HashMap<>();
 	private Map<String, Message> messages = new HashMap<>();
 	private Map<String, Snippet> snippets = new HashMap<>();
 	
@@ -27,27 +27,39 @@ public class Response {
 		this.clickElement = clickElement;
 	}
 
-	public Template mainTemplate() {
-		return template("template-main").replaceId("main");
+	public Fragment fragmentMain() {
+		return fragment("fragment-main").replaceId("main");
 	}
 	
-	public Template detailsTemplate() {
-		return template("template-details").replaceId("details");
+	public Fragment fragmentDetails() {
+		return fragment("fragment-details").replaceId("details");
 	}
 	
-	public Template template(String templateId) {
-		Template template = null;
-		if (templates.containsKey(templateId)) {
-			template = templates.get(templateId);
+	public Fragment fragmentLvl1() {
+		return fragment("fragment-lvl-1").replaceId("lvl-1");
+	}
+	
+	public Fragment fragmentLvl2() {
+		return fragment("fragment-lvl-2").replaceId("lvl-2");
+	}
+	
+	public Fragment fragmentLvl3() {
+		return fragment("fragment-lvl-3").replaceId("lvl-3");
+	}
+	
+	public Fragment fragment(String fragmentId) {
+		Fragment fragment = null;
+		if (fragments.containsKey(fragmentId)) {
+			fragment = fragments.get(fragmentId);
 		} else {
-			template = new Template(templateId);
-			templates.put(templateId, template);
+			fragment = new Fragment(fragmentId);
+			fragments.put(fragmentId, fragment);
 		}
-		return template;
+		return fragment;
 	}
 	
-	public Map<String, Template> getTemplates() {
-		return templates;
+	public Map<String, Fragment> getFragments() {
+		return fragments;
 	}
 
 	public Message message(String messageId) {

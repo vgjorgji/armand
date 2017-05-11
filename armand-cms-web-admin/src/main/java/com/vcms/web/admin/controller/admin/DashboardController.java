@@ -16,7 +16,7 @@ public class DashboardController {
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public Response load() {
 		Response response = new Response();
-		response.mainTemplate().data().add("websiteView", new WebsiteView());
+		response.fragmentMain().data().add("websiteView", new WebsiteView());
 		return response;
 	}
 

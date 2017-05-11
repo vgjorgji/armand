@@ -3,11 +3,11 @@ package com.vcms.web.admin.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TemplateData {
+public class FragmentData {
 
 	private Map<String, Object> map = new HashMap<>();
 	
-	public TemplateData add(String name, Object object) {
+	public FragmentData add(String name, Object object) {
 		map.put(name, object);
 		return this;
 	}

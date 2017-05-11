@@ -8,6 +8,7 @@ import com.vcms.persist.model.DbModel;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.model.PagingSearch;
 import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.Fragment;
 
 public abstract class AbstractPagingController<T extends DbModel> extends AbstractTableController<T> {
 	
@@ -63,8 +64,11 @@ public abstract class AbstractPagingController<T extends DbModel> extends Abstra
 	
 	protected Response createReponse(Paging<T> paging) {
 		Response response = new Response();
-		response.mainTemplate().data().add("paging", paging);
+		Fragment fragment = getFragment(response);
+		fragment.data().add("paging", paging);
 		return response;
 	}
+	
+	protected abstract Fragment getFragment(Response response);
 	
 }

@@ -320,7 +320,7 @@ a:focus {
 		left: 0;
 	}
 }
-.main-content>div {
+.main-content .main-fragment {
 	display: none;
 }
 
@@ -461,27 +461,42 @@ a:focus {
 
 
 /************** TREE **************/
+.tree {
+	margin: 20px 0;
+	width: 100%;
+    max-width: 100%;
+}
 .tree .title {
 	display: block;
+	padding: 3px 4px;
+	text-align: left;
 	color: #555;
-	padding: 3px 20px 3px 0;
 }
-.tree .tree-lvl-3 .title {
-	padding-left: 20px;
+.tree .icon {
+	width: 50px;
 }
-.tree .title .fa {
-	margin-left: 5px;
+.tree .id {
+	width: 70px;
 }
-.tree span {
-	margin-left: 10px;
+.tree .control {
+	width: 30px;
+}
+.tree .tree-lvl-1 {
+	text-transform: uppercase;
+}
+.tree .tree-lvl-1 {
+	border-top: 1px solid #ddd;
 }
 .tree .tree-lvl-1 .title {
 	color: #337ab7;
 }
-.tree .tree-lvl-2 small,
-.tree .tree-lvl-3 small {
-	margin-left: 10px;
+.tree .tree-lvl-3 {
+	font-size: 85%;
+}
+.tree .tree-lvl-3 .title {
+	padding-left: 30px;
 }
 .tree a {
 	display: block;
+	text-align: center;
 }

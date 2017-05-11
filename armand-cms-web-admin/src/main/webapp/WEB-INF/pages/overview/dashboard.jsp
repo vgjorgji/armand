@@ -8,13 +8,12 @@
 <c:url value="/overview/dashboard" var="pageUrl"/>
 
 <template:main title="Dashboard" 
+		pageTitle="Dashboard"
 		selectGlobal="overview"
 		selectSide="dashboard"
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Dashboard</h2>
-
 		<div class="row placeholders">
 			<div class="col-xs-6 col-sm-3 placeholder">
 				<h4>Label</h4>

@@ -15,6 +15,7 @@ import com.vcms.web.admin.controller.AbstractPagingController;
 import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.Fragment;
 
 @RestController(value = Controller.AdminUsers)
 @RequestMapping(value = PageConst.AdminUsers)
@@ -33,7 +34,7 @@ public class UsersController extends AbstractPagingController<User> {
 	public Response add() {
 		User user = new User();
 		Response response = new Response();
-		response.detailsTemplate().data()
+		response.fragmentDetails().data()
 				.add("user", user)
 				.add("languages", Language.values());
 		return response;
@@ -49,7 +50,7 @@ public class UsersController extends AbstractPagingController<User> {
 		}
 		
 		Response response = new Response();
-		response.detailsTemplate().data()
+		response.fragmentDetails().data()
 				.add("user", user)
 				.add("languages", Language.values());
 		return response;
@@ -59,9 +60,14 @@ public class UsersController extends AbstractPagingController<User> {
 	public Response save(@RequestBody User user) {
 		userRepository.saveModel(user);
 		Response response = new Response();   // if there are errors then call edit
-		response.detailsTemplate().show(false);
+		response.fragmentDetails().show(false);
 		response.setClickElement("table-search");
 		return response;
+	}
+	
+	@Override
+	protected Fragment getFragment(Response response) {
+		return response.fragmentMain();
 	}
 
 	@Override

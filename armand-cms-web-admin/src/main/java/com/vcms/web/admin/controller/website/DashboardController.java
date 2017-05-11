@@ -32,7 +32,7 @@ public class DashboardController {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		Countdown countdown = getWebsiteCountdown(website, userSettings);
 		
-		response.mainTemplate().data()
+		response.fragmentMain().data()
 				.add("website", website)
 				.add("countdown", countdown);
 		return response;

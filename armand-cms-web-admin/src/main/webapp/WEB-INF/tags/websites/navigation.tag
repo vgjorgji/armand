@@ -6,7 +6,7 @@
 <div class="sidebar">
 	<ul class="nav nav-sidebar last">
 		<li class="<c:if test="${select eq 'dashboard'}">active</c:if>">
-			<a href="<c:url value="/dashboard" />"><i class="fa fa-desktop"></i>Dashboard</a>
+			<a href="<c:url value="/websites/dashboard" />"><i class="fa fa-desktop"></i>Dashboard</a>
 		</li>
 		<li>
 			<a href="#"><i class="fa fa-table"></i>Reports</a>

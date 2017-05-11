@@ -16,6 +16,7 @@ import com.vcms.web.admin.controller.AbstractPagingController;
 import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.Fragment;
 import com.vcms.website.model.Company;
 import com.vcms.website.model.CompanyRepository;
 
@@ -34,6 +35,7 @@ public class CompaniesController extends AbstractPagingController<Company> {
 	public Response load() {
 		return pagingReset();
 	}
+	
 
 	@Override
 	public Response add() {
@@ -42,7 +44,7 @@ public class CompaniesController extends AbstractPagingController<Company> {
 		List<User> users = userRepository.getAllModels();
 		
 		Response response = new Response();
-		response.detailsTemplate().data()
+		response.fragmentDetails().data()
 				.add("company", company)
 				.add("allUsers", users);
 		return response;
@@ -60,7 +62,7 @@ public class CompaniesController extends AbstractPagingController<Company> {
 		List<User> users = userRepository.getAllModels();
 		
 		Response response = new Response();
-		response.detailsTemplate().data()
+		response.fragmentDetails().data()
 				.add("company", company)
 				.add("allUsers", users);
 		return response;
@@ -70,11 +72,16 @@ public class CompaniesController extends AbstractPagingController<Company> {
 	public Response save(@RequestBody Company company) {
 		companyRepository.saveModel(company);
 		Response response = new Response();   // if there are errors then call edit
-		response.detailsTemplate().show(false);
+		response.fragmentDetails().show(false);
 		response.setClickElement("table-search");
 		return response;
 	}
 
+	@Override
+	protected Fragment getFragment(Response response) {
+		return response.fragmentMain();
+	}
+	
 	@Override
 	protected DbModelRepository<Company> getDbModelRepository() {
 		return companyRepository;

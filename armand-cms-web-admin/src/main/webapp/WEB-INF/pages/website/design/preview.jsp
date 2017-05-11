@@ -7,15 +7,14 @@
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <c:url value="/website/${userSettings.selectedWebsiteId}/design/preview" var="pageUrl"/>
 
-<template:main title="Demo Website | Design | Preview" 
+<template:main title="Demo Website | Design | Preview"
+		pageTitle="Preview" 
 		selectGlobal="website"
 		selectSide="design"
 		selectSideSub="preview"
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Preview</h2>
-
 		<!-- Actions -->
 		<div class="row">
 			<div class="col-md-12">

@@ -8,13 +8,12 @@
 <c:url value="/website/${userSettings.selectedWebsiteId}/admin" var="pageUrl"/>
 
 <template:main title="Demo Website | Admin" 
+		pageTitle="Website Administration"
 		selectGlobal="website"
 		selectSide="admin"
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Website Administration</h2>
-
 		<!-- Actions -->
 		<div class="row">
 			<div class="col-md-12">

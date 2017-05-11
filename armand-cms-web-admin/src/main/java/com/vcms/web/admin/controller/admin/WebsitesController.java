@@ -24,6 +24,7 @@ import com.vcms.web.admin.controller.AbstractPagingController;
 import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.Fragment;
 import com.vcms.website.model.Company;
 import com.vcms.website.model.CompanyRepository;
 import com.vcms.website.model.Website;
@@ -65,7 +66,7 @@ public class WebsitesController extends AbstractPagingController<Website> {
 		List<Company> allCompanies = companyRepository.getAllModels();
 		
 		Response response = new Response();
-		response.detailsTemplate().data()
+		response.fragmentDetails().data()
 				.add("website", website)
 				.add("allCompanies", allCompanies)
 				.add("cmsPackages", CmsPackage.values())
@@ -86,7 +87,7 @@ public class WebsitesController extends AbstractPagingController<Website> {
 		List<Company> allCompanies = companyRepository.getAllModels();
 		
 		Response response = new Response();
-		response.detailsTemplate().data()
+		response.fragmentDetails().data()
 				.add("website", website)
 				.add("allCompanies", allCompanies)
 				.add("cmsPackages", CmsPackage.values())
@@ -124,9 +125,14 @@ public class WebsitesController extends AbstractPagingController<Website> {
 		}
 		
 		Response response = new Response();   // if there are errors then call edit
-		response.detailsTemplate().show(false);
+		response.fragmentDetails().show(false);
 		response.setClickElement("table-search");
 		return response;
+	}
+	
+	@Override
+	protected Fragment getFragment(Response response) {
+		return response.fragmentMain();
 	}
 
 	@Override

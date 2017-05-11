@@ -433,26 +433,26 @@
 				// prefix
 				var prefix = getPrefix(element);
 
-				// renders the Templates
-				for ( var key in x.templates) {
-					var template = x.templates[key];
+				// renders the Fragments
+				for ( var key in x.fragments) {
+					var fragment = x.fragments[key];
 					
-					// find the HTML targets
-					var htmlTemplate = $("[id='" + template.id + "']");
-					var htmlReplace = $("[id='" + template.replaceId + "']");
+					// find the HTML fragment
+					var htmlFragment = $("[id='" + fragment.id + "']");
+					var htmlReplace = $("[id='" + fragment.replaceId + "']");
 					
 					// check if the replacement can be done (is valid)
-					if (htmlTemplate.length > 0 && htmlReplace.length > 0) {
+					if (htmlFragment.length > 0 && htmlReplace.length > 0) {
 						
 						// do replace
-						var newHtml = Mustache.render(htmlTemplate.html(), template.data);
+						var newHtml = Mustache.render(htmlFragment.html(), fragment.data);
 						htmlReplace.html(newHtml);
 						
-						// init all again in the template after the replace
-						init("[id='" + template.replaceId + "']");
+						// init all again in the fragment after the replace
+						init("[id='" + fragment.replaceId + "']");
 						
 						// show or hide
-						if (template.show) {
+						if (fragment.show) {
 							$(htmlReplace).show();
 						} else {
 							$(htmlReplace).hide();

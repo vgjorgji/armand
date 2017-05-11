@@ -33,7 +33,7 @@ public class DesignThemeController {
 		long websiteId = userSettings.getSelectedWebsiteId();
 		WebsiteView websiteView = websiteViewRepository.getModel(websiteId, WebsiteViewType.Design);
 		
-		response.mainTemplate().data()
+		response.fragmentMain().data()
 				.add("websiteView", websiteView)
 				.add("styles", Style.values())
 				.add("modernColors", ModernColor.values())

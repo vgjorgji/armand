@@ -2,6 +2,7 @@
 <%@ attribute name="fragmentMain" fragment="true" %>
 <%@ attribute name="fragmentDetails" fragment="true" %>
 <%@ attribute name="title" type="java.lang.String" required="true" %>
+<%@ attribute name="pageTitle" type="java.lang.String" required="false" %>
 <%@ attribute name="selectGlobal" type="java.lang.String" required="true" %>
 <%@ attribute name="selectSide" type="java.lang.String" required="true" %>
 <%@ attribute name="selectSideSub" type="java.lang.String" required="false" %>
@@ -21,39 +22,29 @@
 <global:head title="${title}" />
 
 <body>
-	<div id="ajax-send" class="alert alert-warning" role="alert">Updating...</div>
-	<div id="ajax-complete" class="alert alert-info" role="alert">Completed</div>
-	
+	<global:ajax-notify />
 	<global:navigation select="${selectGlobal}" />
 	
 	<div class="main-wrap">
-		<c:choose>
-			<c:when test="${selectGlobal eq 'overview'}">
-				<overview:navigation select="${selectSide}" />
-			</c:when>
-			<c:when test="${selectGlobal eq 'admin'}">
-				<admin:navigation select="${selectSide}" />
-			</c:when>
-			<c:when test="${selectGlobal eq 'websites'}">
-				<websites:navigation select="${selectSide}" />
-			</c:when>
-			<c:when test="${selectGlobal eq 'website'}">
-				<website:navigation select="${selectSide}" selectSub="${selectSideSub}" />
-			</c:when>
-		</c:choose>
+		<global:navigation-side selectGlobal="${selectGlobal}" 
+				selectSide="${selectSide}" 
+				selectSideSub="${selectSideSub}" />
 		
 		<div class="main-content">
-			<div id="main" data-load="${loadUrl}" data-spinner="true">
+			<c:if test="${not empty pageTitle}">
+				<h2 class="page-header">${pageTitle}</h2>
+			</c:if>
+			<div id="main" class="main-fragment" data-load="${loadUrl}" data-spinner="true">
 			</div>
-			<div id="details">
+			<div id="details" class="main-fragment">
 			</div>
 		</div>
 	</div>
 	
-	<script type="text/html" id="template-main">
+	<script type="text/html" id="fragment-main">
 		<jsp:invoke fragment="fragmentMain"/>
 	</script>
-	<script type="text/html" id="template-details">
+	<script type="text/html" id="fragment-details">
 		<jsp:invoke fragment="fragmentDetails"/>
 	</script>
 </body>

@@ -42,7 +42,7 @@ public class AdminSiteController {
 		
 		List<Company> allCompanies = companyRepository.getAllModels();
 		
-		response.mainTemplate().data()
+		response.fragmentMain().data()
 				.add("website", website)
 				.add("allCompanies", allCompanies)
 				.add("cmsPackages", CmsPackage.values())

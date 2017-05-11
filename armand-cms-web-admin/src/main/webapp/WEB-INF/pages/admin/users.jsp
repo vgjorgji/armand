@@ -10,13 +10,12 @@
 <c:url value="/admin/users" var="pageUrl"/>
 
 <template:details title="Administration | Users" 
+		pageTitle="Users"
 		selectGlobal="admin"
 		selectSide="users" 
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Users</h2>
-		
 		<div class="panel panel-default">
 			<div class="panel-body">
 			

@@ -10,13 +10,12 @@
 <c:url value="/admin/companies" var="pageUrl"/>
 
 <template:details title="Administration | Companies" 
+		pageTitle="Comapnies"
 		selectGlobal="admin"
 		selectSide="companies" 
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Comapnies</h2>
-		
 		<div class="panel panel-default">
 			<div class="panel-body">
 			

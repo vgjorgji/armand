@@ -40,7 +40,7 @@ public class DashboardController {
 			websites.add(websiteRepository.getModel(websiteUser.getWebsiteId()));
 		}
 		
-		response.mainTemplate().data()
+		response.fragmentMain().data()
 				.add("websites", websites)
 				.add("languages", Language.values());
 		return response;

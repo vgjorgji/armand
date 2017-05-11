@@ -7,14 +7,13 @@
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/template"%>
 <c:url value="/websites/dashboard" var="pageUrl"/>
 
-<template:main title="Websites" 
+<template:main title="Websites"
+		pageTitle="Dashboard" 
 		selectGlobal="websites" 
 		selectSide="dashboard"
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Dashboard</h2>
-
 		{{#websites}}
 		<!-- Website teaser -->
 		<div class="website-teaser">

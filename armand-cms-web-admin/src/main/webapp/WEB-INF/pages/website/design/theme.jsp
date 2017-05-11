@@ -9,14 +9,13 @@
 <c:url value="/website/${userSettings.selectedWebsiteId}/design/theme" var="pageUrl"/>
 
 <template:main title="Demo Website | Design | Theme" 
+		pageTitle="Theme"
 		selectGlobal="website"
 		selectSide="design"
 		selectSideSub="theme"
 		loadUrl="${pageUrl}/load">
 		
 	<jsp:attribute name="fragmentMain">
-		<h2 class="page-header">Theme</h2>
-
 		<!-- Actions -->
 		<div class="row">
 			<div class="col-md-12">

@@ -23,7 +23,7 @@ public abstract class AbstractTableController<T extends DbModel> {
 	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
 	public Response cancel() {
 		Response response = new Response();
-		response.detailsTemplate().show(false);
+		response.fragmentDetails().show(false);
 		return response;
 	}
 	
@@ -31,7 +31,7 @@ public abstract class AbstractTableController<T extends DbModel> {
 	public Response delete(@PathVariable long modelId) {
 		getDbModelRepository().deleteModel(modelId);
 		Response response = new Response();
-		response.detailsTemplate().show(false);
+		response.fragmentDetails().show(false);
 		response.setClickElement("table-search");
 		return response;
 	}
