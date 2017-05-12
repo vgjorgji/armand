@@ -35,10 +35,11 @@ public class DashboardController {
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		
 		List<WebsiteUser> websiteUsers = websiteUserRepository.getWebsitesForUser(userSettings.getId());
-		List<Website> websites = new ArrayList<>(websiteUsers.size());
+		List<Long> websiteIds = new ArrayList<>(websiteUsers.size());
 		for (WebsiteUser websiteUser : websiteUsers) {
-			websites.add(websiteRepository.getModel(websiteUser.getWebsiteId()));
+			websiteIds.add(websiteUser.getWebsiteId());
 		}
+		List<Website> websites = websiteRepository.getModels(websiteIds);
 		
 		response.fragmentMain().data()
 				.add("websites", websites)

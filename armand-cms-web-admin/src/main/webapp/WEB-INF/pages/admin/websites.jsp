@@ -19,10 +19,9 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-				<table:full pageUrl="${pageUrl}"
-					headers="Company,Name,URL,CMS Package,Status,Expiry Date"
-					fields="companyId,name,baseUrl,cmsPackage.id,status.id,expiryDate"
-					rowCssClass="" />
+				<table:normal pageUrl="${pageUrl}"
+						headers="Company,Name,URL,CMS Package,Status,Expiry Date"
+						fields="companyId,name,baseUrl,cmsPackage.id,status.id,expiryDate" />
 				
 			</div>
 		</div> <!-- /.panel -->

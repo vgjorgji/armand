@@ -19,74 +19,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-				<table class="tree">
-					<tbody>
-						<tr class="tree-lvl-1">
-							<td class="title">
-								Demo Website
-							</td>
-							<td class="icon">
-							</td>
-							<td class="id">
-								<small>1000</small>
-							</td>
-							<td class="control">
-								<a href="#" class="text-success">
-									<i class="fa fa-plus"></i>
-								</a>
-							</td>
-							<td class="control">&nbsp;</td>
-							<td class="control">&nbsp;</td>
-						</tr>
-						<tr class="tree-lvl-2">
-							<td class="title">
-								Group Masters
-							</td>
-							<td class="icon">
-								<i class="fa fa-user-secret"></i>
-							</td>
-							<td class="id">
-								<small>1000</small>
-							</td>
-							<td class="control">
-								<a href="#" class="text-success">
-									<i class="fa fa-plus"></i>
-								</a>
-							</td>
-							<td class="control">
-								<a href="#" class="text-warning">
-									<i class="fa fa-pencil"></i>
-								</a>
-							</td>
-							<td class="control">
-								<a href="#" class="text-danger">
-									<i class="fa fa-times"></i>
-								</a>
-							</td>
-						</tr>
-						<tr class="tree-lvl-3">
-							<td class="title">
-								Vlado Gjorgjiev
-							</td>
-							<td class="icon">
-							</td>
-							<td class="id">
-								<small>1000</small>
-							</td>
-							<td class="control">
-								&nbsp;
-							</td>
-							<td class="control">
-								&nbsp;
-							</td>
-							<td class="control">
-								<a href="#" class="text-danger">
-									<i class="fa fa-times"></i>
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<table:tree pageUrl="${pageUrl}" />
 				
 			</div>
 		</div> <!-- /.panel -->

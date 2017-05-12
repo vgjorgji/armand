@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModelRepository;
 import com.vcms.user.model.User;
-import com.vcms.web.admin.controller.AbstractPagingController;
+import com.vcms.web.admin.controller.AbstractTreeController;
 import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.Fragment;
 import com.vcms.web.admin.model.PageConst;
@@ -22,7 +22,7 @@ import com.vcms.website.model.WebsiteRepository;
 
 @RestController(value = Controller.AdminWebsitesGroups)
 @RequestMapping(value = PageConst.AdminWebsitesGroups)
-public class WebsitesGroupsController extends AbstractPagingController<User> {
+public class WebsitesGroupsController extends AbstractTreeController<User> {
 	
 	@Autowired
 	private WebsiteRepository websiteRepository;
@@ -34,7 +34,7 @@ public class WebsitesGroupsController extends AbstractPagingController<User> {
 		
 		Response response = new Response();
 		response.fragmentMain().data().add("allWebsites", allWebsites);
-		return pagingReset();
+		return response;
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class WebsitesGroupsController extends AbstractPagingController<User> {
 	public Response save(@RequestBody User user) {
 //		userRepository.saveModel(user);
 		Response response = new Response();   // if there are errors then call edit
-		response.fragmentDetails().show(false);
+		response.fragmentDetails().hide();
 		response.setClickElement("table-search");
 		return response;
 	}

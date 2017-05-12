@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vcms.persist.model.DbModelRepository;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
-import com.vcms.web.admin.controller.AbstractPagingController;
+import com.vcms.web.admin.controller.AbstractTableController;
 import com.vcms.web.admin.model.Controller;
+import com.vcms.web.admin.model.Fragment;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.web.admin.model.Fragment;
 import com.vcms.website.model.Company;
 import com.vcms.website.model.CompanyRepository;
 
 @RestController(value = Controller.AdminCompanies)
 @RequestMapping(value = PageConst.AdminCompanies)
-public class CompaniesController extends AbstractPagingController<Company> {
+public class CompaniesController extends AbstractTableController<Company> {
 	
 	@Autowired
 	private CompanyRepository companyRepository;
@@ -72,7 +72,7 @@ public class CompaniesController extends AbstractPagingController<Company> {
 	public Response save(@RequestBody Company company) {
 		companyRepository.saveModel(company);
 		Response response = new Response();   // if there are errors then call edit
-		response.fragmentDetails().show(false);
+		response.fragmentDetails().hide();
 		response.setClickElement("table-search");
 		return response;
 	}

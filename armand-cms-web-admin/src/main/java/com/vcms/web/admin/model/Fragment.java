@@ -33,8 +33,13 @@ public class Fragment {
 		return show;
 	}
 
-	public Fragment show(boolean show) {
-		this.show = show;
+	public Fragment show() {
+		this.show = true;
+		return this;
+	}
+	
+	public Fragment hide() {
+		this.show = false;
 		return this;
 	}
 

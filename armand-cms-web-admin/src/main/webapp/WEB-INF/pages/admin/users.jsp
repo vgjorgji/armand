@@ -19,10 +19,10 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-				<table:full pageUrl="${pageUrl}"
-					headers="Username,First Name,Last Name,Email,Phone,Language"
-					fields="username,firstName,lastName,email,phone,language.id"
-					rowCssClass="{{^enabled}}disabled{{/enabled}} {{#master}}text-danger text-bold{{/master}}" />
+				<table:normal pageUrl="${pageUrl}"
+						headers="Username,First Name,Last Name,Email,Phone,Language"
+						fields="username,firstName,lastName,email,phone,language.id"
+						rowCssClass="{{^enabled}}disabled{{/enabled}} {{#master}}text-danger text-bold{{/master}}" />
 				
 			</div>
 		</div> <!-- /.panel -->

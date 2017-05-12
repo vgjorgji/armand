@@ -11,15 +11,15 @@ import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModelRepository;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
-import com.vcms.web.admin.controller.AbstractPagingController;
+import com.vcms.web.admin.controller.AbstractTableController;
 import com.vcms.web.admin.model.Controller;
+import com.vcms.web.admin.model.Fragment;
 import com.vcms.web.admin.model.PageConst;
 import com.vcms.web.admin.model.Response;
-import com.vcms.web.admin.model.Fragment;
 
 @RestController(value = Controller.AdminUsers)
 @RequestMapping(value = PageConst.AdminUsers)
-public class UsersController extends AbstractPagingController<User> {
+public class UsersController extends AbstractTableController<User> {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -60,7 +60,7 @@ public class UsersController extends AbstractPagingController<User> {
 	public Response save(@RequestBody User user) {
 		userRepository.saveModel(user);
 		Response response = new Response();   // if there are errors then call edit
-		response.fragmentDetails().show(false);
+		response.fragmentDetails().hide();
 		response.setClickElement("table-search");
 		return response;
 	}

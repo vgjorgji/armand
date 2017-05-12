@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.vcms.persist.model.DbModel;
 import com.vcms.web.admin.model.Response;
 
-public abstract class AbstractTableController<T extends DbModel> extends AbstractPagingController<T> {
+public abstract class AbstractTreeController<T extends DbModel> extends AbstractPagingController<T> {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public abstract Response add();

@@ -19,9 +19,9 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-				<table:full pageUrl="${pageUrl}"
-					headers="Contact User,Name,Address 2,Phone 1,Email"
-					fields="contactUserId,name,address2,phone1,email" />
+				<table:normal pageUrl="${pageUrl}"
+						headers="Contact User,Name,Address 2,Phone 1,Email"
+						fields="contactUserId,name,address2,phone1,email" />
 				
 			</div>
 		</div> <!-- /.panel -->
