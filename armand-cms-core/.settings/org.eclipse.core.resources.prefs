@@ -5,6 +5,7 @@ encoding//src/main/java/com/vcms/date/DateUtils.java=UTF-8
 encoding//src/main/java/com/vcms/design/stub/DesignComponentRepositoryStub.java=UTF-8
 encoding//src/main/java/com/vcms/design/stub/PageRepositoryStub.java=UTF-8
 encoding//src/main/java/com/vcms/user/stub/UserRepositoryStub.java=UTF-8
+encoding//src/main/java/com/vcms/user/stub/WebsiteGroupRepositoryStub.java=UTF-8
 encoding//src/main/java/com/vcms/user/stub/WebsiteUserRepositoryStub.java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/test/java=UTF-8
