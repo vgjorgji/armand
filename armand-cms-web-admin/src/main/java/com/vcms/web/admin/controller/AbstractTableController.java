@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vcms.persist.model.DbModel;
-import com.vcms.web.admin.model.Response;
+import com.vcms.persist.model.DbModelRepository;
+import com.vcms.persist.model.Paging;
+import com.vcms.persist.model.PagingSearch;
+import com.vcms.web.admin.model.response.Response;
 
 public abstract class AbstractTableController<T extends DbModel> extends AbstractPagingController<T> {
 	
@@ -22,14 +25,6 @@ public abstract class AbstractTableController<T extends DbModel> extends Abstrac
 	public abstract Response save(@RequestBody T user);
 	
 	
-	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
-	public Response cancel() {
-		Response response = new Response();
-		response.fragmentDetails().hide();
-		return response;
-	}
-	
-	
 	@RequestMapping(value = "/delete/{modelId}", method = RequestMethod.POST)
 	public Response delete(@PathVariable long modelId) {
 		getDbModelRepository().deleteModel(modelId);
@@ -38,5 +33,21 @@ public abstract class AbstractTableController<T extends DbModel> extends Abstrac
 		response.setClickElement("table-search");
 		return response;
 	}
+	
+	
+	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
+	public Response cancel() {
+		Response response = new Response();
+		response.fragmentDetails().hide();
+		return response;
+	}
+	
+	
+	@Override
+	protected Paging<T> getPagingModels(PagingSearch pagingSearch) {
+		return getDbModelRepository().getPagingModels(pagingSearch);
+	}
+	
+	protected abstract DbModelRepository<T> getDbModelRepository();
 	
 }

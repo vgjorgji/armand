@@ -25,7 +25,7 @@
 		</div> <!-- /.panel -->
 	</jsp:attribute>
 	
-	<jsp:attribute name="fragmentLvl1">
+	<jsp:attribute name="fragmentMainNode">
 		<div class="panel panel-default">
 			<div class="panel-body">
 				{{#website}}
@@ -52,9 +52,9 @@
 		</div> <!-- /.panel -->
 	</jsp:attribute>
 	
-	<jsp:attribute name="fragmentLvl2">
+	<jsp:attribute name="fragmentNode">
 	</jsp:attribute>
 	
-	<jsp:attribute name="fragmentLvl3">
+	<jsp:attribute name="fragmentSubNode">
 	</jsp:attribute>
 </template:tree>

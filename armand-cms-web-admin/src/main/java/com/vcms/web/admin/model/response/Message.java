@@ -1,4 +1,4 @@
-package com.vcms.web.admin.model;
+package com.vcms.web.admin.model.response;
 
 public class Message {
 

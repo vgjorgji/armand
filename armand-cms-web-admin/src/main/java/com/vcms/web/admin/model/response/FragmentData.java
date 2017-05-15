@@ -1,4 +1,4 @@
-package com.vcms.web.admin.model;
+package com.vcms.web.admin.model.response;
 
 import java.util.HashMap;
 import java.util.Map;

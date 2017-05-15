@@ -1,4 +1,4 @@
-package com.vcms.web.admin.model;
+package com.vcms.web.admin.model.response;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,16 +35,16 @@ public class Response {
 		return fragment("fragment-details").replaceId("details");
 	}
 	
-	public Fragment fragmentLvl1() {
-		return fragment("fragment-lvl-1").replaceId("lvl-1");
+	public Fragment fragmentMainNode() {
+		return fragment("fragment-main-node").replaceId("main-node");
 	}
 	
-	public Fragment fragmentLvl2() {
-		return fragment("fragment-lvl-2").replaceId("lvl-2");
+	public Fragment fragmentNode() {
+		return fragment("fragment-node").replaceId("node");
 	}
 	
-	public Fragment fragmentLvl3() {
-		return fragment("fragment-lvl-3").replaceId("lvl-3");
+	public Fragment fragmentSubNode() {
+		return fragment("fragment-sub-node").replaceId("sub-node");
 	}
 	
 	public Fragment fragment(String fragmentId) {

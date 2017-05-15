@@ -4,18 +4,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.vcms.persist.model.DbModel;
-import com.vcms.persist.model.DbModelRepository;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.model.PagingSearch;
-import com.vcms.web.admin.model.Fragment;
-import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.response.Fragment;
+import com.vcms.web.admin.model.response.Response;
 
-public abstract class AbstractPagingController<T extends DbModel> {
+public abstract class AbstractPagingController<T> {
 	
 	@RequestMapping(value = "/paging/reset", method = RequestMethod.GET)
 	public Response pagingReset() {
-		Paging<T> pagingResult = getDbModelRepository().getPagingModels(new PagingSearch());
+		Paging<T> pagingResult = getPagingModels(new PagingSearch());
 		return createReponse(pagingResult);
 	}
 	
@@ -25,7 +23,7 @@ public abstract class AbstractPagingController<T extends DbModel> {
 		PagingSearch pagingSearch = new PagingSearch();
 		pagingSearch.setQuery(query);
 		pagingSearch.setSize(size);
-		Paging<T> paging = getDbModelRepository().getPagingModels(pagingSearch);
+		Paging<T> paging = getPagingModels(pagingSearch);
 		return createReponse(paging);
 	}
 	
@@ -36,7 +34,7 @@ public abstract class AbstractPagingController<T extends DbModel> {
 		pagingSearch.setQuery(query);
 		pagingSearch.setSize(size);
 		pagingSearch.setPage(page - 1);
-		Paging<T> pagingResult = getDbModelRepository().getPagingModels(pagingSearch);
+		Paging<T> pagingResult = getPagingModels(pagingSearch);
 		return createReponse(pagingResult);
 	}
 	
@@ -47,7 +45,7 @@ public abstract class AbstractPagingController<T extends DbModel> {
 		pagingSearch.setQuery(query);
 		pagingSearch.setSize(size);
 		pagingSearch.setPage(page);
-		Paging<T> pagingResult = getDbModelRepository().getPagingModels(pagingSearch);
+		Paging<T> pagingResult = getPagingModels(pagingSearch);
 		return createReponse(pagingResult);
 	}
 	
@@ -58,10 +56,12 @@ public abstract class AbstractPagingController<T extends DbModel> {
 		pagingSearch.setQuery(query);
 		pagingSearch.setSize(size);
 		pagingSearch.setPage(page + 1);
-		Paging<T> pagingResult = getDbModelRepository().getPagingModels(pagingSearch);
+		Paging<T> pagingResult = getPagingModels(pagingSearch);
 		return createReponse(pagingResult);
 	}
 	
+	
+	protected abstract Paging<T> getPagingModels(PagingSearch pagingSearch);
 	
 	protected Response createReponse(Paging<T> paging) {
 		Response response = new Response();
@@ -70,9 +70,6 @@ public abstract class AbstractPagingController<T extends DbModel> {
 		return response;
 	}
 	
-	
 	protected abstract Fragment getFragment(Response response);
-	
-	protected abstract DbModelRepository<T> getDbModelRepository();
 	
 }

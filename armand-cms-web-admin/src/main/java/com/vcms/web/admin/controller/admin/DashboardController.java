@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vcms.web.admin.model.Controller;
 import com.vcms.web.admin.model.PageConst;
-import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.response.Response;
 import com.vcms.website.model.WebsiteView;
 
 @RestController(value = Controller.AdminDashboard)

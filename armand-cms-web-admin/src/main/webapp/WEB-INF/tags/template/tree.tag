@@ -1,8 +1,8 @@
 <%@ tag body-content="scriptless" %>
 <%@ attribute name="fragmentMain" fragment="true" %>
-<%@ attribute name="fragmentLvl1" fragment="true" %>
-<%@ attribute name="fragmentLvl2" fragment="true" %>
-<%@ attribute name="fragmentLvl3" fragment="true" %>
+<%@ attribute name="fragmentMainNode" fragment="true" %>
+<%@ attribute name="fragmentNode" fragment="true" %>
+<%@ attribute name="fragmentSubNode" fragment="true" %>
 <%@ attribute name="title" type="java.lang.String" required="true" %>
 <%@ attribute name="pageTitle" type="java.lang.String" required="false" %>
 <%@ attribute name="selectGlobal" type="java.lang.String" required="true" %>
@@ -42,11 +42,11 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<div id="lvl-1" class="main-fragment">
+					<div id="main-node" class="main-fragment">
 					</div>
-					<div id="lvl-2" class="main-fragment">
+					<div id="node" class="main-fragment">
 					</div>
-					<div id="lvl-3" class="main-fragment">
+					<div id="sub-node" class="main-fragment">
 					</div>
 				</div>
 			</div>
@@ -56,13 +56,13 @@
 	<script type="text/html" id="fragment-main">
 		<jsp:invoke fragment="fragmentMain"/>
 	</script>
-	<script type="text/html" id="fragment-lvl-1">
-		<jsp:invoke fragment="fragmentLvl1"/>
+	<script type="text/html" id="fragment-main-node">
+		<jsp:invoke fragment="fragmentMainNode"/>
 	</script>
-	<script type="text/html" id="fragment-lvl-2">
-		<jsp:invoke fragment="fragmentLvl2"/>
+	<script type="text/html" id="fragment-node">
+		<jsp:invoke fragment="fragmentNode"/>
 	</script>
-	<script type="text/html" id="fragment-lvl-3">
-		<jsp:invoke fragment="fragmentLvl3"/>
+	<script type="text/html" id="fragment-sub-node">
+		<jsp:invoke fragment="fragmentSubNode"/>
 	</script>
 </body>

@@ -11,14 +11,14 @@
 <!-- tree -->
 <table class="tree">
 	<tbody>
-		{{#tree.children}}
+		{{#tree.mainNodes}}
 		<tr class="tree-lvl-1">
 			<td class="title">
 				{{title}}
 			</td>
 			<td class="icon">
 				{{#icon}}
-					<i class="{{icon}}"></i>
+					<i class="{{cssClass}}"></i>
 				{{/icon}}
 			</td>
 			<td class="id">
@@ -32,14 +32,14 @@
 			<td class="control">&nbsp;</td>
 			<td class="control">&nbsp;</td>
 		</tr>
-			{{#children}}
+			{{#nodes}}
 			<tr class="tree-lvl-2">
 				<td class="title">
 					{{title}}
 				</td>
 				<td class="icon">
 					{{#icon}}
-						<i class="{{icon}}"></i>
+						<i class="{{cssClass}}"></i>
 					{{/icon}}
 				</td>
 				<td class="id">
@@ -61,14 +61,14 @@
 					</a>
 				</td>
 			</tr>
-				{{#children}}
+				{{#subNodes}}
 				<tr class="tree-lvl-3">
 					<td class="title">
 						{{title}}
 					</td>
 					<td class="icon">
 						{{#icon}}
-							<i class="{{icon}}"></i>
+							<i class="{{cssClass}}"></i>
 						{{/icon}}
 					</td>
 					<td class="id">
@@ -86,9 +86,9 @@
 						</a>
 					</td>
 				</tr>
-				{{/children}}
-			{{/children}}
-		{{/tree.children}}
+				{{/subNodes}}
+			{{/nodes}}
+		{{/tree.mainNodes}}
 	</tbody>
 </table> <!-- ./tree -->
 

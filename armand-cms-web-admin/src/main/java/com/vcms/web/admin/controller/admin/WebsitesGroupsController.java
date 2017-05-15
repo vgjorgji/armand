@@ -14,9 +14,9 @@ import com.vcms.persist.model.DbModelRepository;
 import com.vcms.user.model.User;
 import com.vcms.web.admin.controller.AbstractTreeController;
 import com.vcms.web.admin.model.Controller;
-import com.vcms.web.admin.model.Fragment;
 import com.vcms.web.admin.model.PageConst;
-import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.response.Fragment;
+import com.vcms.web.admin.model.response.Response;
 import com.vcms.website.model.Website;
 import com.vcms.website.model.WebsiteRepository;
 

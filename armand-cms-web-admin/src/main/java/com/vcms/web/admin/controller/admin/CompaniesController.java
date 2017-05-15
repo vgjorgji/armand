@@ -14,9 +14,9 @@ import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
 import com.vcms.web.admin.controller.AbstractTableController;
 import com.vcms.web.admin.model.Controller;
-import com.vcms.web.admin.model.Fragment;
 import com.vcms.web.admin.model.PageConst;
-import com.vcms.web.admin.model.Response;
+import com.vcms.web.admin.model.response.Fragment;
+import com.vcms.web.admin.model.response.Response;
 import com.vcms.website.model.Company;
 import com.vcms.website.model.CompanyRepository;
 
