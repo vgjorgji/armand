@@ -2,7 +2,7 @@ package com.vcms.persist.model;
 
 import java.util.List;
 
-public class Paging<T extends DbModel> {
+public class Paging<T> {
 	
 	private int page;
 	private int pageCount;

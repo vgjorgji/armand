@@ -1,5 +1,9 @@
 package com.vcms.conf.cms;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
+@JsonFormat(shape = Shape.OBJECT)
 public enum Icon {
 	// link
 	Link("fa fa-book"),
@@ -21,6 +25,9 @@ public enum Icon {
 	Star("fa fa-star"),
 	Like("fa fa-thumbs-o-up"),
 	
+	// user
+	UserSecret("fa fa-user-secret"),
+	
 	// social
 	Facebook("fa fa-facebook-official"),
 	Twitter("fa fa-twitter"),
@@ -31,6 +38,10 @@ public enum Icon {
 	
 	private Icon(String cssClass) {
 		this.cssClass = cssClass;
+	}
+	
+	public String getId() {
+		return name();
 	}
 	
 	public String getCssClass() {
