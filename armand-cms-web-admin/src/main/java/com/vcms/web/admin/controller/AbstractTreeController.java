@@ -1,5 +1,7 @@
 package com.vcms.web.admin.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vcms.persist.model.DbModel;
 import com.vcms.persist.model.DbModelRepository;
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.model.PagingSearch;
 import com.vcms.web.admin.model.response.Response;
@@ -22,7 +25,7 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 	public abstract Response editMainNode(@PathVariable long mainNodeId);
 	
 	@RequestMapping(value = "/main-node/save", method = RequestMethod.POST)
-	public abstract Response saveMainNode(@RequestBody T mainNode);
+	public abstract Response saveMainNode(@RequestBody M mainNode);
 	
 	
 	@RequestMapping(value = "/node/add", method = RequestMethod.GET)
@@ -32,7 +35,7 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 	public abstract Response editNode(@PathVariable long nodeId);
 	
 	@RequestMapping(value = "/node/save", method = RequestMethod.POST)
-	public abstract Response saveNode(@RequestBody T node);
+	public abstract Response saveNode(@RequestBody N node);
 	
 	
 	@RequestMapping(value = "/sub-node/add", method = RequestMethod.GET)
@@ -42,12 +45,11 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 	public abstract Response editSubNode(@PathVariable long subNodeId);
 	
 	@RequestMapping(value = "/sub-node/save", method = RequestMethod.POST)
-	public abstract Response saveSubNode(@RequestBody T subNode);
+	public abstract Response saveSubNode(@RequestBody S subNode);
 	
 	
 	@RequestMapping(value = "/main-node/delete/{modelId}", method = RequestMethod.POST)
 	public Response deleteMainNode(@PathVariable long modelId) {
-		// TODO delete nodes and sub nodes
 		getMainNodeRepository().deleteModel(modelId);
 		Response response = new Response();
 		response.fragmentMainNode().hide();
@@ -57,7 +59,6 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 	
 	@RequestMapping(value = "/node/delete/{modelId}", method = RequestMethod.POST)
 	public Response deleteNode(@PathVariable long modelId) {
-		// TODO delete sub nodes
 		getNodeRepository().deleteModel(modelId);
 		Response response = new Response();
 		response.fragmentNode().hide();
@@ -87,8 +88,15 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 	
 	@Override
 	protected Paging<T> getPagingModels(PagingSearch pagingSearch) {
+		// page main-nodes
 		Paging<M> mainNodePaging = getMainNodeRepository().getPagingModels(pagingSearch);
 		
+		// fetch nodes and sub-nodes
+		Fetch<M> mainNodesFetch = mainNodePaging.getFetch();
+		Fetch<N> nodesFetch = getNodeRepository().getModels(mainNodesFetch.listIds(), null);
+		Fetch<S> subNodesFetch = getSubNodeRepository().getModels(nodesFetch.listIds(), null);
+		
+		// construct tree
 		Tree tree = new Tree();
 		// TODO create the tree
 		
