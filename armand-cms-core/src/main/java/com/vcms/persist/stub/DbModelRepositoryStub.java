@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.vcms.persist.model.DbModel;
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.repo.DbModelRepositoryImpl;
 
@@ -57,19 +59,46 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	}
 
 	@Override
-	public List<T> getModels(Collection<Long> ids) {
-		List<T> result = new ArrayList<>(ids.size());
+	public Fetch<T> getModels(Collection<Long> ids) {
+		Fetch<T> fetch = new Fetch<>(ids.size());
 		for (T model : list) {
 			if (ids.contains(model.getId())) {
-				result.add(model);
+				fetch.put(model.getId(), model);
 			}
 		}
-		return result;
+		return fetch;
+	}
+	
+	@Override
+	public Fetch<T> getModels(Collection<Long> parentIds, String parentField) {
+		Fetch<T> fetch = new Fetch<>(parentIds.size());
+		for (T model : list) {
+			if (parentIds.contains(getParentId(model, parentField))) {
+				fetch.put(model.getId(), model);
+			}
+		}
+		return fetch;
+	}
+	
+	/**
+	 * Returns the Parent ID for the given model.
+	 * Also the parentField is provided for multiple parent search. 
+	 * @param model model
+	 * @param parentField support for multiple parent search
+	 * @return parent ID
+	 */
+	protected long getParentId(T model, String parentField) {
+		// for overriding
+		return 0;
 	}
 
 	@Override
-	public List<T> getAllModels() {
-		return list;
+	public Fetch<T> getAllModels() {
+		Fetch<T> fetch = new Fetch<>(list.size());
+		for (T model : list) {
+			fetch.put(model.getId(), model);
+		}
+		return fetch;
 	}
 	
 	@Override
@@ -78,9 +107,19 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	}
 
 	@Override
-	protected List<T> getModels(Paging<T> paging) {
+	protected Fetch<T> getModels(Paging<T> paging) {
 		List<T> searchList = search(paging.getQuery());
-		return searchList.subList((int) paging.getModelsStart() - 1, (int) paging.getModelsEnd());
+		if (CollectionUtils.isEmpty(searchList)) {
+			return new Fetch<>();
+		}
+		List<T> subList = searchList.subList((int) paging.getModelsStart() - 1, (int) paging.getModelsEnd());
+		
+		// create fetch object
+		Fetch<T> fetch = new Fetch<>(searchList.size());
+		for (T model : subList) {
+			fetch.put(model.getId(), model);
+		}
+		return fetch;
 	}
 
 	private List<T> search(String query) {
@@ -104,6 +143,9 @@ public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRe
 	 * @param query query to search for
 	 * @return true if the query exist in any model attribute
 	 */
-	protected abstract boolean searchModel(T model, String query);
+	protected boolean searchModel(T model, String query) {
+		// for overriding
+		return true;
+	}
 
 }

@@ -7,8 +7,9 @@ import com.vcms.persist.model.HistoryModel;
 
 public class WebsiteUser extends HistoryModel {
 
-	private long websiteId;
 	private long userId;
+	private long websiteId;
+	private long websiteGroupId;
 
 	private PowerGroup powerGroup;
 	private Language language;
@@ -17,6 +18,14 @@ public class WebsiteUser extends HistoryModel {
 	private LocalText biography;
 	private Media media;
 
+	public long getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+	
 	public long getWebsiteId() {
 		return websiteId;
 	}
@@ -24,13 +33,13 @@ public class WebsiteUser extends HistoryModel {
 	public void setWebsiteId(long websiteId) {
 		this.websiteId = websiteId;
 	}
-
-	public long getUserId() {
-		return userId;
+	
+	public long getWebsiteGroupId() {
+		return websiteGroupId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setWebsiteGroupId(long websiteGroupId) {
+		this.websiteGroupId = websiteGroupId;
 	}
 
 	public PowerGroup getPowerGroup() {

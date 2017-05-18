@@ -1,7 +1,5 @@
 package com.vcms.persist.model;
 
-import java.util.List;
-
 public class Paging<T> {
 	
 	private int page;
@@ -11,7 +9,7 @@ public class Paging<T> {
 	private long modelsEnd;
 	private long modelsCount;
 	private String query;
-	private List<T> models;
+	private Fetch<T> fetch;
 	
 	public int getPage() {
 		return page;
@@ -81,12 +79,12 @@ public class Paging<T> {
 		this.query = query;
 	}
 
-	public List<T> getModels() {
-		return models;
+	public Fetch<T> getFetch() {
+		return fetch;
 	}
 
-	public void setModels(List<T> models) {
-		this.models = models;
+	public void setFetch(Fetch<T> fetch) {
+		this.fetch = fetch;
 	}
-	
+
 }

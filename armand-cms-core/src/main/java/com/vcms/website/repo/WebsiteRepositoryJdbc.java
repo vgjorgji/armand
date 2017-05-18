@@ -3,13 +3,13 @@ package com.vcms.website.repo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.repo.HistoryModelRepositoryImpl;
 import com.vcms.website.model.Website;
@@ -50,13 +50,19 @@ public class WebsiteRepositoryJdbc
 	}
 
 	@Override
-	public List<Website> getModels(Collection<Long> ids) {
+	public Fetch<Website> getModels(Collection<Long> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public List<Website> getAllModels() {
+	public Fetch<Website> getModels(Collection<Long> parentIds, String parentField) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Fetch<Website> getAllModels() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -68,7 +74,7 @@ public class WebsiteRepositoryJdbc
 	}
 
 	@Override
-	protected List<Website> getModels(Paging<Website> paging) {
+	protected Fetch<Website> getModels(Paging<Website> paging) {
 		// TODO Auto-generated method stub
 		return null;
 	}

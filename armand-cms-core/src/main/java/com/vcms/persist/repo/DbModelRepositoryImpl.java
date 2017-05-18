@@ -1,9 +1,8 @@
 package com.vcms.persist.repo;
 
-import java.util.List;
-
 import com.vcms.persist.model.DbModel;
 import com.vcms.persist.model.DbModelRepository;
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.model.PagingSearch;
 
@@ -99,8 +98,8 @@ public abstract class DbModelRepositoryImpl<T extends DbModel> implements DbMode
 		paging.setModelsEnd(paging.getPageCount() == paging.getPage() ? count :  paging.getPage() * paging.getSize());
 		
 		// models
-		List<T> models = getModels(paging);
-		paging.setModels(models);
+		Fetch<T> fetch = getModels(paging);
+		paging.setFetch(fetch);
 		
 		// result
 		return paging;
@@ -118,6 +117,6 @@ public abstract class DbModelRepositoryImpl<T extends DbModel> implements DbMode
 	 * @param paging paging context
 	 * @return list of models
 	 */
-	protected abstract List<T> getModels(Paging<T> paging);
+	protected abstract Fetch<T> getModels(Paging<T> paging);
 	
 }

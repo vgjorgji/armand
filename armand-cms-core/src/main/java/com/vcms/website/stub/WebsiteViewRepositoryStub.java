@@ -49,7 +49,7 @@ public class WebsiteViewRepositoryStub
 	
 	@Override
 	public WebsiteView getModel(long websiteId, WebsiteViewType viewType) {
-		for (WebsiteView websiteView : getAllModels()) {
+		for (WebsiteView websiteView : getAllModels().listModels()) {
 			if (websiteView.getWebsiteId() == websiteId && websiteView.getViewType() == viewType) {
 				return websiteView;
 			}
@@ -62,11 +62,6 @@ public class WebsiteViewRepositoryStub
 		super.merge(current, model);
 		model.setWebsiteId(current.getWebsiteId());
 		model.setViewType(current.getViewType());
-	}
-
-	@Override
-	protected boolean searchModel(WebsiteView model, String query) {
-		return true;
 	}
 
 }

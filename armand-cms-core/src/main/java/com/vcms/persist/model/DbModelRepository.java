@@ -1,7 +1,6 @@
 package com.vcms.persist.model;
 
 import java.util.Collection;
-import java.util.List;
 
 public interface DbModelRepository<T extends DbModel> {
 	
@@ -27,15 +26,24 @@ public interface DbModelRepository<T extends DbModel> {
 	/**
 	 * Returns all models for the given IDs
 	 * @param ids IDs of the model
-	 * @return list of models
+	 * @return fetch object
 	 */
-	List<T> getModels(Collection<Long> ids);
+	Fetch<T> getModels(Collection<Long> ids);
+	
+	/**
+	 * Returns all models for the given parent IDs and there is additional parameter 'parentField'
+	 * to support multiple parent search.
+	 * @param parentIds IDs of the parent
+	 * @param parentField support for multiple parent search
+	 * @return fetch object
+	 */
+	Fetch<T> getModels(Collection<Long> parentIds, String parentField);
 	
 	/**
 	 * Returns all models.
-	 * @return list of models
+	 * @return fetch object
 	 */
-	List<T> getAllModels();
+	Fetch<T> getAllModels();
 	
 	/**
 	 * Searches for models in the given paging search.

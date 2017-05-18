@@ -63,7 +63,7 @@ public class UserRepositoryStub
 	
 	@Override
 	public User getUser(String username) {
-		for (User user : getAllModels()) {
+		for (User user : getAllModels().listModels()) {
 			if (StringUtils.equals(user.getUsername(), username)) {
 				return user;
 			}
@@ -74,7 +74,7 @@ public class UserRepositoryStub
 	@Override
 	public List<User> getMasterUsers() {
 		List<User> result = new ArrayList<>();
-		for (User user : getAllModels()) {
+		for (User user : getAllModels().listModels()) {
 			if (user.isMaster()) {
 				result.add(user);
 			}

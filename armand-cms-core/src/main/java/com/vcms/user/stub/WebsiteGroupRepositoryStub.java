@@ -41,12 +41,17 @@ public class WebsiteGroupRepositoryStub
 	@Override
 	public List<WebsiteGroup> getGroupsForWebsites(Collection<Long> websiteIds) {
 		List<WebsiteGroup> result = new ArrayList<>();
-		for (WebsiteGroup websiteGroup : getAllModels()) {
+		for (WebsiteGroup websiteGroup : getAllModels().listModels()) {
 			if (websiteIds.contains(websiteGroup.getWebsiteId())) {
 				result.add(websiteGroup);
 			}
 		}
 		return result;
+	}
+	
+	@Override
+	protected long getParentId(WebsiteGroup model, String parentField) {
+		return model.getWebsiteId();
 	}
 
 	@Override
@@ -55,7 +60,5 @@ public class WebsiteGroupRepositoryStub
 				+ "%" + model.getName();
 		return StringUtils.contains(text, query);
 	}
-	
-	
 
 }

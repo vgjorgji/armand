@@ -24,6 +24,7 @@ public class WebsiteUserRepositoryStub
 		WebsiteUser websiteUser = new WebsiteUser();
 		websiteUser.setUserId(1000);
 		websiteUser.setWebsiteId(1000);
+		websiteUser.setWebsiteGroupId(1000);
 		websiteUser.setPowerGroup(PowerGroup.Roots);
 		websiteUser.setLanguage(Language.English);
 		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
@@ -33,6 +34,7 @@ public class WebsiteUserRepositoryStub
 		websiteUser = new WebsiteUser();
 		websiteUser.setUserId(1000);
 		websiteUser.setWebsiteId(1001);
+		websiteUser.setWebsiteGroupId(1002);
 		websiteUser.setPowerGroup(PowerGroup.Roots);
 		websiteUser.setLanguage(Language.English);
 		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
@@ -42,6 +44,7 @@ public class WebsiteUserRepositoryStub
 		websiteUser = new WebsiteUser();
 		websiteUser.setUserId(1001);
 		websiteUser.setWebsiteId(1000);
+		websiteUser.setWebsiteGroupId(1001);
 		websiteUser.setPowerGroup(PowerGroup.Administrators);
 		websiteUser.setLanguage(Language.English);
 		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
@@ -51,6 +54,7 @@ public class WebsiteUserRepositoryStub
 		websiteUser = new WebsiteUser();
 		websiteUser.setUserId(1002);
 		websiteUser.setWebsiteId(1000);
+		websiteUser.setWebsiteGroupId(1001);
 		websiteUser.setPowerGroup(PowerGroup.Members);
 		websiteUser.setLanguage(Language.Macedonian);
 		websiteUser.setJobPosition(TextUtils.createLocalTextSmall("Test job position", "Тест работна позиција"));
@@ -61,7 +65,7 @@ public class WebsiteUserRepositoryStub
 	@Override
 	public List<WebsiteUser> getWebsitesForUser(long userId) {
 		List<WebsiteUser> result = new ArrayList<>();
-		for (WebsiteUser userWebsite : getAllModels()) {
+		for (WebsiteUser userWebsite : getAllModels().listModels()) {
 			if (userWebsite.getUserId() == userId) {
 				result.add(userWebsite);
 			}
@@ -72,7 +76,7 @@ public class WebsiteUserRepositoryStub
 	@Override
 	public List<WebsiteUser> getUsersForWebsite(long websiteId) {
 		List<WebsiteUser> result = new ArrayList<>();
-		for (WebsiteUser userWebsite : getAllModels()) {
+		for (WebsiteUser userWebsite : getAllModels().listModels()) {
 			if (userWebsite.getWebsiteId() == websiteId) {
 				result.add(userWebsite);
 			}
@@ -82,7 +86,7 @@ public class WebsiteUserRepositoryStub
 
 	@Override
 	public WebsiteUser getModel(long userId, long websiteId) {
-		for (WebsiteUser userWebsite : getAllModels()) {
+		for (WebsiteUser userWebsite : getAllModels().listModels()) {
 			if (userWebsite.getUserId() == userId && userWebsite.getWebsiteId() == websiteId) {
 				return userWebsite;
 			}
@@ -91,8 +95,8 @@ public class WebsiteUserRepositoryStub
 	}
 
 	@Override
-	protected boolean searchModel(WebsiteUser model, String query) {
-		return true;
+	protected long getParentId(WebsiteUser model, String parentField) {
+		return model.getWebsiteGroupId();
 	}
-	
+
 }
