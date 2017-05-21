@@ -37,11 +37,11 @@
 				<h2 class="page-header">${pageTitle}</h2>
 			</c:if>
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-6">
 					<div id="main" class="main-fragment" data-load="${loadUrl}" data-spinner="true">
 					</div>
 				</div>
-				<div class="col-lg-8">
+				<div class="col-lg-6">
 					<div id="main-node" class="main-fragment">
 					</div>
 					<div id="node" class="main-fragment">

@@ -26,13 +26,13 @@
 						<form class="form-horizontal">
 							<form:hidden id="id" field="id" group="websiteView" />
 							<form:select id="style" field="style" group="websiteView"
-								options="styles" label="Style" />
+								options="../styles" label="Style" />
 							<form:select id="color" field="color" group="websiteView"
-								options="modernColors" label="Color" />
+								options="../modernColors" label="Color" />
 							<form:select id="selectColor" field="selectColor" group="websiteView" 
-								options="modernColors" label="Select Color" />
+								options="../modernColors" label="Select Color" />
 							<form:select id="font" field="font" group="websiteView"
-								options="fonts" label="Font" />
+								options="../fonts" label="Font" />
 							<form:buttons group="websiteView"
 								resetUrl="${pageUrl}/reset"
 								saveUrl="${pageUrl}/save" />

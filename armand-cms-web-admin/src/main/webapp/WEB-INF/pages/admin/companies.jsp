@@ -34,7 +34,7 @@
 				<form class="form-horizontal">
 					<form:input-static id="id" field="id" group="company" label="ID" />
 					<form:select id="contactUserId" field="contactUserId" group="company"
-						options="allUsers" optionValue="id" optionText="fullName" label="Contact User" />
+						options="../allUsers" optionValue="id" optionText="fullName" label="Contact User" />
 					<form:input id="name" field="name" group="company" label="Name" />
 					<form:input id="address1" field="address1" group="company" label="Address 1" />
 					<form:input id="address2" field="address2" group="company" label="Address 2" />

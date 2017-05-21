@@ -1,12 +1,9 @@
 package com.vcms.web.admin.controller.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vcms.conf.cms.CmsPackage;
@@ -15,6 +12,7 @@ import com.vcms.conf.cms.ModernColor;
 import com.vcms.conf.cms.Style;
 import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModelRepository;
+import com.vcms.persist.model.Fetch;
 import com.vcms.user.model.PowerGroup;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
@@ -54,21 +52,16 @@ public class WebsitesController extends AbstractTableController<Website> {
 	private WebsiteUserRepository websiteUserRepository;
 	
 	
-	@RequestMapping(value = "/load", method = RequestMethod.GET)
-	public Response load() {
-		return pagingReset();
-	}
-
 	@Override
 	public Response add() {
 		Website website = new Website();
 		
-		List<Company> allCompanies = companyRepository.getAllModels();
+		Fetch<Company> allCompaniesFetch = companyRepository.getAllModels();
 		
 		Response response = new Response();
 		response.fragmentDetails().data()
 				.add("website", website)
-				.add("allCompanies", allCompanies)
+				.add("allCompanies", allCompaniesFetch.getModels())
 				.add("cmsPackages", CmsPackage.values())
 				.add("allLanguages", Language.values())
 				.add("statuses", WebsiteStatus.values());
@@ -84,12 +77,12 @@ public class WebsitesController extends AbstractTableController<Website> {
 			website = websiteRepository.getModel(modelId);
 		}
 		
-		List<Company> allCompanies = companyRepository.getAllModels();
+		Fetch<Company> allCompaniesFetch = companyRepository.getAllModels();
 		
 		Response response = new Response();
 		response.fragmentDetails().data()
 				.add("website", website)
-				.add("allCompanies", allCompanies)
+				.add("allCompanies", allCompaniesFetch.getModels())
 				.add("cmsPackages", CmsPackage.values())
 				.add("allLanguages", Language.values())
 				.add("statuses", WebsiteStatus.values());
@@ -103,8 +96,8 @@ public class WebsitesController extends AbstractTableController<Website> {
 		
 		// for new websites, link the masters with the website as Roots
 		if (newWebsite) {
-			List<User> masters = userRepository.getMasterUsers();
-			for (User master : masters) {
+			Fetch<User> mastersFetch = userRepository.getMasterUsers();
+			for (User master : mastersFetch.getModels()) {
 				WebsiteUser websiteUser = new WebsiteUser();
 				websiteUser.setUserId(master.getId());
 				websiteUser.setWebsiteId(website.getId());

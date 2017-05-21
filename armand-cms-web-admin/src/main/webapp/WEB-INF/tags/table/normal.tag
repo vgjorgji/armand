@@ -24,7 +24,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{{#paging.models}}
+			{{#paging.fetch.models}}
 			<tr id="table-row-{{id}}" class="${rowCssClass}">
 				<td><small>{{id}}</small></td>
 				<c:forTokens items="${fields}" delims="," var="token">
@@ -41,12 +41,12 @@
 					</a>
 				</td>
 			</tr>
-			{{/paging.models}}
-			{{^paging.models}}
+			{{/paging.fetch.models}}
+			{{^paging.fetch.models}}
 			<tr>
 				<td colspan="3">No entries.</td>
 			</tr>
-			{{/paging.models}}
+			{{/paging.fetch.models}}
 		</tbody>
 	</table>
 </div> <!-- ./table-responsive -->

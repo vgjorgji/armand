@@ -21,8 +21,8 @@
 				<c:if test="${empty fieldValues}"> data-selected="{{${field}}}" </c:if>
 				<c:if test="${not empty fieldValues}"> data-selected="{{#${field}}}{{${fieldValues}}},{{/${field}}}"</c:if>>
 {{#${options}}}
-	<option value="{{${empty optionValue ? '.' : optionValue}}}">
-		{{${empty optionText ? (empty optionValue ? '.' : optionValue) : optionText}}}
+	<option value="{{${empty optionValue ? 'this' : optionValue}}}">
+		{{${empty optionText ? (empty optionValue ? 'this' : optionValue) : optionText}}}
 	</option>
 {{/${options}}}
 		</select>

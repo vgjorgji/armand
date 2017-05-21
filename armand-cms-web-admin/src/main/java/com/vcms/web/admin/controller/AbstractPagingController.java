@@ -11,6 +11,12 @@ import com.vcms.web.admin.model.response.Response;
 
 public abstract class AbstractPagingController<T> {
 	
+	@RequestMapping(value = "/load", method = RequestMethod.GET)
+	public Response load() {
+		return pagingReset();
+	}
+	
+	
 	@RequestMapping(value = "/paging/reset", method = RequestMethod.GET)
 	public Response pagingReset() {
 		Paging<T> pagingResult = getPagingModels(new PagingSearch());

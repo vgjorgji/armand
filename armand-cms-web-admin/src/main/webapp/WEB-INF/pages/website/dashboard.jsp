@@ -130,8 +130,8 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label">Expiry Date</label>
 							<div class="col-md-9">
-								<p class="form-control-static {{countdown.type.cssClass}}">
-									<i class="fa fa-clock-o"></i>{{countdown.duration}}
+								<p class="form-control-static {{../countdown.type.cssClass}}">
+									<i class="fa fa-clock-o"></i>{{../countdown.duration}}
 								</p>
 							</div>
 						</div>

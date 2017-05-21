@@ -9,7 +9,7 @@
 /**
  * Libraries:
  *  - jQuery
- *  - Mustache
+ *  - Handlebars
  *
  * Custom support:
  *  --> Loading
@@ -445,7 +445,8 @@
 					if (htmlFragment.length > 0 && htmlReplace.length > 0) {
 						
 						// do replace
-						var newHtml = Mustache.render(htmlFragment.html(), fragment.data);
+						var handlebarTemplate = Handlebars.compile(htmlFragment.html());
+						var newHtml = handlebarTemplate(fragment.data);
 						htmlReplace.html(newHtml);
 						
 						// init all again in the fragment after the replace

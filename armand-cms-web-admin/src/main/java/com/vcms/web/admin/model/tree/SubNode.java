@@ -4,15 +4,15 @@ import com.vcms.conf.cms.Icon;
 
 public class SubNode {
 
-	private Long id;
+	private long id;
 	private String title;
 	private Icon icon;
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

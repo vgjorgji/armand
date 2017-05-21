@@ -1,7 +1,5 @@
 package com.vcms.web.admin.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,62 +11,69 @@ import com.vcms.persist.model.Fetch;
 import com.vcms.persist.model.Paging;
 import com.vcms.persist.model.PagingSearch;
 import com.vcms.web.admin.model.response.Response;
-import com.vcms.web.admin.model.tree.Tree;
+import com.vcms.web.admin.model.tree.MainNode;
+import com.vcms.web.admin.model.tree.Node;
+import com.vcms.web.admin.model.tree.SubNode;
 
-public abstract class AbstractTreeController<T, M extends DbModel, N extends DbModel, S extends DbModel> 
-		extends AbstractPagingController<T> {
+public abstract class AbstractTreeController<M extends DbModel, N extends DbModel, S extends DbModel> 
+		extends AbstractPagingController<MainNode> {
 	
-	@RequestMapping(value = "/main-node/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/tree/node/add", method = RequestMethod.GET)
 	public abstract Response addMainNode();
 	
-	@RequestMapping(value = "/main-node/edit/{modelId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/tree/node/{mainNodeId}", method = RequestMethod.GET)
 	public abstract Response editMainNode(@PathVariable long mainNodeId);
 	
-	@RequestMapping(value = "/main-node/save", method = RequestMethod.POST)
-	public abstract Response saveMainNode(@RequestBody M mainNode);
+	@RequestMapping(value = "/tree/node/save", method = RequestMethod.POST)
+	public abstract Response saveMainNode(@RequestBody MainNode mainNode);
 	
 	
-	@RequestMapping(value = "/node/add", method = RequestMethod.GET)
-	public abstract Response addNode();
+	@RequestMapping(value = "/tree/node/{mainNodeId}/add", method = RequestMethod.GET)
+	public abstract Response addNode(@PathVariable long mainNodeId);
 	
-	@RequestMapping(value = "/node/edit/{modelId}", method = RequestMethod.GET)
-	public abstract Response editNode(@PathVariable long nodeId);
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}", method = RequestMethod.GET)
+	public abstract Response editNode(@PathVariable long mainNodeId, @PathVariable long nodeId);
 	
-	@RequestMapping(value = "/node/save", method = RequestMethod.POST)
-	public abstract Response saveNode(@RequestBody N node);
-	
-	
-	@RequestMapping(value = "/sub-node/add", method = RequestMethod.GET)
-	public abstract Response addSubNode();
-	
-	@RequestMapping(value = "/sub-node/edit/{modelId}", method = RequestMethod.GET)
-	public abstract Response editSubNode(@PathVariable long subNodeId);
-	
-	@RequestMapping(value = "/sub-node/save", method = RequestMethod.POST)
-	public abstract Response saveSubNode(@RequestBody S subNode);
+	@RequestMapping(value = "/tree/node/{mainNodeId}/save", method = RequestMethod.POST)
+	public abstract Response saveNode(@PathVariable long mainNodeId, @RequestBody Node node);
 	
 	
-	@RequestMapping(value = "/main-node/delete/{modelId}", method = RequestMethod.POST)
-	public Response deleteMainNode(@PathVariable long modelId) {
-		getMainNodeRepository().deleteModel(modelId);
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/add", method = RequestMethod.GET)
+	public abstract Response addSubNode(@PathVariable long mainNodeId, 
+			@PathVariable long nodeId);
+	
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/{subNodeId}", method = RequestMethod.GET)
+	public abstract Response editSubNode(@PathVariable long mainNodeId, 
+			@PathVariable long nodeId,
+			@PathVariable long subNodeId);
+	
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/save", method = RequestMethod.POST)
+	public abstract Response saveSubNode(@PathVariable long mainNodeId,
+			@PathVariable long nodeId,
+			@RequestBody SubNode subNode);
+	
+	
+	@RequestMapping(value = "/tree/node/{mainNodeId}/delete", method = RequestMethod.POST)
+	public Response deleteMainNode(@PathVariable long mainNodeId) {
+		getMainNodeRepository().deleteModel(mainNodeId);
 		Response response = new Response();
 		response.fragmentMainNode().hide();
 		response.setClickElement("table-search");
 		return response;
 	}
 	
-	@RequestMapping(value = "/node/delete/{modelId}", method = RequestMethod.POST)
-	public Response deleteNode(@PathVariable long modelId) {
-		getNodeRepository().deleteModel(modelId);
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/delete", method = RequestMethod.POST)
+	public Response deleteNode(@PathVariable long nodeId) {
+		getNodeRepository().deleteModel(nodeId);
 		Response response = new Response();
 		response.fragmentNode().hide();
 		response.setClickElement("table-search");
 		return response;
 	}
 	
-	@RequestMapping(value = "/sub-node/delete/{modelId}", method = RequestMethod.POST)
-	public Response deleteSubNode(@PathVariable long modelId) {
-		getSubNodeRepository().deleteModel(modelId);
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/{subNodeId}/delete", method = RequestMethod.POST)
+	public Response deleteSubNode(@PathVariable long subNodeId) {
+		getSubNodeRepository().deleteModel(subNodeId);
 		Response response = new Response();
 		response.fragmentSubNode().hide();
 		response.setClickElement("table-search");
@@ -87,7 +92,7 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 	
 	
 	@Override
-	protected Paging<T> getPagingModels(PagingSearch pagingSearch) {
+	protected Paging<MainNode> getPagingModels(PagingSearch pagingSearch) {
 		// page main-nodes
 		Paging<M> mainNodePaging = getMainNodeRepository().getPagingModels(pagingSearch);
 		
@@ -96,18 +101,55 @@ public abstract class AbstractTreeController<T, M extends DbModel, N extends DbM
 		Fetch<N> nodesFetch = getNodeRepository().getModels(mainNodesFetch.listIds(), null);
 		Fetch<S> subNodesFetch = getSubNodeRepository().getModels(nodesFetch.listIds(), null);
 		
-		// construct tree
-		Tree tree = new Tree();
-		// TODO create the tree
+		// clone paging with different models
+		Paging<MainNode> paging = new Paging<>();
+		paging.setPage(mainNodePaging.getPage());
+		paging.setPageCount(mainNodePaging.getPageCount());
+		paging.setSize(mainNodePaging.getSize());
+		paging.setModelsStart(mainNodePaging.getModelsStart());
+		paging.setModelsEnd(mainNodePaging.getModelsEnd());
+		paging.setModelsCount(mainNodePaging.getModelsCount());
+		paging.setQuery(mainNodePaging.getQuery());
+		Fetch<MainNode> pagingFetch = new Fetch<>(mainNodesFetch.size());
+		paging.setFetch(pagingFetch);
 		
-		Paging<T> paging = new Paging<>();
-		// TODO clone the mainNodePaging
-		
-		// TODO convert tree to paging
+		// main nodes
+		for (M mainNodeModel : mainNodesFetch.getModels()) {
+			MainNode mainNode = createMainNode(mainNodeModel);
+			pagingFetch.put(mainNode.getId(), mainNode);
+			
+			// nodes
+			for (N nodeModel : nodesFetch.getModels()) {
+				if (mainNode.getId() == getNodeParentId(nodeModel)) {
+					Node node = createNode(nodeModel);
+					mainNode.addNode(node);
+					
+					// sub nodes
+					for (S subNodeModel : subNodesFetch.getModels()) {
+						if (node.getId() == getSubNodeParentId(subNodeModel)) {
+							node.addSubNode(createSubNode(subNodeModel));
+						}
+					}
+				}
+			}
+		}
+
+		// result
 		return paging;
 	}
 	
 
+	protected abstract MainNode createMainNode(M mainNodeModel);
+
+	protected abstract long getNodeParentId(N nodeModel);
+
+	protected abstract Node createNode(N nodeModel);
+
+	protected abstract long getSubNodeParentId(S subNodeModel);
+
+	protected abstract SubNode createSubNode(S subNodeModel);
+
+	
 	protected abstract DbModelRepository<M> getMainNodeRepository();
 	
 	protected abstract DbModelRepository<N> getNodeRepository();

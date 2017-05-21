@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vcms.localization.model.Language;
+import com.vcms.persist.model.Fetch;
 import com.vcms.user.model.UserSettings;
 import com.vcms.user.model.WebsiteUser;
 import com.vcms.user.model.WebsiteUserRepository;
@@ -34,15 +35,15 @@ public class DashboardController {
 		Response response = new Response();
 		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 		
-		List<WebsiteUser> websiteUsers = websiteUserRepository.getWebsitesForUser(userSettings.getId());
-		List<Long> websiteIds = new ArrayList<>(websiteUsers.size());
-		for (WebsiteUser websiteUser : websiteUsers) {
+		Fetch<WebsiteUser> websiteUsersFetch = websiteUserRepository.getWebsitesForUser(userSettings.getId());
+		List<Long> websiteIds = new ArrayList<>(websiteUsersFetch.size());
+		for (WebsiteUser websiteUser : websiteUsersFetch.getModels()) {
 			websiteIds.add(websiteUser.getWebsiteId());
 		}
-		List<Website> websites = websiteRepository.getModels(websiteIds);
+		Fetch<Website> websitesFetch = websiteRepository.getModels(websiteIds);
 		
 		response.fragmentMain().data()
-				.add("websites", websites)
+				.add("websites", websitesFetch.getModels())
 				.add("languages", Language.values());
 		return response;
 	}

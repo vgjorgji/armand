@@ -10,9 +10,9 @@ public class Tree {
 	public List<MainNode> getMainNodes() {
 		return mainNodes;
 	}
-
+	
 	public void addMainNode(MainNode mainNode) {
 		mainNodes.add(mainNode);
 	}
-	
+
 }

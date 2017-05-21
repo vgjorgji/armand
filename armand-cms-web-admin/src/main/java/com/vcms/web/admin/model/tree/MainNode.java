@@ -7,16 +7,16 @@ import com.vcms.conf.cms.Icon;
 
 public class MainNode {
 	
-	private Long id;
+	private long id;
 	private String title;
 	private Icon icon;
 	private List<Node> nodes = new ArrayList<>();
-	
-	public Long getId() {
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -39,7 +39,7 @@ public class MainNode {
 	public List<Node> getNodes() {
 		return nodes;
 	}
-
+	
 	public void addNode(Node node) {
 		nodes.add(node);
 	}

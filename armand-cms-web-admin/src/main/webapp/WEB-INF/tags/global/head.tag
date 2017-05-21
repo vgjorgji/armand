@@ -20,7 +20,7 @@
 <!-- Scripts -->
 <script type="text/javascript" src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/static/js/bootstrap-3.3.7.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/static/js/mustache-2.3.0.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/static/js/handlebars-4.0.8.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/static/js/armand-1.0.0.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/static/js/site.js"/>"></script>
 

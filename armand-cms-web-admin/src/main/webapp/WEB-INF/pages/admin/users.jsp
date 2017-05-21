@@ -43,7 +43,7 @@
 					<form:input id="email" field="email" group="user" label="Email" type="email" />
 					<form:input id="phone" field="phone" group="user" label="Phone" />
 					<form:select id="language" field="language.id" group="user"
-						options="languages" optionValue="id" label="Language" />
+						options="../languages" optionValue="id" label="Language" />
 					<form:buttons group="user"
 						cancelUrl="${pageUrl}/cancel" cancelScroll="#main" 
 						resetUrl="${pageUrl}/edit/{{id}}"
