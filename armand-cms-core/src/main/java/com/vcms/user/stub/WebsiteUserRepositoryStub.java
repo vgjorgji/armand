@@ -1,13 +1,11 @@
 package com.vcms.user.stub;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
 import com.vcms.localization.model.Language;
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.stub.HistoryModelRepositoryStub;
 import com.vcms.user.model.PowerGroup;
 import com.vcms.user.model.WebsiteUser;
@@ -63,30 +61,30 @@ public class WebsiteUserRepositoryStub
 	}
 
 	@Override
-	public List<WebsiteUser> getWebsitesForUser(long userId) {
-		List<WebsiteUser> result = new ArrayList<>();
-		for (WebsiteUser userWebsite : getAllModels().listModels()) {
+	public Fetch<WebsiteUser> getWebsitesForUser(long userId) {
+		Fetch<WebsiteUser> fetch = new Fetch<>();
+		for (WebsiteUser userWebsite : getAllModels().getModels()) {
 			if (userWebsite.getUserId() == userId) {
-				result.add(userWebsite);
+				fetch.put(userWebsite.getId(), userWebsite);
 			}
 		}
-		return result;
+		return fetch;
 	}
 
 	@Override
-	public List<WebsiteUser> getUsersForWebsite(long websiteId) {
-		List<WebsiteUser> result = new ArrayList<>();
-		for (WebsiteUser userWebsite : getAllModels().listModels()) {
+	public Fetch<WebsiteUser> getUsersForWebsite(long websiteId) {
+		Fetch<WebsiteUser> fetch = new Fetch<>();
+		for (WebsiteUser userWebsite : getAllModels().getModels()) {
 			if (userWebsite.getWebsiteId() == websiteId) {
-				result.add(userWebsite);
+				fetch.put(userWebsite.getId(), userWebsite);
 			}
 		}
-		return result;
+		return fetch;
 	}
 
 	@Override
 	public WebsiteUser getModel(long userId, long websiteId) {
-		for (WebsiteUser userWebsite : getAllModels().listModels()) {
+		for (WebsiteUser userWebsite : getAllModels().getModels()) {
 			if (userWebsite.getUserId() == userId && userWebsite.getWebsiteId() == websiteId) {
 				return userWebsite;
 			}

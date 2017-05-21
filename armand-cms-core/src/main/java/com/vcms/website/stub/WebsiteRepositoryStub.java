@@ -44,7 +44,7 @@ public class WebsiteRepositoryStub
 	
 	@Override
 	public Website getModel(String name) {
-		for (Website website : getAllModels().listModels()) {
+		for (Website website : getAllModels().getModels()) {
 			if (StringUtils.equals(website.getName(), name)) {
 				return website;
 			}

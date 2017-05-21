@@ -1,14 +1,12 @@
 package com.vcms.user.stub;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import com.vcms.localization.model.Language;
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.stub.HistoryModelRepositoryStub;
 import com.vcms.user.model.User;
 import com.vcms.user.model.UserRepository;
@@ -63,7 +61,7 @@ public class UserRepositoryStub
 	
 	@Override
 	public User getUser(String username) {
-		for (User user : getAllModels().listModels()) {
+		for (User user : getAllModels().getModels()) {
 			if (StringUtils.equals(user.getUsername(), username)) {
 				return user;
 			}
@@ -72,14 +70,14 @@ public class UserRepositoryStub
 	}
 	
 	@Override
-	public List<User> getMasterUsers() {
-		List<User> result = new ArrayList<>();
-		for (User user : getAllModels().listModels()) {
+	public Fetch<User> getMasterUsers() {
+		Fetch<User> fetch = new Fetch<>();
+		for (User user : getAllModels().getModels()) {
 			if (user.isMaster()) {
-				result.add(user);
+				fetch.put(user.getId(), user);
 			}
 		}
-		return result;
+		return fetch;
 	}
 
 	@Override

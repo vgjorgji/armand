@@ -1,14 +1,13 @@
 package com.vcms.user.stub;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
+import com.vcms.persist.model.Fetch;
 import com.vcms.persist.stub.HistoryModelRepositoryStub;
 import com.vcms.user.model.WebsiteGroup;
 import com.vcms.user.model.WebsiteGroupRepository;
@@ -39,14 +38,14 @@ public class WebsiteGroupRepositoryStub
 	}
 
 	@Override
-	public List<WebsiteGroup> getGroupsForWebsites(Collection<Long> websiteIds) {
-		List<WebsiteGroup> result = new ArrayList<>();
-		for (WebsiteGroup websiteGroup : getAllModels().listModels()) {
+	public Fetch<WebsiteGroup> getGroupsForWebsites(Collection<Long> websiteIds) {
+		Fetch<WebsiteGroup> fetch = new Fetch<>();
+		for (WebsiteGroup websiteGroup : getAllModels().getModels()) {
 			if (websiteIds.contains(websiteGroup.getWebsiteId())) {
-				result.add(websiteGroup);
+				fetch.put(websiteGroup.getId(), websiteGroup);
 			}
 		}
-		return result;
+		return fetch;
 	}
 	
 	@Override

@@ -49,7 +49,7 @@ public class WebsiteViewRepositoryStub
 	
 	@Override
 	public WebsiteView getModel(long websiteId, WebsiteViewType viewType) {
-		for (WebsiteView websiteView : getAllModels().listModels()) {
+		for (WebsiteView websiteView : getAllModels().getModels()) {
 			if (websiteView.getWebsiteId() == websiteId && websiteView.getViewType() == viewType) {
 				return websiteView;
 			}
