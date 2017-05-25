@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vcms.conf.cms.Icon;
 import com.vcms.persist.model.DbModelRepository;
+import com.vcms.persist.model.Fetch;
 import com.vcms.user.model.WebsiteGroup;
 import com.vcms.user.model.WebsiteGroupRepository;
 import com.vcms.user.model.WebsiteUser;
@@ -46,7 +47,7 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 	}
 
 	@Override
-	public Response saveMainNode(MainNode mainNode) {
+	public Response saveMainNode(Website mainNode) {
 		throw new UnsupportedOperationException("This operation is not supported");
 	}
 	
@@ -58,20 +59,41 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 
 	@Override
 	public Response addNode(long mainNodeId) {
-		// TODO Auto-generated method stub
-		return null;
+		// main node
+		Website website = getMainNodeRepository().getModel(mainNodeId);
+		MainNode mainNode = createMainNode(website);
+		
+		// node
+		Node node = new Node();
+		
+		// response
+		Response response = new Response();
+		response.fragmentNode().data()
+				.add("mainNode", mainNode)
+				.add("node", node);
+		return response;
 	}
 
 	@Override
 	public Response editNode(long mainNodeId, long nodeId) {
-		// TODO Auto-generated method stub
-		return null;
+		Fetch<Website> allWebsites = getMainNodeRepository().getAllModels();
+		WebsiteGroup websiteGroup = getNodeRepository().getModel(nodeId);
+
+		// response
+		Response response = new Response();
+		response.fragmentNode().data()
+				.add("allWebsites", allWebsites.getModels())
+				.add("websiteGroup", websiteGroup);
+		return response;
 	}
 
 	@Override
-	public Response saveNode(long mainNodeId, Node node) {
-		// TODO Auto-generated method stub
-		return null;
+	public Response saveNode(long mainNodeId, WebsiteGroup node) {
+		getNodeRepository().saveModel(node);
+		Response response = new Response();   // if there are errors then call edit
+		response.fragmentNode().hide();
+		response.setClickElement("table-search");
+		return response;
 	}
 
 
@@ -88,7 +110,7 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 	}
 
 	@Override
-	public Response saveSubNode(long mainNodeId, long nodeId, SubNode subNode) {
+	public Response saveSubNode(long mainNodeId, long nodeId, WebsiteUser subNode) {
 		// TODO Auto-generated method stub
 		return null;
 	}

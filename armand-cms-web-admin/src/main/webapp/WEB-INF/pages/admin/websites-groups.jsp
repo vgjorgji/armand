@@ -26,33 +26,27 @@
 	</jsp:attribute>
 	
 	<jsp:attribute name="fragmentMainNode">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				{{#website}}
-				<form class="form-horizontal">
-					<form:input-static id="id" field="id" group="website" label="ID" />
-					<form:select id="companyId" field="companyId" group="website"
-						options="allCompanies" optionValue="id" optionText="name" label="Company" />
-					<form:input id="name" field="name" group="website" label="Name" />
-					<form:input id="baseUrl" field="baseUrl" group="website" label="Base URL" />
-					<form:select id="cmsPackage" field="cmsPackage.id" group="website"
-						options="cmsPackages" optionValue="id" label="CMS Package" />
-					<form:select id="languages" field="languages" fieldValues="id" group="website"
-						options="allLanguages" optionValue="id" multi="true" label="Languages" />
-					<form:select id="status" field="status.id" group="website"
-						options="statuses" optionValue="id" label="Status" />
-					<form:input id="expiryDate" field="expiryDate" group="website" label="Expiry Date" />
-					<form:buttons group="website"
-						cancelUrl="${pageUrl}/cancel" cancelScroll="#main" 
-						resetUrl="${pageUrl}/edit/{{id}}"
-						saveUrl="${pageUrl}/save" saveScroll="#main" />
-				</form>
-				{{/website}}
-			</div>
-		</div> <!-- /.panel -->
+		<!-- not supported -->
 	</jsp:attribute>
 	
 	<jsp:attribute name="fragmentNode">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{{#websiteGroup}}
+				<form class="form-horizontal">
+					<form:input-static id="id" field="id" group="websiteGroup" label="ID" />
+					<form:select id="websiteId" field="websiteId" group="websiteGroup"
+						options="../allWebsites" optionValue="id" optionText="name" label="Website" />
+					<form:input id="name" field="name" group="websiteGroup" label="Name" />
+					<form:checkbox id="master" field="master" group="websiteGroup" label="Master" />
+					<form:buttons group="websiteGroup"
+						cancelUrl="${pageUrl}/cancel" cancelScroll="#main" 
+						resetUrl="${pageUrl}/tree/node/{{websiteId}}/{{id}}"
+						saveUrl="${pageUrl}/tree/node/{{websiteId}}/save" saveScroll="#main" />
+				</form>
+				{{/websiteGroup}}
+			</div>
+		</div> <!-- /.panel -->
 	</jsp:attribute>
 	
 	<jsp:attribute name="fragmentSubNode">

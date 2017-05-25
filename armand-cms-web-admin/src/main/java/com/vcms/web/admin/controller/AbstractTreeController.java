@@ -25,17 +25,17 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
 	public abstract Response editMainNode(@PathVariable long mainNodeId);
 	
 	@RequestMapping(value = "/tree/node/save", method = RequestMethod.POST)
-	public abstract Response saveMainNode(@RequestBody MainNode mainNode);
+	public abstract Response saveMainNode(@RequestBody M mainNode);
 	
 	
 	@RequestMapping(value = "/tree/node/{mainNodeId}/add", method = RequestMethod.GET)
 	public abstract Response addNode(@PathVariable long mainNodeId);
 	
-	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/edit", method = RequestMethod.GET)
 	public abstract Response editNode(@PathVariable long mainNodeId, @PathVariable long nodeId);
 	
 	@RequestMapping(value = "/tree/node/{mainNodeId}/save", method = RequestMethod.POST)
-	public abstract Response saveNode(@PathVariable long mainNodeId, @RequestBody Node node);
+	public abstract Response saveNode(@PathVariable long mainNodeId, @RequestBody N node);
 	
 	
 	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/add", method = RequestMethod.GET)
@@ -50,7 +50,7 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
 	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/save", method = RequestMethod.POST)
 	public abstract Response saveSubNode(@PathVariable long mainNodeId,
 			@PathVariable long nodeId,
-			@RequestBody SubNode subNode);
+			@RequestBody S subNode);
 	
 	
 	@RequestMapping(value = "/tree/node/{mainNodeId}/delete", method = RequestMethod.POST)
