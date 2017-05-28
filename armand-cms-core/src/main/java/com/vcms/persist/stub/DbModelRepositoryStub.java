@@ -14,11 +14,13 @@ import com.vcms.persist.repo.DbModelRepositoryImpl;
 
 public abstract class DbModelRepositoryStub<T extends DbModel> extends DbModelRepositoryImpl<T> {
 	
+	private long ID_GEN = 1000;
 	private List<T> list = new ArrayList<>();
 
 	@Override
 	protected void setNewModelId(T model) {
-		model.setId(list.size() + 1000L);
+		model.setId(ID_GEN);
+		ID_GEN++;
 	}
 
 	@Override

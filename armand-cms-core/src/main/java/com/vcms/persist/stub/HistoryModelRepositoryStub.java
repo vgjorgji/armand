@@ -14,11 +14,13 @@ import com.vcms.persist.repo.HistoryModelRepositoryImpl;
 
 public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends HistoryModelRepositoryImpl<T> {
 
+	private long ID_GEN = 1000;
 	private List<T> list = new ArrayList<>();
 
 	@Override
 	protected void setNewModelId(T model) {
-		model.setId(list.size() + 1000L);
+		model.setId(ID_GEN);
+		ID_GEN++;
 	}
 
 	@Override
