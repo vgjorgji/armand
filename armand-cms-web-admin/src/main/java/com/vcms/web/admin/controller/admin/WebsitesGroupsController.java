@@ -1,12 +1,18 @@
 package com.vcms.web.admin.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vcms.conf.cms.Icon;
+import com.vcms.localization.model.Language;
 import com.vcms.persist.model.DbModelRepository;
 import com.vcms.persist.model.Fetch;
+import com.vcms.user.model.PowerGroup;
+import com.vcms.user.model.User;
+import com.vcms.user.model.UserRepository;
 import com.vcms.user.model.WebsiteGroup;
 import com.vcms.user.model.WebsiteGroupRepository;
 import com.vcms.user.model.WebsiteUser;
@@ -34,6 +40,9 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 	
 	@Autowired
 	private WebsiteUserRepository websiteUserRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	
 	@Override
@@ -42,53 +51,48 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 	}
 
 	@Override
-	public Response editMainNode(long mainNodeId) {
+	public Response editMainNode(@PathVariable long mainNodeId) {
 		throw new UnsupportedOperationException("This operation is not supported");
 	}
 
 	@Override
-	public Response saveMainNode(Website mainNode) {
+	public Response saveMainNode(@RequestBody Website mainNode) {
 		throw new UnsupportedOperationException("This operation is not supported");
 	}
 	
 	@Override
-	public Response deleteMainNode(long modelId) {
+	public Response deleteMainNode(@PathVariable long modelId) {
 		throw new UnsupportedOperationException("This operation is not supported");
 	}
 	
 
 	@Override
-	public Response addNode(long mainNodeId) {
-		// main node
-		Website website = getMainNodeRepository().getModel(mainNodeId);
-		MainNode mainNode = createMainNode(website);
-		
+	public Response addNode(@PathVariable long mainNodeId) {
 		// node
-		Node node = new Node();
+		WebsiteGroup websiteGroup = new WebsiteGroup();
+		websiteGroup.setWebsiteId(mainNodeId);
 		
 		// response
 		Response response = new Response();
-		response.fragmentNode().data()
-				.add("mainNode", mainNode)
-				.add("node", node);
+		response.fragmentNode().data().add("websiteGroup", websiteGroup);
+		response.fragmentSubNode().hide();
 		return response;
 	}
 
 	@Override
-	public Response editNode(long mainNodeId, long nodeId) {
-		Fetch<Website> allWebsites = getMainNodeRepository().getAllModels();
+	public Response editNode(@PathVariable long mainNodeId, @PathVariable long nodeId) {
+		// models
 		WebsiteGroup websiteGroup = getNodeRepository().getModel(nodeId);
 
 		// response
 		Response response = new Response();
-		response.fragmentNode().data()
-				.add("allWebsites", allWebsites.getModels())
-				.add("websiteGroup", websiteGroup);
+		response.fragmentNode().data().add("websiteGroup", websiteGroup);
+		response.fragmentSubNode().hide();
 		return response;
 	}
 
 	@Override
-	public Response saveNode(long mainNodeId, WebsiteGroup node) {
+	public Response saveNode(@PathVariable long mainNodeId, @RequestBody WebsiteGroup node) {
 		getNodeRepository().saveModel(node);
 		Response response = new Response();   // if there are errors then call edit
 		response.fragmentNode().hide();
@@ -98,21 +102,55 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 
 
 	@Override
-	public Response addSubNode(long mainNodeId, long nodeId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Response addSubNode(@PathVariable long mainNodeId, 
+			@PathVariable long nodeId) {
+		// models
+		Fetch<User> allUsers = userRepository.getAllModels();
+		
+		// sub node
+		WebsiteUser websiteUser = new WebsiteUser();
+		websiteUser.setWebsiteId(mainNodeId);
+		websiteUser.setWebsiteGroupId(nodeId);
+		
+		// response
+		Response response = new Response();
+		response.fragmentNode().hide();
+		response.fragmentSubNode().data()
+				.add("allUsers", allUsers.getModels())
+				.add("allLanguages", Language.values())
+				.add("powerGroups", PowerGroup.values())
+				.add("websiteUser", websiteUser);
+		return response;
 	}
 
 	@Override
-	public Response editSubNode(long mainNodeId, long nodeId, long subNodeId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Response editSubNode(@PathVariable long mainNodeId, 
+			@PathVariable long nodeId,
+			@PathVariable long subNodeId) {
+		// models
+		Fetch<User> allUsers = userRepository.getAllModels();
+		WebsiteUser websiteUser = getSubNodeRepository().getModel(subNodeId);
+
+		// response
+		Response response = new Response();
+		response.fragmentNode().hide();
+		response.fragmentSubNode().data()
+				.add("allUsers", allUsers.getModels())
+				.add("allLanguages", Language.values())
+				.add("powerGroups", PowerGroup.values())
+				.add("websiteUser", websiteUser);
+		return response;
 	}
 
 	@Override
-	public Response saveSubNode(long mainNodeId, long nodeId, WebsiteUser subNode) {
-		// TODO Auto-generated method stub
-		return null;
+	public Response saveSubNode(@PathVariable long mainNodeId, 
+			@PathVariable long nodeId, 
+			@RequestBody WebsiteUser subNode) {
+		getSubNodeRepository().saveModel(subNode);
+		Response response = new Response();   // if there are errors then call edit
+		response.fragmentSubNode().hide();
+		response.setClickElement("table-search");
+		return response;
 	}
 	
 
@@ -147,7 +185,7 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 	protected SubNode createSubNode(WebsiteUser subNodeModel) {
 		SubNode subNode = new SubNode();
 		subNode.setId(subNodeModel.getId());
-		subNode.setTitle("User");
+		subNode.setTitle(subNodeModel.getPowerGroup().name());
 		return subNode;
 	}
 

@@ -92,7 +92,7 @@
 					</td>
 					<td class="control">
 						<a href="#" class="text-warning"
-								data-url="${pageUrl}/tree/node/{{../../id}}/{{../id}}/{{id}}" 
+								data-url="${pageUrl}/tree/node/{{../../id}}/{{../id}}/{{id}}/edit" 
 								data-method="GET"
 								data-spinner="true"
 								data-spinner-location="#table-ajax">

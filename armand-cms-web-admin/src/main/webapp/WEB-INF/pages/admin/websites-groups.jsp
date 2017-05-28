@@ -35,13 +35,12 @@
 				{{#websiteGroup}}
 				<form class="form-horizontal">
 					<form:input-static id="id" field="id" group="websiteGroup" label="ID" />
-					<form:select id="websiteId" field="websiteId" group="websiteGroup"
-						options="../allWebsites" optionValue="id" optionText="name" label="Website" />
+					<form:input-static id="websiteId" field="websiteId" group="websiteGroup" label="Website" />
 					<form:input id="name" field="name" group="websiteGroup" label="Name" />
 					<form:checkbox id="master" field="master" group="websiteGroup" label="Master" />
 					<form:buttons group="websiteGroup"
-						cancelUrl="${pageUrl}/cancel" cancelScroll="#main" 
-						resetUrl="${pageUrl}/tree/node/{{websiteId}}/{{id}}"
+						cancelUrl="${pageUrl}/tree/cancel" cancelScroll="#main" 
+						resetUrl="${pageUrl}/tree/node/{{websiteId}}/{{id}}/edit"
 						saveUrl="${pageUrl}/tree/node/{{websiteId}}/save" saveScroll="#main" />
 				</form>
 				{{/websiteGroup}}
@@ -50,5 +49,28 @@
 	</jsp:attribute>
 	
 	<jsp:attribute name="fragmentSubNode">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{{#websiteUser}}
+				<form class="form-horizontal">
+					<form:input-static id="id" field="id" group="websiteUser" label="ID" />
+					<form:input-static id="websiteId" field="websiteId" group="websiteUser" label="Website" />
+					<form:input-static id="websiteGroupId" field="websiteGroupId" group="websiteUser" label="Website Group" />
+					<form:select id="userId" field="userId" group="websiteUser"
+						options="../allUsers" optionValue="id" optionText="fullName" label="User" />
+					<form:select id="powerGroup" field="powerGroup" group="websiteUser"
+						options="../powerGroups" label="Power Group" />
+					<form:select id="language" field="language.id" group="websiteUser"
+						options="../allLanguages" optionValue="id" label="Language" />
+					<form:input id="jobPosition" field="jobPosition" group="websiteUser" label="Job Position" />
+					<form:input id="biography" field="biography" group="websiteUser" label="Biography" />
+					<form:buttons group="websiteUser"
+						cancelUrl="${pageUrl}/tree/cancel" cancelScroll="#main" 
+						resetUrl="${pageUrl}/tree/node/{{websiteId}}/{{websiteGroupId}}/{{id}}/edit"
+						saveUrl="${pageUrl}/tree/node/{{websiteId}}/{{websiteGroupId}}/save" saveScroll="#main" />
+				</form>
+				{{/websiteUser}}
+			</div>
+		</div> <!-- /.panel -->
 	</jsp:attribute>
 </template:tree>

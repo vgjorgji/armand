@@ -21,7 +21,7 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
 	@RequestMapping(value = "/tree/node/add", method = RequestMethod.GET)
 	public abstract Response addMainNode();
 	
-	@RequestMapping(value = "/tree/node/{mainNodeId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/tree/node/{mainNodeId}/edit", method = RequestMethod.GET)
 	public abstract Response editMainNode(@PathVariable long mainNodeId);
 	
 	@RequestMapping(value = "/tree/node/save", method = RequestMethod.POST)
@@ -42,7 +42,7 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
 	public abstract Response addSubNode(@PathVariable long mainNodeId, 
 			@PathVariable long nodeId);
 	
-	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/{subNodeId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/tree/node/{mainNodeId}/{nodeId}/{subNodeId}/edit", method = RequestMethod.GET)
 	public abstract Response editSubNode(@PathVariable long mainNodeId, 
 			@PathVariable long nodeId,
 			@PathVariable long subNodeId);
@@ -81,7 +81,7 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
 	}
 	
 	
-	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
+	@RequestMapping(value = "/tree/cancel", method = RequestMethod.GET)
 	public Response cancel() {
 		Response response = new Response();
 		response.fragmentMainNode().hide();
