@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+	<description>Embedded JSP Tag Library</description>
+	<display-name>Embedded web</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>e</short-name>
+	<uri>http://www.vcms.com/tags/embedded</uri>
+
+	<tag-file>
+		<description>Renders modern anchor for the given Link object.</description>
+		<name>link</name>
+		<path>/META-INF/tags/embedded/link.tag</path>
+	</tag-file>
+	<tag-file>
+		<description>Renders normal anchor for the given Link object.</description>
+		<name>linkNormal</name>
+		<path>/META-INF/tags/embedded/linkNormal.tag</path>
+	</tag-file>
+	<tag-file>
+		<description>Renders IMG or download link for the given Media object according to it's MediaType.</description>
+		<name>media</name>
+		<path>/META-INF/tags/embedded/media.tag</path>
+	</tag-file>
+	<tag-file>
+		<description>Renders HTML code for the given Paragraph object.</description>
+		<name>paragraph</name>
+		<path>/META-INF/tags/embedded/paragraph.tag</path>
+	</tag-file>
+	<tag-file>
+		<description>Renders H1 tag for the given Title object.</description>
+		<name>title</name>
+		<path>/META-INF/tags/embedded/title.tag</path>
+	</tag-file>
+</taglib>

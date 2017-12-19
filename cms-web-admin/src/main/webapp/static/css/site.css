@@ -1,0 +1,502 @@
+
+/************** DEFAULTS **************/
+body {
+	font-family: Arial,sans-serif;
+	font-size: 15px;
+	margin-bottom: 0;
+	padding-top: 70px;
+	background: #F7F7F7;
+	color: #555;
+}
+h1, .h1 {
+	font-size: 40px;
+}
+h4, .h4 {
+	font-size: 20px;
+}
+h5, .h5 {
+	font-size: 17px;
+}
+li {
+	list-style-type: none;
+}
+a:hover,
+a:focus {
+	text-decoration: none;
+	background-color: rgba(211, 214, 216, 0.3);
+}
+
+
+/************** BOOSTRAP CHANGES **************/
+.table {
+	margin-top: 20px;
+}
+.alert {
+	position: fixed;
+	top: 51px;
+	left: 45%;
+	z-index: 10000;
+	width: 200px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 600;
+	display: none;
+}
+.dropdown button {
+	padding: 3px 20px;
+	color: #333 !important;
+}
+.fa {
+	margin-right: 7px;
+	width: 20px;
+}
+.tree .fa,
+.table-controls .table-page .fa {
+	margin-right: 0;
+}
+
+
+/************** HELPERS **************/
+.page-header {
+	margin-top: 0;
+	border-color: #ddd;
+    font-weight: bold;
+}
+.disabled,
+.disabled>* {
+	color: #ccc !important;
+}
+.ajax-loader {
+	background-image: url("../../static/img/ajax-loader.gif");
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	position: absolute;
+}
+.main-wrap>.ajax-loader {
+	left: 260px;
+	top: 51px;
+}
+.max-width-4 {
+	max-width: 400px;
+}
+.inline {
+	display: inline;
+}
+.inline-block {
+	display: inline-block;
+}
+.fa-blank {
+	width: 20px;
+	height: 17px;
+	content: ' ';
+}
+.text-bold {
+	font-weight: bold;
+}
+.text-gray {
+	color: #777;
+}
+
+
+/************** FLAGS **************/
+.flag {
+	background: url('../img/flags.png') no-repeat scroll -4px -621px;
+	height: 11px;
+	width: 16px;
+	display: inline-block;
+	margin: 0;
+	margin-right: 8px;
+}
+.flag-algeria { background-position: -116px -145px; }
+.flag-argentina { background-position: -256px -5px; }
+.flag-austria { background-position: -4px -33px; }
+.flag-belarus { background-position: -4px -89px; }
+.flag-belgium { background-position: -228px -33px; }
+.flag-bosnia-and-herzegovina { background-position: -144px -33px; }
+.flag-brazil { background-position: -172px -61px; }
+.flag-bulgaria { background-position: -284px -33px; }
+.flag-chile { background-position: -284px -89px; }
+.flag-columbia { background-position: -60px -117px  }
+.flag-costa-rica { background-position:  -88px -117px; }
+.flag-croatia { background-position: -172px -229px; }
+.flag-cyprus { background-position: -228px -117px; }
+.flag-czech-republic { background-position: -256px -117px; }
+.flag-denmark { background-position: -32px -145px; }
+.flag-england { background-position: -256px -145px; }
+.flag-estonia { background-position: -172px -145px; }
+.flag-europe { background-position: -228px -593px; }
+.flag-finland { background-position: -88px -173px ; }
+.flag-france { background-position: -228px -173px ; }
+.flag-macedonia { background-position: -116px -341px; }
+.flag-georgia { background-position: -32px -201px; }
+.flag-germany { background-position: -284px -117px; }
+.flag-greece { background-position: -256px -201px; }
+.flag-hungary { background-position: -228px -229px; }
+.flag-iceland { background-position: -144px -257px; }
+.flag-ireland { background-position: -284px -229px; }
+.flag-israel { background-position: -4px -257px ; }
+.flag-italy { background-position: -172px -257px ; }
+.flag-latvia { background-position: -228px -313px; }
+.flag-lithuania { background-position: -172px -313px; }
+.flag-malta { background-position: -60px -369px ; }
+.flag-mexico { background-position: -172px -369px; }
+.flag-moldova { background-position: -32px -341px; }
+.flag-montenegro { background-position: -32px -621px ; }
+.flag-netherlands { background-position: -116px -397px; }
+.flag-new-zealand { background-position: -256px -397px; }
+.flag-norway { background-position: -144px -397px; }
+.flag-paragway { background-position: -60px -453px; }
+.flag-peru { background-position: -32px -425px; }
+.flag-poland { background-position: -172px -425px; }
+.flag-portugal { background-position: -4px -453px; }
+.flag-qatar { background-position: -88px -453px; }
+.flag-romania { background-position: -116px -453px; }
+.flag-russia { background-position: -144px -453px; }
+.flag-saudi-arabia { background-position: -200px -453px; }
+.flag-scotland { background-position: -284px -453px ; }
+.flag-serbia { background-position: -284px -593px; }
+.flag-signapore { background-position: -60px -481px; }
+.flag-slovakia { background-position: -144px -481px; }
+.flag-slovenia { background-position: -116px -481px; }
+.flag-spain { background-position: -4px -173px; }
+.flag-sweden { background-position: -32px -481px; }
+.flag-switzerland { background-position: -200px -89px; }
+.flag-turkey { background-position: -116px -537px; }
+.flag-ukraine { background-position: -256px -537px; }
+.flag-uruguay { background-position: -60px -565px; }
+.flag-usa { background-position: -32px -565px; }
+.flag-venezuela { background-position: -172px -565px; }
+.flag-wales { background-position: -4px -593px; }
+
+
+/************** LOG IN **************/
+.logged-user {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+.logged-user img {
+	width: 30px;
+	display: inline;
+	margin-right: 10px;
+}
+
+
+/************** GLOBAL BAR **************/
+.navbar {
+	margin-bottom: 0;
+	height: 51px;
+	font-size: 17px;
+}
+.navbar-fixed-top {
+	font-size: 17px;
+	left: 0px;
+}
+.navbar-brand {
+	display: block;
+	padding: 5px 15px;
+	font-size: 22px;'
+}
+.navbar-brand>span {
+	vertical-align: super;
+}
+.navbar-brand>.logo {
+	background: url('../img/logo.png') no-repeat;
+	background-size: 100%;
+	width: 48px;
+	height: 36px;
+	display: inline-block;
+}
+.navbar-nav>li.website>a {
+	border-bottom: 4px solid #60b2ff;
+    padding-bottom: 11px;
+}
+
+
+/************** SIDE BAR **************/
+.sidebar {
+	padding: 20px;
+	display: block;
+	background-color: #444;
+	position: relative;
+    top: -20px;
+}
+@media ( min-width : 768px) {
+	.sidebar {
+		position: fixed;
+		top: 51px;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		overflow-x: hidden;
+		overflow-y: auto;
+		border-right: 1px solid #ddd;
+		width: 260px;
+	}
+}
+@media ( max-width : 767px) {
+	.sidebar {
+		border-bottom: 1px solid #080808;
+		width: 100%;
+	}
+}
+.sidebar h3 {
+	color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
+}
+.nav-sidebar {
+	margin-right: -21px; /* 20px padding + 1px border */
+	margin-bottom: 25px;
+	margin-left: -20px;
+}
+.nav-sidebar.last {
+	margin-bottom: 0;
+}
+.nav-sidebar>li>a {
+	color: #fff;
+	padding: 10px 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+.nav-sidebar>li>a:hover,
+.nav-sidebar>li>a:focus,
+.nav-sidebar .nav-sidebar-sub>li>a:hover,
+.nav-sidebar .nav-sidebar-sub>li>a:focus {
+	background-color: rgba(211, 214, 216, 0.2);
+} 
+.nav-sidebar>li.active>a, 
+.nav-sidebar>li.active>a:hover, 
+.nav-sidebar>li.active>a:focus,
+.nav-sidebar .nav-sidebar-sub>li.active>a,
+.nav-sidebar .nav-sidebar-sub>li.active>a:hover,
+.nav-sidebar .nav-sidebar-sub>li.active>a:hover {
+	background-color: rgba(211, 214, 216, 0.5);
+}
+.nav-sidebar .fa {
+	font-size: 20px;
+	margin-right: 15px;
+}
+
+.nav-sidebar .nav-sidebar-sub {
+	font-size: 14px;
+}
+.nav-sidebar .nav-sidebar-sub>li>a {
+	color: #fff;
+	padding: 6px 30px;
+}
+
+
+/************** SIDE BAR COLORING **************/
+.sidebar.design .nav-sidebar>li.active>a  {
+	background-color: #8e44ad;
+}
+.sidebar.content .nav-sidebar>li.active>a {
+	background-color: #27ae60;
+}
+.sidebar.publish .nav-sidebar>li.active>a {
+	background-color: #e74c3c;
+}
+
+
+/************** MAIN CONTENT **************/
+.main-content {
+	padding: 23px 40px;
+	position: fixed;
+	top: 51px;
+	left: 261px;
+	bottom: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1000;
+}
+@media ( max-width : 768px) {
+	.main-content {
+		position: relative;
+		top: -20px;
+		left: 0;
+	}
+}
+.main-content .main-fragment {
+	display: none;
+}
+
+
+/************** WEBSITE TEASER **************/
+.website-teaser {
+	width: 410px;
+    display: inline-block;
+    margin-right: 20px;
+}
+@media ( max-width : 768px) {
+	.website-teaser {
+		width: 100%;
+	}
+}
+.website-teaser .website-logo {
+	display: inline-block;
+	padding-right: 20px;
+	vertical-align: top;
+}
+.website-teaser .website-url {
+	display: inline-block;
+	width: 300px;
+}
+.website-teaser .website-url>a {
+	display: block;
+	margin-top: 7px;
+	font-size: 14px;
+}
+.website-teaser .website-name {
+	display: block;
+	padding: 5px;
+	margin: 10px 0px;
+	color: #555;
+	font-size: 20px;
+}
+.website-teaser hr {
+	margin-top: 10px;
+	margin-bottom: 7px;
+}
+.website-teaser .website-group h5 {
+	padding: 5px;
+	margin: 5px 0;
+	background-color: rgba(211, 214, 216, 0.5);
+}
+.website-teaser .website-group>div {
+	display: inline-block;
+	vertical-align: top;
+}
+.website-teaser .website-group .first {
+	width: 170px;
+}
+.website-teaser .website-group .second {
+	width: 200px;
+}
+.website-teaser .website-group>div>a,
+.website-teaser .website-group>div>span {
+	padding: 2px;
+	display: block;
+	color: #555;
+}
+.website-teaser .website-group>div>a>span,
+.website-teaser .website-group>div>span>span {
+	display: inline-block;
+	width: 110px;
+}
+
+
+/************** LIGHTS **************/
+.light-success {
+	border-radius: 8px;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+}
+
+.light-warning {
+	border-radius: 8px;
+	background-color: #ec971f;
+	border: 1px solid #d58512;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+}
+
+.light-danger {
+	border-radius: 8px;
+	background-color: #d9534f;
+	border: 1px solid #d43f3a;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -3px;
+}
+
+
+/************** TILE SUM **************/
+.tile-sum {
+	position: relative;
+}
+.tile-sum a {
+	position: absolute;
+    right: 15px;
+    top: 6px;
+    width: 60px;
+}
+.tile-sum h1 {
+	margin: 0 0 20px 0;
+	font-weight: bold;
+}
+.tile-sum h4 {
+	margin-bottom: 0px;
+}
+
+
+/************** TABLE CONTROLS **************/
+.table-controls>* {
+	display: inline-block;
+	margin-right: 20px;
+	vertical-align: middle;
+}
+.table-controls .pager {
+	margin: 0;
+}
+.table-controls .table-page {
+	width: 190px;
+}
+.table-controls .table-search {
+	width: 300px;
+}
+.table-controls .table-ajax {
+	height: 28px;
+}
+
+
+/************** TREE **************/
+.tree {
+	margin: 20px 0;
+	width: 100%;
+    max-width: 100%;
+}
+.tree .title {
+	display: block;
+	padding: 3px 4px;
+	text-align: left;
+	color: #555;
+}
+.tree .icon {
+	width: 50px;
+}
+.tree .id {
+	width: 70px;
+}
+.tree .control {
+	width: 30px;
+}
+.tree .tree-lvl-1 {
+	text-transform: uppercase;
+}
+.tree .tree-lvl-1 {
+	border-top: 1px solid #ddd;
+}
+.tree .tree-lvl-1 .title {
+	color: #337ab7;
+}
+.tree .tree-lvl-3 {
+	font-size: 85%;
+}
+.tree .tree-lvl-3 .title {
+	padding-left: 30px;
+}
+.tree a {
+	display: block;
+	text-align: center;
+}

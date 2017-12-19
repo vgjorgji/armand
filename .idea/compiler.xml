@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="armand-cms-core" />
-        <module name="armand-cms-web" />
-        <module name="armand-cms-web-admin" />
-        <module name="armand-cms-web-client" />
+        <module name="cms-core" />
+        <module name="cms-web" />
+        <module name="cms-web-admin" />
+        <module name="cms-web-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="armand" target="1.5" />
-      <module name="armand-cms-core" target="1.7" />
-      <module name="armand-cms-web" target="1.7" />
-      <module name="armand-cms-web-admin" target="1.7" />
-      <module name="armand-cms-web-client" target="1.7" />
+      <module name="armand" target="1.6" />
+      <module name="cms-core" target="1.8" />
+      <module name="cms-web" target="1.8" />
+      <module name="cms-web-admin" target="1.8" />
+      <module name="cms-web-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
