@@ -11,6 +11,58 @@
   </parent>
 
   <artifactId>cms-web-admin-front</artifactId>
+  <packaging>jar</packaging>
 
+  <build>
+    <plugins>
+
+      <!-- npm -->
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.6</version>
+
+        <configuration>
+          <nodeVersion>v8.9.4</nodeVersion>
+          <workingDirectory>src</workingDirectory>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>npm run build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+    <!-- copy as resources -->
+    <resources>
+      <resource>
+        <directory>target/dist</directory>
+        <targetPath>static</targetPath>
+      </resource>
+    </resources>
+  </build>
 
 </project>

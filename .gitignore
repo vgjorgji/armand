@@ -5,6 +5,7 @@ tmp/
 out-tsc/
 
 # Dependencies
+node/
 node_modules/
 
 # Intellij IDEA
