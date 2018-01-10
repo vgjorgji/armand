@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.armand.cms.core.localization.model.Language;
+import com.armand.cms.core.persist.model.Fetch;
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.model.WebsiteUser;
+import com.armand.cms.core.user.model.WebsiteUserRepository;
+import com.armand.cms.core.user.service.UserSettingsProvider;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteRepository;
+import com.armand.cms.web.admin.model.Controller;
 import com.armand.cms.web.admin.model.PageConst;
 import com.armand.cms.web.admin.model.response.Response;
-import com.vcms.localization.model.Language;
-import com.vcms.persist.model.Fetch;
-import com.vcms.user.model.UserSettings;
-import com.vcms.user.model.WebsiteUser;
-import com.vcms.user.model.WebsiteUserRepository;
-import com.vcms.user.service.UserSettingsProvider;
-import com.armand.cms.web.admin.model.Controller;
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteRepository;
 
 @RestController(value = Controller.WebsitesDashboard)
 @RequestMapping(value = PageConst.WebsitesDashboard)

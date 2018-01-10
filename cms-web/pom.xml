@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.armandframework.cms</groupId>
-    <artifactId>cms-parent</artifactId>
+    <groupId>org.armandframework</groupId>
+    <artifactId>armand</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
@@ -18,7 +18,7 @@
   <dependencies>
     <!-- Armand -->
     <dependency>
-      <groupId>org.armandframework.vcms</groupId>
+      <groupId>org.armandframework</groupId>
       <artifactId>cms-core</artifactId>
       <version>${project.version}</version>
     </dependency>

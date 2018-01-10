@@ -8,9 +8,9 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
-import com.armand.cms.web.admin.model.Page;
 import com.armand.cms.web.admin.interceptor.SelectedWebsiteInterceptor;
-import com.vcms.web.conf.WebConfiguration;
+import com.armand.cms.web.admin.model.Page;
+import com.armand.cms.web.conf.WebConfiguration;
 
 @Configuration
 public class AdminWebConfiguration extends WebConfiguration {
@@ -36,8 +36,7 @@ public class AdminWebConfiguration extends WebConfiguration {
 	
 	@Bean
 	protected MultipartResolver multipartResolver() {
-		MultipartResolver multipartResolver = new StandardServletMultipartResolver();
-		return multipartResolver;
+		return new StandardServletMultipartResolver();
 	}
 
 }

@@ -16,41 +16,41 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
-@ComponentScan({ "com.vcms.*.service", "com.vcms.*.stub" })
+@ComponentScan({"com.armand.cms.*.service", "com.armand.cms.*.stub"})
 @EnableTransactionManagement
 public class CoreConfiguration {
-	
-	@Bean
-    public DataSource dataSource() {
-        return new JndiDataSourceLookup().getDataSource("java:comp/env/jdbc/vcms");
-    }
-	
-	@Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.setResultsMapCaseInsensitive(true);
-        return jdbcTemplate;
-    }
 
-    @Bean
-    public PlatformTransactionManager txManager() {
-        return new DataSourceTransactionManager(dataSource());
-    }
-    
-	@Bean
-	public MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-		source.setBasename("classpath:messages");
-		source.setDefaultEncoding("UTF-8");
-		source.setUseCodeAsDefaultMessage(true);
-		return source;
-	}
-	
-	@Bean
-	public Validator validator() {
-		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
-		validator.setValidationMessageSource(messageSource());
-		return validator;
-	}
+  @Bean
+  public DataSource dataSource() {
+    return new JndiDataSourceLookup().getDataSource("java:comp/env/jdbc/vcms");
+  }
+
+  @Bean
+  public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+    jdbcTemplate.setResultsMapCaseInsensitive(true);
+    return jdbcTemplate;
+  }
+
+  @Bean
+  public PlatformTransactionManager txManager() {
+    return new DataSourceTransactionManager(dataSource());
+  }
+
+  @Bean
+  public MessageSource messageSource() {
+    ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
+    source.setBasename("classpath:messages");
+    source.setDefaultEncoding("UTF-8");
+    source.setUseCodeAsDefaultMessage(true);
+    return source;
+  }
+
+  @Bean
+  public Validator validator() {
+    LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+    validator.setValidationMessageSource(messageSource());
+    return validator;
+  }
 
 }

@@ -6,31 +6,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.armand.cms.core.conf.cms.CmsPackage;
+import com.armand.cms.core.conf.cms.Font;
+import com.armand.cms.core.conf.cms.ModernColor;
+import com.armand.cms.core.conf.cms.Style;
+import com.armand.cms.core.localization.model.Language;
+import com.armand.cms.core.persist.model.DbModelRepository;
+import com.armand.cms.core.persist.model.Fetch;
+import com.armand.cms.core.user.model.PowerGroup;
+import com.armand.cms.core.user.model.User;
+import com.armand.cms.core.user.model.UserRepository;
+import com.armand.cms.core.user.model.WebsiteUser;
+import com.armand.cms.core.user.model.WebsiteUserRepository;
+import com.armand.cms.core.website.model.Company;
+import com.armand.cms.core.website.model.CompanyRepository;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteRepository;
+import com.armand.cms.core.website.model.WebsiteStatus;
+import com.armand.cms.core.website.model.WebsiteView;
+import com.armand.cms.core.website.model.WebsiteViewRepository;
+import com.armand.cms.core.website.model.WebsiteViewType;
 import com.armand.cms.web.admin.controller.AbstractTableController;
 import com.armand.cms.web.admin.model.Controller;
 import com.armand.cms.web.admin.model.PageConst;
 import com.armand.cms.web.admin.model.response.Fragment;
 import com.armand.cms.web.admin.model.response.Response;
-import com.vcms.conf.cms.CmsPackage;
-import com.vcms.conf.cms.Font;
-import com.vcms.conf.cms.ModernColor;
-import com.vcms.conf.cms.Style;
-import com.vcms.localization.model.Language;
-import com.vcms.persist.model.DbModelRepository;
-import com.vcms.persist.model.Fetch;
-import com.vcms.user.model.PowerGroup;
-import com.vcms.user.model.User;
-import com.vcms.user.model.UserRepository;
-import com.vcms.user.model.WebsiteUser;
-import com.vcms.user.model.WebsiteUserRepository;
-import com.vcms.website.model.Company;
-import com.vcms.website.model.CompanyRepository;
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteRepository;
-import com.vcms.website.model.WebsiteStatus;
-import com.vcms.website.model.WebsiteView;
-import com.vcms.website.model.WebsiteViewRepository;
-import com.vcms.website.model.WebsiteViewType;
 
 @RestController(value = Controller.AdminWebsites)
 @RequestMapping(value = PageConst.AdminWebsites)
@@ -70,7 +70,7 @@ public class WebsitesController extends AbstractTableController<Website> {
 	
 	@Override
 	public Response edit(@PathVariable long modelId) {
-		Website website = null;
+		Website website;
 		if (modelId < 1) {
 			website = new Website();
 		} else {

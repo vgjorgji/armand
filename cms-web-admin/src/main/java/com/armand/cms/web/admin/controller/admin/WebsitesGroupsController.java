@@ -6,27 +6,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.armand.cms.core.conf.cms.Icon;
+import com.armand.cms.core.localization.model.Language;
+import com.armand.cms.core.persist.model.DbModelRepository;
+import com.armand.cms.core.persist.model.Fetch;
+import com.armand.cms.core.user.model.PowerGroup;
+import com.armand.cms.core.user.model.User;
+import com.armand.cms.core.user.model.UserRepository;
+import com.armand.cms.core.user.model.WebsiteGroup;
+import com.armand.cms.core.user.model.WebsiteGroupRepository;
+import com.armand.cms.core.user.model.WebsiteUser;
+import com.armand.cms.core.user.model.WebsiteUserRepository;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteRepository;
 import com.armand.cms.web.admin.controller.AbstractTreeController;
-import com.armand.cms.web.admin.model.PageConst;
-import com.vcms.conf.cms.Icon;
-import com.vcms.localization.model.Language;
-import com.vcms.persist.model.DbModelRepository;
-import com.vcms.persist.model.Fetch;
-import com.vcms.user.model.PowerGroup;
-import com.vcms.user.model.User;
-import com.vcms.user.model.UserRepository;
-import com.vcms.user.model.WebsiteGroup;
-import com.vcms.user.model.WebsiteGroupRepository;
-import com.vcms.user.model.WebsiteUser;
-import com.vcms.user.model.WebsiteUserRepository;
 import com.armand.cms.web.admin.model.Controller;
+import com.armand.cms.web.admin.model.PageConst;
 import com.armand.cms.web.admin.model.response.Fragment;
 import com.armand.cms.web.admin.model.response.Response;
 import com.armand.cms.web.admin.model.tree.MainNode;
 import com.armand.cms.web.admin.model.tree.Node;
 import com.armand.cms.web.admin.model.tree.SubNode;
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteRepository;
 
 @RestController(value = Controller.AdminWebsitesGroups)
 @RequestMapping(value = PageConst.AdminWebsitesGroups)

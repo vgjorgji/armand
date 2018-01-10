@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.vcms.persist.model.DbModel;
-import com.vcms.persist.model.DbModelRepository;
-import com.vcms.persist.model.Paging;
-import com.vcms.persist.model.PagingSearch;
+import com.armand.cms.core.persist.model.DbModel;
+import com.armand.cms.core.persist.model.DbModelRepository;
+import com.armand.cms.core.persist.model.Paging;
+import com.armand.cms.core.persist.model.PagingSearch;
 import com.armand.cms.web.admin.model.response.Response;
 
 public abstract class AbstractTableController<T extends DbModel> extends AbstractPagingController<T> {

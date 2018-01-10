@@ -2,9 +2,9 @@ package com.armand.cms.web.tag;
 
 import java.util.Date;
 
-import com.vcms.date.Age;
-import com.vcms.date.DateUtils;
-import com.vcms.localization.model.Language;
+import com.armand.cms.core.date.Age;
+import com.armand.cms.core.date.DateUtils;
+import com.armand.cms.core.localization.model.Language;
 
 public class LocalDurationTag extends AbstractLocalTag {
 

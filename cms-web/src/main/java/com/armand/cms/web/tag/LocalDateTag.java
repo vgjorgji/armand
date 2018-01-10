@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
-import com.vcms.localization.model.Language;
+import com.armand.cms.core.localization.model.Language;
 
 public class LocalDateTag extends AbstractLocalTag {
 	

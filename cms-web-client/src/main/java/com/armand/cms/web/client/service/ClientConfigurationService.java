@@ -1,7 +1,7 @@
 package com.armand.cms.web.client.service;
 
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteView;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteView;
 
 public interface ClientConfigurationService {
 

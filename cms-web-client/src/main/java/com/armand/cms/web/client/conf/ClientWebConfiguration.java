@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import com.armand.cms.web.client.interceptor.ClientVisitorInterceptor;
-import com.vcms.web.conf.WebConfiguration;
+import com.armand.cms.web.conf.WebConfiguration;
 
 @Configuration
 public class ClientWebConfiguration extends WebConfiguration {

@@ -7,52 +7,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.vcms.user.model.UserSettings;
-import com.vcms.user.service.UserSettingsProvider;
-import com.vcms.user.service.UserSettingsService;
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteRepository;
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.service.UserSettingsProvider;
+import com.armand.cms.core.user.service.UserSettingsService;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteRepository;
 
 public class SelectedWebsiteInterceptor implements HandlerInterceptor {
-	
-	private static final String WEBSITE_START_URI = "/website/";
-	
-	@Autowired
-	private UserSettingsService userSettingsService;
-	
-	@Autowired
-	private WebsiteRepository websiteRepository;
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		String uri = request.getRequestURI();
-		String fullStartUri = request.getContextPath() + WEBSITE_START_URI;
-		if (uri.startsWith(fullStartUri)) {
-			
-			// find the websiteId
-			String uriStrip = uri.substring(fullStartUri.length());
-			long websiteId = Long.parseLong(uriStrip.substring(0, uriStrip.indexOf('/')));
-			
-			// check if change is needed
-			UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-			if (userSettings.getSelectedWebsiteId() != websiteId) {
-				
-				// change the website
-				Website website = websiteRepository.getModel(websiteId);
-				userSettingsService.changeSettingsForWebsite(userSettings, website);
-			}
-		}
-		return true;
-	}
 
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-	}
+  private static final String WEBSITE_START_URI = "/website/";
 
-	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
-	}
+  @Autowired
+  private UserSettingsService userSettingsService;
+
+  @Autowired
+  private WebsiteRepository websiteRepository;
+
+  @Override
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    String uri = request.getRequestURI();
+    String fullStartUri = request.getContextPath() + WEBSITE_START_URI;
+    if (uri.startsWith(fullStartUri)) {
+
+      // find the websiteId
+      String uriStrip = uri.substring(fullStartUri.length());
+      long websiteId = Long.parseLong(uriStrip.substring(0, uriStrip.indexOf('/')));
+
+      // check if change is needed
+      UserSettings userSettings = UserSettingsProvider.getCurrentUser();
+      if (userSettings.getSelectedWebsiteId() != websiteId) {
+
+        // change the website
+        Website website = websiteRepository.getModel(websiteId);
+        userSettingsService.changeSettingsForWebsite(userSettings, website);
+      }
+    }
+    return true;
+  }
+
+  @Override
+  public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+                         ModelAndView modelAndView) {
+  }
+
+  @Override
+  public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+  }
 }

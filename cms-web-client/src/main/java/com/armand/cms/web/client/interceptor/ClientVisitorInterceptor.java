@@ -7,36 +7,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.service.UserSettingsProvider;
+import com.armand.cms.core.user.service.UserSettingsService;
 import com.armand.cms.web.client.service.ClientConfigurationService;
-import com.vcms.user.model.UserSettings;
-import com.vcms.user.service.UserSettingsProvider;
-import com.vcms.user.service.UserSettingsService;
 
 public class ClientVisitorInterceptor implements HandlerInterceptor {
-	
-	@Autowired
-	private ClientConfigurationService clientConfigurationService;
-	
-	@Autowired
-	private UserSettingsService userSettingsService;
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-		if (userSettings.getSelectedWebsiteId() == -1) {
-			userSettingsService.changeSettingsForWebsite(userSettings, clientConfigurationService.getWebsite());
-		}
-		return true;
-	}
 
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-	}
+  @Autowired
+  private ClientConfigurationService clientConfigurationService;
 
-	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
-	}
+  @Autowired
+  private UserSettingsService userSettingsService;
+
+  @Override
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
+    if (userSettings.getSelectedWebsiteId() == -1) {
+      userSettingsService.changeSettingsForWebsite(userSettings, clientConfigurationService.getWebsite());
+    }
+    return true;
+  }
+
+  @Override
+  public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+                         ModelAndView modelAndView) {
+  }
+
+  @Override
+  public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+  }
 }

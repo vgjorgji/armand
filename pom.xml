@@ -10,8 +10,8 @@
     <version>1.5.9.RELEASE</version>
   </parent>
 
-  <groupId>org.armandframework.cms</groupId>
-  <artifactId>cms-parent</artifactId>
+  <groupId>org.armandframework</groupId>
+  <artifactId>armand</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -25,22 +25,22 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.armandframework.vcms</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>cms-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.armandframework.vcms</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>cms-web</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.armandframework.vcms</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>cms-web-admin</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.armandframework.vcms</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>cms-web-client</artifactId>
         <version>${project.version}</version>
       </dependency>

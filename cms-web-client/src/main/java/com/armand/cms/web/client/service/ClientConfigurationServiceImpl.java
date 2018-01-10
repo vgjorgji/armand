@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteRepository;
-import com.vcms.website.model.WebsiteViewRepository;
-import com.vcms.website.model.WebsiteView;
-import com.vcms.website.model.WebsiteViewType;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteRepository;
+import com.armand.cms.core.website.model.WebsiteView;
+import com.armand.cms.core.website.model.WebsiteViewRepository;
+import com.armand.cms.core.website.model.WebsiteViewType;
 
 @Service
 public class ClientConfigurationServiceImpl implements ClientConfigurationService {

@@ -6,7 +6,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.ShallowEtagHeaderFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.vcms.conf.CoreConfiguration;
+import com.armand.cms.core.conf.CoreConfiguration;
 
 public class AdminWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

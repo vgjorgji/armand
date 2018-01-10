@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.vcms.user.model.UserSettings;
-import com.vcms.user.service.UserSettingsProvider;
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.service.UserSettingsProvider;
 import com.armand.cms.web.admin.conf.AdminSecurityConfiguration;
 import com.armand.cms.web.admin.model.PageConst;
 

@@ -2,7 +2,6 @@ package com.armand.cms.web.filter;
 
 import java.io.IOException;
 import java.util.Date;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -15,8 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
-import com.vcms.user.model.UserSettings;
-import com.vcms.user.model.Visitor;
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.model.Visitor;
 
 public class VisitorFilter extends AnonymousAuthenticationFilter {
 	

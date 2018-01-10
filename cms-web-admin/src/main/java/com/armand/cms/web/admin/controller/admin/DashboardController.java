@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.armand.cms.web.admin.model.PageConst;
+import com.armand.cms.core.website.model.WebsiteView;
 import com.armand.cms.web.admin.model.Controller;
+import com.armand.cms.web.admin.model.PageConst;
 import com.armand.cms.web.admin.model.response.Response;
-import com.vcms.website.model.WebsiteView;
 
 @RestController(value = Controller.AdminDashboard)
 @RequestMapping(value = PageConst.AdminDashboard)

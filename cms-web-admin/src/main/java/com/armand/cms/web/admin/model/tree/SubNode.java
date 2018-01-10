@@ -1,6 +1,6 @@
 package com.armand.cms.web.admin.model.tree;
 
-import com.vcms.conf.cms.Icon;
+import com.armand.cms.core.conf.cms.Icon;
 
 public class SubNode {
 

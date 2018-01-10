@@ -48,7 +48,7 @@ public class Response {
 	}
 	
 	public Fragment fragment(String fragmentId) {
-		Fragment fragment = null;
+		Fragment fragment;
 		if (fragments.containsKey(fragmentId)) {
 			fragment = fragments.get(fragmentId);
 		} else {
@@ -63,7 +63,7 @@ public class Response {
 	}
 
 	public Message message(String messageId) {
-		Message message = null;
+		Message message;
 		if (messages.containsKey(messageId)) {
 			message = messages.get(messageId);
 		} else {
@@ -78,7 +78,7 @@ public class Response {
 	}
 	
 	public Snippet snippet(String snippetId) {
-		Snippet snippet = null;
+		Snippet snippet;
 		if (snippets.containsKey(snippetId)) {
 			snippet = snippets.get(snippetId);
 		} else {

@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.armand.cms.core.conf.cms.Font;
+import com.armand.cms.core.conf.cms.ModernColor;
+import com.armand.cms.core.conf.cms.Style;
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.service.UserSettingsProvider;
+import com.armand.cms.core.website.model.WebsiteView;
+import com.armand.cms.core.website.model.WebsiteViewRepository;
+import com.armand.cms.core.website.model.WebsiteViewType;
+import com.armand.cms.web.admin.model.Controller;
 import com.armand.cms.web.admin.model.PageConst;
 import com.armand.cms.web.admin.model.response.Response;
-import com.armand.cms.web.admin.model.Controller;
-import com.vcms.conf.cms.Font;
-import com.vcms.conf.cms.ModernColor;
-import com.vcms.conf.cms.Style;
-import com.vcms.user.model.UserSettings;
-import com.vcms.user.service.UserSettingsProvider;
-import com.vcms.website.model.WebsiteView;
-import com.vcms.website.model.WebsiteViewRepository;
-import com.vcms.website.model.WebsiteViewType;
 
 @RestController(value = Controller.WebsiteDesignTheme)
 @RequestMapping(value = PageConst.WebsiteDesignTheme)

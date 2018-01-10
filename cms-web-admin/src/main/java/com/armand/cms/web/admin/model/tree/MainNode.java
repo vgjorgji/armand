@@ -3,7 +3,7 @@ package com.armand.cms.web.admin.model.tree;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vcms.conf.cms.Icon;
+import com.armand.cms.core.conf.cms.Icon;
 
 public class MainNode {
 	

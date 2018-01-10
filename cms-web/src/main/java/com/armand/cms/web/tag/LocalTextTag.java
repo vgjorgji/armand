@@ -1,7 +1,7 @@
 package com.armand.cms.web.tag;
 
-import com.vcms.localization.model.Language;
-import com.vcms.localization.model.LocalText;
+import com.armand.cms.core.localization.model.Language;
+import com.armand.cms.core.localization.model.LocalText;
 
 public class LocalTextTag extends AbstractLocalTag {
 

@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.armand.cms.core.design.model.Page;
+import com.armand.cms.core.design.model.PageDesign;
+import com.armand.cms.core.design.model.PageRepository;
+import com.armand.cms.core.design.service.PageDesignService;
+import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteView;
 import com.armand.cms.web.client.service.ClientConfigurationService;
-import com.vcms.design.model.Page;
-import com.vcms.design.model.PageDesign;
-import com.vcms.design.model.PageRepository;
-import com.vcms.design.service.PageDesignService;
-import com.vcms.website.model.Website;
-import com.vcms.website.model.WebsiteView;
 
 @Controller
 public class CmsPageController {

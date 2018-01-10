@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
-@ComponentScan({ "com.vcms.web.*.service", "com.vcms.web.*.controller" })
+@ComponentScan({ "com.armand.cms.web.*.service", "com.armand.cms.web.*.controller" })
 public abstract class WebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override

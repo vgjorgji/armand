@@ -1,20 +1,18 @@
 package com.armand.cms.web.tag;
 
 import java.io.IOException;
-
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import com.vcms.localization.model.Language;
-import com.vcms.user.service.UserSettingsProvider;
+import com.armand.cms.core.localization.model.Language;
+import com.armand.cms.core.user.service.UserSettingsProvider;
 
 public abstract class AbstractLocalTag extends TagSupport {
 
 	private static final long serialVersionUID = 6901427202646867498L;
 
 	@Override
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			// user settings language
 			Language language = UserSettingsProvider.getCurrentUser().getLanguage();

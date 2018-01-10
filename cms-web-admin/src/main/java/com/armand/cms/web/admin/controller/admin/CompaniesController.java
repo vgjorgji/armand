@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.armand.cms.core.persist.model.DbModelRepository;
+import com.armand.cms.core.persist.model.Fetch;
+import com.armand.cms.core.user.model.User;
+import com.armand.cms.core.user.model.UserRepository;
+import com.armand.cms.core.website.model.Company;
+import com.armand.cms.core.website.model.CompanyRepository;
 import com.armand.cms.web.admin.controller.AbstractTableController;
 import com.armand.cms.web.admin.model.Controller;
 import com.armand.cms.web.admin.model.PageConst;
 import com.armand.cms.web.admin.model.response.Fragment;
 import com.armand.cms.web.admin.model.response.Response;
-import com.vcms.persist.model.DbModelRepository;
-import com.vcms.persist.model.Fetch;
-import com.vcms.user.model.User;
-import com.vcms.user.model.UserRepository;
-import com.vcms.website.model.Company;
-import com.vcms.website.model.CompanyRepository;
 
 @RestController(value = Controller.AdminCompanies)
 @RequestMapping(value = PageConst.AdminCompanies)
@@ -44,7 +44,7 @@ public class CompaniesController extends AbstractTableController<Company> {
 	
 	@Override
 	public Response edit(@PathVariable long modelId) {
-		Company company = null;
+		Company company;
 		if (modelId < 1) {
 			company = new Company();
 		} else {
