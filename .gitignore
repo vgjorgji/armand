@@ -1,6 +1,28 @@
+# Compile
 target/
+dist/
+tmp/
+out-tsc/
+
+# Dependencies
+node_modules/
 
 # Intellij IDEA
 ###############
 .idea/*
 *.iml
+
+# Misc
+.sass-cache
+libpeerconnection.log
+npm-debug.log
+testem.log
+typings/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
