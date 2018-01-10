@@ -18,8 +18,9 @@
   <modules>
     <module>cms-core</module>
     <module>cms-web</module>
-    <module>cms-web-admin</module>
-    <module>cms-web-client</module>
+    <module>cms-web-site</module>
+    <module>cms-web-admin-back</module>
+    <module>cms-web-admin-front</module>
   </modules>
 
   <dependencyManagement>
@@ -36,12 +37,17 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>cms-web-admin</artifactId>
+        <artifactId>cms-web-site</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>cms-web-client</artifactId>
+        <artifactId>cms-web-admin-back</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>cms-web-admin-front</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
