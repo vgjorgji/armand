@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.armand.cms.core.conf.cms.CmsPackage;
+import com.armand.cms.core.conf.CmsPackage;
 import com.armand.cms.core.localization.model.Language;
 import com.armand.cms.core.persist.model.Fetch;
 import com.armand.cms.core.user.model.UserSettings;
@@ -23,43 +23,43 @@ import com.armand.cms.web.admin.model.response.Response;
 @RestController(value = Controller.WebsiteAdminSite)
 @RequestMapping(value = PageConst.WebsiteAdminSite)
 public class AdminSiteController {
-	
-	@Autowired
-	private WebsiteRepository websiteRepository;
-	
-	@Autowired
-	private CompanyRepository companyRepository;
-	
-	
-	@RequestMapping(value = "/load", method = RequestMethod.GET)
-	public Response load() {
-		Response response = new Response();
-		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-		
-		long websiteId = userSettings.getSelectedWebsiteId();
-		Website website = websiteRepository.getModel(websiteId);
-		
-		Fetch<Company> allCompaniesFetch = companyRepository.getAllModels();
-		
-		response.fragmentMain().data()
-				.add("website", website)
-				.add("allCompanies", allCompaniesFetch.getModels())
-				.add("cmsPackages", CmsPackage.values())
-				.add("allLanguages", Language.values())
-				.add("statuses", WebsiteStatus.values());
-		return response;
-	}
-	
-	
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public Response save(@RequestBody Website website) {
-		websiteRepository.saveModel(website);
-		
-		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-		userSettings.setSelectedWebsite(website);
-		
-		Response response = load();
-		response.snippet("global-website-name").text(website.getName());
-		return response;
-	}
+
+  @Autowired
+  private WebsiteRepository websiteRepository;
+
+  @Autowired
+  private CompanyRepository companyRepository;
+
+
+  @RequestMapping(value = "/load", method = RequestMethod.GET)
+  public Response load() {
+    Response response = new Response();
+    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
+
+    long websiteId = userSettings.getSelectedWebsiteId();
+    Website website = websiteRepository.getModel(websiteId);
+
+    Fetch<Company> allCompaniesFetch = companyRepository.getAllModels();
+
+    response.fragmentMain().data()
+        .add("website", website)
+        .add("allCompanies", allCompaniesFetch.getModels())
+        .add("cmsPackages", CmsPackage.values())
+        .add("allLanguages", Language.values())
+        .add("statuses", WebsiteStatus.values());
+    return response;
+  }
+
+
+  @RequestMapping(value = "/save", method = RequestMethod.POST)
+  public Response save(@RequestBody Website website) {
+    websiteRepository.saveModel(website);
+
+    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
+    userSettings.setSelectedWebsite(website);
+
+    Response response = load();
+    response.snippet("global-website-name").text(website.getName());
+    return response;
+  }
 }

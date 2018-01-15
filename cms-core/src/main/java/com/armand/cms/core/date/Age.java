@@ -1,15 +1,12 @@
 package com.armand.cms.core.date;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Age {
-	
-	private String duration;
 
-	public String getDuration() {
-		return duration;
-	}
-
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
+  private String duration;
 
 }

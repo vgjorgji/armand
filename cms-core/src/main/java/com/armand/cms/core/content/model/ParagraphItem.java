@@ -1,15 +1,12 @@
 package com.armand.cms.core.content.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ParagraphItem extends ContentModel {
 
-	private Paragraph paragraph;
+  private Paragraph paragraph;
 
-	public Paragraph getParagraph() {
-		return paragraph;
-	}
-
-	public void setParagraph(Paragraph paragraph) {
-		this.paragraph = paragraph;
-	}
-	
 }

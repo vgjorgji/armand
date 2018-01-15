@@ -12,12 +12,12 @@ import com.armand.cms.web.admin.model.response.Response;
 @RestController(value = Controller.AdminDashboard)
 @RequestMapping(value = PageConst.AdminDashboard)
 public class DashboardController {
-	
-	@RequestMapping(value = "/load", method = RequestMethod.GET)
-	public Response load() {
-		Response response = new Response();
-		response.fragmentMain().data().add("websiteView", new WebsiteView());
-		return response;
-	}
+
+  @RequestMapping(value = "/load", method = RequestMethod.GET)
+  public Response load() {
+    Response response = new Response();
+    response.fragmentMain().data().add("websiteView", new WebsiteView());
+    return response;
+  }
 
 }

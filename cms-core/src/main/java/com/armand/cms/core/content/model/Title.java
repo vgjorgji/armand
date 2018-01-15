@@ -1,26 +1,14 @@
 package com.armand.cms.core.content.model;
 
 import com.armand.cms.core.localization.model.LocalText;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Title {
-	
-	private LocalText text;
-	private Align align = Align.Left;
-	
-	public LocalText getText() {
-		return text;
-	}
-	
-	public void setText(LocalText text) {
-		this.text = text;
-	}
-	
-	public Align getAlign() {
-		return align;
-	}
-	
-	public void setAlign(Align align) {
-		this.align = align;
-	}
+
+  private LocalText text;
+  private Align align = Align.Left;
 
 }

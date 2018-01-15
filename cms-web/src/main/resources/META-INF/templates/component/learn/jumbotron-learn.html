@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../../../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+<div class="Jumbotron-Learn" data-th-fragment="Jumbotron-Learn(designComponent)">
+
+  <div id="jumbotron-1"
+       class="carousel slide"
+       data-ride="carousel"
+       data-th-id="'jumbotron-' + ${designComponent.id}">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#jumbotron-1"
+          data-slide-to="0"
+          class="active"
+          data-th-each="item,status : ${designComponent.contentModels}"
+          data-th-attr="data-target='#jumbotron-' + ${designComponent.id}, data-slide-to=${status.index}"
+          data-th-class="${status.first} ? 'active' : _"></li>
+      <li data-target="#jumbotron-1"
+          data-slide-to="1"
+          data-th-remove="all"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active"
+           data-th-each="jumbItem,status : ${designComponent.contentModels}"
+           data-th-class="${status.first} ? 'item active' : 'item'">
+        <div class="img-wrap">
+          <img src="http://via.placeholder.com/1920x1080"
+               data-th-replace="media :: Media(media=${jumbItem.paragraph.media})" />
+        </div>
+        <div class="carousel-caption text-center"
+             data-th-class="'carousel-caption ' + ${jumbItem.paragraph.align.textCssClass}">
+          <h3 class="cms-color-text text-center"
+              data-th-if="${not #string.isEmpty(jumbItem.title.text)}"
+              data-th-class="'cms-color-text ' + ${jumbItem.title.align.textCssClass}"
+              data-th-text="${{jumbItem.title.text}}">
+            Title
+          </h3>
+          <p class="cms-color-text text-center"
+             data-th-if="${not #string.isEmpty(jumbItem.paragraph.text)}"
+             data-th-class="'cms-color-text ' + ${jumbItem.paragraph.align.textCssClass}"
+             data-th-text="${{jumbItem.paragraph.text}}">
+            Text...
+          </p>
+          <div class="pull-left"
+               data-th-if="${jumbItem.paragraph.link != null}"
+               data-th-class="${jumbItem.paragraph.align.floatCssClass}">
+            <a href="#"
+               class="cms-button"
+               data-th-replace="link :: Link(link=${jumbItem.paragraph.link})">Link</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item" data-th-remove="all">
+        <div class="img-wrap">
+          <img src="http://via.placeholder.com/1920x1080" />
+        </div>
+        <div class="carousel-caption text-left">
+          <h3 class="cms-color-text text-left">
+            Title
+          </h3>
+          <p class="cms-color-text text-left">
+            Text...
+          </p>
+          <div class="pull-left">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

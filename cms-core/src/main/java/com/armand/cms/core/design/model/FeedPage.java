@@ -1,36 +1,24 @@
 package com.armand.cms.core.design.model;
 
-import com.armand.cms.core.conf.cms.FeedType;
+import com.armand.cms.core.conf.FeedType;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class FeedPage extends CmsPage {
-	
-	private long feedItemId;
-	private FeedType feedType;
-	
-	public long getFeedItemId() {
-		return feedItemId;
-	}
 
-	public void setFeedItemId(long feedItemId) {
-		this.feedItemId = feedItemId;
-	}
+  private long feedItemId;
+  private FeedType feedType;
 
-	public FeedType getFeedType() {
-		return feedType;
-	}
+  @Override
+  public Link createLink() {
+    Link link = new Link();
+    link.setUrl("/" + feedType.name().toLowerCase() + "/" + getUrl());
+    link.setText(feedType.getLinkText());
+    link.setIcon(feedType.getIcon());
+    link.setExternal(false);
+    return link;
+  }
 
-	public void setFeedType(FeedType feedType) {
-		this.feedType = feedType;
-	}
-	
-	@Override
-	public Link createLink() {
-		Link link = new Link();
-		link.setUrl("/" + feedType.name().toLowerCase() + "/" + getUrl());
-		link.setText(feedType.getLinkText());
-		link.setIcon(feedType.getIcon());
-		link.setExternal(false);
-		return link;
-	}
-	
 }

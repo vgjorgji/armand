@@ -5,7 +5,7 @@ import java.util.List;
 import com.armand.cms.core.design.model.DesignComponent;
 
 public interface ContentModelRepository {
-	
-	List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent);
+
+  List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent);
 
 }

@@ -7,6 +7,6 @@ import com.armand.cms.core.persist.model.HistoryModelRepository;
 
 public interface WebsiteGroupRepository extends HistoryModelRepository<WebsiteGroup> {
 
-	Fetch<WebsiteGroup> getGroupsForWebsites(Collection<Long> websiteIds);
-	
+  Fetch<WebsiteGroup> getGroupsForWebsites(Collection<Long> websiteIds);
+
 }

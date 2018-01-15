@@ -2,19 +2,19 @@ package com.armand.cms.core.validation;
 
 public class CmsException extends RuntimeException {
 
-	private static final long serialVersionUID = 8223728411442082470L;
-	
-    public CmsException(String message) {
-        super(message);
-    }
+  private static final long serialVersionUID = 8223728411442082470L;
 
-    public CmsException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  public CmsException(String message) {
+    super(message);
+  }
 
-    public CmsException(Throwable cause) {
-        super(cause);
-    }
+  public CmsException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
+  public CmsException(Throwable cause) {
+    super(cause);
+  }
 	
 
 }

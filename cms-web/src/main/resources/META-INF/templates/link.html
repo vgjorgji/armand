@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+
+<a data-th-fragment="Link(link)"
+   href="#"
+   class="cms-button cms-color-text cms-color-background"
+   data-th-href="${link.external} ? ${link.url} : @{link.url}"
+   data-th-target="${link.external} ? '_blank' : _">
+  <i class="fa fa-book" data-th-if="${link.icon != null}" data-th-class="${link.icon.cssClass}"></i>
+  <span data-th-text="${{link.text}}">Link Text</span>
+</a>
+
+<a data-th-fragment="LinkNormal(link, showCaret)"
+   href="#"
+   data-th-href="${link.external} ? ${link.url} : @{link.url}"
+   data-th-target="${link.external} ? '_blank' : _">
+  <span data-th-text="${{link.text}}">Link Text</span>
+  <span class="caret" data-th-if=${showCaret}></span>
+</a>
+
+</body>
+</html>

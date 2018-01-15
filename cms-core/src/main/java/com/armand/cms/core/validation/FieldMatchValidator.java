@@ -5,8 +5,6 @@ import javax.validation.ConstraintValidatorContext;
 
 /**
  * Implementation of the FieldMatch validator.
- * 
- * @author vlado.gjorgjiev
  */
 @SuppressWarnings("unused")
 public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Object> {

@@ -1,15 +1,12 @@
 package com.armand.cms.core.content.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class TitleItem extends ContentModel {
-	
-	private Title title;
 
-	public Title getTitle() {
-		return title;
-	}
+  private Title title;
 
-	public void setTitle(Title title) {
-		this.title = title;
-	}
-	
 }

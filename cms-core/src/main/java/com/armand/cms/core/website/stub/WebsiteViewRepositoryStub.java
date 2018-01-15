@@ -4,10 +4,10 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
-import com.armand.cms.core.conf.cms.Style;
+import com.armand.cms.core.conf.Font;
+import com.armand.cms.core.conf.ModernColor;
+import com.armand.cms.core.conf.Style;
 import com.armand.cms.core.persist.stub.HistoryModelRepositoryStub;
-import com.armand.cms.core.conf.cms.Font;
-import com.armand.cms.core.conf.cms.ModernColor;
 import com.armand.cms.core.website.model.WebsiteView;
 import com.armand.cms.core.website.model.WebsiteViewRepository;
 import com.armand.cms.core.website.model.WebsiteViewType;

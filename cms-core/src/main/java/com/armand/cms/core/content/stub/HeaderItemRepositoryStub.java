@@ -13,14 +13,14 @@ import com.armand.cms.core.design.model.DesignComponent;
 @Repository
 public class HeaderItemRepositoryStub implements HeaderItemRepository {
 
-	@Override
-	public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
-		return Collections.emptyList();
-	}
+  @Override
+  public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
+    return Collections.emptyList();
+  }
 
-	@Override
-	public List<HeaderItem> getModels(long designComponentId) {
-		return null;
-	}
-	
+  @Override
+  public List<HeaderItem> getModels(long designComponentId) {
+    return null;
+  }
+
 }

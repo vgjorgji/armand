@@ -1,6 +1,6 @@
 package com.armand.cms.core.design.model;
 
-import com.armand.cms.core.conf.cms.Icon;
+import com.armand.cms.core.conf.Icon;
 
 public class CmsPage extends Page {
 	

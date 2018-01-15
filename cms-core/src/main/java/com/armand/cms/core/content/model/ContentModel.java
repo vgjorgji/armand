@@ -1,26 +1,14 @@
 package com.armand.cms.core.content.model;
 
 import com.armand.cms.core.persist.model.HistoryModel;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public abstract class ContentModel extends HistoryModel {
-	
-	private long designComponentId;
-	private int sortOrder;
-	
-	public long getDesignComponentId() {
-		return designComponentId;
-	}
 
-	public void setDesignComponentId(long designComponentId) {
-		this.designComponentId = designComponentId;
-	}
+  private long designComponentId;
+  private int sortOrder;
 
-	public int getSortOrder() {
-		return sortOrder;
-	}
-
-	public void setSortOrder(int sortOrder) {
-		this.sortOrder = sortOrder;
-	}
-	
 }

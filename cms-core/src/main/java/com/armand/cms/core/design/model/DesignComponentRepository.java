@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface DesignComponentRepository {
 
-	List<DesignComponent> getDesignComponents(long pageId);
-	
+  List<DesignComponent> getDesignComponents(long pageId);
+
 }

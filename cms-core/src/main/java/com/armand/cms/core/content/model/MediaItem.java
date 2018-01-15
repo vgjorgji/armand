@@ -1,17 +1,13 @@
 package com.armand.cms.core.content.model;
 
 import com.armand.cms.core.media.model.Media;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class MediaItem extends ContentModel {
-	
-	private Media media;
 
-	public Media getMedia() {
-		return media;
-	}
+  private Media media;
 
-	public void setMedia(Media media) {
-		this.media = media;
-	}
-	
 }

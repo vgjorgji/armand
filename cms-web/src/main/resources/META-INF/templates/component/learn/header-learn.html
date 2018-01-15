@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../../../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+<div class="Header-Learn" data-th-fragment="Header-Learn(website, designComponent)">
+
+  <nav class="navbar navbar-default cms-color-background" role="navigation">
+    <div class="container">
+
+      <!-- Web site Name -->
+      <div class="navbar-header">
+        <button type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar-header-1"
+                data-th-attr="data-target='#navbar-header-' + ${designComponent.id}">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand cms-color-text" href="#" data-th-href="@{/}" data-th-text="${website.name}">
+          Website Name
+        </a>
+      </div>
+
+      <div class="navbar-collapse collapse"
+           id="navbar-header-1"
+           style="height: 1px;"
+           data-th-id="'navbar-header-' + ${designComponent.id}">
+        <ul class="nav navbar-nav">
+
+          <!-- Notifications -->
+          <li class="dropdown auto-expand" data-th-if="${website.cmsPackage.optionNotification}">
+            <a href="#" class="dropdown-toggle cms-color-text" data-toggle="dropdown">
+              <i class="fa fa-list"></i>
+              <span>Notifications</span>
+              <span class="badge btn-danger">1</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="courses.html">Note 1</a>
+              </li>
+              <li>
+                <a href="courses.html">Note 2</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Login -->
+          <li class="dropdown" data-th-if="${website.cmsPackage.optionLogin}">
+            <a href="login.html" class="cms-color-text">
+              <i class="fa fa-user"></i>
+              <span>Login</span>
+            </a>
+          </li>
+
+          <!-- Languages -->
+          <li class="dropdown auto-expand" data-th-if="${website.cmsPackage.optionLanguage}">
+            <a href="#" class="dropdown-toggle cms-color-text" data-toggle="dropdown">
+              <i class="fa fa-globe"></i>
+              <span data-th-text="${website.primaryLanguage}">English</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li data-th-each="language : ${website.languages}">
+                <a href="#">
+                  <i class="flag flag-macedonia" data-th-class="${language.flagCss}"></i>
+                  <span data-th-text="${language}">Македонски</span>
+                </a>
+              </li>
+              <li data-th-remove="all">
+                <a href="#">
+                  <i class="flag flag-usa"></i>
+                  <span>English</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Search -->
+          <li class="search-form" data-th-if="${website.cmsPackage.optionSearch}">
+            <form>
+              <input type="text" class="search-text" name="s" placeholder="Search...">
+              <button type="submit" class="search-submit">
+                <span class="fa fa-search"></span>
+              </button>
+            </form>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</div>
+</body>
+</html>

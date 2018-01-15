@@ -11,11 +11,11 @@ import com.armand.cms.web.admin.model.response.Response;
 @RestController(value = Controller.OverviewDashboard)
 @RequestMapping(value = PageConst.OverviewDashboard)
 public class DashboardController {
-	
-	@RequestMapping(value = "/load", method = RequestMethod.GET)
-	public Response load() {
-		Response response = new Response();
-		return response;
-	}
+
+  @RequestMapping(value = "/load", method = RequestMethod.GET)
+  public Response load() {
+    Response response = new Response();
+    return response;
+  }
 
 }

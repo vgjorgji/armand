@@ -1,35 +1,15 @@
 package com.armand.cms.web.admin.model.tree;
 
-import com.armand.cms.core.conf.cms.Icon;
+import com.armand.cms.core.conf.Icon;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class SubNode {
 
-	private long id;
-	private String title;
-	private Icon icon;
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Icon getIcon() {
-		return icon;
-	}
-
-	public void setIcon(Icon icon) {
-		this.icon = icon;
-	}
+  private long id;
+  private String title;
+  private Icon icon;
 
 }

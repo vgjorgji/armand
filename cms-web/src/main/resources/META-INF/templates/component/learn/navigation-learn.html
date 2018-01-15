@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../../../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+<div class="Navigation-Learn" data-th-fragment="Navigation-Learn(designComponent)">
+
+  <nav class="navbar" role="navigation">
+    <div class="container">
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav cms-color-h1">
+
+          <li style="width: 50%"
+              class="dropdown auto-expand"
+              data-th-style="'width: ' + ${100.0 / #lists.size(designComponent.contentModels)} + '%'"
+              data-th-each="mainNavItem : ${designComponent.contentModels}"
+              data-th-class="${not #lists.isEmpty(mainNavItem.navItems)} ? 'dropdown auto-expand' : _">
+
+            <a href="#"
+               data-th-replace="link :: LinkNormal(link=${mainNavItem.link}, showCaret=${not #lists.isEmpty(mainNavItem.navItems)})">
+              Normal Link
+            </a>
+            <ul class="dropdown-menu" role="menu" data-th-if="${not #lists.isEmpty(mainNavItem.navItems)}">
+
+              <li class="dropdown-submenu"
+                  data-th-each="navItem : ${mainNavItem.navItems}"
+                  data-th-class="${not #lists.isEmpty(navItem.subNavItems)} ? 'dropdown-submenu' : _">
+
+                <a href="#" data-th-replace="link :: LinkNormal(link=${navItem.link})">
+                  Normal Link
+                </a>
+                <ul class="dropdown-menu submenu" role="menu"
+                    data-th-class="${not #lists.isEmpty(navItem.subNavItems)}">
+
+                  <li data-th-each="subNavItem : ${navItem.subNavItems}">
+                    <a href="#" data-th-replace="link :: LinkNormal(link=${subNavItem.link})">
+                      Normal Link
+                    </a>
+                  </li>
+
+                  <li data-th-remove="all">
+                    <a href="#">
+                      Normal Link
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
+              <li data-th-remove="all">
+                <a href="#">
+                  Normal Link
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li style="width: 50%" data-th-remove="all">
+            <a href="#">
+              Normal Link
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+</div>
+</body>
+</html>

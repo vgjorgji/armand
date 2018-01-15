@@ -19,31 +19,31 @@ import com.armand.cms.web.admin.model.response.Response;
 @RestController(value = Controller.WebsiteDashboard)
 @RequestMapping(value = PageConst.WebsiteDashboard)
 public class DashboardController {
-	
-	@Autowired
-	private WebsiteRepository websiteRepository;
-	
-	
-	@RequestMapping(value = "/load", method = RequestMethod.GET)
-	public Response load(@PathVariable("websiteId") long websiteId) {
-		Response response = new Response();
-		Website website = websiteRepository.getModel(websiteId);
-		
-		UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-		Countdown countdown = getWebsiteCountdown(website, userSettings);
-		
-		response.fragmentMain().data()
-				.add("website", website)
-				.add("countdown", countdown);
-		return response;
-	}
 
-	private Countdown getWebsiteCountdown(Website website, UserSettings userSettings) {
-		Countdown countdown = null;
-		if (website != null && website.getExpiryDate() != null) {
-			countdown = DateUtils.toCountdown(website.getExpiryDate(), userSettings.getLanguage());
-		}
-		return countdown;
-	}
-	
+  @Autowired
+  private WebsiteRepository websiteRepository;
+
+
+  @RequestMapping(value = "/load", method = RequestMethod.GET)
+  public Response load(@PathVariable("websiteId") long websiteId) {
+    Response response = new Response();
+    Website website = websiteRepository.getModel(websiteId);
+
+    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
+    Countdown countdown = getWebsiteCountdown(website, userSettings);
+
+    response.fragmentMain().data()
+        .add("website", website)
+        .add("countdown", countdown);
+    return response;
+  }
+
+  private Countdown getWebsiteCountdown(Website website, UserSettings userSettings) {
+    Countdown countdown = null;
+    if (website != null && website.getExpiryDate() != null) {
+      countdown = DateUtils.toCountdown(website.getExpiryDate(), userSettings.getLanguage());
+    }
+    return countdown;
+  }
+
 }

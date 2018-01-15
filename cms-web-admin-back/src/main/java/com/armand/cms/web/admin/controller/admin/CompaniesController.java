@@ -21,62 +21,62 @@ import com.armand.cms.web.admin.model.response.Response;
 @RestController(value = Controller.AdminCompanies)
 @RequestMapping(value = PageConst.AdminCompanies)
 public class CompaniesController extends AbstractTableController<Company> {
-	
-	@Autowired
-	private CompanyRepository companyRepository;
-	
-	@Autowired
-	private UserRepository userRepository;
-	
-	
-	@Override
-	public Response add() {
-		Company company = new Company();
-		
-		Fetch<User> usersFetch = userRepository.getAllModels();
-		
-		Response response = new Response();
-		response.fragmentDetails().data()
-				.add("company", company)
-				.add("allUsers", usersFetch.getModels());
-		return response;
-	}
-	
-	@Override
-	public Response edit(@PathVariable long modelId) {
-		Company company;
-		if (modelId < 1) {
-			company = new Company();
-		} else {
-			company = companyRepository.getModel(modelId);
-		}
-		
-		Fetch<User> usersFetch = userRepository.getAllModels();
-		
-		Response response = new Response();
-		response.fragmentDetails().data()
-				.add("company", company)
-				.add("allUsers", usersFetch.getModels());
-		return response;
-	}
-	
-	@Override
-	public Response save(@RequestBody Company company) {
-		companyRepository.saveModel(company);
-		Response response = new Response();   // if there are errors then call edit
-		response.fragmentDetails().hide();
-		response.setClickElement("table-search");
-		return response;
-	}
 
-	@Override
-	protected Fragment getFragment(Response response) {
-		return response.fragmentMain();
-	}
-	
-	@Override
-	protected DbModelRepository<Company> getDbModelRepository() {
-		return companyRepository;
-	}
+  @Autowired
+  private CompanyRepository companyRepository;
+
+  @Autowired
+  private UserRepository userRepository;
+
+
+  @Override
+  public Response add() {
+    Company company = new Company();
+
+    Fetch<User> usersFetch = userRepository.getAllModels();
+
+    Response response = new Response();
+    response.fragmentDetails().data()
+        .add("company", company)
+        .add("allUsers", usersFetch.getModels());
+    return response;
+  }
+
+  @Override
+  public Response edit(@PathVariable long modelId) {
+    Company company;
+    if (modelId < 1) {
+      company = new Company();
+    } else {
+      company = companyRepository.getModel(modelId);
+    }
+
+    Fetch<User> usersFetch = userRepository.getAllModels();
+
+    Response response = new Response();
+    response.fragmentDetails().data()
+        .add("company", company)
+        .add("allUsers", usersFetch.getModels());
+    return response;
+  }
+
+  @Override
+  public Response save(@RequestBody Company company) {
+    companyRepository.saveModel(company);
+    Response response = new Response();   // if there are errors then call edit
+    response.fragmentDetails().hide();
+    response.setClickElement("table-search");
+    return response;
+  }
+
+  @Override
+  protected Fragment getFragment(Response response) {
+    return response.fragmentMain();
+  }
+
+  @Override
+  protected DbModelRepository<Company> getDbModelRepository() {
+    return companyRepository;
+  }
 
 }

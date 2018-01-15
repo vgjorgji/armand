@@ -5,44 +5,34 @@ import java.util.List;
 
 import com.armand.cms.core.design.model.Link;
 import com.armand.cms.core.design.model.Page;
+import lombok.Getter;
 
+@Getter
 public class NavItem extends ContentModel {
-	
-	private long mainNavItemId;
-	private Page page;
-	private Link link;
-	private List<SubNavItem> subNavItems;
-	
-	public long getMainNavItemId() {
-		return mainNavItemId;
-	}
 
-	public void setMainNavItemId(long mainNavItemId) {
-		this.mainNavItemId = mainNavItemId;
-	}
+  private long mainNavItemId;
+  private Page page;
+  private Link link;
+  private List<SubNavItem> subNavItems;
 
-	public Page getPage() {
-		return page;
-	}
+  public void setMainNavItemId(long mainNavItemId) {
+    this.mainNavItemId = mainNavItemId;
+  }
 
-	public void setPage(Page page) {
-		this.page = page;
-		this.link = page.createLink();
-	}
+  public void setPage(Page page) {
+    this.page = page;
+    this.link = page.createLink();
+  }
 
-	public Link getLink() {
-		return link;
-	}
-	
-	public List<SubNavItem> getSubNavItems() {
-		if (subNavItems == null) {
-			subNavItems = new ArrayList<>();
-		}
-		return subNavItems;
-	}
-	
-	public void setSubNavItems(List<SubNavItem> subNavItems) {
-		this.subNavItems = subNavItems;
-	}
+  public List<SubNavItem> getSubNavItems() {
+    if (subNavItems == null) {
+      subNavItems = new ArrayList<>();
+    }
+    return subNavItems;
+  }
+
+  public void setSubNavItems(List<SubNavItem> subNavItems) {
+    this.subNavItems = subNavItems;
+  }
 
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../../../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+<div class="ContactInfos-Learn" data-th-fragment="ContactInfos-Learn(designComponent)">
+
+  <div class="row">
+    <div class="col-md-4"
+         data-th-class="${designComponent.itemsLayout.cssClass}"
+         data-th-each="contactInfoItem : ${designComponent.contentModels}">
+
+      <div class="contactInfo">
+        <div class="map">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.890742874909!2d[[${contactInfoItem.latitude}]]!3d[[${contactInfoItem.longitude}]]!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDM4JzExLjQiTiAyMsKwMjgnMDMuMiJF!5e0!3m2!1sen!2sus!4v1459983644082"
+              width="100%" height="450" style="border: none;">
+          </iframe>
+        </div>
+
+        <div class="contact">
+          <div class="contact-part">
+            <i class="fa fa-home cms-color-text-background"></i>
+            <div>
+              <p>
+                [[${{contactInfoItem.address1}}]]
+                <br>
+                [[${{contactInfoItem.address2}}]]
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-part">
+            <i class="fa fa-phone cms-color-text-background"></i>
+            <div>
+              <p>
+                [[${contactInfoItem.phone1}]]<br>[[${contactInfoItem.phone2}]]
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-part">
+            <i class="fa fa-envelope cms-color-text-background"></i>
+            <div>
+              <p>
+                <a href="mailto:test@test.com"
+                   data-th-href="'mailto:' + ${contactInfoItem.email}"
+                   data-th-text="${contactInfoItem.email}">
+                  test@test.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" data-th-remove="all">
+      <div class="contactInfo">
+        <div class="map">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.890742874909!2d22.467497!3d41.636513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDM4JzExLjQiTiAyMsKwMjgnMDMuMiJF!5e0!3m2!1sen!2sus!4v1459983644082"
+              width="100%" height="450" style="border: none;">
+          </iframe>
+        </div>
+        <div class="contact">
+          <div class="contact-part">
+            <i class="fa fa-home cms-color-text-background"></i>
+            <div>
+              <p>
+                Coast 8th September, nr. 149
+                <br>
+                2420, Radovish, Macedonia
+              </p>
+            </div>
+          </div>
+          <div class="contact-part">
+            <i class="fa fa-phone cms-color-text-background"></i>
+            <div>
+              <p>
+                +1 800 254 5478<br>+1 800 587 47895
+              </p>
+            </div>
+          </div>
+          <div class="contact-part">
+            <i class="fa fa-envelope cms-color-text-background"></i>
+            <div>
+              <p>
+                <a href="mailto:info@email.com">
+                  info@email.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

@@ -3,52 +3,52 @@ package com.armand.cms.web.admin.model.response;
 import java.util.Map;
 
 public class Fragment {
-	
-	private String id;                // ID of HTML element containing the fragment
-	private String replaceId;         // ID of HTML element to render the outcome fragment in
-	private boolean show = true;
-	private FragmentData fragmentData = new FragmentData();
-	
-	public Fragment() {
-	}
-	
-	public Fragment(String id) {
-		this.id = id;
-	}
 
-	public String getId() {
-		return id;
-	}
+  private String id;                // ID of HTML element containing the fragment
+  private String replaceId;         // ID of HTML element to render the outcome fragment in
+  private boolean show = true;
+  private FragmentData fragmentData = new FragmentData();
 
-	public String getReplaceId() {
-		return replaceId;
-	}
-	
-	public Fragment replaceId(String replaceId) {
-		this.replaceId = replaceId;
-		return this;
-	}
+  public Fragment() {
+  }
 
-	public boolean isShow() {
-		return show;
-	}
+  public Fragment(String id) {
+    this.id = id;
+  }
 
-	public Fragment show() {
-		this.show = true;
-		return this;
-	}
-	
-	public Fragment hide() {
-		this.show = false;
-		return this;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public Map<String, Object> getData() {
-		return fragmentData.getMap();
-	}
+  public String getReplaceId() {
+    return replaceId;
+  }
 
-	public FragmentData data() {
-		return fragmentData;
-	}
+  public Fragment replaceId(String replaceId) {
+    this.replaceId = replaceId;
+    return this;
+  }
+
+  public boolean isShow() {
+    return show;
+  }
+
+  public Fragment show() {
+    this.show = true;
+    return this;
+  }
+
+  public Fragment hide() {
+    this.show = false;
+    return this;
+  }
+
+  public Map<String, Object> getData() {
+    return fragmentData.getMap();
+  }
+
+  public FragmentData data() {
+    return fragmentData;
+  }
 
 }

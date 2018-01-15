@@ -3,7 +3,7 @@ package com.armand.cms.web.admin.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,16 +12,16 @@ import com.armand.cms.core.user.service.UserSettingsProvider;
 import com.armand.cms.core.user.service.UserSettingsService;
 import com.armand.cms.core.website.model.Website;
 import com.armand.cms.core.website.model.WebsiteRepository;
+import lombok.RequiredArgsConstructor;
 
+@Component
+@RequiredArgsConstructor
 public class SelectedWebsiteInterceptor implements HandlerInterceptor {
 
   private static final String WEBSITE_START_URI = "/website/";
 
-  @Autowired
-  private UserSettingsService userSettingsService;
-
-  @Autowired
-  private WebsiteRepository websiteRepository;
+  private final UserSettingsService userSettingsService;
+  private final WebsiteRepository websiteRepository;
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {

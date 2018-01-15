@@ -7,23 +7,20 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
 /**
  * Validation annotation to validate that the field's value is valid date and time.
  * Example:
- * @IsDateAndTime(message = "The value must be valid date and time")
- *  
- * @author vlado.gjorgjiev
+ * IsDateAndTime(message = "The value must be valid date and time")
  */
 @Target({FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = IsDateAndTimeValidator.class)
 @Documented
 public @interface IsDateAndTime {
-	
+
 	String message() default "The value must be valid date and time";
 
 	Class<?>[] groups() default {};
@@ -32,10 +29,10 @@ public @interface IsDateAndTime {
 
 	/**
 	 * Defines several <code>@IsDateAndTime</code> annotations on the same element.
-	 * 
+	 *
 	 * @see IsDateAndTime
 	 */
-	@Target({FIELD, ANNOTATION_TYPE })
+	@Target({FIELD, ANNOTATION_TYPE})
 	@Retention(RUNTIME)
 	@Documented
 	@interface List {

@@ -4,17 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.armand.cms.core.persist.model.HistoryModel;
+import lombok.Getter;
 
+@Getter
 public class Categories extends HistoryModel {
 
-	private List<Category> models = new ArrayList<>();
+  private List<Category> models = new ArrayList<>();
 
-	public List<Category> getModels() {
-		return models;
-	}
+  public void addModel(Category model) {
+    models.add(model);
+  }
 
-	public void addModel(Category model) {
-		models.add(model);
-	}
-	
 }

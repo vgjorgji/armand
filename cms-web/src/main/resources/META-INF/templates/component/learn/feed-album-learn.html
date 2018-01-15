@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../../../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+<!--/*-->
+<div class="Feed-Learn">
+  <div class="row">
+    <div class="col-md-4">
+      <!--*/-->
+
+      <div data-th-fragment="Feed-Album-Learn(designComponent, feedItem)" class="feed feed-album">
+
+        <a href="#"
+           class="img-wrap"
+           data-th-href="@{feedItem.link.url}">
+          <img src="../../../static/img/stub/a6.jpg"
+               data-th-replace="media :: Media(media=${feedItem.media})"/>
+          <span data-th-if="${designComponent.feedItemLayout.categories}"
+                data-th-replace="categories :: Categories(categories=${feedItem.categories.models})">
+            Category
+          </span>
+          <h3 class="cms-color-text" data-th-text="${{feedItem.title}}">
+            Title
+          </h3>
+        </a>
+
+        <p data-th-if="${designComponent.feedItemLayout.text}"
+           data-th-text="${{feedItem.infoText}}">
+          Info Text...
+        </p>
+
+        <div class="row"
+             data-th-if="${designComponent.feedItemLayout.link or designComponent.feedItemLayout.hashTags}">
+
+          <div class="col-md-12"
+               data-th-if="${designComponent.feedItemLayout.link and not designComponent.feedItemLayout.hashTags}">
+            <a href="#" class="cms-button" data-th-replace="link :: Link(link=${feedItem.link})">Link</a>
+          </div>
+
+          <div class="col-md-12"
+               data-th-if="${not designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
+            <div class="tags"
+                 data-th-replace="hash-tags :: HashTags(hashTags=${feedItem.hashTags})">
+              <a href="#" class="label cms-color-text-background">
+                #hash-tags
+              </a>
+            </div>
+          </div>
+
+          <th-data-block
+              data-th-if="${designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
+            <div class="col-md-6">
+              <a href="#" class="cms-button" data-th-replace="link :: Link(link=${feedItem.link})">Link</a>
+            </div>
+            <div class="col-md-6">
+              <div class="tags"
+                   data-th-replace="hash-tags :: HashTags(hashTags=${feedItem.hashTags})">
+                <a href="#" class="label cms-color-text-background">
+                  #hash-tags
+                </a>
+              </div>
+            </div>
+          </th-data-block>
+        </div>
+
+        <th-data-block data-th-if="${designComponent.feedItemLayout.stats}">
+          <hr/>
+          <ul class="stats cms-color-p">
+            <li>
+              <i class="fa fa-clock-o"></i>
+              <span data-th-text="${feedItem.changedDate}">5 minutes ago</span>
+              <!--<vcms:localDuration value="${feedItem.changedDate}"/>-->
+            </li>
+            <li>
+              <i class="fa fa-calendar"></i>
+              <span data-th-text="${feedItem.changedDate}">4 january 2018</span>
+              <!--<vcms:localDate value="${feedItem.changedDate}"/>-->
+            </li>
+            <li>
+              <i class="fa fa-comment"></i>
+              <span data-th-text="${#lists.size(feedItem.comments)} + ' Comments'">4 Comments</span>
+            </li>
+            <li>
+              <i class="fa fa-eye"></i>
+              <span>1.128 views</span>
+            </li>
+          </ul>
+          <ul class="stats cms-color-p">
+            <li>
+              <i class="fa fa-globe"></i>
+              <span data-th-text="${{feedItem.location}}">Location One</span>
+            </li>
+          </ul>
+        </th-data-block>
+      </div>
+
+    <!--/*-->
+    </div>
+
+    <div class="col-md-4">
+      <div class="feed feed-album">
+        <a href="#" class="img-wrap">
+          <img src="../../../static/img/stub/a6.jpg"/>
+          <span class="cms-label">
+            Category
+          </span>
+          <h3 class="cms-color-text">
+            Title
+          </h3>
+        </a>
+        <p>
+          Info Text...
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="#" class="cms-button">Link</a>
+          </div>
+          <div class="col-md-6">
+            <div class="tags">
+              <a href="#" class="label cms-color-text-background">
+                #hash-tags
+              </a>
+            </div>
+          </div>
+        </div>
+        <th-data-block>
+          <hr/>
+          <ul class="stats cms-color-p">
+            <li>
+              <i class="fa fa-clock-o"></i>
+              <span>5 minutes ago</span>
+            </li>
+            <li>
+              <i class="fa fa-calendar"></i>
+              <span>4 january 2018</span>
+            </li>
+            <li>
+              <i class="fa fa-comment"></i>
+              <span>4 Comments</span>
+            </li>
+            <li>
+              <i class="fa fa-eye"></i>
+              <span>1.128 views</span>
+            </li>
+          </ul>
+          <ul class="stats cms-color-p">
+            <li>
+              <i class="fa fa-globe"></i>
+              <span>Location One</span>
+            </li>
+          </ul>
+        </th-data-block>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--*/-->
+</body>
+</html>
