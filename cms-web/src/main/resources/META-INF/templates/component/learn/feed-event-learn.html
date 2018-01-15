@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--/*-->
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+
+  <!-- font -->
+  <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
+
+  <!-- package css -->
+  <link rel="stylesheet" href="../../../static/css/cmspackage-business.css" type="text/css"/>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!--*/-->
+</head>
+<body>
+<!--/*-->
+<div class="Feed-Learn">
+  <div class="row">
+    <div class="col-md-4">
+      <!--*/-->
+
+      <div data-th-fragment="Feed-Event-Learn(designComponent, feedItem)" class="feed feed-event">
+        <div class="date">
+          <div class="cms-color-background">
+            <h2 class="cms-color-text">Thursday</h2>
+          </div>
+          <div>
+            <h1>22</h1>
+            <h3>November 2022</h3>
+          </div>
+        </div>
+
+        <h3 data-th-if="${not designComponent.feedItemLayout.titleAsLink}"
+            data-th-text="${{feedItem.title}}">
+          Title
+        </h3>
+        <h3 data-th-if="${designComponent.feedItemLayout.titleAsLink}">
+          <a href="#" data-th-href="@{feedItem.link.url}" data-th-text="${{feedItem.title}}">
+            Title as link
+          </a>
+        </h3>
+      </div>
+
+      <!--/*-->
+    </div>
+
+    <div class="col-md-4">
+      <div class="feed feed-event">
+        <div class="date">
+          <div class="cms-color-background">
+            <h2 class="cms-color-text">Thursday</h2>
+          </div>
+          <div>
+            <h1>22</h1>
+            <h3>November 2022</h3>
+          </div>
+        </div>
+
+        <h3>
+          <a href="#">
+            Title as link
+          </a>
+        </h3>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--*/-->
+</body>
+</html>

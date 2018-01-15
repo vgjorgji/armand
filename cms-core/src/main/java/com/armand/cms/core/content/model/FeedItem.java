@@ -30,7 +30,6 @@ public class FeedItem extends ContentModel {
   private Date dateEnd;
   private LocalText location;
 
-
   public void setPage(FeedPage page) {
     this.page = page;
     this.link = page.createLink();

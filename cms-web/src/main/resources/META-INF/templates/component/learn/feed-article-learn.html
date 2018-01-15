@@ -31,10 +31,10 @@
     <div class="col-md-4">
       <!--*/-->
 
-      <div data-th-fragment="Feed-Album-Learn(designComponent, feedItem)" class="feed feed-album">
-
+      <div data-th-fragment="Feed-Article-Learn(designComponent, feedItem)" class="feed feed-article">
         <a href="#"
            class="img-wrap"
+           data-th-if="${designComponent.feedItemLayout.media or designComponent.feedItemLayout.categories}"
            data-th-href="@{feedItem.link.url}">
           <img src="../../../static/img/stub/a6.jpg"
                data-th-if="${designComponent.feedItemLayout.media}"
@@ -43,13 +43,22 @@
                 data-th-replace="categories :: Categories(categories=${feedItem.categories.models})">
             Category
           </span>
-          <h3 class="cms-color-text" data-th-text="${{feedItem.title}}">
-            Title
-          </h3>
         </a>
 
+        <h3 data-th-if="${not designComponent.feedItemLayout.titleAsLink}"
+            data-th-text="${feedItem.title}">
+          Title
+        </h3>
+        <h3 data-th-if="${designComponent.feedItemLayout.titleAsLink}">
+          <a href="#"
+             data-th-href="@{feedItem.link.url}"
+             data-th-text="${feedItem.title}">
+            Title as link
+          </a>
+        </h3>
+
         <p data-th-if="${designComponent.feedItemLayout.text}"
-           data-th-text="${{feedItem.infoText}}">
+           data-th-text="${feedItem.infoText}">
           Info Text...
         </p>
 
@@ -71,7 +80,7 @@
             </div>
           </div>
 
-          <th-data-block
+          <data-th-block
               data-th-if="${designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
             <div class="col-md-6">
               <a href="#" class="cms-button" data-th-replace="link :: Link(link=${feedItem.link})">Link</a>
@@ -84,7 +93,7 @@
                 </a>
               </div>
             </div>
-          </th-data-block>
+          </data-th-block>
         </div>
 
         <th-data-block data-th-if="${designComponent.feedItemLayout.stats}">
@@ -109,39 +118,38 @@
               <span>1.128 views</span>
             </li>
           </ul>
-          <ul class="stats cms-color-p">
-            <li>
-              <i class="fa fa-globe"></i>
-              <span data-th-text="${{feedItem.location}}">Location One</span>
-            </li>
-          </ul>
         </th-data-block>
       </div>
 
-    <!--/*-->
+      <!--/*-->
     </div>
 
-    <!-- link and hashTags -->
     <div class="col-md-4">
-      <div class="feed feed-album">
+      <div class="feed feed-article">
         <a href="#" class="img-wrap">
-          <img src="../../../static/img/stub/a6.jpg"/>
+          <img src="../../../static/img/stub/a6.jpg" />
           <span class="cms-label">Category</span>
-          <h3 class="cms-color-text">Title</h3>
         </a>
+        <h3>
+          <a href="#">Title as link</a>
+        </h3>
         <p>Info Text...</p>
+
         <div class="row">
-          <div class="col-md-6">
-            <a href="#" class="cms-button">Link</a>
-          </div>
-          <div class="col-md-6">
-            <div class="tags">
-              <a href="#" class="label cms-color-text-background">
-                #hash-tags
-              </a>
+          <data-th-block>
+            <div class="col-md-6">
+              <a href="#" class="cms-button">Link</a>
             </div>
-          </div>
+            <div class="col-md-6">
+              <div class="tags">
+                <a href="#" class="label cms-color-text-background">
+                  #hash-tags
+                </a>
+              </div>
+            </div>
+          </data-th-block>
         </div>
+
         <th-data-block>
           <hr/>
           <ul class="stats cms-color-p">
@@ -160,12 +168,6 @@
             <li>
               <i class="fa fa-eye"></i>
               <span>1.128 views</span>
-            </li>
-          </ul>
-          <ul class="stats cms-color-p">
-            <li>
-              <i class="fa fa-globe"></i>
-              <span>Location One</span>
             </li>
           </ul>
         </th-data-block>

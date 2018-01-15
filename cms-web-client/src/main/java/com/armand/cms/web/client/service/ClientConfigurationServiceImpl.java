@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ClientConfigurationServiceImpl implements ClientConfigurationService {
 
-  @Value("#{contextParameters['websiteName']}")
+  @Value("${armand.cms.web.client.website}")
   private String websiteName;
 
   private final WebsiteRepository websiteRepository;
