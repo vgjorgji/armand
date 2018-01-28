@@ -3,7 +3,7 @@
 <head>
   <!-- meta -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
   <!-- Title -->
   <title data-th-text="${website.name} + (${not page.title.isEmpty()} ? ' | ' + ${{page.title}} : _)">
@@ -11,26 +11,26 @@
   </title>
 
   <!-- css -->
-  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/static/css/bootstrap-3.3.7.min.css}"/>
-  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/static/css/bootstrap-theme-3.3.7.min.css}"/>
-  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/static/css/fontawesome.min.css}"/>
-  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/static/css/site.css}"/>
+  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/bootstrap-3.3.7.min.css}"/>
+  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/bootstrap-theme-3.3.7.min.css}"/>
+  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/fontawesome.min.css}"/>
+  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/site.css}"/>
 
   <!-- font -->
   <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${websiteView.font == 'PtSansNarrow'}"
-        data-th-href="@{/static/css/font-ptsansnarrow.css}"/>
+        data-th-if="${websiteView.font.id == 'PtSansNarrow'}"
+        data-th-href="@{/css/font-ptsansnarrow.css}"/>
 
   <!-- package css -->
   <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${website.cmsPackage == 'BASIC'}"
-        data-th-href="@{/static/css/cmspackage-basic.css}"/>
+        data-th-if="${website.cmsPackage.id == 'Basic'}"
+        data-th-href="@{/css/cmspackage-basic.css}"/>
   <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${website.cmsPackage == 'DYNAMIC'}"
-        data-th-href="@{/static/css/cmspackage-dynamic.css}"/>
+        data-th-if="${website.cmsPackage.id == 'Dynamic'}"
+        data-th-href="@{/css/cmspackage-dynamic.css}"/>
   <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${website.cmsPackage == 'BUSINESS'}"
-        data-th-href="@{/static/css/cmspackage-business.css}"/>
+        data-th-if="${website.cmsPackage.id == 'Business'}"
+        data-th-href="@{/css/cmspackage-business.css}"/>
 
   <style type="text/css">
 			.cms-color-text {
@@ -70,40 +70,35 @@
 			input, .cms-color-input, .cms-color-input a  {
 				color: [[${websiteView.style.inputHex}]];
 			}
-
-
   </style>
-
-  <!-- Scripts -->
-  <script type="text/javascript" data-th-src="@{/static/js/jquery-1.12.4.min.js}"></script>
-  <script type="text/javascript" data-th-src="@{/static/js/bootstrap.min-3.3.6.js}"></script>
-  <script type="text/javascript" data-th-src="@{/static/js/site.js}"></script>
 </head>
 <body>
 
 <!-- Header -->
 <div class="header-position"
      data-th-if="${not #lists.isEmpty(pageDesign.headerComponents)}">
-  <data-th-block data-th-each="designComponent : ${pageDesign.headerComponents}">
+  <div data-th-each="designComponent : ${pageDesign.headerComponents}"
+       data-th-class="${designComponent.cssClass}">
     <div
         data-th-replace="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
       Design Component
     </div>
-  </data-th-block>
+  </div>
 </div>
 
 <!-- Top Row -->
-<data-th-block data-th-if="${pageDesign.layout.top and not #lists.isEmpty(pageDesign.topComponents)}"
-               data-th-each="designComponent : ${pageDesign.topComponents}">
+<div data-th-if="${pageDesign.layout.top and not #lists.isEmpty(pageDesign.topComponents)}"
+     data-th-each="designComponent : ${pageDesign.topComponents}">
   <div class="design-component"
        style="background-color: #eee"
+       data-th-class="'design-component ' + ${designComponent.cssClass}"
        data-th-style="'background-color: ' + ${designComponent.backgroundColor.hex}">
     <div class="container"
          data-th-insert="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
       Design Component
     </div>
   </div>
-</data-th-block>
+</div>
 
 <!-- Main Content background -->
 <div style="background-color: #fff"
@@ -116,34 +111,37 @@
       <!-- Left Column -->
       <div class="col-md-4"
            data-th-if="${pageDesign.layout.left}">
-        <data-th-block data-th-each="designComponent : ${pageDesign.leftComponents}">
+        <div data-th-each="designComponent : ${pageDesign.leftComponents}">
           <div class="design-component"
+               data-th-class="'design-component ' + ${designComponent.cssClass}"
                data-th-insert="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
             Design Component
           </div>
-        </data-th-block>
+        </div>
       </div>
 
       <!-- Center -->
       <div class="col-md-4"
-           data-th-class="${pageDesign.layout.centerColumnCss()}">
-        <data-th-block data-th-each="designComponent : ${pageDesign.centerComponents}">
+           data-th-class="${pageDesign.layout.centerColumnCss}">
+        <div data-th-each="designComponent : ${pageDesign.centerComponents}">
           <div class="design-component"
+               data-th-class="'design-component ' + ${designComponent.cssClass}"
                data-th-insert="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
             Design Component
           </div>
-        </data-th-block>
+        </div>
       </div>
 
       <!-- Right Column -->
       <div class="col-md-4"
            data-th-if="${pageDesign.layout.right}">
-        <data-th-block data-th-each="designComponent : ${pageDesign.rightComponents}">
+        <div data-th-each="designComponent : ${pageDesign.rightComponents}">
           <div class="design-component"
+               data-th-class="'design-component ' + ${designComponent.cssClass}"
                data-th-insert="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
             Design Component
           </div>
-        </data-th-block>
+        </div>
       </div>
 
     </div>
@@ -151,28 +149,35 @@
 </div>
 
 <!-- Bottom -->
-<data-th-block data-th-if="${pageDesign.layout.bottom and not #lists.isEmpty(pageDesign.bottomComponents)}"
+<div data-th-if="${pageDesign.layout.bottom and not #lists.isEmpty(pageDesign.bottomComponents)}"
                data-th-each="designComponent : ${pageDesign.bottomComponents}">
   <div class="design-component"
        style="background-color: #eee"
+       data-th-class="'design-component ' + ${designComponent.cssClass}"
        data-th-style="'background-color: ' + ${designComponent.backgroundColor.hex}">
     <div class="container"
          data-th-insert="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
       Design Component
     </div>
   </div>
-</data-th-block>
+</div>
 
 <!-- Footer -->
 <div class="footer-position"
      data-th-if="${not #lists.isEmpty(pageDesign.footerComponents)}">
-  <data-th-block data-th-each="designComponent : ${pageDesign.footerComponents}">
+  <div data-th-each="designComponent : ${pageDesign.footerComponents}"
+       data-th-class="${designComponent.cssClass}">
     <div
         data-th-replace="__${designComponent.fragment}__ :: __${designComponent.fragmentMethod}__(website=${website}, designComponent=${designComponent})">
       Design Component
     </div>
-  </data-th-block>
+  </div>
 </div>
+
+<!-- Scripts -->
+<script type="text/javascript" data-th-src="@{/js/jquery-1.12.4.min.js}"></script>
+<script type="text/javascript" data-th-src="@{/js/bootstrap-3.3.7.min.js}"></script>
+<script type="text/javascript" data-th-src="@{/js/site.js}"></script>
 
 </body>
 </html>

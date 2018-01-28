@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.armand.cms.core.classify.model.Categories;
 import com.armand.cms.core.classify.model.Category;
+import com.armand.cms.core.comment.model.Comments;
 import com.armand.cms.core.conf.Component;
 import com.armand.cms.core.conf.FeedType;
 import com.armand.cms.core.conf.ModernColor;
@@ -64,14 +65,14 @@ public class FeedItemRepositoryStub implements FeedItemRepository {
     // 1
     FeedItem album = createFeedItem();
     fillFeedItemAlbum(album);
-    album.getMedia().setSrc("/static/img/stub/a3.jpg");
+    album.getMedia().setSrc("/img/stub/a3.jpg");
     album.setDate(DateUtils.getDateFromString("20.01.2015"));
     gallery.add(album);
 
     // 2
     album = createFeedItem();
     fillFeedItemAlbum(album);
-    album.getMedia().setSrc("/static/img/stub/a4.jpg");
+    album.getMedia().setSrc("/img/stub/a4.jpg");
     album.setDate(DateUtils.getDateFromString("20.01.2015"));
     album.getLocation().addText(Language.English, "Big location name for look and feel");
     album.getLocation().addText(Language.Macedonian, "Големо име за локација за да се осети дизајнот");
@@ -80,14 +81,14 @@ public class FeedItemRepositoryStub implements FeedItemRepository {
     // 3
     album = createFeedItem();
     fillFeedItemAlbum(album);
-    album.getMedia().setSrc("/static/img/stub/a5.jpg");
+    album.getMedia().setSrc("/img/stub/a5.jpg");
     album.setDate(DateUtils.getDateFromString("10.04.2016"));
     gallery.add(album);
 
     // 4
     album = createFeedItem();
     fillFeedItemAlbum(album);
-    album.getMedia().setSrc("/static/img/stub/a6.jpg");
+    album.getMedia().setSrc("/img/stub/a6.jpg");
     album.setDate(DateUtils.getDateFromString("15.10.2016"));
     gallery.add(album);
 
@@ -107,19 +108,19 @@ public class FeedItemRepositoryStub implements FeedItemRepository {
     // 2
     newsItem = createFeedItem();
     fillFeedItemArticle(newsItem);
-    newsItem.getMedia().setSrc("/static/img/stub/a4.jpg");
+    newsItem.getMedia().setSrc("/img/stub/a4.jpg");
     news.add(newsItem);
 
     // 3
     newsItem = createFeedItem();
     fillFeedItemAlbum(newsItem);
-    newsItem.getMedia().setSrc("/static/img/stub/a5.jpg");
+    newsItem.getMedia().setSrc("/img/stub/a5.jpg");
     news.add(newsItem);
 
     // 4
     newsItem = createFeedItem();
     fillFeedItemEvent(newsItem);
-    newsItem.getMedia().setSrc("/static/img/stub/a6.jpg");
+    newsItem.getMedia().setSrc("/img/stub/a6.jpg");
     news.add(newsItem);
 
     // result
@@ -152,7 +153,10 @@ public class FeedItemRepositoryStub implements FeedItemRepository {
     // media
     feedItem.setMedia(new Media());
     feedItem.getMedia().setType(MediaType.Image);
-    feedItem.getMedia().setSrc("/static/img/stub/a2.jpg");
+    feedItem.getMedia().setSrc("/img/stub/a2.jpg");
+
+    // comments
+    feedItem.setComments(new Comments());
 
     // category
     Category category = new Category();

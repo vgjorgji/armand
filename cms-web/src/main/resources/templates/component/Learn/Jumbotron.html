@@ -30,6 +30,7 @@
   <div id="jumbotron-1"
        class="carousel slide"
        data-ride="carousel"
+       data-pause="null"
        data-th-id="'jumbotron-' + ${designComponent.id}">
 
     <!-- Indicators -->
@@ -57,13 +58,13 @@
         <div class="carousel-caption text-center"
              data-th-class="'carousel-caption ' + ${jumbItem.paragraph.align.textCssClass}">
           <h3 class="cms-color-text text-center"
-              data-th-if="${not #string.isEmpty(jumbItem.title.text)}"
+              data-th-if="${not #strings.isEmpty(jumbItem.title.text)}"
               data-th-class="'cms-color-text ' + ${jumbItem.title.align.textCssClass}"
               data-th-text="${{jumbItem.title.text}}">
             Title
           </h3>
           <p class="cms-color-text text-center"
-             data-th-if="${not #string.isEmpty(jumbItem.paragraph.text)}"
+             data-th-if="${not #strings.isEmpty(jumbItem.paragraph.text)}"
              data-th-class="'cms-color-text ' + ${jumbItem.paragraph.align.textCssClass}"
              data-th-text="${{jumbItem.paragraph.text}}">
             Text...

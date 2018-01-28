@@ -25,8 +25,25 @@
   <!--*/-->
 </head>
 <body>
-<div data-th-fragment="Title(title)" class="text-left" data-th-class="${title.align.textCssClass}">
-  <h1 data-th-text="${{title.text}}">Title</h1>
-</div>
+
+<a data-th-fragment="Link(link)"
+   href="#"
+   class="cms-button cms-color-text cms-color-background"
+   data-th-if="${link != null}"
+   data-th-href="${link.external} ? ${link.url} : @{${link.url}}"
+   data-th-target="${link.external} ? '_blank' : _">
+  <i class="fa fa-book" data-th-if="${link.icon != null}" data-th-class="${link.icon.cssClass}"></i>
+  <span data-th-text="${{link.text}}">Link Text</span>
+</a>
+
+<a data-th-fragment="LinkNormal(link, showCaret)"
+   href="#"
+   data-th-if="${link != null}"
+   data-th-href="${link.external} ? ${link.url} : @{${link.url}}"
+   data-th-target="${link.external} ? '_blank' : _">
+  <span data-th-text="${{link.text}}">Link Text</span>
+  <span class="caret" data-th-if=${showCaret}></span>
+</a>
+
 </body>
 </html>

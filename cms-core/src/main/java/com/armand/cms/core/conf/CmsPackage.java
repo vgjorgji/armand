@@ -16,7 +16,7 @@ public enum CmsPackage {
       Utils.asSet(Component.Header, Component.Navigation, Component.Footer,
           Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
           Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos),
-      new HashSet<FeedType>(),
+      new HashSet<>(),
       Utils.asSet(CmsOption.Language)),
 
   Dynamic("fa fa-cubes",
@@ -67,6 +67,10 @@ public enum CmsPackage {
   @JsonIgnore
   public Set<CmsOption> getOptions() {
     return options;
+  }
+
+  public boolean isOptionSupported(String option) {
+    return isOptionSupported(CmsOption.valueOf(option));
   }
 
   public boolean isOptionSupported(CmsOption option) {

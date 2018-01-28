@@ -67,7 +67,7 @@ a:focus {
 	color: #ccc !important;
 }
 .ajax-loader {
-	background-image: url("../../static/img/ajax-loader.gif");
+	background-image: url("assets/img/ajax-loader.gif");
 	display: inline-block;
 	width: 28px;
 	height: 28px;
@@ -89,7 +89,7 @@ a:focus {
 .fa-blank {
 	width: 20px;
 	height: 17px;
-	content: ' ';
+	content: " ";
 }
 .text-bold {
 	font-weight: bold;
@@ -101,7 +101,7 @@ a:focus {
 
 /************** FLAGS **************/
 .flag {
-	background: url('../img/flags.png') no-repeat scroll -4px -621px;
+	background: url("assets/img/flags.png") no-repeat scroll -4px -621px;
 	height: 11px;
 	width: 16px;
 	display: inline-block;
@@ -195,13 +195,13 @@ a:focus {
 .navbar-brand {
 	display: block;
 	padding: 5px 15px;
-	font-size: 22px;'
+	font-size: 22px;
 }
 .navbar-brand>span {
 	vertical-align: super;
 }
 .navbar-brand>.logo {
-	background: url('../img/logo.png') no-repeat;
+	background: url("assets/img/logo.png") no-repeat;
 	background-size: 100%;
 	width: 48px;
 	height: 36px;

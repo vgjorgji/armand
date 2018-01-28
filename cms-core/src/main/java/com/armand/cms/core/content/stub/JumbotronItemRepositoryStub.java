@@ -42,7 +42,7 @@ public class JumbotronItemRepositoryStub implements JumbotronItemRepository {
     title.setAlign(Align.Center);
     paragraph = createJumbotronParagraph();
     paragraph.setAlign(Align.Center);
-    paragraph.getMedia().setSrc("/static/img/2.jpg");
+    paragraph.getMedia().setSrc("/img/2.jpg");
     jumbotronItem.setTitle(title);
     jumbotronItem.setParagraph(paragraph);
     jumbotron.add(jumbotronItem);
@@ -54,7 +54,7 @@ public class JumbotronItemRepositoryStub implements JumbotronItemRepository {
     title.setAlign(Align.Right);
     paragraph = createJumbotronParagraph();
     paragraph.setAlign(Align.Right);
-    paragraph.getMedia().setSrc("/static/img/3.jpg");
+    paragraph.getMedia().setSrc("/img/3.jpg");
     jumbotronItem.setTitle(title);
     jumbotronItem.setParagraph(paragraph);
     jumbotron.add(jumbotronItem);
@@ -88,7 +88,7 @@ public class JumbotronItemRepositoryStub implements JumbotronItemRepository {
     // media
     Media media = new Media();
     media.setType(MediaType.Image);
-    media.setSrc("/static/img/1.jpg");
+    media.setSrc("/img/1.jpg");
     media.setExternal(false);
     paragraph.setMedia(media);
 

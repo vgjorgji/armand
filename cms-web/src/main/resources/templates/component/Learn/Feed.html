@@ -25,27 +25,19 @@
   <!--*/-->
 </head>
 <body>
-<!--/*-->
-<div class="Feed-Learn">
+<div class="Feed-Learn" data-th-fragment="Feed-Learn(designComponent)">
+
   <div class="row">
-    <div class="col-md-4">
-      <!--*/-->
-
-      <div data-th-fragment="Feed-Quiz-Learn(designComponent, feedItem)" class="feed feed-quiz">
-        Quiz
-      </div>
-
-      <!--/*-->
-    </div>
-
-    <div class="col-md-4">
-      <div class="feed feed-quiz">
-        Quiz
+    <div class="col-md-4"
+         data-th-class="${designComponent.itemsLayout.cssClass}"
+         data-th-each="feedItem : ${designComponent.contentModels}">
+      <div
+          data-th-replace="__${designComponent.fragment + feedItem.page.feedType}__ :: __${designComponent.fragmentMethod + '-' + feedItem.page.feedType}__(designComponent=${designComponent}, feedItem=${feedItem})">
+        Feed Item
       </div>
     </div>
-
   </div>
+
 </div>
-<!--*/-->
 </body>
 </html>

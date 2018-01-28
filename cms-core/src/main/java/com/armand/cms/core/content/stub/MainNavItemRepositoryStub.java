@@ -38,7 +38,7 @@ public class MainNavItemRepositoryStub implements MainNavItemRepository {
     navItem = StubUtils.createStubDbModel(new MainNavItem(), 1002);
     page = new CmsPage();
     page.setUrl("curriculum");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Curriculum", "Наставна програма"));
+    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Teaching", "Настава"));
     navItem.setPage(page);
     result.add(navItem);
 

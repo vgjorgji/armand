@@ -6,4 +6,8 @@ public enum ParagraphLayout {
   TextBottomMediaTop,
   TextTopMediaBottom,
   TextInFrontMediaBehind;
+
+  public String getId() {
+    return name();
+  }
 }

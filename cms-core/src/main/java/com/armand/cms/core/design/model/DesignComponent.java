@@ -3,8 +3,6 @@ package com.armand.cms.core.design.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.util.StringUtils;
-
 import com.armand.cms.core.conf.Component;
 import com.armand.cms.core.conf.ComponentStyle;
 import com.armand.cms.core.conf.ItemsLayout;
@@ -27,8 +25,12 @@ public class DesignComponent extends HistoryModel {
   private ItemsLayout itemsLayout = ItemsLayout.OneColumn;
   private List<ContentModel> contentModels = new ArrayList<>();
 
+  public String getCssClass() {
+    return "DC" + "-" + component + "-" + componentStyle;
+  }
+
   public String getFragment() {
-    return StringUtils.uncapitalize(component.name()) + "-" + StringUtils.uncapitalize(componentStyle.name());
+    return "component/" + componentStyle + "/" + component;
   }
 
   public String getFragmentMethod() {

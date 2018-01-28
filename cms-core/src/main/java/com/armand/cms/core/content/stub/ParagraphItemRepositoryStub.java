@@ -46,7 +46,7 @@ public class ParagraphItemRepositoryStub implements ParagraphItemRepository {
     // 1
     ParagraphItem paragraphItem = StubUtils.createStubDbModel(new ParagraphItem(), 1000);
     Paragraph paragraph = createParagraph();
-    paragraph.getMedia().setSrc("/static/img/stub/a1.jpg");
+    paragraph.getMedia().setSrc("/img/stub/a1.jpg");
     paragraphItem.setParagraph(paragraph);
     paragraphContainer.add(paragraphItem);
 
@@ -60,7 +60,7 @@ public class ParagraphItemRepositoryStub implements ParagraphItemRepository {
     // 1
     ParagraphItem paragraphItem = StubUtils.createStubDbModel(new ParagraphItem(), 1000);
     Paragraph paragraph = createParagraph();
-    paragraph.getMedia().setSrc("/static/img/stub/a2.jpg");
+    paragraph.getMedia().setSrc("/img/stub/a2.jpg");
     paragraph.setLayout(ParagraphLayout.TextRightMediaLeft);
     paragraphItem.setParagraph(paragraph);
     paragraphContainer.add(paragraphItem);

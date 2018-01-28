@@ -60,6 +60,18 @@ img {
 	border-radius: 6px 0 6px 6px;
 }
 
+.carousel-indicators li {
+  border-radius: 0px;
+  width: 30px;
+  height: 5px;
+  background-color: rgba(255,255,255,.5);
+}
+.carousel-indicators li.active {
+  width: 30px;
+  height: 5px;
+  margin-bottom: 1px;
+}
+
 
 /************** FLAGS **************/
 .flag {

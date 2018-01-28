@@ -23,6 +23,7 @@ public class CmsPageController {
   private final PageRepository pageRepository;
   private final PageDesignService pageDesignService;
 
+
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public String homePage() {
     return "redirect:/page/home";

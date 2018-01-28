@@ -37,7 +37,7 @@
               class="dropdown auto-expand"
               data-th-style="'width: ' + ${100.0 / #lists.size(designComponent.contentModels)} + '%'"
               data-th-each="mainNavItem : ${designComponent.contentModels}"
-              data-th-class="${not #lists.isEmpty(mainNavItem.navItems)} ? 'dropdown auto-expand' : _">
+              data-th-class="${not #lists.isEmpty(mainNavItem.navItems)} ? 'dropdown auto-expand' : ''">
 
             <a href="#"
                data-th-replace="link :: LinkNormal(link=${mainNavItem.link}, showCaret=${not #lists.isEmpty(mainNavItem.navItems)})">
@@ -47,16 +47,16 @@
 
               <li class="dropdown-submenu"
                   data-th-each="navItem : ${mainNavItem.navItems}"
-                  data-th-class="${not #lists.isEmpty(navItem.subNavItems)} ? 'dropdown-submenu' : _">
+                  data-th-class="${not #lists.isEmpty(navItem.subNavItems)} ? 'dropdown-submenu' : ''">
 
-                <a href="#" data-th-replace="link :: LinkNormal(link=${navItem.link})">
+                <a href="#" data-th-replace="link :: LinkNormal(link=${navItem.link}, showCaret=false)">
                   Normal Link
                 </a>
                 <ul class="dropdown-menu submenu" role="menu"
-                    data-th-class="${not #lists.isEmpty(navItem.subNavItems)}">
+                    data-th-if="${not #lists.isEmpty(navItem.subNavItems)}">
 
                   <li data-th-each="subNavItem : ${navItem.subNavItems}">
-                    <a href="#" data-th-replace="link :: LinkNormal(link=${subNavItem.link})">
+                    <a href="#" data-th-replace="link :: LinkNormal(link=${subNavItem.link}, showCaret=false)">
                       Normal Link
                     </a>
                   </li>

@@ -22,8 +22,8 @@ public class ClientVisitorInterceptor implements HandlerInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-    if (userSettings.getSelectedWebsiteId() == -1) {
+    UserSettings userSettings = UserSettingsProvider.getCurrentUserRelax();
+    if (userSettings != null && userSettings.getSelectedWebsiteId() == -1) {
       userSettingsService.changeSettingsForWebsite(userSettings, clientConfigurationService.getWebsite());
     }
     return true;

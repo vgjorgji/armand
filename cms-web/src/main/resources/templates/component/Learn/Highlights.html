@@ -25,27 +25,41 @@
   <!--*/-->
 </head>
 <body>
-<!--/*-->
-<div class="Feed-Learn">
+<div class="Highlights-Learn" data-th-fragment="Highlights-Learn(designComponent)">
+
   <div class="row">
-    <div class="col-md-4">
-      <!--*/-->
-
-      <div data-th-fragment="Feed-Project-Learn(designComponent, feedItem)" class="feed feed-project">
-        Project
+    <div class="col-md-4 highlight-item cms-color-select"
+         data-th-class="${designComponent.itemsLayout.cssClass} + ' highlight-item cms-color-select'"
+         data-th-each="highlightItem : ${designComponent.contentModels}">
+      <div class="highlight-text">
+        <h3 data-th-text="${{highlightItem.title}}">
+          Title
+        </h3>
+        <p data-th-text="${{highlightItem.text}}">
+          Text...
+        </p>
       </div>
-
-      <!--/*-->
+      <div class="highlight-icon">
+        <span class="cms-color-text cms-color-background fa fa-book"
+              data-th-class="'cms-color-text cms-color-background ' + ${highlightItem.icon.cssClass}"></span>
+      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="feed feed-project">
-        Project
+    <div class="col-md-4 highlight-item cms-color-select" data-th-remove="all">
+      <div class="highlight-text">
+        <h3>
+          Title
+        </h3>
+        <p>
+          Text...
+        </p>
+      </div>
+      <div class="highlight-icon">
+        <span class="cms-color-text cms-color-background fa fa-newspaper-o"></span>
       </div>
     </div>
-
   </div>
+
 </div>
-<!--*/-->
 </body>
 </html>

@@ -30,13 +30,14 @@
   <div class="row"
        data-th-if="${paragraph.media == null}">
     <div class="col-md-12 text-left"
-         data-th-class="'col-md-12 ' + ${paragraph.align.textCssClass}">
-      <span data-th-text="${paragraph.text}">Paragraph text...</span>
+         data-th-class="'col-md-12 ' + ${paragraph.align.textCssClass}"
+         data-th-utext="${{paragraph.text}}">
+      Paragraph text...
     </div>
   </div>
 
-  <data-th-block data-th-if="${paragraph.media != null}"
-                 data-th-switch="${paragraph.layout}">
+  <div data-th-if="${paragraph.media != null}"
+                 data-th-switch="${paragraph.layout.id}">
 
     <div class="row"
          data-th-case="'TextRightMediaLeft'">
@@ -46,7 +47,7 @@
       </div>
       <div class="col-md-6 text-left"
            data-th-class="'col-md-6 ' + ${paragraph.align.textCssClass}">
-        <span data-th-text="${{paragraph.text}}">Paragraph text...</span>
+        <div data-th-utext="${{paragraph.text}}">Paragraph text...</div>
         <a href="#" class="cms-button" data-th-replace="link :: Link(link=${paragraph.link})">Link</a>
       </div>
     </div>
@@ -54,7 +55,7 @@
     <div data-th-case="'TextLeftMediaRight'" class="row">
       <div class="col-md-6 text-left"
            data-th-class="'col-md-6 ' + ${paragraph.align.textCssClass}">
-        <span data-th-text="${{paragraph.text}}">Paragraph text...</span>
+        <div data-th-utext="${{paragraph.text}}">Paragraph text...</div>
         <a href="#" class="cms-button" data-th-replace="link :: Link(link=${paragraph.link})">Link</a>
       </div>
       <div class="col-md-6">
@@ -63,7 +64,7 @@
       </div>
     </div>
 
-    <data-th-block data-th-case="'TextBottomMediaTop'">
+    <div data-th-case="'TextBottomMediaTop'">
       <div class="row">
         <div class="col-md-12">
           <img src="../static/img/stub/a3.jpg"
@@ -72,16 +73,16 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-left" data-th-class="'col-md-12 ' + ${paragraph.align.textCssClass}">
-          <span data-th-text="${{paragraph.text}}">Paragraph text...</span>
+          <div data-th-utext="${{paragraph.text}}">Paragraph text...</div>
           <a href="#" class="cms-button" data-th-replace="link :: Link(link=${paragraph.link})">Link</a>
         </div>
       </div>
-    </data-th-block>
+    </div>
 
-    <data-th-block data-th-case="'TextTopMediaBottom'">
+    <div data-th-case="'TextTopMediaBottom'">
       <div class="row">
         <div class="col-md-12 text-left" data-th-class="'col-md-12 ' + ${paragraph.align.textCssClass}">
-          <span data-th-text="${{paragraph.text}}">Paragraph text...</span>
+          <div data-th-utext="${{paragraph.text}}">Paragraph text...</div>
           <a href="#" class="cms-button" data-th-replace="link :: Link(link=${paragraph.link})">Link</a>
         </div>
       </div>
@@ -91,17 +92,17 @@
                data-th-replace="media :: Media(media=${paragraph.media})" />
         </div>
       </div>
-    </data-th-block>
+    </div>
 
     <div data-th-case="'TextInFrontMediBehind'" class="row">
       <div class="col-md-12 media-behind text-left" data-th-class="'col-md-12 media-behind ' + ${paragraph.align.textCssClass}">
         <img src="../static/img/stub/a5.jpg"
              data-th-replace="media :: Media(media=${paragraph.media})" />
-        <span data-th-text="${{paragraph.text}}">Paragraph text...</span>
+        <div data-th-utext="${{paragraph.text}}">Paragraph text...</div>
         <a href="#" class="cms-button" data-th-replace="link :: Link(link=${paragraph.link})">Link</a>
       </div>
     </div>
-  </data-th-block>
+  </div>
 
 </div>
 </body>

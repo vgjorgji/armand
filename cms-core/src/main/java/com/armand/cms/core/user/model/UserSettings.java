@@ -19,7 +19,7 @@ import lombok.Setter;
 public class UserSettings implements UserDetails {
 
   private static final long serialVersionUID = 8749204172625676869L;
-  public static final Language DEFAULT_LANGUAGE = Language.English;
+  public static final Language DEFAULT_LANGUAGE = Language.Macedonian;
   public static final Set<Role> DEFAULT_ROLES = Utils.asSet(Role.Visitor);
 
   // identifiers

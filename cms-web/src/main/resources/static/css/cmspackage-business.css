@@ -13,13 +13,13 @@ a:focus {
 }
 
 .header-position {
-	padding-bottom: 80px;
+	padding-bottom: 40px;
 }
 .design-component {
 	padding: 80px 0;
 }
 .footer-position {
-	padding-top: 80px;
+	padding-top: 40px;
 }
 
 .cms-button {
@@ -117,6 +117,10 @@ a:focus {
 }
 
 /*-- Navigation --*/
+.Navigation-Learn {
+  border-bottom: 1px solid #dee2e6 !important;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+}
 .Navigation-Learn .navbar {
 	margin-bottom: 0;
 	min-height: 0;
@@ -145,9 +149,6 @@ a:focus {
 }
 
 /*-- Footer --*/
-.Footer-Learn {
-	margin: 0px;
-}
 .Footer-Learn .footer-wrap {
 	padding: 20px 0;
 }
@@ -178,21 +179,19 @@ a:focus {
 }
 
 /*-- Titles --*/
-.Titles-Learn {
+.DC-Titles-Learn {
 	padding-bottom: 0px;
 	margin-bottom: -40px;
 }
 .Titles-Learn h1 {
-	font-size: 48px;
+	font-size: 42px;
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
+  text-transform: uppercase;
 }
 
 /*-- Paragraphs --*/
-.Paragraphs-Learn {
-	margin: 0px;
-}
 .Paragraphs-Learn .paragraph {
 	margin-bottom: 20px;
 }
@@ -238,9 +237,6 @@ a:focus {
 }
 
 /*-- Highlights --*/
-.Highlights-Learn {
-	margin: 0px;
-}
 .Highlights-Learn .highlight-text {
 	background: #fff;
 	padding: 52px 15px;
@@ -266,7 +262,7 @@ a:focus {
 	font-size: 27px;
 	border-radius: 100%;
 	padding: 20px 20px;
-	top: -7px;
+	top: -37px;
 	text-align: center;
 	left: 37%;
 }
@@ -280,9 +276,6 @@ a:focus {
 }
 
 /*-- Contact Info --*/
-.ContactInfos-Learn {
-	margin-bottom: 0px;
-}
 .ContactInfos-Learn .contact {
 	margin-top: 20px;
 }
@@ -315,9 +308,6 @@ a:focus {
 }
 
 /*-- Feed --*/
-.Feed-Learn {
-	margin: 0px;
-}
 .Feed-Learn .feed {
 	margin-bottom: 40px;
 	background: #fff;

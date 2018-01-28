@@ -1,7 +1,5 @@
 package com.armand.cms.core.design.model;
 
-import org.springframework.util.StringUtils;
-
 import com.armand.cms.core.classify.model.Categories;
 import com.armand.cms.core.conf.Component;
 import com.armand.cms.core.conf.FeedType;
@@ -27,16 +25,6 @@ public class FeedDesignComponent extends DesignComponent {
   @Override
   public void setComponent(Component component) {
     super.setComponent(Component.Feed);
-  }
-
-  public String getFeedFragment() {
-    return StringUtils.uncapitalize(getComponent().name())
-        + "-" + StringUtils.uncapitalize(feedType.name())
-        + "-" + StringUtils.uncapitalize(getComponentStyle().name());
-  }
-
-  public String getFeedFragmentMethod() {
-    return getComponent() + "-" + feedType + "-" + getComponentStyle();
   }
 
 }

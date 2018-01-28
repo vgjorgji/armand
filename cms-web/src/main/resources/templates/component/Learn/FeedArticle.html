@@ -31,11 +31,11 @@
     <div class="col-md-4">
       <!--*/-->
 
-      <div data-th-fragment="Feed-Article-Learn(designComponent, feedItem)" class="feed feed-article">
+      <div data-th-fragment="Feed-Learn-Article(designComponent, feedItem)" class="feed feed-article">
         <a href="#"
            class="img-wrap"
            data-th-if="${designComponent.feedItemLayout.media or designComponent.feedItemLayout.categories}"
-           data-th-href="@{feedItem.link.url}">
+           data-th-href="@{${feedItem.link.url}}">
           <img src="../../../static/img/stub/a6.jpg"
                data-th-if="${designComponent.feedItemLayout.media}"
                data-th-replace="media :: Media(media=${feedItem.media})"/>
@@ -46,19 +46,19 @@
         </a>
 
         <h3 data-th-if="${not designComponent.feedItemLayout.titleAsLink}"
-            data-th-text="${feedItem.title}">
+            data-th-text="${{feedItem.title}}">
           Title
         </h3>
         <h3 data-th-if="${designComponent.feedItemLayout.titleAsLink}">
           <a href="#"
-             data-th-href="@{feedItem.link.url}"
-             data-th-text="${feedItem.title}">
+             data-th-href="@{${feedItem.link.url}}"
+             data-th-text="${{feedItem.title}}">
             Title as link
           </a>
         </h3>
 
         <p data-th-if="${designComponent.feedItemLayout.text}"
-           data-th-text="${feedItem.infoText}">
+           data-th-text="${{feedItem.infoText}}">
           Info Text...
         </p>
 
@@ -73,30 +73,29 @@
           <div class="col-md-12"
                data-th-if="${not designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
             <div class="tags"
-                 data-th-replace="hash-tags :: HashTags(hashTags=${feedItem.hashTags})">
+                 data-th-replace="hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
               <a href="#" class="label cms-color-text-background">
-                #hash-tags
+                #hash_tags
               </a>
             </div>
           </div>
 
-          <data-th-block
-              data-th-if="${designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
+          <div data-th-if="${designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
             <div class="col-md-6">
               <a href="#" class="cms-button" data-th-replace="link :: Link(link=${feedItem.link})">Link</a>
             </div>
             <div class="col-md-6">
               <div class="tags"
-                   data-th-replace="hash-tags :: HashTags(hashTags=${feedItem.hashTags})">
+                   data-th-replace="hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
                 <a href="#" class="label cms-color-text-background">
-                  #hash-tags
+                  #hash_tags
                 </a>
               </div>
             </div>
-          </data-th-block>
+          </div>
         </div>
 
-        <th-data-block data-th-if="${designComponent.feedItemLayout.stats}">
+        <div data-th-if="${designComponent.feedItemLayout.stats}">
           <hr/>
           <ul class="stats cms-color-p">
             <li>
@@ -111,14 +110,14 @@
             </li>
             <li>
               <i class="fa fa-comment"></i>
-              <span data-th-text="${#lists.size(feedItem.comments)} + ' Comments'">4 Comments</span>
+              <span data-th-text="${feedItem.comments.size} + ' Comments'">4 Comments</span>
             </li>
             <li>
               <i class="fa fa-eye"></i>
               <span>1.128 views</span>
             </li>
           </ul>
-        </th-data-block>
+        </div>
       </div>
 
       <!--/*-->
@@ -136,21 +135,21 @@
         <p>Info Text...</p>
 
         <div class="row">
-          <data-th-block>
+          <div>
             <div class="col-md-6">
               <a href="#" class="cms-button">Link</a>
             </div>
             <div class="col-md-6">
               <div class="tags">
                 <a href="#" class="label cms-color-text-background">
-                  #hash-tags
+                  #hash_tags
                 </a>
               </div>
             </div>
-          </data-th-block>
+          </div>
         </div>
 
-        <th-data-block>
+        <div>
           <hr/>
           <ul class="stats cms-color-p">
             <li>
@@ -170,7 +169,7 @@
               <span>1.128 views</span>
             </li>
           </ul>
-        </th-data-block>
+        </div>
       </div>
     </div>
 

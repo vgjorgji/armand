@@ -25,23 +25,11 @@
   <!--*/-->
 </head>
 <body>
-<data-th-block data-th-fragment="Media(media)" data-th-switch="${media.type}">
-
-  <img src="http://via.placeholder.com/100x100"
-       width="100"
-       height="100"
-       data-th-case="'Image'"
-       data-th-src="${media.external} ? ${media.src} : @{media.src}"
-       data-th-width="${media.width > 0} ? ${media.width} : _"
-       data-th-height="${media.height > 0} ? ${media.height} : _"
-  />
-  <div data-th-case="'Video'">
-		Video Media
-	</div>
-  <span data-th-case="'Document'">
-		Document Media
-	</span>
-
-</data-th-block>
+<div data-th-fragment="Title(title)"
+     class="text-left"
+     data-th-if="${title != null}"
+     data-th-class="${title.align.textCssClass}">
+  <h1 data-th-text="${{title.text}}">Title</h1>
+</div>
 </body>
 </html>
