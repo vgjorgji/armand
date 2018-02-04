@@ -17,10 +17,10 @@ import com.armand.cms.core.content.model.SubNavItem;
 import com.armand.cms.core.content.model.SubNavItemRepository;
 import com.armand.cms.core.design.model.DesignComponent;
 import com.armand.cms.core.utils.Utils;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class NavigationServiceImpl implements NavigationService {
 
   private final MainNavItemRepository mainNavItemRepository;

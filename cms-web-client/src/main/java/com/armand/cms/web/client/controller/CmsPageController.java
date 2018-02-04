@@ -44,7 +44,7 @@ public class CmsPageController {
     model.addAttribute("websiteView", websiteView);
     model.addAttribute("page", page);
     model.addAttribute("pageDesign", pageDesign);
-    return "cmsPage";
+    return "page/cms";
   }
 
   private Page getPage(WebsiteView websiteView, String pageUrl) {

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
   <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
   <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/client-site.css" type="text/css"/>
 
   <!-- font -->
   <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
@@ -21,7 +21,7 @@
   <!-- scripts -->
   <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
-  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <script type="text/javascript" src="../../../static/js/client-site.js"></script>
   <!--*/-->
 </head>
 <body>
@@ -53,7 +53,7 @@
            data-th-class="${status.first} ? 'item active' : 'item'">
         <div class="img-wrap">
           <img src="http://via.placeholder.com/1920x1080"
-               data-th-replace="media :: Media(media=${jumbItem.paragraph.media})" />
+               data-th-replace="tag/media :: Media(media=${jumbItem.paragraph.media})" />
         </div>
         <div class="carousel-caption text-center"
              data-th-class="'carousel-caption ' + ${jumbItem.paragraph.align.textCssClass}">
@@ -74,7 +74,7 @@
                data-th-class="${jumbItem.paragraph.align.floatCssClass}">
             <a href="#"
                class="cms-button"
-               data-th-replace="link :: Link(link=${jumbItem.paragraph.link})">Link</a>
+               data-th-replace="tag/link :: Link(link=${jumbItem.paragraph.link})">Link</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="_csrf_header" content="H-CSRF" data-th-content="${_csrf.headerName}"/>
+  <meta name="_csrf" content="123456" data-th-content="${_csrf.token}"/>
+
+  <!-- css -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" data-th-href="@{/favicon.ico}">
+  <link type="text/css" rel="stylesheet" href="../static/css/bootstrap-3.3.7.min.css"
+        data-th-href="@{/css/bootstrap-3.3.7.min.css}"/>
+  <link type="text/css" rel="stylesheet" href="../static/css/bootstrap-theme-3.3.7.min.css"
+        data-th-href="@{/css/bootstrap-theme-3.3.7.min.css}"/>
+  <link type="text/css" rel="stylesheet" href="../static/css/client-site.css"
+        data-th-href="@{/css/client-site.css}"/>
+
+  <!-- Title -->
+  <title>Login</title>
+</head>
+<body>
+<div class="container">
+  <div class="center-block max-width-4">
+
+    <h1>Sign In</h1>
+
+    <form id="form" action="login" data-th-action="@{/login}" method="post" role="form" autocomplete="off">
+      <input type="hidden" name="CSRF" value="123456" data-th-name="${_csrf.parameterName}"
+             data-th-value="${_csrf.token}"/>
+
+      <div class="form-group">
+        <input id="username" name="username" placeholder="Username"
+               type="text" class="form-control" autocomplete="off" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <input id="password" name="password" placeholder="Password"
+               type="password" class="form-control" autocomplete="off" required>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">
+          Log in
+        </button>
+      </div>
+
+      <div class="form-group">
+        <div class="alert alert-danger" role="alert" data-th-if="${param.failure != null}">
+          Authentication error
+        </div>
+        <div class="alert alert-danger" role="alert" data-th-if="${param.error != null}">
+          Invalid username and password.
+        </div>
+        <div class="alert alert-success" role="alert" data-th-if="${param.logout != null}">
+          You have been logged out.
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>

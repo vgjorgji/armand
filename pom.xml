@@ -29,7 +29,7 @@
     <module>cms-core</module>
     <module>cms-web</module>
     <module>cms-web-client</module>
-    <module>cms-web-admin-back</module>
+    <module>cms-web-admin</module>
     <module>cms-web-admin-front</module>
   </modules>
 
@@ -60,7 +60,7 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>cms-web-admin-back</artifactId>
+        <artifactId>cms-web-admin</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

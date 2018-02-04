@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<body>
+<nav data-th-fragment="Global-Navigation(select)"
+     class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#global-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <i class="logo"></i>
+        <span>ARMAND</span>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="global-nav">
+      <ul class="nav navbar-nav">
+        <li data-th-class="${select == 'overview'} ? 'active' : _">
+          <a href="#"
+             data-th-href="@{/overview/dashboard}">Overview</a>
+        </li>
+        <li data-th-if="${userSettings.user.master}"
+            data-th-class="${select == 'admin'} ? 'active' : _">
+          <a href="#"
+             data-th-href="@{/admin/dashboard}">Administration</a>
+        </li>
+        <li data-th-class="${select == 'websites'} ? 'active' : _">
+          <a href="#"
+             data-th-href="@{/websites/dashboard}">Websites</a>
+        </li>
+        <li data-th-if="${userSettings.selectedWebsiteId > 0}"
+            data-th-class="'website ' + (${select == 'website' ? 'active' : _})">
+          <a data-th-href="@{'/website/' + ${userSettings.selectedWebsiteId} + '/dashboard'">
+            <em id="global-website-name"
+                data-th-text="${userSettings.selectedWebsiteName}">Demo Website</em>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button">
+            <i class="fa fa-list"></i>
+            <span class="badge btn-danger">1</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle logged-user"
+             data-toggle="dropdown"
+             role="button">
+            <img src="http://via.placeholder.com/10x10"
+                 data-th-src="@{/static/img/stub/img.jpg}"
+                 alt=""
+                 class="img-responsive img-circle"/>
+            <span data-th-text="${userSettings.user.firstName} + ' ' + ${userSettings.user.lastName}">Vlado Gjorgjiev</span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Mail</a></li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <form data-th-action="@{/logout}" method="post">
+                <input type="hidden"
+                       data-th-name="${_csrf.parameterName}"
+                       data-th-value="${_csrf.token}"/>
+                <button type="submit" class="btn btn-link">
+                  <i class="fa fa-sign-out pull-right"></i> Log Out
+                </button>
+              </form>
+            </li>
+          </ul>
+
+        </li>
+      </ul>
+
+    </div> <!-- /.navbar-collapse -->
+  </div> <!-- /.container-fluid -->
+</nav>
+</body>
+</html>

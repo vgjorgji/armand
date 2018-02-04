@@ -1,0 +1,155 @@
+
+/************** DEFAULTS **************/
+body {
+	margin-bottom: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+.navbar-brand {
+	height: 0;
+}
+
+.dropdown-submenu {
+	position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -6px;
+	margin-left: -1px;
+	-webkit-border-radius: 0 6px 6px 6px;
+	-moz-border-radius: 0 6px 6px;
+	border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+	display: block;
+}
+.dropdown-submenu>a:after {
+	display: block;
+	content: " ";
+	float: right;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #ccc;
+	margin-top: 5px;
+	margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+	border-left-color: #fff;
+}
+.dropdown-submenu.pull-left {
+	float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+	left: -100%;
+	margin-left: 10px;
+	-webkit-border-radius: 6px 0 6px 6px;
+	-moz-border-radius: 6px 0 6px 6px;
+	border-radius: 6px 0 6px 6px;
+}
+
+.carousel-indicators li {
+  border-radius: 0px;
+  width: 30px;
+  height: 5px;
+  background-color: rgba(255,255,255,.5);
+}
+.carousel-indicators li.active {
+  width: 30px;
+  height: 5px;
+  margin-bottom: 1px;
+}
+
+
+/************** FLAGS **************/
+.flag {
+	background: url('../img/flags.png') no-repeat scroll -4px -621px;
+	height: 11px;
+	width: 16px;
+	display: inline-block;
+	margin: 0;
+	margin-right: 8px;
+}
+.flag-algeria { background-position: -116px -145px; }
+.flag-argentina { background-position: -256px -5px; }
+.flag-austria { background-position: -4px -33px; }
+.flag-belarus { background-position: -4px -89px; }
+.flag-belgium { background-position: -228px -33px; }
+.flag-bosnia-and-herzegovina { background-position: -144px -33px; }
+.flag-brazil { background-position: -172px -61px; }
+.flag-bulgaria { background-position: -284px -33px; }
+.flag-chile { background-position: -284px -89px; }
+.flag-columbia { background-position: -60px -117px  }
+.flag-costa-rica { background-position:  -88px -117px; }
+.flag-croatia { background-position: -172px -229px; }
+.flag-cyprus { background-position: -228px -117px; }
+.flag-czech-republic { background-position: -256px -117px; }
+.flag-denmark { background-position: -32px -145px; }
+.flag-england { background-position: -256px -145px; }
+.flag-estonia { background-position: -172px -145px; }
+.flag-europe { background-position: -228px -593px; }
+.flag-finland { background-position: -88px -173px ; }
+.flag-france { background-position: -228px -173px ; }
+.flag-macedonia { background-position: -116px -341px; }
+.flag-georgia { background-position: -32px -201px; }
+.flag-germany { background-position: -284px -117px; }
+.flag-greece { background-position: -256px -201px; }
+.flag-hungary { background-position: -228px -229px; }
+.flag-iceland { background-position: -144px -257px; }
+.flag-ireland { background-position: -284px -229px; }
+.flag-israel { background-position: -4px -257px ; }
+.flag-italy { background-position: -172px -257px ; }
+.flag-latvia { background-position: -228px -313px; }
+.flag-lithuania { background-position: -172px -313px; }
+.flag-malta { background-position: -60px -369px ; }
+.flag-mexico { background-position: -172px -369px; }
+.flag-moldova { background-position: -32px -341px; }
+.flag-montenegro { background-position: -32px -621px ; }
+.flag-netherlands { background-position: -116px -397px; }
+.flag-new-zealand { background-position: -256px -397px; }
+.flag-norway { background-position: -144px -397px; }
+.flag-paragway { background-position: -60px -453px; }
+.flag-peru { background-position: -32px -425px; }
+.flag-poland { background-position: -172px -425px; }
+.flag-portugal { background-position: -4px -453px; }
+.flag-qatar { background-position: -88px -453px; }
+.flag-romania { background-position: -116px -453px; }
+.flag-russia { background-position: -144px -453px; }
+.flag-saudi-arabia { background-position: -200px -453px; }
+.flag-scotland { background-position: -284px -453px ; }
+.flag-serbia { background-position: -284px -593px; }
+.flag-signapore { background-position: -60px -481px; }
+.flag-slovakia { background-position: -144px -481px; }
+.flag-slovenia { background-position: -116px -481px; }
+.flag-spain { background-position: -4px -173px; }
+.flag-sweden { background-position: -32px -481px; }
+.flag-switzerland { background-position: -200px -89px; }
+.flag-turkey { background-position: -116px -537px; }
+.flag-ukraine { background-position: -256px -537px; }
+.flag-uruguay { background-position: -60px -565px; }
+.flag-usa { background-position: -32px -565px; }
+.flag-venezuela { background-position: -172px -565px; }
+.flag-wales { background-position: -4px -593px; }
+
+
+/************** LOG IN **************/
+.logged-user {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+.logged-user img {
+	width: 30px;
+	display: inline;
+	margin-right: 10px;
+}

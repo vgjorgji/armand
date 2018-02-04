@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
   <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
   <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/client-site.css" type="text/css"/>
 
   <!-- font -->
   <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
@@ -21,7 +21,7 @@
   <!-- scripts -->
   <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
-  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <script type="text/javascript" src="../../../static/js/client-site.js"></script>
   <!--*/-->
 </head>
 <body>
@@ -38,9 +38,9 @@
            data-th-href="@{${feedItem.link.url}}">
           <img src="../../../static/img/stub/a6.jpg"
                data-th-if="${designComponent.feedItemLayout.media}"
-               data-th-replace="media :: Media(media=${feedItem.media})"/>
+               data-th-replace="tag/media :: Media(media=${feedItem.media})"/>
           <span data-th-if="${designComponent.feedItemLayout.categories}"
-                data-th-replace="categories :: Categories(categories=${feedItem.categories.models})">
+                data-th-replace="tag/categories :: Categories(categories=${feedItem.categories.models})">
             Category
           </span>
           <h3 class="cms-color-text" data-th-text="${{feedItem.title}}">
@@ -58,13 +58,13 @@
 
           <div class="col-md-12"
                data-th-if="${designComponent.feedItemLayout.link and not designComponent.feedItemLayout.hashTags}">
-            <a href="#" class="cms-button" data-th-replace="link :: Link(link=${feedItem.link})">Link</a>
+            <a href="#" class="cms-button" data-th-replace="tag/link :: Link(link=${feedItem.link})">Link</a>
           </div>
 
           <div class="col-md-12"
                data-th-if="${not designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
             <div class="tags"
-                 data-th-replace="hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
+                 data-th-replace="tag/hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
               <a href="#" class="label cms-color-text-background">
                 #hash_tags
               </a>
@@ -73,11 +73,11 @@
 
           <div data-th-if="${designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
             <div class="col-md-6">
-              <a href="#" class="cms-button" data-th-replace="link :: Link(link=${feedItem.link})">Link</a>
+              <a href="#" class="cms-button" data-th-replace="tag/link :: Link(link=${feedItem.link})">Link</a>
             </div>
             <div class="col-md-6">
               <div class="tags"
-                   data-th-replace="hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
+                   data-th-replace="tag/hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
                 <a href="#" class="label cms-color-text-background">
                   #hash_tags
                 </a>

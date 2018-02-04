@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../../static/css/bootstrap-3.3.7.min.css" type="text/css"/>
   <link rel="stylesheet" href="../../../static/css/bootstrap-theme-3.3.7.min.css" type="text/css"/>
   <link rel="stylesheet" href="../../../static/css/fontawesome.min.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../static/css/site.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../static/css/client-site.css" type="text/css"/>
 
   <!-- font -->
   <link rel="stylesheet" href="../../../static/css/font-ptsansnarrow.css" type="text/css"/>
@@ -21,7 +21,7 @@
   <!-- scripts -->
   <script type="text/javascript" src="../../../static/js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="../../../static/js/bootstrap-3.3.7.min.js"></script>
-  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <script type="text/javascript" src="../../../static/js/client-site.js"></script>
   <!--*/-->
 </head>
 <body>
@@ -40,7 +40,7 @@
               data-th-class="${not #lists.isEmpty(mainNavItem.navItems)} ? 'dropdown auto-expand' : ''">
 
             <a href="#"
-               data-th-replace="link :: LinkNormal(link=${mainNavItem.link}, showCaret=${not #lists.isEmpty(mainNavItem.navItems)})">
+               data-th-replace="tag/link :: LinkNormal(link=${mainNavItem.link}, showCaret=${not #lists.isEmpty(mainNavItem.navItems)})">
               Normal Link
             </a>
             <ul class="dropdown-menu" role="menu" data-th-if="${not #lists.isEmpty(mainNavItem.navItems)}">
@@ -49,14 +49,14 @@
                   data-th-each="navItem : ${mainNavItem.navItems}"
                   data-th-class="${not #lists.isEmpty(navItem.subNavItems)} ? 'dropdown-submenu' : ''">
 
-                <a href="#" data-th-replace="link :: LinkNormal(link=${navItem.link}, showCaret=false)">
+                <a href="#" data-th-replace="tag/link :: LinkNormal(link=${navItem.link}, showCaret=false)">
                   Normal Link
                 </a>
                 <ul class="dropdown-menu submenu" role="menu"
                     data-th-if="${not #lists.isEmpty(navItem.subNavItems)}">
 
                   <li data-th-each="subNavItem : ${navItem.subNavItems}">
-                    <a href="#" data-th-replace="link :: LinkNormal(link=${subNavItem.link}, showCaret=false)">
+                    <a href="#" data-th-replace="tag/link :: LinkNormal(link=${subNavItem.link}, showCaret=false)">
                       Normal Link
                     </a>
                   </li>
