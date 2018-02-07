@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="base-app :: common_header(~{::title}, ~{}, ~{::style}, ~{})">
+    <title>Challenge</title>
+    <style>
+      body {
+        font-family: Verdana, sans-serif;
+        font-size: 15px;
+      }
+
+      .data {
+        font-weight: bold;
+      }
+
+      .label {
+        padding-right: 20px;
+        vertical-align: bottom;
+        text-align: right;
+      }
+
+      .error {
+        color: red;
+        font-size: smaller;
+        margin-top: 4px;
+        margin-bottom: 4px;
+      }
+
+      .header {
+        overflow:auto;
+        position:relative;
+        max-height:100px;
+      }
+    </style>
+  </head>
+  <body th:replace="base-app :: common_body(~{:: div#header}, ~{:: #mainContent}, ~{})">
+
+    <div id="header" style="overflow:auto; position:relative; max-height:100px;">
+      <img data-th-src="@{create_data(resource='issuer_logo')}" style="float: left; max-width: 45%; max-height: 90px;"  alt="Netcetera">
+      <img data-th-src="@{create_data(resource='ps_logo')}" style="float: right; max-width: 45%; max-height: 90px;" alt="Mastercard">
+    </div>
+
+    <th:block id="mainContent">
+      <h2 data-th-text="#{title}">Some title that will be replaced by Thymeleaf</h2>
+      <p data-th-text="#{otp.text1}">A text message has been sent to your registered device that contains a code to authenticate yourself as the cardholder.</p>
+      <p data-th-text="#{otp.text2a}">You are paying:</p>
+      <table data-th-with="format=#{time.format}">
+        <tr>
+          <td class="label" data-th-text="#{otp.table.merchant}">Merchant</td>
+          <td data-th-text="${merchantName}" class="data">ABC</td>
+        </tr>
+        <tr>
+          <td class="label" data-th-text="#{otp.table.amount}">Amount</td>
+          <td data-th-text="|${purchaseCurrency} ${purchaseAmount}|" class="data">CHF 13.50</td>
+        </tr>
+        <tr>
+          <td class="label" data-th-text="#{otp.table.date}">Date</td>
+          <td data-th-text="${#temporals.format(purchaseDate, format)}" class="data">2017-07-03 23:15</td>
+        </tr>
+        <tr>
+          <td class="label"><label for="first" data-th-text="#{mTAN-SQ.tan-label}">TAN</label></td>
+          <td>
+            <p class="error" data-th-if="${wrongCode}" data-th-text="#{otp.wrongCode}">Wrong code entered.</p>
+            <input id="first" name="tan" type="text" maxlength="10" value=""/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label"><label for="second" data-th-text="${securityquestion}">My birthplace?</label></td>
+          <td>
+            <p class="error" data-th-if="${wrongSecurityQuestionAnswer}" data-th-text="#{mTAN-SQ.wrongSecurityQuestionAnswer}">Wrong answer</p>
+            <input id="second" name="answer" type="text" maxlength="20" value=""/>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" data-th-value="#{otp.submitButton}" value="submit"/>
+      <br>
+      <p style="color: red;" data-th-if="${codeSentAgain}" data-th-text="#{otp.codeSentAgain}">Code has been sent again.</p>
+      <input type="submit" data-th-name="${resend}" data-th-value="#{otp.resendButton}" data-th-disabled="${#bools.isTrue(disableResend)}" value="resend"/>
+      <input type="submit" data-th-name="${cancel}" data-th-value="#{otp.cancelButton}" value="cancel"/>
+    </th:block>
+
+  </body>
+</html>

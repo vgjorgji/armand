@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="common_header(title, links, inlineCss, inlineJs)">
+
+    <meta charset="UTF-8"/>
+    <title th:replace="${title}">Base Page</title>
+    <!-- Common styles and scripts -->
+    <!--/* Per-page placeholder for additional links */-->
+    <th:block th:replace="${links}" />
+    <th:block th:replace="${inlineCss}" />
+    <th:block th:replace="${inlineJs}" />
+
+  </head>
+
+  <body th:fragment="common_body(header, mainContent, footer)">
+
+    <th:block th:replace="${header}" />
+    <form id="mainForm" method="post" data-th-action="${__${T(com.netcetera.ncacs.domain.service.template.ContextVariableKey).FORM_ACTION}__}">
+
+      <th:block th:replace="${mainContent}" />
+
+    </form>
+    <th:block th:replace="${footer}" />
+
+  </body>
+
+</html>
