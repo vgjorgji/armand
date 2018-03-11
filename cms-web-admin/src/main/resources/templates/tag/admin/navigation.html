@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Admin-Navigation(select)"
+     class="sidebar">
+	<ul class="nav nav-sidebar">
+		<li data-th-class="${select eq 'dashboard' ? 'active' : _}">
+			<a href="#" data-th-href="@{/admin/dashboard}"><i class="fa fa-desktop"></i>Dashboard</a>
+		</li>
+		<li data-th-class="${select eq 'users' ? 'active' : _}">
+			<a href="#" data-th-href="@{/admin/users}"><i class="fa fa-user"></i>Users</a>
+		</li>
+		<li data-th-class="${select eq 'companies' ? 'active' : _}">
+			<a href="#" data-th-href="@{/admin/companies}"><i class="fa fa-building"></i>Companies</a>
+		</li>
+		<li data-th-class="${select eq 'websites' ? 'active' : _}">
+			<a href="#" data-th-href="@{/admin/websites}"><i class="fa fa-globe"></i>Websites</a>
+		</li>
+		<li data-th-class="${select eq 'websites-groups' ? 'active' : _}">
+			<a href="#" data-th-href="@{/admin/websites-groups}"><i class="fa fa-users"></i>Groups</a>
+		</li>
+	</ul>
+	<h3>TOOLS</h3>
+	<ul class="nav nav-sidebar">
+		<li>
+			<a href="#">
+				<i class="fa fa-bar-chart"></i>
+				Analytics
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<i class="fa fa-file"></i>
+				Export
+			</a>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

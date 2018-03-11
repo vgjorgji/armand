@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Table-Tree(pageUrl)">
+  <!-- ./table-controls -->
+  <div data-th-replace="tag/table/paging_top :: Table-PagingTop(pageUrl=${pageUrl}, showButtonAdd=false)">Paging Top</div>
+
+  <!-- tree -->
+  <table class="tree table-hover">
+    <tbody>
+    {{#paging.fetch.models}}
+    <tr class="tree-lvl-1" id="main-node-{{id}}">
+      <td class="title">
+        {{title}}
+      </td>
+      <td class="icon">
+        {{#icon}}
+        <i class="{{cssClass}}"></i>
+        {{/icon}}
+      </td>
+      <td class="id">
+        <small>{{id}}</small>
+      </td>
+      <td class="control">&nbsp;</td>
+      <td class="control">&nbsp;</td>
+      <td class="control">
+        <a href="#" class="text-success"
+           id="main-node-{{id}}-add"
+           data-url="/tree/node/{{id}}/add"
+           data-method="GET"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-scroll="#node"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{id}}/add'">
+          <i class="fa fa-plus"></i>
+        </a>
+      </td>
+    </tr>
+    {{#nodes}}
+    <tr class="tree-lvl-2" id="node-{{id}}">
+      <td class="title">
+        {{title}}
+      </td>
+      <td class="icon">
+        {{#icon}}
+        <i class="{{cssClass}}"></i>
+        {{/icon}}
+      </td>
+      <td class="id">
+        <small>{{id}}</small>
+      </td>
+      <td class="control">
+        <a href="#" class="text-warning"
+           id="node-{{id}}-edit"
+           data-url="/tree/node/{{../id}}/{{id}}/edit"
+           data-method="GET"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-scroll="#node"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{../id}}/{{id}}/edit'">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </td>
+      <td class="control">
+        <a href="#" class="text-danger"
+           id="node-{{id}}-delete"
+           data-url="${pageUrl}/tree/node/{{../id}}/{{id}}/delete"
+           data-method="POST"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{../id}}/{{id}}/delete'">
+          <i class="fa fa-times"></i>
+        </a>
+      </td>
+      <td class="control">
+        <a href="#" class="text-success"
+           id="node-{{id}}-add"
+           data-url="/tree/node/{{../id}}/{{id}}/add"
+           data-method="GET"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-scroll="#sub-node"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{../id}}/{{id}}/add'">
+          <i class="fa fa-plus"></i>
+        </a>
+      </td>
+    </tr>
+    {{#subNodes}}
+    <tr class="tree-lvl-3" id="sub-node-{{id}}">
+      <td class="title">
+        {{title}}
+      </td>
+      <td class="icon">
+        {{#icon}}
+        <i class="{{cssClass}}"></i>
+        {{/icon}}
+      </td>
+      <td class="id">
+        <small>{{id}}</small>
+      </td>
+      <td class="control">
+        <a href="#" class="text-warning"
+           id="sub-node-{{id}}-edit"
+           data-url="/tree/node/{{../../id}}/{{../id}}/{{id}}/edit"
+           data-method="GET"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-scroll="#sub-node"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{../../id}}/{{../id}}/{{id}}/edit'">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </td>
+      <td class="control">
+        <a href="#" class="text-danger"
+           id="sub-node-{{id}}-delete"
+           data-url="/tree/node/{{../../id}}/{{../id}}/{{id}}/delete"
+           data-method="POST"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{../../id}}/{{../id}}/{{id}}/delete'">
+          <i class="fa fa-times"></i>
+        </a>
+      </td>
+      <td class="control">
+        &nbsp;
+      </td>
+    </tr>
+    {{/subNodes}}
+    {{/nodes}}
+    {{/paging.fetch.models}}
+    </tbody>
+  </table> <!-- ./tree -->
+
+  <!-- /.table-controls -->
+  <div data-th-replace="tag/table/paging_bottom :: Table-PagingBottom(pageUrl=${pageUrl})">Paging Bottom</div>
+</div>
+
+</body>
+</html>

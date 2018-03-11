@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Form-Input(id, field, group, label, type, labelClass, controlClass)"
+     class="form-group">
+  <label class="col-md-3 control-label"
+         for="id"
+         data-th-class="'col-md-' + ${labelClass == null ? '3' : labelClass} + ' control-label'"
+         data-th-for="${id}"
+         data-th-text="${label}">
+    Label
+  </label>
+  <div class="col-md-6"
+       data-th-class="'col-md-' + ${controlClass == null ? '6' : controlClass}">
+    <input type="text"
+           class="form-control"
+           id="id"
+           placeholder="Label"
+           data-group="Group"
+           data-field="true"
+           value="Value"
+           data-th-id="${id}"
+           data-th-placeholder="${label}"
+           data-th-type="${type}"
+           data-th-attr="data-group=${group}"
+           data-th-value="'{{' + ${field} + '}}'">
+  </div>
+</div>
+
+</body>
+</html>

@@ -110,7 +110,7 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
     response.fragmentNode().hide();
     response.fragmentSubNode().data()
         .add("allUsers", allUsers.getModels())
-        .add("allLanguages", Language.values())
+        .add("languages", Language.values())
         .add("powerGroups", PowerGroup.values())
         .add("websiteUser", websiteUser);
     return response;
@@ -129,7 +129,7 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
     response.fragmentNode().hide();
     response.fragmentSubNode().data()
         .add("allUsers", allUsers.getModels())
-        .add("allLanguages", Language.values())
+        .add("languages", Language.values())
         .add("powerGroups", PowerGroup.values())
         .add("websiteUser", websiteUser);
     return response;
@@ -178,7 +178,7 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
   protected SubNode createSubNode(WebsiteUser subNodeModel) {
     SubNode subNode = new SubNode();
     subNode.setId(subNodeModel.getId());
-    subNode.setTitle(subNodeModel.getPowerGroup().name());
+    subNode.setTitle("Power Group: " + subNodeModel.getPowerGroup().name() + ", User: " + subNodeModel.getUserId());
     return subNode;
   }
 

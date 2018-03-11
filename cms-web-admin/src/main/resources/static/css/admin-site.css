@@ -67,7 +67,9 @@ a:focus {
 	color: #ccc !important;
 }
 .ajax-loader {
-	background-image: url("../../static/img/ajax-loader.gif");
+	background-image: url("../img/ajax-loader.gif");
+	background-repeat: no-repeat;
+	background-position: center;
 	display: inline-block;
 	width: 28px;
 	height: 28px;
@@ -100,10 +102,6 @@ a:focus {
 
 
 /************** LOG IN **************/
-.logged-user {
-	padding-top: 10px !important;
-	padding-bottom: 10px !important;
-}
 .logged-user img {
 	width: 30px;
 	display: inline;
@@ -146,7 +144,6 @@ a:focus {
 .sidebar {
 	padding: 20px;
 	display: block;
-	background-color: #444;
 	position: relative;
     top: -20px;
 }
@@ -184,7 +181,7 @@ a:focus {
 	margin-bottom: 0;
 }
 .nav-sidebar>li>a {
-	color: #fff;
+	color: #555;
 	padding: 10px 20px;
 	padding-left: 20px;
 	font-size: 12px;
@@ -213,7 +210,7 @@ a:focus {
 	font-size: 14px;
 }
 .nav-sidebar .nav-sidebar-sub>li>a {
-	color: #fff;
+	color: #555;
 	padding: 6px 30px;
 }
 
@@ -221,6 +218,7 @@ a:focus {
 /************** SIDE BAR COLORING **************/
 .sidebar.design .nav-sidebar>li.active>a  {
 	background-color: #8e44ad;
+	color: #fff;
 }
 .sidebar.content .nav-sidebar>li.active>a {
 	background-color: #27ae60;

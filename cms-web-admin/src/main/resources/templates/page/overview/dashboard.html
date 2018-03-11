@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html data-th-replace="layout/main :: Main-Layout(title='Dashboard',
+																									pageTitle='Dashboard',
+																									selectGlobal='Overview',
+																									selectSide='dashboard',
+																									selectSideSub=_,
+																									loadUrl=@{/overview/dashboard/load},
+																									fragmentMain=~{:: div#fragmentMain})">
+<body>
+
+<div id="fragmentMain" class="row placeholders">
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <h4>Label</h4>
+    <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <h4>Label</h4>
+    <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <h4>Label</h4>
+    <span class="text-muted">Something else</span>
+  </div>
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <h4>Label</h4>
+    <span class="text-muted">Something else</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Website-Navigation(select, selectSub)"
+     data-th-class="'sidebar ' + ${select}"
+     class="sidebar dashboard">
+  <ul class="nav nav-sidebar">
+    <li data-th-class="${select == 'dashboard' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/dashboard'">
+        <i class="fa fa-desktop"></i>
+        Dashboard
+      </a>
+    </li>
+    <li data-th-class="${select == 'admin' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/admin'">
+        <i class="fa fa-user-secret"></i>
+        Admin
+      </a>
+      <div data-th-if="${select == 'admin'}">
+        <ul data-th-replace="tag/website/navigation_admin :: Website-NavigationAdmin(select=${selectSub})">Sub Menu</ul>
+      </div>
+    </li>
+    <li data-th-class="${select == 'design' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design'">
+        <i class="fa fa-paint-brush"></i>
+        Design
+      </a>
+      <div data-th-if="${select == 'design'}">
+        <ul data-th-replace="tag/website/navigation_design :: Website-NavigationDesign(select=${selectSub})">Sub Menu</ul>
+      </div>
+    </li>
+    <li data-th-class="${select == 'design-review' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design-review'">
+        <i class="fa fa-delicious"></i>
+        Design Review
+      </a>
+    </li>
+    <li data-th-class="${select == 'content' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/content'">
+        <i class="fa fa-pencil-square-o"></i>
+        Content
+      </a>
+    </li>
+    <li data-th-class="${select == 'content-review' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/content-review'">
+        <i class="fa fa-magic"></i>
+        Content Review
+      </a>
+    </li>
+    <li data-th-class="${select == 'publish' ? 'active' : _}">
+      <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/publish'">
+        <i class="fa fa-globe"></i>
+        Publish
+      </a>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>

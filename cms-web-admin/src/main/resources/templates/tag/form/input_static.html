@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Form-InputStatic(id, field, group, label, labelClass, controlClass)"
+     class="form-group">
+  <label class="col-md-3 control-label"
+         for="id"
+         data-th-class="'col-md-' + ${labelClass == null ? '3' : labelClass} + ' control-label'"
+         data-th-for="${id}"
+         data-th-text="${label}">
+    Label
+  </label>
+  <div class="col-md-6"
+       data-th-class="'col-md-' + ${controlClass == null ? '6' : controlClass}">
+    <p class="form-control-static fake-input"
+       id="id"
+       data-group="Group"
+       data-field="true"
+       data-th-id="${id}"
+       data-th-attr="data-group=${group}"
+       data-th-text="'{{' + ${field} + '}}'">
+      Field
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

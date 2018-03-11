@@ -23,7 +23,7 @@ public class LoginController {
     if (!userSettings.isVisitor()) {
       return "redirect:" + START_PAGE;
     }
-    return "login";
+    return "page/login";
   }
 
   @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -34,7 +34,7 @@ public class LoginController {
   @RequestMapping(value = AdminSecurityConfiguration.LOGOUT_PAGE_URL)
   public String logout(HttpServletRequest request) throws ServletException {
     request.logout();
-    return "login";
+    return "page/login";
   }
 
 }

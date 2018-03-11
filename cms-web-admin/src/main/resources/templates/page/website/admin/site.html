@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html data-th-replace="layout/main :: Main-Layout(title='Website | Admin | Website',
+																									pageTitle='Website',
+																									selectGlobal='Website',
+																									selectSide='admin',
+																									selectSideSub='site',
+																									loadUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/admin/site/load',
+																									fragmentMain=~{:: div#fragmentMain})">
+<body>
+
+<!-- Actions -->
+<div id="fragmentMain" class="row">
+  <div class="col-md-12">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{#website}}
+        <form class="form-horizontal">
+          <div data-th-replace="tag/form/hidden :: Form-Hidden(id='id', field='id', group='website')">ID</div>
+          <div data-th-replace="tag/form/select :: Form-Select(id='companyId', field='companyId', group='website',
+                                                               options='../allCompanies', optionValue='id', optionText='name',
+                                                               label='Company',
+                                                               fieldValues=null, labelClass=null, controlClass=null, multi=_)">Company</div>
+          <div data-th-replace="tag/form/input :: Form-Input(id='name', field='name', group='website', label='Name',
+                                                             type=_, labelClass=null, controlClass=null)">Name</div>
+          <div data-th-replace="tag/form/input :: Form-Input(id='baseUrl', field='baseUrl', group='website', label='Base URL',
+                                                             type=_, labelClass=null, controlClass=null)">BaseUrl</div>
+          <div data-th-replace="tag/form/select :: Form-Select(id='cmsPackage', field='cmsPackage.id', group='website',
+                                                               options='../cmsPackages', optionValue='id',
+                                                               label='CMS Package',
+                                                               fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">CMS Package</div>
+          <div data-th-replace="tag/form/select :: Form-Select(id='languages', field='languages', fieldValues='id', group='website',
+                                                               options='../languages', optionValue='id', multi=true,
+                                                               label='Languages',
+                                                               optionText=null, labelClass=null, controlClass=null)">Languages</div>
+          <div data-th-replace="tag/form/select :: Form-Select(id='status', field='status.id', group='website',
+                                                               options='../statuses', optionValue='id',
+                                                               label='Status',
+                                                               fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">Status</div>
+          <div data-th-replace="tag/form/input :: Form-Input(id='expiryDate', field='expiryDate', group='website', label='Expiry Date',
+                                                             type=_, labelClass=null, controlClass=null)">Expiry Date</div>
+          <div data-th-replace="tag/form/buttons :: Form-Buttons(group='website',
+                                                                 cancelUrl=null, cancelScroll=_,
+                                                                 resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/admin/site/load', resetScroll=_,
+                                                                 saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/admin/site/save', saveScroll=_,
+                                                                 deleteUrl=null, deleteScroll=_,
+                                                                 spinnerLocation=null)">Buttons</div>
+        </form>
+        {{/website}}
+      </div>
+    </div> <!-- /.panel -->
+
+  </div> <!-- /.col-md-12 -->
+</div><!-- /.row -->
+
+</body>
+</html>

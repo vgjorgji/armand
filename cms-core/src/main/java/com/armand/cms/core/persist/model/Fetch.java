@@ -18,7 +18,7 @@ public class Fetch<T> {
 
   public Fetch(int initialCapacity) {
     idsMap = new LinkedHashMap<>(initialCapacity);
-    models = new ArrayList<>();
+    models = new ArrayList<>(initialCapacity);
   }
 
   public boolean hasId(Long id) {

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input data-th-fragment="Form-Hidden(id, field, group)"
+       type="hidden"
+       id="id"
+       data-group="Group"
+       data-field="true"
+       value="Field"
+       data-th-id="${id}"
+       data-th-attr="data-group=${group}"
+       data-th-value="'{{' + ${field} + '}}'"/>
+
+</body>
+</html>

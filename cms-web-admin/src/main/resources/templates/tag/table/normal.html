@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Table-Normal(pageUrl, headers, fields, rowCssClass)">
+  <!-- ./table-controls -->
+  <div data-th-replace="tag/table/paging_top :: Table-PagingTop(pageUrl=${pageUrl}, showButtonAdd=true)">Paging Top</div>
+
+  <!-- table -->
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th data-th-each="token : ${#strings.listSplit(headers,',')}" data-th-text="${token}">Header 1</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#paging.fetch.models}}
+      <tr id="table-row-{{id}}" data-th-class="${rowCssClass}">
+        <td>
+          <small>{{id}}</small>
+        </td>
+        <td data-th-each="token : ${#strings.listSplit(fields,',')}" data-th-text="'{{' + ${token} + '}}'">Fields 1</td>
+        <td>
+          <a id="table-edit-{{id}}" href="#"
+             data-url="/edit/{{id}}"
+             data-method="GET"
+             data-spinner="true"
+             data-spinner-location="#table-ajax"
+             data-scroll="#details"
+             data-th-attr="data-url=${pageUrl} + '/edit/{{id}}'">
+            Edit
+          </a>
+        </td>
+      </tr>
+      {{/paging.fetch.models}}
+      {{^paging.fetch.models}}
+      <tr>
+        <td colspan="3">No entries.</td>
+      </tr>
+      {{/paging.fetch.models}}
+      </tbody>
+    </table>
+  </div> <!-- ./table-responsive -->
+
+  <!-- /.table-controls -->
+  <div data-th-replace="tag/table/paging_bottom :: Table-PagingBottom(pageUrl=${pageUrl})">Paging Bottom</div>
+</div>
+
+</body>
+</html>

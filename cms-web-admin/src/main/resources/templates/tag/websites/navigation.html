@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Websites-Navigation(select)"
+     class="sidebar">
+  <ul class="nav nav-sidebar last">
+    <li data-th-class="${select eq 'dashboard' ? 'active' : _}">
+      <a href="#" data-th-href="@{/websites/dashboard}"><i class="fa fa-desktop"></i>Dashboard</a>
+    </li>
+    <li>
+      <a href="#"><i class="fa fa-table"></i>Reports</a>
+    </li>
+    <li>
+      <a href="#"><i class="fa fa-bar-chart"></i>Analytics</a>
+    </li>
+    <li>
+      <a href="#"><i class="fa fa-file"></i>Export</a>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>

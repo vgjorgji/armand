@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<ul data-th-fragment="Website-NavigationAdmin(select)"
+    class="nav nav-sidebar-sub">
+  <li>
+    <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/admin/site'">
+      <i class="fa fa-long-arrow-right"
+         data-th-class="'fa ' + ${select eq 'site' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
+      Website
+    </a>
+  </li>
+  <li>
+    <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/admin/users'">
+      <i class="fa fa-blank"
+         data-th-class="'fa ' + ${select eq 'users' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
+      Users
+    </a>
+  </li>
+</ul>
+
+</body>
+</html>

@@ -144,6 +144,20 @@ img {
 
 
 /************** LOG IN **************/
+.login {
+  width: 350px;
+  color: #777;
+  font-family: monospace;
+}
+.login h2 {
+  margin: 40px 0;
+}
+.login .errors {
+  margin: 40px 0;
+}
+
+
+/************** LOGGED USER **************/
 .logged-user {
 	padding-top: 10px !important;
 	padding-bottom: 10px !important;

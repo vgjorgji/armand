@@ -1,5 +1,7 @@
 package com.armand.cms.web.admin.model;
 
+import org.springframework.util.StringUtils;
+
 import lombok.Getter;
 
 @Getter
@@ -18,9 +20,9 @@ public enum Page {
   WebsiteDashboard(PageConst.WebsiteDashboard, "/website/dashboard"),
   WebsiteAdmin(PageConst.WebsiteAdmin, "/website/admin"),
   WebsiteDesign(PageConst.WebsiteDesign, "/website/design"),
-  WebsiteDesignReview(PageConst.WebsiteDesignPreview, "/website/design-review"),
+  WebsiteDesignReview(PageConst.WebsiteDesignPreview, "/website/design_review"),
   WebsiteContent(PageConst.WebsiteContent, "/website/content"),
-  WebsiteContentReview(PageConst.WebsiteContentReview, "/website/content-review"),
+  WebsiteContentReview(PageConst.WebsiteContentReview, "/website/content_review"),
 
   WebsiteAdminSite(PageConst.WebsiteAdminSite, "/website/admin/site"),
   WebsiteAdminUsers(PageConst.WebsiteAdminUsers, "/website/admin/users"),
@@ -39,7 +41,7 @@ public enum Page {
 
   Page(String url, String view) {
     this.url = url;
-    this.view = "page/" + view;
+    this.view = "page" + StringUtils.replace(view, "-", "_");
   }
 
 }

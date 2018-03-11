@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form data-th-fragment="Table-PagingTop(pageUrl, showButtonAdd)"
+      class="table-controls">
+  <div class="table-search">
+    <div class="input-group">
+      <input id="table-query"
+             type="text"
+             class="form-control"
+             value="{{paging.query}}"
+             data-group="paging"
+             data-field="true"
+             placeholder="Search">
+      <span class="input-group-btn">
+				<button id="table-search"
+                class="btn btn-default"
+                type="submit"
+                data-url="/paging/search"
+                data-method="GET"
+                data-group="paging"
+                data-prefix="table-"
+                data-json="true"
+                data-spinner="true"
+                data-spinner-location="#table-ajax"
+                data-th-attr="data-url=${pageUrl} + '/paging/search'">
+					Go
+				</button>
+				<button id="table-reset"
+                class="btn btn-default"
+                data-url="/paging/reset"
+                data-method="GET"
+                data-spinner="true"
+                data-spinner-location="#table-ajax"
+                data-th-attr="data-url=${pageUrl} + '/paging/reset'">
+					Reset
+				</button>
+			</span>
+    </div>
+  </div>
+  <div class="table-size">
+    <select id="table-size"
+            class="form-control"
+            data-url="/paging/search"
+            data-method="GET"
+            data-group="paging"
+            data-prefix="table-"
+            data-json="true"
+            data-field="true"
+            data-spinner="true"
+            data-spinner-location="#table-ajax"
+            data-selected="{{paging.size}}"
+            data-th-attr="data-url=${pageUrl} + '/paging/search'">
+      {{#paging.sizes}}
+      <option>{{.}}</option>
+      {{/paging.sizes}}
+    </select>
+  </div>
+  <div class="table-ajax">
+    <i id="table-ajax"></i>
+  </div>
+  <div data-th-if="${showButtonAdd}"
+       class="pull-right">
+    <button id="table-add"
+            class="btn btn-success"
+            data-url="/add"
+            data-method="GET"
+            data-spinner="true"
+            data-spinner-location="#table-ajax"
+            data-scroll="#details"
+            data-th-attr="data-url=${pageUrl} + '/add'">
+      <i class="fa fa-plus"></i>Add
+    </button>
+  </div>
+</form>

@@ -64,9 +64,9 @@
           <div class="col-md-12"
                data-th-if="${not designComponent.feedItemLayout.link and designComponent.feedItemLayout.hashTags}">
             <div class="tags"
-                 data-th-replace="tag/hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
+                 data-th-replace="tag/hashes :: HashTags(hashTags=${feedItem.hashTags})">
               <a href="#" class="label cms-color-text-background">
-                #hash_tags
+                #hashes
               </a>
             </div>
           </div>
@@ -77,9 +77,9 @@
             </div>
             <div class="col-md-6">
               <div class="tags"
-                   data-th-replace="tag/hash_tags :: HashTags(hashTags=${feedItem.hashTags})">
+                   data-th-replace="tag/hashes :: HashTags(hashTags=${feedItem.hashTags})">
                 <a href="#" class="label cms-color-text-background">
-                  #hash_tags
+                  #hashes
                 </a>
               </div>
             </div>
@@ -136,7 +136,7 @@
           <div class="col-md-6">
             <div class="tags">
               <a href="#" class="label cms-color-text-background">
-                #hash_tags
+                #hashes
               </a>
             </div>
           </div>

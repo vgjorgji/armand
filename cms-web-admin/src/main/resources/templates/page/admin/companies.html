@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html data-th-replace="layout/details :: Details-Layout(title='Administration | Companies',
+																												pageTitle='Companies',
+																												selectGlobal='Admin',
+																												selectSide='companies',
+																												selectSideSub=_,
+																												loadUrl=@{/admin/companies/load},
+																												fragmentMain=~{:: div#fragmentMain},
+																												fragmentDetails=~{:: div#fragmentDetails})">
+<body>
+
+<div id="fragmentMain" class="panel panel-default">
+  <div class="panel-body">
+    <div data-th-replace="tag/table/normal :: Table-Normal(pageUrl=@{/admin/companies},
+                                                           headers='Contact User,Name,Address 2,Phone 1,Email',
+                                                           fields='contactUserId,name,address2,phone1,email',
+                                                           rowCssClass=_)">
+      Normal Table
+    </div>
+  </div>
+</div> <!-- /.panel -->
+
+<div id="fragmentDetails" class="panel panel-default">
+  <div class="panel-body">
+    {{#company}}
+    <form class="form-horizontal">
+      <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='id', field='id', group='company', label='ID',
+                                                                      labelClass=null, controlClass=null)">ID</div>
+      <div data-th-replace="tag/form/select :: Form-Select(id='contactUserId', field='contactUserId', group='company',
+                                                           options='../allUsers', optionValue='id', optionText='fullName',
+                                                           label='Contact User',
+                                                           fieldValues=null, labelClass=null, controlClass=null, multi=_)">Contact User</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='name', field='name', group='company', label='Name',
+                                                         type=_, labelClass=null, controlClass=null)">Name</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='address1', field='address1', group='company', label='Address 1',
+                                                         type=_, labelClass=null, controlClass=null)">Address 1</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='address2', field='address2', group='company', label='Address 2',
+                                                         type=_, labelClass=null, controlClass=null)">Address 2</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='phone1', field='phone1', group='company', label='Phone 1',
+                                                         type=_, labelClass=null, controlClass=null)">Phone 1</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='phone2', field='phone2', group='company', label='Phone 2',
+                                                         type=_, labelClass=null, controlClass=null)">Phone 2</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='email', field='email', group='company', label='Email', type='email',
+                                                         labelClass=null, controlClass=null)">Email</div>
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='company',
+                                                             cancelUrl=@{/admin/companies/cancel}, cancelScroll='#main',
+                                                             resetUrl=@{/admin/companies/edit/} + '{{id}}', resetScroll=_,
+                                                             saveUrl=@{/admin/companies/save}, saveScroll='#main',
+                                                             deleteUrl=@{/admin/companies/delete/} + '{{id}}', deleteScroll='#main',
+                                                             spinnerLocation=null)">Buttons</div>
+    </form>
+    {{/company}}
+  </div>
+</div> <!-- /.panel -->
+
+</body>
+</html>

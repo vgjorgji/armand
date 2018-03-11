@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html data-th-replace="layout/details :: Details-Layout(title='Administration | Users',
+																												pageTitle='Users',
+																												selectGlobal='Admin',
+																												selectSide='users',
+																												selectSideSub=_,
+																												loadUrl=@{/admin/users/load},
+																												fragmentMain=~{:: div#fragmentMain},
+																												fragmentDetails=~{:: div#fragmentDetails})">
+<body>
+
+<div id="fragmentMain" class="panel panel-default">
+  <div class="panel-body">
+
+    <div data-th-replace="tag/table/normal :: Table-Normal(pageUrl=@{/admin/users},
+                                                           headers='Username,First Name,Last Name,Email,Phone,Language',
+                                                           fields='username,firstName,lastName,email,phone,language.id',
+                                                           rowCssClass='{{^enabled}}disabled{{/enabled}} {{#master}}text-danger text-bold{{/master}}')">
+      Normal Table
+    </div>
+
+  </div>
+</div> <!-- /.panel -->
+
+<div id="fragmentDetails" class="panel panel-default">
+  <div class="panel-body">
+    {{#user}}
+    <form class="form-horizontal">
+      <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='id', field='id', group='user', label='ID',
+                                                                      labelClass=null, controlClass=null)">ID</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='username', field='username', group='user', label='Username',
+                                                         type=_, labelClass=null, controlClass=null)">Username</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='password', field='password', group='user', label='Password', type='password',
+                                                         labelClass=null, controlClass=null)">Password</div>
+      <div data-th-replace="tag/form/checkbox :: Form-Checkbox(id='enabled', field='enabled', group='user', label='Enabled',
+                                                               labelClass=null, controlClass=null)">Enabled</div>
+      <div data-th-replace="tag/form/checkbox :: Form-Checkbox(id='master', field='master', group='user', label='Master',
+                                                               labelClass=null, controlClass=null)">Master</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='firstName', field='firstName', group='user', label='First Name',
+                                                         type=_, labelClass=null, controlClass=null)">First Name</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='lastName', field='lastName', group='user', label='Last Name',
+                                                         type=_, labelClass=null, controlClass=null)">Last Name</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='email', field='email', group='company', label='Email', type='email',
+                                                         labelClass=null, controlClass=null)">Email</div>
+      <div data-th-replace="tag/form/input :: Form-Input(id='phone', field='phone', group='user', label='Phone',
+                                                         type=_, labelClass=null, controlClass=null)">Phone</div>
+      <div data-th-replace="tag/form/select :: Form-Select(id='language', field='language.id', group='user',
+                                                           options='../languages', optionValue='id',
+                                                           label='Language',
+                                                           fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">Language</div>
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='user',
+                                                             cancelUrl=@{/admin/users/cancel}, cancelScroll='#main',
+                                                             resetUrl=@{/admin/users/edit/} + '{{id}}', resetScroll=_,
+                                                             saveUrl=@{/admin/users/save}, saveScroll='#main',
+                                                             deleteUrl=@{/admin/users/delete/} + '{{id}}', deleteScroll='#main',
+                                                             spinnerLocation=null)">Buttons</div>
+    </form>
+    {{/user}}
+  </div>
+</div> <!-- /.panel -->
+
+</body>
+</html>

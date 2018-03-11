@@ -42,7 +42,7 @@ public class AdminSiteController {
         .add("website", website)
         .add("allCompanies", allCompaniesFetch.getModels())
         .add("cmsPackages", CmsPackage.values())
-        .add("allLanguages", Language.values())
+        .add("languages", Language.values())
         .add("statuses", WebsiteStatus.values());
     return response;
   }
