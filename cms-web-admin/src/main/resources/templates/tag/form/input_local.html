@@ -23,13 +23,13 @@
        data-array="true"
        data-th-class="'col-md-' + ${controlClass == null ? '6' : controlClass}">
     {{#[[${field}]].texts}}
-    <div class="row"
+    <div class="row local-text"
          data-group="texts"
          data-field="true"
          data-sub-groups="localText">
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-1">
+          <div class="col-md-1 text-right">
             <i class="{{language.cssClass}}"
                data-group="localText"
                data-id="language"

@@ -433,6 +433,12 @@ a:focus {
 }
 
 
+/************** LOCAL TEXT **************/
+.local-text {
+	margin-bottom: 3px;
+}
+
+
 /************** PAGES **************/
 .website-design-theme option {
   padding: 10px 3px;
