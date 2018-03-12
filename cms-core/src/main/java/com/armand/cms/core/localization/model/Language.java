@@ -2,6 +2,7 @@ package com.armand.cms.core.localization.model;
 
 import java.util.Locale;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,4 +31,8 @@ public enum Language {
     return locale;
   }
 
+  @JsonCreator
+  public static Language fromId(String id) {
+    return valueOf(id);
+  }
 }

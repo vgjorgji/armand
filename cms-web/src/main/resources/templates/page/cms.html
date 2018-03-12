@@ -14,23 +14,16 @@
   <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/bootstrap-3.3.7.min.css}"/>
   <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/bootstrap-theme-3.3.7.min.css}"/>
   <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/fontawesome.min.css}"/>
-  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/client-site.css}"/>
+  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/site-common.css}"/>
+  <link rel="stylesheet" href="#" type="text/css" data-th-href="@{/css/site-client.css}"/>
 
   <!-- font -->
   <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${websiteView.font.id == 'PtSansNarrow'}"
-        data-th-href="@{/css/font-ptsansnarrow.css}"/>
+        data-th-href="@{/} + ${websiteView.font.cssUrl}"/>
 
   <!-- package css -->
   <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${website.cmsPackage.id == 'Basic'}"
-        data-th-href="@{/css/cmspackage-basic.css}"/>
-  <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${website.cmsPackage.id == 'Dynamic'}"
-        data-th-href="@{/css/cmspackage-dynamic.css}"/>
-  <link rel="stylesheet" href="#" type="text/css"
-        data-th-if="${website.cmsPackage.id == 'Business'}"
-        data-th-href="@{/css/cmspackage-business.css}"/>
+        data-th-href="@{/} + ${website.cmsPackage.cssUrl}"/>
 
   <style type="text/css">
 			.cms-color-text {
@@ -177,7 +170,7 @@
 <!-- Scripts -->
 <script type="text/javascript" data-th-src="@{/js/jquery-1.12.4.min.js}"></script>
 <script type="text/javascript" data-th-src="@{/js/bootstrap-3.3.7.min.js}"></script>
-<script type="text/javascript" data-th-src="@{/js/client-site.js}"></script>
+<script type="text/javascript" data-th-src="@{/js/site-client.js}"></script>
 
 </body>
 </html>

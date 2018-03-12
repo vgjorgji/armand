@@ -20,6 +20,7 @@
           <div data-th-replace="tag/form/select :: Form-Select(id='companyId', field='companyId', group='website',
                                                                options='../allCompanies', optionValue='id', optionText='name',
                                                                label='Company',
+                                                               fieldStyle=_, optionStyle=_,
                                                                fieldValues=null, labelClass=null, controlClass=null, multi=_)">Company</div>
           <div data-th-replace="tag/form/input :: Form-Input(id='name', field='name', group='website', label='Name',
                                                              type=_, labelClass=null, controlClass=null)">Name</div>
@@ -28,14 +29,17 @@
           <div data-th-replace="tag/form/select :: Form-Select(id='cmsPackage', field='cmsPackage.id', group='website',
                                                                options='../cmsPackages', optionValue='id',
                                                                label='CMS Package',
+                                                               fieldStyle=_, optionStyle=_,
                                                                fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">CMS Package</div>
           <div data-th-replace="tag/form/select :: Form-Select(id='languages', field='languages', fieldValues='id', group='website',
                                                                options='../languages', optionValue='id', multi=true,
                                                                label='Languages',
+                                                               fieldStyle=_, optionStyle=_,
                                                                optionText=null, labelClass=null, controlClass=null)">Languages</div>
           <div data-th-replace="tag/form/select :: Form-Select(id='status', field='status.id', group='website',
                                                                options='../statuses', optionValue='id',
                                                                label='Status',
+                                                               fieldStyle=_, optionStyle=_,
                                                                fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">Status</div>
           <div data-th-replace="tag/form/input :: Form-Input(id='expiryDate', field='expiryDate', group='website', label='Expiry Date',
                                                              type=_, labelClass=null, controlClass=null)">Expiry Date</div>

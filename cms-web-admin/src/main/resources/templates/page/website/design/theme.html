@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html data-th-replace="layout/main :: Main-Layout(title='Website | Design | Theme',
-																								  pageTitle='Theme',
-																								  selectGlobal='Website',
-																								  selectSide='design',
-																								  selectSideSub='theme',
-																								  loadUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/theme/load',
-																								  fragmentMain=~{:: div#fragmentMain})">
+																									pageTitle='Theme',
+																									selectGlobal='Website',
+																									selectSide='design',
+																									selectSideSub='theme',
+																									loadUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/theme/load',
+																									fragmentMain=~{:: div#fragmentMain})">
 <body>
 
 <div id="fragmentMain">
@@ -13,19 +13,42 @@
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-body">
-          &nbsp;
-        </div>
-      </div> <!-- /.panel -->
-    </div> <!-- /.col-md-12 -->
-  </div><!-- /.row -->
-
-  <!-- ??? -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          &nbsp;
+        <div class="panel-body website-design-theme">
+          &nbsp;{{#websiteView}}
+          <form class="form-horizontal">
+            <div data-th-replace="tag/form/hidden :: Form-Hidden(id='id', field='id', group='websiteView')">ID</div>
+            <div data-th-replace="tag/form/select :: Form-Select(id='style', field='style.id', group='websiteView',
+                                                                 options='../styles', optionValue='id', optionText=null,
+                                                                 label='Style',
+                                                                 fieldStyle='background-color: {{style.backgroundHex}}; color: {{style.paragraphHex}};',
+                                                                 optionStyle='background-color: {{backgroundHex}}; color: {{paragraphHex}};',
+                                                                 fieldValues=null, labelClass=null, controlClass=null, multi=_)">Style</div>
+            <div data-th-replace="tag/form/select :: Form-Select(id='color', field='color.id', group='websiteView',
+                                                                 options='../modernColors', optionValue='id', optionText=null,
+                                                                 label='Color',
+                                                                 fieldStyle='background-color: {{color.backgroundHex}}; color: {{color.textHex}};',
+                                                                 optionStyle='background-color: {{backgroundHex}}; color: {{textHex}};',
+                                                                 fieldValues=null, labelClass=null, controlClass=null, multi=_)">Color</div>
+            <div data-th-replace="tag/form/select :: Form-Select(id='selectColor', field='selectColor.id', group='websiteView',
+                                                                 options='../modernColors', optionValue='id', optionText=null,
+                                                                 label='Select Color',
+                                                                 fieldStyle='background-color: {{selectColor.backgroundHex}}; color: {{selectColor.textHex}};',
+                                                                 optionStyle='background-color: {{backgroundHex}}; color: {{textHex}};',
+                                                                 fieldValues=null, labelClass=null, controlClass=null, multi=_)">Select Color</div>
+            <div data-th-replace="tag/form/select :: Form-Select(id='font', field='font.id', group='websiteView',
+                                                                 options='../fonts', optionValue='id', optionText=null,
+                                                                 label='Font',
+                                                                 fieldStyle='font-family: \'{{font.alias}}\';',
+                                                                 optionStyle='font-family: \'{{alias}}\';',
+                                                                 fieldValues=null, labelClass=null, controlClass=null, multi=_)">Select Color</div>
+            <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteView',
+                                                                   cancelUrl=null, cancelScroll=_,
+                                                                   resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/theme/load', resetScroll=_,
+                                                                   saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/theme/save', saveScroll=_,
+                                                                   deleteUrl=null, deleteScroll=_,
+                                                                   spinnerLocation=null)">Buttons</div>
+          </form>
+          {{/websiteView}}
         </div>
       </div> <!-- /.panel -->
     </div> <!-- /.col-md-12 -->

@@ -16,7 +16,7 @@
 		url('../fonts/ptsansnarrowbold-webfont.svg#pt_sans_narrowbold') format('svg');
 	font-weight: bold;
 }
-html, body{
+html, body {
 	font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 100%;
 }

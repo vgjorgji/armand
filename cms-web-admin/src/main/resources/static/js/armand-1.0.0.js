@@ -88,7 +88,7 @@
      *
      *  JSON data attribute:
      *    - data-json: create JSON data object or not (true or false)
-     *    - data-field: If this attribute exist, then the element value is takken into the JSON data
+     *    - data-field: If this attribute exist, then the element value is taken into the JSON data
      *                  (regarding is it "true" or "false").
      *                  If the value is "true" then that element is put in the validation.
      *                  If the value is "false" then that element can make AJAX call to the given data-url.
@@ -290,24 +290,30 @@
 			// create data for the group
 			var group = element.attr('data-group');
 			dataVar = createDataForGroup(group, element.attr('data-extends'), getPrefix(element));
-			var dataWrap = $(dataVar);
 
-			// add additional data groups confirugred as sub-groups
-			var subGroupsAll = element.attr('data-sub-groups');
-			if (subGroupsAll !== undefined) {
-				var subGroups = subGroupsAll.split(",");
-				for ( var i = 0; i < subGroups.length; i++) {
-					var groupDataVar = createDataForGroup(subGroups[i], undefined, "");
-					if ($.isEmptyObject(groupDataVar)) {
-						groupDataVar = undefined;
-					}
-					dataWrap.attr(subGroups[i], groupDataVar);
-				}
-			}
+			// fill the sub groups
+			fillDataForSubGroups(element, dataVar);
 		}
 
 		// ajax call
 		ajaxCall(method, url, dataVar, element.attr('id'));
+	}
+
+	function fillDataForSubGroups(element, dataVar) {
+	  var dataWrap = $(dataVar);
+
+    // add additional data groups configured as sub-groups
+    var subGroupsAll = element.attr('data-sub-groups');
+    if (subGroupsAll !== undefined) {
+      var subGroups = subGroupsAll.split(",");
+      for ( var i = 0; i < subGroups.length; i++) {
+        var groupDataVar = createDataForGroup(subGroups[i], undefined, "");
+        if ($.isEmptyObject(groupDataVar)) {
+          groupDataVar = undefined;
+        }
+        dataWrap.attr(subGroups[i], groupDataVar);
+      }
+    }
 	}
 
 	/*
@@ -325,6 +331,17 @@
 
 			// name
 			var name = innerElement.attr("id");
+			if (name === undefined) {
+			  name = innerElement.attr("data-id");
+			}
+
+			// special handling for di
+			if (name == undefined && innerElement.is("div")) {
+        fillDataForSubGroups(innerElement, dataVar);
+        return;
+      }
+
+			// replace
 			if (prefix !== undefined) {
 				name = name.replace(prefix, "");
 			}

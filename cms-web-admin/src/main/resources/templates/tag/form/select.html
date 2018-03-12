@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<div data-th-fragment="Form-Select(id, field, fieldValues, group, options, optionValue, optionText, label, labelClass, controlClass, multi)"
+<div data-th-fragment="Form-Select(id, field, fieldValues, group, options, optionValue, optionText, optionStyle, label, labelClass, controlClass, multi)"
      class="form-group">
   <label class="col-md-3 control-label"
          for="id"
@@ -19,11 +19,13 @@
             data-field="true"
             data-th-id="${id}"
             data-th-attr="data-group=${group}, data-selected=${fieldValues == null ? '{{' + field + '}}' : '{{#' + field + '}}{{' + fieldValues + '}},{{/' + field + '}}'}, multiple=${multi}"
+            data-th-style="${fieldStyle}"
     >
     {{#[[${options}]]}}
     <option value="this"
             data-th-value="'{{' + ${optionValue == null ? 'this' : optionValue} + '}}'"
-            data-th-text="'{{' + ${optionText == null ? (optionValue == null ? 'this' : optionValue) : optionText} + '}}'">
+            data-th-text="'{{' + ${optionText == null ? (optionValue == null ? 'this' : optionValue) : optionText} + '}}'"
+            data-th-style="${optionStyle}">
       Option
     </option>
     {{/[[${options}]]}}

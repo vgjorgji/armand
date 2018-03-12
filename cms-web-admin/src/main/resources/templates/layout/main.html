@@ -13,14 +13,14 @@
   <link rel="stylesheet" type="text/css" href="../../../../../../cms-web/src/main/resources/static/css/bootstrap-3.3.7.min.css"/>
   <link rel="stylesheet" type="text/css" href="../../../../../../cms-web/src/main/resources/static/css/bootstrap-theme-3.3.7.min.css"/>
   <link rel="stylesheet" type="text/css" href="../../../../../../cms-web/src/main/resources/static/css/fontawesome.min.css"/>
-  <link rel="stylesheet" type="text/css" href="../../static/css/admin-site.css"/>
+  <link rel="stylesheet" type="text/css" href="../../static/css/site-admin.css"/>
 
   <!-- Scripts -->
   <script type="text/javascript" src="../../../../../../cms-web/src/main/resources/static/js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="../../../../../../cms-web/src/main/resources/static/js/bootstrap-3.3.7.min.js"></script>
   <script type="text/javascript" src="../../static/js/handlebars-4.0.8.js"></script>
   <script type="text/javascript" src="../../static/js/armand-1.0.0.js"></script>
-  <script type="text/javascript" src="../../static/js/admin-site.js"></script>
+  <script type="text/javascript" src="../../static/js/site-admin.js"></script>
   <!--*/-->
 </head>
 
@@ -29,7 +29,7 @@
 <div data-th-replace="layout/global/navigation :: Global-Navigation(select=${selectGlobal})">Global Navigation</div>
 
 <div class="main-wrap">
-  <div data-th-replace="__${'tag/' + selectGlobal + '/navigation'}__ :: __${selectGlobal + '-Navigation'}__(select=${selectSide}, selectSub=${selectSideSub})">
+  <div data-th-replace="__${'tag/page/' + selectGlobal + '/navigation'}__ :: __${selectGlobal + '-Navigation'}__(select=${selectSide}, selectSub=${selectSideSub})">
     Side Navigation
   </div>
 

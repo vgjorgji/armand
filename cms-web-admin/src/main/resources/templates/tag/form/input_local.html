@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div data-th-fragment="Form-InputLocal(id, field, group, label, labelClass, controlClass)"
+     class="form-group">
+  <label class="col-md-3 control-label"
+         data-th-class="'col-md-' + ${labelClass == null ? '3' : labelClass} + ' control-label'"
+         data-th-for="${id}"
+         data-th-text="${label}">
+    Label
+  </label>
+  <input type="hidden"
+         data-group="Group"
+         data-field="true"
+         value="Field"
+         data-th-attr="data-id='id', data-group=${group}"
+         data-th-value="'{{' + ${field} + '.id}}'"/>
+  <div class="col-md-6"
+       data-th-attr="data-group=${group}"
+       data-field="true"
+       data-sub-groups="texts"
+       data-array="true"
+       data-th-class="'col-md-' + ${controlClass == null ? '6' : controlClass}">
+    {{#[[${field}]].texts}}
+    <div class="row"
+         data-group="texts"
+         data-field="true"
+         data-sub-groups="localText">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-1">
+            <i class="{{language.cssClass}}"
+               data-group="localText"
+               data-id="language"
+               data-value="{{language.id}}"></i>
+          </div>
+          <div class="col-md-11">
+            <input type="hidden"
+                   value="{{id}}"
+                   data-field="true"
+                   data-group="localText"
+                   data-id="id">
+            <input type="text"
+                   class="form-control"
+                   placeholder="{{language.id}}"
+                   value="{{value}}"
+                   data-field="true"
+                   data-group="localText"
+                   data-id="value">
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/[[${field}]].texts}}
+  </div>
+</div>
+
+</body>
+</html>

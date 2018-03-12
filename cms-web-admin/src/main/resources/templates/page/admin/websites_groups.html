@@ -37,7 +37,7 @@
                                                          type=_, labelClass=null, controlClass=null)">Name</div>
       <div data-th-replace="tag/form/checkbox :: Form-Checkbox(id='master', field='master', group='websiteGroup', label='Master',
                                                                labelClass=null, controlClass=null)">Master</div>
-      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteGroup',
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteGroup', subGroups=_, prefix=_,
 																														 cancelUrl=@{/admin/websites-groups/tree/cancel}, cancelScroll='#main',
 																														 resetUrl=@{/admin/websites-groups/tree/node/} + '{{websiteId}}/{{id}}/edit', resetScroll=_,
 																														 saveUrl=@{/admin/websites-groups/tree/node/} + '{{websiteId}}/save', saveScroll='#main',
@@ -61,20 +61,23 @@
       <div data-th-replace="tag/form/select :: Form-Select(id='userId', field='userId', group='websiteUser',
 																							             options='../allUsers', optionValue='id', optionText='fullName',
 																							             label='User',
+																							             fieldStyle=_, optionStyle=_,
 																							             fieldValues=null, labelClass=null, controlClass=null, multi=_)">User</div>
       <div data-th-replace="tag/form/select :: Form-Select(id='powerGroup', field='powerGroup', group='websiteUser',
 																							             options='../powerGroups',
 																							             label='Power Group',
+																							             fieldStyle=_, optionStyle=_,
 																							             fieldValues=null, optionValue=null, optionText=null, labelClass=null, controlClass=null, multi=_)">Power Group</div>
       <div data-th-replace="tag/form/select :: Form-Select(id='language', field='language.id', group='websiteUser',
 																							             options='../languages', optionValue='id',
 																							             label='Language',
+																							             fieldStyle=_, optionStyle=_,
 																							             fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">Language</div>
-      <div data-th-replace="tag/form/input :: Form-Input(id='jobPosition', field='jobPosition', group='websiteUser', label='Job Position',
-                                                         type=_, labelClass=null, controlClass=null)">Job Position</div>
-      <div data-th-replace="tag/form/input :: Form-Input(id='biography', field='biography', group='websiteUser', label='Biography',
-                                                         type=_, labelClass=null, controlClass=null)">Biography</div>
-      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteUser',
+      <div data-th-replace="tag/form/input_local :: Form-InputLocal(id='jobPosition', field='jobPosition', group='jobPosition', label='Job Position',
+                                                                    labelClass=null, controlClass=null)">Job Position</div>
+      <div data-th-replace="tag/form/input_local :: Form-InputLocal(id='biography', field='biography', group='biography', label='Biography',
+                                                                    labelClass=null, controlClass=null)">Biography</div>
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteUser', subGroups='jobPosition,biography', prefix=_,
 																														 cancelUrl=@{/admin/websites-groups/tree/cancel}, cancelScroll='#main',
 																														 resetUrl=@{/admin/websites-groups/tree/node/} + '{{websiteId}}/{{websiteGroupId}}/{{id}}/edit', resetScroll=_,
 																														 saveUrl=@{/admin/websites-groups/tree/node/} + '{{websiteId}}/{{websiteGroupId}}/save', saveScroll='#main',

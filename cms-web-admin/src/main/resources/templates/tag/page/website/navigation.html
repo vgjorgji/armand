@@ -18,7 +18,7 @@
         Admin
       </a>
       <div data-th-if="${select == 'admin'}">
-        <ul data-th-replace="tag/website/navigation_admin :: Website-NavigationAdmin(select=${selectSub})">Sub Menu</ul>
+        <ul data-th-replace="tag/page/website/navigation_admin :: Website-NavigationAdmin(select=${selectSub})">Sub Menu</ul>
       </div>
     </li>
     <li data-th-class="${select == 'design' ? 'active' : _}">
@@ -27,7 +27,7 @@
         Design
       </a>
       <div data-th-if="${select == 'design'}">
-        <ul data-th-replace="tag/website/navigation_design :: Website-NavigationDesign(select=${selectSub})">Sub Menu</ul>
+        <ul data-th-replace="tag/page/website/navigation_design :: Website-NavigationDesign(select=${selectSub})">Sub Menu</ul>
       </div>
     </li>
     <li data-th-class="${select == 'design-review' ? 'active' : _}">

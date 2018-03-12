@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 @JsonFormat(shape = Shape.OBJECT)
 public enum CmsPackage {
   Basic("fa fa-cube",
+      "css/cmspackage-basic.css",
       Utils.asSet(Component.Header, Component.Navigation, Component.Footer,
           Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
           Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos),
@@ -20,6 +21,7 @@ public enum CmsPackage {
       Utils.asSet(CmsOption.Language)),
 
   Dynamic("fa fa-cubes",
+      "css/cmspackage-dynamic.css",
       Utils.asSet(Component.Header, Component.Navigation, Component.Footer,
           Component.Titles, Component.Paragraphs, Component.Medias, Component.Links,
           Component.Jumbotron, Component.Highlights, Component.ContactForms, Component.ContactInfos,
@@ -28,11 +30,13 @@ public enum CmsPackage {
       Utils.asSet(CmsOption.Search, CmsOption.Language)),
 
   Business("fa fa-star",
+      "css/cmspackage-business.css",
       Utils.asSet(Component.values()),
       Utils.asSet(FeedType.values()),
       Utils.asSet(CmsOption.values()));
 
   private String cssClass;
+  private String cssUrl;
   private Set<Component> components;
   private Set<FeedType> feedTypes;
   private Set<CmsOption> options;
@@ -44,6 +48,10 @@ public enum CmsPackage {
 
   public String getCssClass() {
     return cssClass;
+  }
+
+  public String getCssUrl() {
+    return cssUrl;
   }
 
   @JsonIgnore

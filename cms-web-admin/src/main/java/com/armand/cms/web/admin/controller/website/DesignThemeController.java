@@ -28,8 +28,8 @@ public class DesignThemeController {
   @RequestMapping(value = "/load", method = RequestMethod.GET)
   public Response load() {
     Response response = new Response();
-    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 
+    UserSettings userSettings = UserSettingsProvider.getCurrentUser();
     long websiteId = userSettings.getSelectedWebsiteId();
     WebsiteView websiteView = websiteViewRepository.getModel(websiteId, WebsiteViewType.Design);
 

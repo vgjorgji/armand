@@ -1,22 +1,31 @@
 package com.armand.cms.core.localization.model;
 
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.util.StringUtils;
 
 import com.armand.cms.core.persist.model.DbModel;
 import com.armand.cms.core.validation.CmsException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class LocalText extends DbModel {
 
+  private Map<Language, LocalTextValue> texts = new LinkedHashMap<>();
   private LocalTextType type;
-  private Map<Language, LocalTextValue> texts = new HashMap<Language, LocalTextValue>();
+
+  public LocalText() {
+    // default constructor for JSON deserialize
+  }
 
   public LocalText(LocalTextType type) {
     this.type = type;
   }
 
+  @JsonIgnore
   public LocalTextType getType() {
     return type;
   }
@@ -37,6 +46,7 @@ public class LocalText extends DbModel {
     texts.put(localTextValue.getLanguage(), localTextValue);
   }
 
+  @JsonIgnore
   public boolean isEmpty() {
     return texts.isEmpty();
   }
@@ -52,4 +62,13 @@ public class LocalText extends DbModel {
     return null;
   }
 
+  public List<LocalTextValue> getTexts() {
+    return Arrays.stream(Language.values())
+        .map(language -> texts.get(language))
+        .collect(Collectors.toList());
+  }
+
+  public void setTexts(List<LocalTextValue> texts) {
+    texts.forEach(text -> addText(text.getLanguage(), text.getValue()));
+  }
 }
