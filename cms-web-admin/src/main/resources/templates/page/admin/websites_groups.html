@@ -73,11 +73,11 @@
 																							             label='Language',
 																							             fieldStyle=_, optionStyle=_,
 																							             fieldValues=null, optionText=null, labelClass=null, controlClass=null, multi=_)">Language</div>
-      <div data-th-replace="tag/form/input_local :: Form-InputLocal(id='jobPosition', field='jobPosition', group='jobPosition', label='Job Position',
+      <div data-th-replace="tag/form/input_local :: Form-InputLocal(id='jobPosition', field='jobPosition', group='websiteUser', label='Job Position',
                                                                     labelClass=null, controlClass=null)">Job Position</div>
-      <div data-th-replace="tag/form/input_local :: Form-InputLocal(id='biography', field='biography', group='biography', label='Biography',
+      <div data-th-replace="tag/form/input_local :: Form-InputLocal(id='biography', field='biography', group='websiteUser', label='Biography',
                                                                     labelClass=null, controlClass=null)">Biography</div>
-      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteUser', subGroups='jobPosition,biography',
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteUser', subGroups=_,
 																														 cancelUrl=@{/admin/websites-groups/tree/cancel}, cancelScroll='#main',
 																														 resetUrl=@{/admin/websites-groups/tree/node/} + '{{websiteId}}/{{websiteGroupId}}/{{id}}/edit', resetScroll=_,
 																														 saveUrl=@{/admin/websites-groups/tree/node/} + '{{websiteId}}/{{websiteGroupId}}/save', saveScroll='#main',

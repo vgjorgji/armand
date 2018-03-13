@@ -35,7 +35,7 @@
 	});
 
 	/*
-	 * Initalizaes all needed hoocks for javascript logic
+	 * Initalizaes all needed hooks for javascript logic
 	 */
 	function init(elementSelector) {
 		selectedInit(elementSelector);
@@ -83,12 +83,12 @@
      *  Sending data attributes:
      *    - data-url: URL for ajax call
      *    - data-method: GET or POST
-     *    - data-selft-submit: submits the data when all mandatory fields are filled and the focus is out
+     *    - data-self-submit: submits the data when all mandatory fields are filled and the focus is out
      *                        from the last validated mandatory field
      *
      *  JSON data attribute:
      *    - data-json: create JSON data object or not (true or false)
-     *    - data-field: If this attribute exist, then the element value is taken into the JSON data
+     *    - data-field: If this attribute exist, then the element value is takken into the JSON data
      *                  (regarding is it "true" or "false").
      *                  If the value is "true" then that element is put in the validation.
      *                  If the value is "false" then that element can make AJAX call to the given data-url.
@@ -181,7 +181,7 @@
 	}
 
 	/*
-	 * Set Ajax behavior for self submiting elements.
+	 * Set Ajax behavior for self submitting elements.
 	 */
 	function ajaxSelfSubmit(elementSelector) {
 		var element = $(elementSelector);
@@ -290,30 +290,24 @@
 			// create data for the group
 			var group = element.attr('data-group');
 			dataVar = createDataForGroup(group, element.attr('data-extends'), getPrefix(element));
+			var dataWrap = $(dataVar);
 
-			// fill the sub groups
-			fillDataForSubGroups(element, dataVar);
+			// add additional data groups confirugred as sub-groups
+			var subGroupsAll = element.attr('data-sub-groups');
+			if (subGroupsAll !== undefined) {
+				var subGroups = subGroupsAll.split(",");
+				for ( var i = 0; i < subGroups.length; i++) {
+					var groupDataVar = createDataForGroup(subGroups[i], undefined, "");
+					if ($.isEmptyObject(groupDataVar)) {
+						groupDataVar = undefined;
+					}
+					dataWrap.attr(subGroups[i], groupDataVar);
+				}
+			}
 		}
 
 		// ajax call
 		ajaxCall(method, url, dataVar, element.attr('id'));
-	}
-
-	function fillDataForSubGroups(element, dataVar) {
-	  var dataWrap = $(dataVar);
-
-    // add additional data groups configured as sub-groups
-    var subGroupsAll = element.attr('data-sub-groups');
-    if (subGroupsAll !== undefined) {
-      var subGroups = subGroupsAll.split(",");
-      for ( var i = 0; i < subGroups.length; i++) {
-        var groupDataVar = createDataForGroup(subGroups[i], undefined, "");
-        if ($.isEmptyObject(groupDataVar)) {
-          groupDataVar = undefined;
-        }
-        dataWrap.attr(subGroups[i], groupDataVar);
-      }
-    }
 	}
 
 	/*
@@ -331,32 +325,65 @@
 
 			// name
 			var name = innerElement.attr("id");
-			if (name === undefined) {
+			if (name == undefined) {
 			  name = innerElement.attr("data-id");
 			}
 
-			// special handling for di
-			if (name == undefined && innerElement.is("div")) {
-        fillDataForSubGroups(innerElement, dataVar);
-        return;
-      }
-
-			// replace
+			// prefix
 			if (prefix !== undefined) {
 				name = name.replace(prefix, "");
 			}
 
 			// data elements
-			if (innerElement.is("input") || innerElement.is("textarea") || innerElement.is("select") || innerElement.hasClass("fake-input")) {
+			if (innerElement.is("input") || innerElement.is("textarea") || innerElement.is("select") || innerElement.hasClass("fake-input") || innerElement.hasClass("data-value")) {
 				dataWrap.attr(name, getValue(innerElement));
 
 			} else if (innerElement.is("span") || innerElement.is("p")) {
 				innerElement.hide();
+
+			} else if (innerElement.is("div")) {
+			  dataWrap.attr(name, getValueObject(innerElement, name, false));
 			}
 
 		});
 
 		return dataVar;
+	}
+
+	function getValueObject(element, elementId, isParentArray) {
+    var dataVar = isParentArray ? [] : {};
+    var dataWrap = $(dataVar);
+
+    // create data
+	  element.find("[data-object='" + elementId + "'][data-field]").each(function() {
+
+	    // init
+	    var innerElement = $(this);
+
+	    // name
+      var name = innerElement.attr("id");
+      if (name == undefined) {
+        name = innerElement.attr("data-id");
+      }
+
+	    // data elements
+	    var value = undefined;
+      if (innerElement.is("input") || innerElement.is("textarea") || innerElement.is("select") || innerElement.hasClass("fake-input") || innerElement.hasClass("data-value")) {
+        value = getValue(innerElement);
+
+      } else if (innerElement.is("div")) {
+        value = getValueObject(innerElement, name, innerElement.attr("data-array") === "true");
+      }
+
+      // set the value
+      if (isParentArray) {
+        dataVar.push(value);
+      } else {
+        dataWrap.attr(name, value);
+      }
+	  });
+
+	  return dataVar;
 	}
 
 	/*
@@ -673,6 +700,9 @@
 		} else if (element.is("form")) {
 			return element.attr("action");
 
+    } else if (element.hasClass("data-value")) {
+      return element.attr("data-value");
+
 		} else {
 			return $.trim(element.text());
 		}
@@ -724,7 +754,7 @@
      * Data attributes:
      *   - data-validation-groups: list of groups (separated with ','). Validates all groups
      *
-     * Data attrubutes for the validators:
+     * Data attributes for the validators:
      *   - data-validation-for: id of the field for which is validation
      *   - data-validation-type: type of validation. One of:
      *                           - notEmpty
@@ -857,7 +887,7 @@
 				conditionOk = true;
 			}
 
-			// condinue with validation
+			// continue with validation
 			if (conditionOk) {
 
 				// get the type
