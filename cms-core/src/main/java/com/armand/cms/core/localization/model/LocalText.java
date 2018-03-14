@@ -25,7 +25,6 @@ public class LocalText extends DbModel {
     this.type = type;
   }
 
-  @JsonIgnore
   public LocalTextType getType() {
     return type;
   }
@@ -64,11 +63,35 @@ public class LocalText extends DbModel {
 
   public List<LocalTextValue> getTexts() {
     return Arrays.stream(Language.values())
-        .map(language -> texts.get(language))
+        .map(language -> {
+          LocalTextValue localTextValue = texts.get(language);
+          if (localTextValue == null) {
+            localTextValue = new LocalTextValue();
+            localTextValue.setLocalTextId(getId());
+            localTextValue.setLanguage(language);
+          }
+          return localTextValue;
+        })
         .collect(Collectors.toList());
   }
 
   public void setTexts(List<LocalTextValue> texts) {
-    texts.forEach(text -> addText(text.getLanguage(), text.getValue()));
+    texts.forEach(this::addText);
+  }
+
+  public static LocalText small() {
+    return new LocalText(LocalTextType.Small);
+  }
+
+  public static LocalText normal() {
+    return new LocalText(LocalTextType.Normal);
+  }
+
+  public static LocalText large() {
+    return new LocalText(LocalTextType.Large);
+  }
+
+  public static LocalText rich() {
+    return new LocalText(LocalTextType.Rich);
   }
 }

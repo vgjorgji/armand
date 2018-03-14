@@ -94,7 +94,7 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
   @Override
   protected Paging<MainNode> getPagingModels(PagingSearch pagingSearch) {
     // page main-nodes
-    Paging<M> mainNodePaging = getMainNodeRepository().getPagingModels(pagingSearch);
+    Paging<M> mainNodePaging = searchPagingModels(pagingSearch);
 
     // fetch nodes and sub-nodes
     Fetch<M> mainNodesFetch = mainNodePaging.getFetch();
@@ -137,6 +137,9 @@ public abstract class AbstractTreeController<M extends DbModel, N extends DbMode
     // result
     return paging;
   }
+
+
+  protected abstract Paging<M> searchPagingModels(PagingSearch pagingSearch);
 
 
   protected abstract MainNode createMainNode(M mainNodeModel);

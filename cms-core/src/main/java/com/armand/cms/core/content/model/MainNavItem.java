@@ -5,10 +5,11 @@ import java.util.List;
 
 import com.armand.cms.core.design.model.Link;
 import com.armand.cms.core.design.model.Page;
+import com.armand.cms.core.persist.model.HistoryModel;
 import lombok.Getter;
 
 @Getter
-public class MainNavItem extends ContentModel {
+public class MainNavItem extends HistoryModel {
 
   private Page page;
   private Link link;

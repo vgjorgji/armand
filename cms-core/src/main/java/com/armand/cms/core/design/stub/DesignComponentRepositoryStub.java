@@ -17,6 +17,7 @@ import com.armand.cms.core.design.model.FeedDesignComponent;
 import com.armand.cms.core.design.model.FeedFilter;
 import com.armand.cms.core.design.model.LayoutPosition;
 import com.armand.cms.core.utils.StubUtils;
+import com.armand.cms.core.website.model.WebsiteViewType;
 
 @Repository
 public class DesignComponentRepositoryStub implements DesignComponentRepository {
@@ -239,4 +240,8 @@ public class DesignComponentRepositoryStub implements DesignComponentRepository 
     list.add(component);
   }
 
+  @Override
+  public DesignComponent getNavigationComponentForWebsite(long websiteId, WebsiteViewType websiteViewType) {
+    return null;
+  }
 }

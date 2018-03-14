@@ -15,9 +15,15 @@
   <input type="hidden"
          data-field="true"
          data-id="id"
-         value="Field"
+         value="ID"
          data-th-attr="data-object=${id}"
          data-th-value="'{{' + ${field} + '.id}}'"/>
+  <input type="hidden"
+         data-field="true"
+         data-id="type"
+         value="Type"
+         data-th-attr="data-object=${id}"
+         data-th-value="'{{' + ${field} + '.type}}'"/>
   <div class="col-md-6"
        data-field="true"
        data-id="texts"

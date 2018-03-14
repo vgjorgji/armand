@@ -12,17 +12,17 @@
     </a>
   </li>
   <li>
-    <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation'">
-      <i class="fa fa-blank"
-         data-th-class="'fa ' + ${select eq 'navigation' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
-      Navigation
-    </a>
-  </li>
-  <li>
     <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/pages'">
       <i class="fa fa-blank"
          data-th-class="'fa ' + ${select eq 'pages' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
       Pages
+    </a>
+  </li>
+  <li>
+    <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation'">
+      <i class="fa fa-blank"
+         data-th-class="'fa ' + ${select eq 'navigation' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
+      Navigation
     </a>
   </li>
   <li>

@@ -7,6 +7,6 @@ import com.armand.cms.core.design.model.DesignComponent;
 
 public interface ContentService {
 
-  List<ContentModel> getContentModels(DesignComponent designComponent);
+  List<ContentModel> getContentModels(long websiteId, DesignComponent designComponent);
 
 }

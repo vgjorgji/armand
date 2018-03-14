@@ -1,4 +1,4 @@
-package com.armand.cms.web.admin.controller.admin;
+package com.armand.cms.web.admin.controller.website;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.armand.cms.core.conf.Icon;
+import com.armand.cms.core.content.model.MainNavItem;
+import com.armand.cms.core.content.model.MainNavItemRepository;
+import com.armand.cms.core.content.model.NavItem;
+import com.armand.cms.core.content.model.NavItemRepository;
+import com.armand.cms.core.content.model.SubNavItem;
+import com.armand.cms.core.content.model.SubNavItemRepository;
 import com.armand.cms.core.localization.model.Language;
 import com.armand.cms.core.localization.model.LocalText;
 import com.armand.cms.core.persist.model.DbModelRepository;
@@ -14,13 +20,9 @@ import com.armand.cms.core.persist.model.Paging;
 import com.armand.cms.core.persist.model.PagingSearch;
 import com.armand.cms.core.user.model.PowerGroup;
 import com.armand.cms.core.user.model.User;
-import com.armand.cms.core.user.model.UserRepository;
 import com.armand.cms.core.user.model.WebsiteGroup;
-import com.armand.cms.core.user.model.WebsiteGroupRepository;
 import com.armand.cms.core.user.model.WebsiteUser;
-import com.armand.cms.core.user.model.WebsiteUserRepository;
 import com.armand.cms.core.website.model.Website;
-import com.armand.cms.core.website.model.WebsiteRepository;
 import com.armand.cms.web.admin.controller.AbstractTreeController;
 import com.armand.cms.web.admin.model.Controller;
 import com.armand.cms.web.admin.model.PageConst;
@@ -34,25 +36,42 @@ import lombok.RequiredArgsConstructor;
 @RestController(value = Controller.AdminWebsitesGroups)
 @RequestMapping(value = PageConst.AdminWebsitesGroups)
 @RequiredArgsConstructor
-public class WebsitesGroupsController extends AbstractTreeController<Website, WebsiteGroup, WebsiteUser> {
+public class DesignNavigationController extends AbstractTreeController<MainNavItem, NavItem, SubNavItem> {
 
-  private final WebsiteRepository websiteRepository;
-  private final WebsiteGroupRepository websiteGroupRepository;
-  private final WebsiteUserRepository websiteUserRepository;
-  private final UserRepository userRepository;
+  private final MainNavItemRepository mainNavItemRepository;
+  private final NavItemRepository navItemRepository;
+  private final SubNavItemRepository subNavItemRepository;
 
   @Override
   public Response addMainNode() {
-    throw new UnsupportedOperationException("This operation is not supported");
+    // find the Navigation Design component
+
+
+    // node
+    MainNavItem item = new MainNavItem();
+    item.setDesignComponentId(mainNodeId);
+
+    // response
+    Response response = new Response();
+    response.fragmentNode().data().add("mainNavItem", item);
+    response.fragmentSubNode().hide();
+    return response;
   }
 
   @Override
   public Response editMainNode(@PathVariable long mainNodeId) {
-    throw new UnsupportedOperationException("This operation is not supported");
+    // models
+    MainNavItem item = navItemRepository.getModel(nodeId);
+
+    // response
+    Response response = new Response();
+    response.fragmentNode().data().add("mainNavItem", item);
+    response.fragmentSubNode().hide();
+    return response;
   }
 
   @Override
-  public Response saveMainNode(@RequestBody Website mainNode) {
+  public Response saveMainNode(@RequestBody MainNavItem mainNode) {
     throw new UnsupportedOperationException("This operation is not supported");
   }
 
@@ -189,9 +208,10 @@ public class WebsitesGroupsController extends AbstractTreeController<Website, We
 
 
   @Override
-  protected Paging<Website> searchPagingModels(PagingSearch pagingSearch) {
-    return websiteRepository.getPagingModels(pagingSearch);
+  protected Paging<MainNavItem> searchPagingModels(PagingSearch pagingSearch) {
+    return null;
   }
+
 
   @Override
   protected DbModelRepository<Website> getMainNodeRepository() {

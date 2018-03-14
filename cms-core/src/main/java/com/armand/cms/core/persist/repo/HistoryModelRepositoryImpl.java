@@ -33,6 +33,7 @@ public abstract class HistoryModelRepositoryImpl<T extends HistoryModel>
   protected void merge(T current, T model) {
     model.setCreatedBy(current.getCreatedBy());
     model.setCreatedDate(current.getCreatedDate());
+    model.setVersion(current.getVersion());
   }
 
 }

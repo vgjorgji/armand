@@ -59,7 +59,7 @@ public class ContentServiceImpl implements ContentService {
   }
 
   @Override
-  public List<ContentModel> getContentModels(DesignComponent designComponent) {
+  public List<ContentModel> getContentModels(long websiteId, DesignComponent designComponent) {
     ContentModelRepository repository = repositoryMap.get(designComponent.getComponent());
     if (repository != null) {
       return repository.getModelsForDesignComponent(designComponent);
