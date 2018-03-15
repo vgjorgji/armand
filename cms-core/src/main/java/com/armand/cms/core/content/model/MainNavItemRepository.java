@@ -6,8 +6,6 @@ import com.armand.cms.core.website.model.WebsiteViewType;
 
 public interface MainNavItemRepository {
 
-  List<MainNavItem> getModels(long designComponentId);
-
-  List<MainNavItem> getModelsForWebsite(long websiteId, WebsiteViewType websiteViewType);
+  List<MainNavItem> getModels(long websiteId, WebsiteViewType websiteViewType);
 
 }

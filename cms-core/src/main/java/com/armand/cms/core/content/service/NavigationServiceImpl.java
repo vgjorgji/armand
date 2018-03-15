@@ -17,6 +17,8 @@ import com.armand.cms.core.content.model.SubNavItem;
 import com.armand.cms.core.content.model.SubNavItemRepository;
 import com.armand.cms.core.design.model.DesignComponent;
 import com.armand.cms.core.utils.Utils;
+import com.armand.cms.core.website.model.WebsiteViewType;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -28,15 +30,11 @@ public class NavigationServiceImpl implements NavigationService {
   private final SubNavItemRepository subNavItemRepository;
 
   @Override
-  public List<ContentModel> getModelsForDesignComponent(DesignComponent designComponent) {
-    if (!Component.Navigation.equals(designComponent.getComponent())) {
-      return Collections.emptyList();
-    }
-
+  public List<ContentModel> getCompleteNavigationForWebsite(long websiteId, WebsiteViewType websiteViewType) {
     // load from DB
-    List<MainNavItem> mainNavItems = mainNavItemRepository.getModels(designComponent.getId());
-    List<NavItem> navItems = navItemRepository.getModels(designComponent.getId());
-    List<SubNavItem> subNavItems = subNavItemRepository.getModels(designComponent.getId());
+    List<MainNavItem> mainNavItems = mainNavItemRepository.getModels(websiteId, websiteViewType);
+    List<NavItem> navItems = navItemRepository.getModels(websiteId, websiteViewType);
+    List<SubNavItem> subNavItems = subNavItemRepository.getModels(websiteId, websiteViewType);
 
     // map models
     Map<Long, MainNavItem> mainNavItemsMap = Utils.mapList(mainNavItems);

@@ -2,10 +2,12 @@ package com.armand.cms.core.content.model;
 
 import com.armand.cms.core.design.model.Link;
 import com.armand.cms.core.design.model.Page;
+import com.armand.cms.core.persist.model.HistoryModel;
+
 import lombok.Getter;
 
 @Getter
-public class SubNavItem extends ContentModel {
+public class SubNavItem extends HistoryModel {
 
   private long navItemId;
   private Page page;

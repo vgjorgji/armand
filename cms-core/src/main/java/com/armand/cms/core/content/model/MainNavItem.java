@@ -11,9 +11,14 @@ import lombok.Getter;
 @Getter
 public class MainNavItem extends HistoryModel {
 
+  private long websiteViewId;
   private Page page;
   private Link link;
   private List<NavItem> navItems;
+
+  public void setWebsiteViewId(long websiteViewId) {
+    this.websiteViewId = websiteViewId;
+  }
 
   public void setPage(Page page) {
     this.page = page;
