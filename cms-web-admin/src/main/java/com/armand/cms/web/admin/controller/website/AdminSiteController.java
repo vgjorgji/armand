@@ -53,7 +53,7 @@ public class AdminSiteController {
     websiteRepository.saveModel(website);
 
     UserSettings userSettings = UserSettingsProvider.getCurrentUser();
-    userSettings.setSelectedWebsite(website);
+    userSettings.setSelectedWebsiteId(website.getId());
 
     Response response = load();
     response.snippet("global-website-name").text(website.getName());

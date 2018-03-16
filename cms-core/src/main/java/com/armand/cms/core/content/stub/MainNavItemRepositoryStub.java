@@ -1,7 +1,6 @@
 package com.armand.cms.core.content.stub;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
@@ -9,73 +8,83 @@ import com.armand.cms.core.content.model.MainNavItem;
 import com.armand.cms.core.content.model.MainNavItemRepository;
 import com.armand.cms.core.design.model.CmsPage;
 import com.armand.cms.core.localization.model.LocalTextType;
-import com.armand.cms.core.utils.StubUtils;
+import com.armand.cms.core.persist.model.Paging;
+import com.armand.cms.core.persist.model.PagingSearch;
+import com.armand.cms.core.persist.stub.HistoryModelRepositoryStub;
 import com.armand.cms.core.utils.TextUtils;
+import com.armand.cms.core.website.model.WebsiteViewType;
 
 @Repository
-public class MainNavItemRepositoryStub implements MainNavItemRepository {
+public class MainNavItemRepositoryStub
+    extends HistoryModelRepositoryStub<MainNavItem>
+    implements MainNavItemRepository {
 
-  public List<MainNavItem> getModels(long designComponentId) {
-    List<MainNavItem> result = new ArrayList<>();
-
+  @PostConstruct
+  public void init() {
     // home
-    MainNavItem navItem = StubUtils.createStubDbModel(new MainNavItem(), 1000);
+    MainNavItem navItem = new MainNavItem();
     CmsPage page = new CmsPage();
     page.setUrl("home");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Home", "Почетна"));
     navItem.setPage(page);
-    result.add(navItem);
+    saveModel(navItem);
 
     // school
-    navItem = StubUtils.createStubDbModel(new MainNavItem(), 1001);
+    navItem = new MainNavItem();
     page = new CmsPage();
     page.setUrl("school");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "School", "Училиште"));
     navItem.setPage(page);
-    result.add(navItem);
+    saveModel(navItem);
 
     // curriculum
-    navItem = StubUtils.createStubDbModel(new MainNavItem(), 1002);
+    navItem = new MainNavItem();
     page = new CmsPage();
     page.setUrl("curriculum");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Teaching", "Настава"));
     navItem.setPage(page);
-    result.add(navItem);
+    saveModel(navItem);
 
     // activities
-    navItem = StubUtils.createStubDbModel(new MainNavItem(), 1003);
+    navItem = new MainNavItem();
     page = new CmsPage();
     page.setUrl("activities");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Activities", "Активности"));
     navItem.setPage(page);
-    result.add(navItem);
+    saveModel(navItem);
 
     // children's corner
-    navItem = StubUtils.createStubDbModel(new MainNavItem(), 1004);
+    navItem = new MainNavItem();
     page = new CmsPage();
     page.setUrl("childrens_corner");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Children's corner", "Детско катче"));
     navItem.setPage(page);
-    result.add(navItem);
+    saveModel(navItem);
 
     // research
-    navItem = StubUtils.createStubDbModel(new MainNavItem(), 1005);
+    navItem = new MainNavItem();
     page = new CmsPage();
     page.setUrl("research");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Research", "Истражувања"));
     navItem.setPage(page);
-    result.add(navItem);
+    saveModel(navItem);
 
     // contact
-    navItem = StubUtils.createStubDbModel(new MainNavItem(), 1006);
+    navItem = new MainNavItem();
     page = new CmsPage();
     page.setUrl("contact");
     page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Contact", "Контакт"));
     navItem.setPage(page);
-    result.add(navItem);
-
-    // result
-    return result;
+    saveModel(navItem);
   }
 
+  @Override
+  public MainNavItem getModel(long id) {
+    return null;
+  }
+
+  @Override
+  public Paging<MainNavItem> getPagingModels(PagingSearch pagingSearch, long websiteId, WebsiteViewType websiteViewType) {
+    return getPagingModels(pagingSearch);
+  }
 }

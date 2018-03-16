@@ -6,25 +6,21 @@ import java.util.List;
 import com.armand.cms.core.design.model.Link;
 import com.armand.cms.core.design.model.Page;
 import com.armand.cms.core.persist.model.HistoryModel;
-
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class NavItem extends HistoryModel {
 
   private long mainNavItemId;
+  private long pageId;
+
   private Page page;
+  @Setter(value = AccessLevel.NONE)
   private Link link;
   private List<SubNavItem> subNavItems;
-
-  public void setMainNavItemId(long mainNavItemId) {
-    this.mainNavItemId = mainNavItemId;
-  }
-
-  public void setPage(Page page) {
-    this.page = page;
-    this.link = page.createLink();
-  }
 
   public List<SubNavItem> getSubNavItems() {
     if (subNavItems == null) {
@@ -33,8 +29,10 @@ public class NavItem extends HistoryModel {
     return subNavItems;
   }
 
-  public void setSubNavItems(List<SubNavItem> subNavItems) {
-    this.subNavItems = subNavItems;
+  public void setPage(Page page) {
+    this.pageId = page.getId();
+    this.page = page;
+    this.link = page.createLink();
   }
 
 }

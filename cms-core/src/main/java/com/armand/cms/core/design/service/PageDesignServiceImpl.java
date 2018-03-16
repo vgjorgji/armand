@@ -10,6 +10,7 @@ import com.armand.cms.core.design.model.DesignComponentRepository;
 import com.armand.cms.core.design.model.PageDesign;
 import com.armand.cms.core.design.model.PageDesignRepository;
 import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteViewType;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -21,7 +22,7 @@ public class PageDesignServiceImpl implements PageDesignService {
   private final ContentService contentService;
 
   @Override
-  public PageDesign getPageDesign(long pageId, Website website) {
+  public PageDesign getPageDesign(Website website, WebsiteViewType websiteViewType, long pageId) {
     // get and check
     PageDesign pageDesign = pageDesignRepository.getPageDesign(pageId);
     if (pageDesign != null) {
@@ -34,7 +35,7 @@ public class PageDesignServiceImpl implements PageDesignService {
         if (website.getCmsPackage().isComponentSupported(designComponent.getComponent())) {
 
           // load content models
-          designComponent.setContentModels(contentService.getContentModels(designComponent));
+          designComponent.setContentModels(contentService.getContentModels(website.getId(), websiteViewType, designComponent));
           pageDesign.addDesignComponent(designComponent);
         }
       }

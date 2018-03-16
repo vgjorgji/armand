@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<div data-th-fragment="Form-Buttons(group, subGroups, cancelUrl, cancelScroll, resetUrl, resetScroll, saveUrl, saveScroll, deleteUrl, deleteScroll, spinnerLocation)"
+<div data-th-fragment="Form-Buttons(group, cancelUrl, cancelScroll, resetUrl, resetScroll, saveUrl, saveScroll, deleteUrl, deleteScroll, spinnerLocation)"
      class="form-group">
   <div class="col-md-offset-3 col-md-6">
     <button data-th-if="${cancelUrl != null}"
@@ -33,7 +33,7 @@
             data-method="POST"
             data-json="true"
             data-group="Group"
-            data-th-attr="data-url=${saveUrl}, data-group=${group}, data-sub-groups=${subGroups}, data-spinner=${spinnerLocation != null}, data-scroll=${saveScroll}"
+            data-th-attr="data-url=${saveUrl}, data-group=${group}, data-spinner=${spinnerLocation != null}, data-scroll=${saveScroll}"
     >
     Save
     </button>
@@ -45,7 +45,7 @@
             data-method="POST"
             data-json="true"
             data-group="Group"
-            data-th-attr="data-url=${deleteUrl}, data-group=${group}, data-sub-groups=${subGroups}, data-spinner=${spinnerLocation != null}, data-scroll=${cancelScroll}"
+            data-th-attr="data-url=${deleteUrl}, data-group=${group}, data-spinner=${spinnerLocation != null}, data-scroll=${cancelScroll}"
     >
     Delete
     </button>

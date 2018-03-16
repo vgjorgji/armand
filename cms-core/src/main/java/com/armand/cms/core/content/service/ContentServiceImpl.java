@@ -1,5 +1,6 @@
 package com.armand.cms.core.content.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +23,7 @@ import com.armand.cms.core.content.model.MediaItemRepository;
 import com.armand.cms.core.content.model.ParagraphItemRepository;
 import com.armand.cms.core.content.model.TitleItemRepository;
 import com.armand.cms.core.design.model.DesignComponent;
+import com.armand.cms.core.website.model.WebsiteViewType;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -52,19 +54,25 @@ public class ContentServiceImpl implements ContentService {
     repositoryMap.put(Component.Highlights, highlightItemRepository);
     repositoryMap.put(Component.Jumbotron, jumbotronItemRepository);
     repositoryMap.put(Component.Links, linkItemRepository);
-    repositoryMap.put(Component.Navigation, navigationService);
     repositoryMap.put(Component.Medias, mediaItemRepository);
     repositoryMap.put(Component.Paragraphs, paragraphItemRepository);
     repositoryMap.put(Component.Titles, titleItemRepository);
   }
 
   @Override
-  public List<ContentModel> getContentModels(long websiteId, DesignComponent designComponent) {
-    ContentModelRepository repository = repositoryMap.get(designComponent.getComponent());
-    if (repository != null) {
-      return repository.getModelsForDesignComponent(designComponent);
+  public List<ContentModel> getContentModels(long websiteId, WebsiteViewType websiteViewType, DesignComponent designComponent) {
+    List<ContentModel> result;
+    if (Component.Navigation == designComponent.getComponent()) {
+      result = new ArrayList<>(navigationService.getCompleteNavigationForWebsite(websiteId, websiteViewType));
+    } else {
+      ContentModelRepository repository = repositoryMap.get(designComponent.getComponent());
+      if (repository != null) {
+        result = repository.getModelsForDesignComponent(designComponent);
+      } else {
+        result = Collections.emptyList();
+      }
     }
-    return Collections.emptyList();
+    return result;
   }
 
 }

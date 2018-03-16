@@ -1,11 +1,12 @@
 package com.armand.cms.core.content.model;
 
-import java.util.List;
-
+import com.armand.cms.core.persist.model.HistoryModelRepository;
+import com.armand.cms.core.persist.model.Paging;
+import com.armand.cms.core.persist.model.PagingSearch;
 import com.armand.cms.core.website.model.WebsiteViewType;
 
-public interface NavItemRepository {
+public interface NavItemRepository extends HistoryModelRepository<NavItem> {
 
-  List<NavItem> getModels(long websiteId, WebsiteViewType websiteViewType);
+  Paging<NavItem> getPagingModels(PagingSearch pagingSearch, long websiteId, WebsiteViewType websiteViewType);
 
 }

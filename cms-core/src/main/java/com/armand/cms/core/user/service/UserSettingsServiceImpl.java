@@ -13,6 +13,9 @@ import com.armand.cms.core.user.model.UserSettings;
 import com.armand.cms.core.user.model.WebsiteUser;
 import com.armand.cms.core.user.model.WebsiteUserRepository;
 import com.armand.cms.core.website.model.Website;
+import com.armand.cms.core.website.model.WebsiteView;
+import com.armand.cms.core.website.model.WebsiteViewRepository;
+import com.armand.cms.core.website.model.WebsiteViewType;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -21,6 +24,7 @@ public class UserSettingsServiceImpl implements UserSettingsService {
 
   private final UserRepository userRepository;
   private final WebsiteUserRepository websiteUserRepository;
+  private final WebsiteViewRepository websiteViewRepository;
 
   @Override
   public UserSettings getUserSettings(String username) {
@@ -39,12 +43,23 @@ public class UserSettingsServiceImpl implements UserSettingsService {
   public void changeSettingsForWebsite(UserSettings userSettings, Website website) {
     // find
     WebsiteUser websiteUser = null;
+    WebsiteView websiteViewDesign = null;
+    WebsiteView websiteViewContent = null;
+    WebsiteView websiteViewLive = null;
     if (userSettings.hasUser() && website != null) {
       websiteUser = websiteUserRepository.getModel(userSettings.getId(), website.getId());
+      websiteViewDesign = websiteViewRepository.getModel(website.getId(), WebsiteViewType.Design);
+      websiteViewContent = websiteViewRepository.getModel(website.getId(), WebsiteViewType.Content);
+      websiteViewLive = websiteViewRepository.getModel(website.getId(), WebsiteViewType.Live);
     }
     // set
-    userSettings.setSelectedWebsite(website);
-    userSettings.setSelectedWebsiteUser(websiteUser);
+    userSettings.setSelectedWebsiteId(website != null ? website.getId() : -1);
+    userSettings.setSelectedWebsiteUserId(websiteUser != null ? websiteUser.getId() : -1);
+    // shortcuts
+    userSettings.setSelectedWebsiteName(website != null ? website.getName() : "");
+    userSettings.setSelectedWebsiteViewIdDesign(websiteViewDesign != null ? websiteViewDesign.getId() : -1);
+    userSettings.setSelectedWebsiteViewIdContent(websiteViewContent != null ? websiteViewContent.getId() : -1);
+    userSettings.setSelectedWebsiteViewIdLive(websiteViewLive != null ? websiteViewLive.getId() : -1);
     // resolve
     resolveRoles(userSettings, website, websiteUser);
     resolveLanguage(userSettings, website, websiteUser);

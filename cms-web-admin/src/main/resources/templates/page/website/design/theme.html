@@ -41,7 +41,7 @@
                                                                  fieldStyle='font-family: \'{{font.alias}}\';',
                                                                  optionStyle='font-family: \'{{alias}}\';',
                                                                  fieldValues=null, labelClass=null, controlClass=null, multi=_)">Select Color</div>
-            <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteView', subGroups=_,
+            <div data-th-replace="tag/form/buttons :: Form-Buttons(group='websiteView',
                                                                    cancelUrl=null, cancelScroll=_,
                                                                    resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/theme/load', resetScroll=_,
                                                                    saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/theme/save', saveScroll=_,

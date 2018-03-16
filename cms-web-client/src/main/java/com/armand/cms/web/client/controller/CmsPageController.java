@@ -12,6 +12,7 @@ import com.armand.cms.core.design.model.PageRepository;
 import com.armand.cms.core.design.service.PageDesignService;
 import com.armand.cms.core.website.model.Website;
 import com.armand.cms.core.website.model.WebsiteView;
+import com.armand.cms.core.website.model.WebsiteViewType;
 import com.armand.cms.web.client.service.ClientConfigurationService;
 import lombok.RequiredArgsConstructor;
 
@@ -37,7 +38,7 @@ public class CmsPageController {
 
     // design
     Page page = getPage(websiteView, pageUrl);
-    PageDesign pageDesign = pageDesignService.getPageDesign(page.getId(), website);
+    PageDesign pageDesign = pageDesignService.getPageDesign(website, WebsiteViewType.Live, page.getId());
 
     // view
     model.addAttribute("website", website);

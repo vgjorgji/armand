@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.armand.cms.core.localization.model.Language;
 import com.armand.cms.core.utils.Utils;
-import com.armand.cms.core.website.model.Website;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,9 +26,14 @@ public class UserSettings implements UserDetails {
   private User user;
 
   // select
-  private long selectedWebsiteId = 0;
-  private long selectedWebsiteUserId = 0;
+  private long selectedWebsiteId = -1;
+  private long selectedWebsiteUserId = -1;
+
+  // shortcuts
   private String selectedWebsiteName = "";
+  private long selectedWebsiteViewIdDesign = -1;
+  private long selectedWebsiteViewIdContent = -1;
+  private long selectedWebsiteViewIdLive = -1;
 
   // resolve
   private Language language = DEFAULT_LANGUAGE;
@@ -37,29 +41,11 @@ public class UserSettings implements UserDetails {
 
 
   public long getId() {
-    return hasUser() ? user.getId() : 0;
+    return hasUser() ? user.getId() : -1;
   }
 
   public boolean hasUser() {
     return user != null;
-  }
-
-  public void setSelectedWebsite(Website selectedWebsite) {
-    if (selectedWebsite != null) {
-      this.selectedWebsiteId = selectedWebsite.getId();
-      this.selectedWebsiteName = selectedWebsite.getName();
-    } else {
-      this.selectedWebsiteId = -1;
-      this.selectedWebsiteName = "";
-    }
-  }
-
-  public void setSelectedWebsiteUser(WebsiteUser selectedWebsiteUser) {
-    if (selectedWebsiteUser != null) {
-      this.selectedWebsiteUserId = selectedWebsiteUser.getId();
-    } else {
-      this.selectedWebsiteUserId = -1;
-    }
   }
 
   public boolean isVisitor() {
