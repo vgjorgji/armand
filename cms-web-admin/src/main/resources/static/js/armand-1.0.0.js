@@ -454,14 +454,6 @@
 					$("#ajax-complete").show();
 					$("#ajax-complete").delay(1000).fadeOut(500);
 				}
-				
-				// scroll to
-				if (element.attr("data-scroll") !== undefined) {
-					var scrollElement = $(element.attr("data-scroll"));
-					if (scrollElement.length > 0) {
-						scrollTo(scrollElement[0]);
-					}
-				}
 			}
 
 		}).done(function(x) {
@@ -602,6 +594,14 @@
 				if (hasError && element.attr("data-validation-scroll") === "true") {
 					scrollToFirstError();
 				}
+
+				// scroll to
+        if (element.attr("data-scroll") !== undefined) {
+          var scrollElement = $(element.attr("data-scroll"));
+          if (scrollElement.length > 0) {
+            scrollTo(scrollElement[0]);
+          }
+        }
 
 			} else {
 				// make the redirect

@@ -1,90 +1,100 @@
 package com.armand.cms.core.content.stub;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
 import com.armand.cms.core.content.model.MainNavItem;
 import com.armand.cms.core.content.model.MainNavItemRepository;
-import com.armand.cms.core.design.model.CmsPage;
-import com.armand.cms.core.localization.model.LocalTextType;
+import com.armand.cms.core.design.model.PageRepository;
 import com.armand.cms.core.persist.model.Paging;
 import com.armand.cms.core.persist.model.PagingSearch;
 import com.armand.cms.core.persist.stub.HistoryModelRepositoryStub;
-import com.armand.cms.core.utils.TextUtils;
 import com.armand.cms.core.website.model.WebsiteViewType;
+import lombok.RequiredArgsConstructor;
 
 @Repository
+@RequiredArgsConstructor
 public class MainNavItemRepositoryStub
     extends HistoryModelRepositoryStub<MainNavItem>
     implements MainNavItemRepository {
+
+  private final PageRepository pageRepository;
+  private boolean pagesLoaded = false;
 
   @PostConstruct
   public void init() {
     // home
     MainNavItem navItem = new MainNavItem();
-    CmsPage page = new CmsPage();
-    page.setUrl("home");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Home", "Почетна"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1000);
     saveModel(navItem);
 
     // school
     navItem = new MainNavItem();
-    page = new CmsPage();
-    page.setUrl("school");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "School", "Училиште"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1001);
     saveModel(navItem);
 
     // curriculum
     navItem = new MainNavItem();
-    page = new CmsPage();
-    page.setUrl("curriculum");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Teaching", "Настава"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1002);
     saveModel(navItem);
 
     // activities
     navItem = new MainNavItem();
-    page = new CmsPage();
-    page.setUrl("activities");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Activities", "Активности"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1003);
     saveModel(navItem);
 
     // children's corner
     navItem = new MainNavItem();
-    page = new CmsPage();
-    page.setUrl("childrens_corner");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Children's corner", "Детско катче"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1004);
     saveModel(navItem);
 
     // research
     navItem = new MainNavItem();
-    page = new CmsPage();
-    page.setUrl("research");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Research", "Истражувања"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1005);
     saveModel(navItem);
 
     // contact
     navItem = new MainNavItem();
-    page = new CmsPage();
-    page.setUrl("contact");
-    page.setTitle(TextUtils.createLocalText(LocalTextType.Small, "Contact", "Контакт"));
-    navItem.setPage(page);
+    navItem.setWebsiteViewId(1000);
+    navItem.setPageId(1006);
     saveModel(navItem);
-  }
 
-  @Override
-  public MainNavItem getModel(long id) {
-    return null;
+    pagesLoaded = false;
   }
 
   @Override
   public Paging<MainNavItem> getPagingModels(PagingSearch pagingSearch, long websiteId, WebsiteViewType websiteViewType) {
     return getPagingModels(pagingSearch);
+  }
+
+  @Override
+  protected boolean searchModel(MainNavItem model, String query) {
+    String text = model.getId()
+        + "%" + model.getPage().getTitle().getUserText();
+    return text.contains(query);
+  }
+
+  @Override
+  protected long getParentId(MainNavItem model, String parentField) {
+    return model.getWebsiteViewId();
+  }
+
+  @Override
+  protected List<MainNavItem> getList() {
+    if (!pagesLoaded) {
+      for (MainNavItem item : super.getList()) {
+        item.setPage(pageRepository.getModel(item.getPageId()));
+      }
+      pagesLoaded = true;
+    }
+    return super.getList();
   }
 }

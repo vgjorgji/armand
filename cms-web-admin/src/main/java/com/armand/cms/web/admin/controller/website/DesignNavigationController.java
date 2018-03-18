@@ -1,7 +1,5 @@
 package com.armand.cms.web.admin.controller.website;
 
-import java.util.Collections;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +11,7 @@ import com.armand.cms.core.content.model.NavItem;
 import com.armand.cms.core.content.model.NavItemRepository;
 import com.armand.cms.core.content.model.SubNavItem;
 import com.armand.cms.core.content.model.SubNavItemRepository;
-import com.armand.cms.core.design.model.Page;
+import com.armand.cms.core.design.model.CmsPage;
 import com.armand.cms.core.design.model.PageRepository;
 import com.armand.cms.core.persist.model.DbModelRepository;
 import com.armand.cms.core.persist.model.Fetch;
@@ -47,8 +45,7 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
     UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 
     // pages
-    Fetch<Page> pages = pageRepository.getModels(
-        Collections.singletonList(userSettings.getSelectedWebsiteViewIdDesign()), null);
+    Fetch<CmsPage> pages = pageRepository.getCmsPages(userSettings.getSelectedWebsiteViewIdDesign());
 
     // node
     MainNavItem item = new MainNavItem();
@@ -56,9 +53,10 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
 
     // response
     Response response = new Response();
-    response.fragmentNode().data()
+    response.fragmentMainNode().data()
         .add("mainNavItem", item)
-        .add("pages", pages);
+        .add("pages", pages.getModels());
+    response.fragmentNode().hide();
     response.fragmentSubNode().hide();
     return response;
   }
@@ -70,23 +68,24 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
     UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 
     // pages
-    Fetch<Page> pages = pageRepository.getModels(
-        Collections.singletonList(userSettings.getSelectedWebsiteViewIdDesign()), null);
+    Fetch<CmsPage> pages = pageRepository.getCmsPages(userSettings.getSelectedWebsiteViewIdDesign());
 
     // response
     Response response = new Response();
-    response.fragmentNode().data()
+    response.fragmentMainNode().data()
         .add("mainNavItem", item)
-        .add("pages", pages);
+        .add("pages", pages.getModels());
+    response.fragmentNode().hide();
     response.fragmentSubNode().hide();
     return response;
   }
 
   @Override
   public Response saveMainNode(@RequestBody MainNavItem mainNode) {
+    mainNode.setPage(pageRepository.getModel(mainNode.getPageId()));
     getMainNodeRepository().saveModel(mainNode);
     Response response = new Response();   // if there are errors then call edit
-    response.fragmentNode().hide();
+    response.fragmentMainNode().hide();
     response.setClickElement("table-search");
     return response;
   }
@@ -101,14 +100,14 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
     navItem.setMainNavItemId(mainNodeId);
 
     // pages
-    Fetch<Page> pages = pageRepository.getModels(
-        Collections.singletonList(userSettings.getSelectedWebsiteViewIdDesign()), null);
+    Fetch<CmsPage> pages = pageRepository.getCmsPages(userSettings.getSelectedWebsiteViewIdDesign());
 
     // response
     Response response = new Response();
+    response.fragmentMainNode().hide();
     response.fragmentNode().data()
         .add("navItem", navItem)
-        .add("pages", pages);
+        .add("pages", pages.getModels());
     response.fragmentSubNode().hide();
     return response;
   }
@@ -120,20 +119,21 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
     UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 
     // pages
-    Fetch<Page> pages = pageRepository.getModels(
-        Collections.singletonList(userSettings.getSelectedWebsiteViewIdDesign()), null);
+    Fetch<CmsPage> pages = pageRepository.getCmsPages(userSettings.getSelectedWebsiteViewIdDesign());
 
     // response
     Response response = new Response();
+    response.fragmentMainNode().hide();
     response.fragmentNode().data()
         .add("navItem", navItem)
-        .add("pages", pages);
+        .add("pages", pages.getModels());
     response.fragmentSubNode().hide();
     return response;
   }
 
   @Override
   public Response saveNode(@PathVariable long mainNodeId, @RequestBody NavItem node) {
+    node.setPage(pageRepository.getModel(node.getPageId()));
     getNodeRepository().saveModel(node);
     Response response = new Response();   // if there are errors then call edit
     response.fragmentNode().hide();
@@ -152,15 +152,15 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
     subNavItem.setNavItemId(nodeId);
 
     // pages
-    Fetch<Page> pages = pageRepository.getModels(
-        Collections.singletonList(userSettings.getSelectedWebsiteViewIdDesign()), null);
+    Fetch<CmsPage> pages = pageRepository.getCmsPages(userSettings.getSelectedWebsiteViewIdDesign());
 
     // response
     Response response = new Response();
+    response.fragmentMainNode().hide();
     response.fragmentNode().hide();
     response.fragmentSubNode().data()
         .add("subNavItem", subNavItem)
-        .add("pages", pages);
+        .add("pages", pages.getModels());
     return response;
   }
 
@@ -173,15 +173,15 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
     UserSettings userSettings = UserSettingsProvider.getCurrentUser();
 
     // pages
-    Fetch<Page> pages = pageRepository.getModels(
-        Collections.singletonList(userSettings.getSelectedWebsiteViewIdDesign()), null);
+    Fetch<CmsPage> pages = pageRepository.getCmsPages(userSettings.getSelectedWebsiteViewIdDesign());
 
     // response
     Response response = new Response();
+    response.fragmentMainNode().hide();
     response.fragmentNode().hide();
     response.fragmentSubNode().data()
         .add("subNavItem", subNavItem)
-        .add("pages", pages);
+        .add("pages", pages.getModels());
     return response;
   }
 
@@ -189,6 +189,7 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
   public Response saveSubNode(@PathVariable long mainNodeId,
                               @PathVariable long nodeId,
                               @RequestBody SubNavItem subNode) {
+    subNode.setPage(pageRepository.getModel(subNode.getPageId()));
     getSubNodeRepository().saveModel(subNode);
     Response response = new Response();   // if there are errors then call edit
     response.fragmentSubNode().hide();
@@ -203,9 +204,7 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
 
     MainNode mainNode = new MainNode();
     mainNode.setId(mainNodeModel.getId());
-    mainNode.setIcon(mainNodeModel.getLink().getIcon());
-    mainNode.setTitle("Title: " + mainNodeModel.getLink().getText().getText(userSettings.getLanguage())
-        + ", URL: " + mainNodeModel.getLink().getUrl());
+    mainNode.setTitle(mainNodeModel.getLink().getText().getText(userSettings.getLanguage()));
     return mainNode;
   }
 
@@ -220,9 +219,7 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
 
     Node node = new Node();
     node.setId(nodeModel.getId());
-    node.setIcon(nodeModel.getLink().getIcon());
-    node.setTitle("Title: " + nodeModel.getLink().getText().getText(userSettings.getLanguage())
-        + ", URL: " + nodeModel.getLink().getUrl());
+    node.setTitle(nodeModel.getLink().getText().getText(userSettings.getLanguage()));
     return node;
   }
 
@@ -237,9 +234,7 @@ public class DesignNavigationController extends AbstractTreeController<MainNavIt
 
     SubNode subNode = new SubNode();
     subNode.setId(subNodeModel.getId());
-    subNode.setIcon(subNodeModel.getLink().getIcon());
-    subNode.setTitle("Title: " + subNodeModel.getLink().getText().getText(userSettings.getLanguage())
-        + ", URL: " + subNodeModel.getLink().getUrl());
+    subNode.setTitle(subNodeModel.getLink().getText().getText(userSettings.getLanguage()));
     return subNode;
   }
 

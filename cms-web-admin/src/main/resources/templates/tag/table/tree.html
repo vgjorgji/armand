@@ -2,9 +2,12 @@
 <html>
 <body>
 
-<div data-th-fragment="Table-Tree(pageUrl)">
+<div data-th-fragment="Table-Tree(pageUrl, showMainButtons)">
   <!-- ./table-controls -->
-  <div data-th-replace="tag/table/paging_top :: Table-PagingTop(pageUrl=${pageUrl}, showButtonAdd=false)">Paging Top</div>
+  <div data-th-replace="tag/table/paging_top :: Table-PagingTop(pageUrl=${pageUrl},
+                                                                showButtonAdd=${showMainButtons},
+                                                                buttonAddUrl=${pageUrl} + '/tree/node',
+                                                                buttonAddScrollTo='#main-node')">Paging Top</div>
 
   <!-- tree -->
   <table class="tree table-hover">
@@ -22,12 +25,32 @@
       <td class="id">
         <small>{{id}}</small>
       </td>
-      <td class="control">&nbsp;</td>
-      <td class="control">&nbsp;</td>
+      <td class="control">
+        <a href="#" class="text-warning"
+           data-th-if="${showMainButtons}"
+           id="main-node-{{id}}-edit"
+           data-method="GET"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-scroll="#main-node"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{id}}/edit'">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </td>
+      <td class="control">
+        <a href="#" class="text-danger"
+           data-th-if="${showMainButtons}"
+           id="main-node-{{id}}-delete"
+           data-method="POST"
+           data-spinner="true"
+           data-spinner-location="#table-ajax"
+           data-th-attr="data-url=${pageUrl} + '/tree/node/{{id}}/delete'">
+          <i class="fa fa-times"></i>
+        </a>
+      </td>
       <td class="control">
         <a href="#" class="text-success"
            id="main-node-{{id}}-add"
-           data-url="/tree/node/{{id}}/add"
            data-method="GET"
            data-spinner="true"
            data-spinner-location="#table-ajax"
@@ -53,7 +76,6 @@
       <td class="control">
         <a href="#" class="text-warning"
            id="node-{{id}}-edit"
-           data-url="/tree/node/{{../id}}/{{id}}/edit"
            data-method="GET"
            data-spinner="true"
            data-spinner-location="#table-ajax"
@@ -65,7 +87,6 @@
       <td class="control">
         <a href="#" class="text-danger"
            id="node-{{id}}-delete"
-           data-url="${pageUrl}/tree/node/{{../id}}/{{id}}/delete"
            data-method="POST"
            data-spinner="true"
            data-spinner-location="#table-ajax"
@@ -76,7 +97,6 @@
       <td class="control">
         <a href="#" class="text-success"
            id="node-{{id}}-add"
-           data-url="/tree/node/{{../id}}/{{id}}/add"
            data-method="GET"
            data-spinner="true"
            data-spinner-location="#table-ajax"
@@ -102,7 +122,6 @@
       <td class="control">
         <a href="#" class="text-warning"
            id="sub-node-{{id}}-edit"
-           data-url="/tree/node/{{../../id}}/{{../id}}/{{id}}/edit"
            data-method="GET"
            data-spinner="true"
            data-spinner-location="#table-ajax"
@@ -114,7 +133,6 @@
       <td class="control">
         <a href="#" class="text-danger"
            id="sub-node-{{id}}-delete"
-           data-url="/tree/node/{{../../id}}/{{../id}}/{{id}}/delete"
            data-method="POST"
            data-spinner="true"
            data-spinner-location="#table-ajax"
@@ -122,9 +140,7 @@
           <i class="fa fa-times"></i>
         </a>
       </td>
-      <td class="control">
-        &nbsp;
-      </td>
+      <td class="control"> </td>
     </tr>
     {{/subNodes}}
     {{/nodes}}

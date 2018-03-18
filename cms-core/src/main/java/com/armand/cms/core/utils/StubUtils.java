@@ -2,7 +2,7 @@ package com.armand.cms.core.utils;
 
 import java.util.Date;
 
-import com.armand.cms.core.design.model.CmsPage;
+import com.armand.cms.core.design.model.Page;
 import com.armand.cms.core.localization.model.LocalTextType;
 import com.armand.cms.core.persist.model.HistoryModel;
 
@@ -21,7 +21,7 @@ public final class StubUtils {
     return dbModel;
   }
 
-  public static <T extends CmsPage> T createPageReadMore(T page) {
+  public static <T extends Page> T createPageReadMore(T page) {
     page.setTitle(TextUtils.createLocalText(LocalTextType.Normal, "Read More", "Прочитај Повеќе"));
     page.setUrl("/");
     return page;

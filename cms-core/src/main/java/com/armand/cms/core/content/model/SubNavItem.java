@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class SubNavItem extends HistoryModel {
 
+  private long mainNavItemId;
   private long navItemId;
   private long pageId;
 

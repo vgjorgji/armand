@@ -9,8 +9,11 @@ import java.util.stream.Collectors;
 import org.springframework.util.StringUtils;
 
 import com.armand.cms.core.persist.model.DbModel;
+import com.armand.cms.core.user.model.UserSettings;
+import com.armand.cms.core.user.service.UserSettingsProvider;
 import com.armand.cms.core.validation.CmsException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 public class LocalText extends DbModel {
 
@@ -57,6 +60,14 @@ public class LocalText extends DbModel {
   public String getText(Language language) {
     if (hasText(language)) {
       return texts.get(language).getValue();
+    }
+    return null;
+  }
+
+  public String getUserText() {
+    UserSettings userSettings = UserSettingsProvider.getCurrentUserRelax();
+    if (userSettings != null) {
+      return getText(userSettings.getLanguage());
     }
     return null;
   }

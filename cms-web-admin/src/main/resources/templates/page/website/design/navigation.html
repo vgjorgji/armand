@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-th-replace="layout/main :: Main-Layout(title='Website | Design | Navigation',
+<html data-th-replace="layout/tree :: Tree-Layout(title='Website | Design | Navigation',
 																									pageTitle='Navigation',
 																									selectGlobal='Website',
 																									selectSide='design',
@@ -14,33 +14,36 @@
 <div id="fragmentMain" class="panel panel-default">
   <div class="panel-body">
 
-    <div data-th-replace="tag/table/tree :: Table-Tree(pageUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation')">
+    <div data-th-replace="tag/table/tree :: Table-Tree(pageUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation',
+                                                       showMainButtons=true)">
       Tree Table
     </div>
 
   </div>
 </div> <!-- /.panel -->
 
-<div id="fragmentMainNode">
-  {{#mainNavItem}}
-  <form class="form-horizontal">
-    <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='id', field='id', group='mainNavItem', label='ID',
-                                                                    labelClass=null, controlClass=null)">ID</div>
-    <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='websiteViewId', field='websiteViewId', group='mainNavItem', label='Website View',
-                                                                    labelClass=null, controlClass=null)">Website View</div>
-    <div data-th-replace="tag/form/select :: Form-Select(id='pageId', field='pageId', group='mainNavItem',
-                                                         options='../pages', optionValue='id', optionText='title',
-                                                         label='Page',
-                                                         fieldStyle=_, optionStyle=_,
-                                                         fieldValues=null, labelClass=null, controlClass=null, multi=_)">Page</div>
-    <div data-th-replace="tag/form/buttons :: Form-Buttons(group='mainNavItem',
-                                                           cancelUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/cancel', cancelScroll='#main',
-                                                           resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/{{id}}/edit', resetScroll=_,
-                                                           saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/save', saveScroll='#main',
-                                                           deleteUrl=null, deleteScroll=_,
-                                                           spinnerLocation=null)">Buttons</div>
-  </form>
-  {{/mainNavItem}}
+<div id="fragmentMainNode" class="panel panel-default">
+  <div class="panel-body">
+    {{#mainNavItem}}
+    <form class="form-horizontal">
+      <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='id', field='id', group='mainNavItem', label='ID',
+                                                                      labelClass=null, controlClass=null)">ID</div>
+      <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='websiteViewId', field='websiteViewId', group='mainNavItem', label='Website View',
+                                                                      labelClass=null, controlClass=null)">Website View</div>
+      <div data-th-replace="tag/form/select :: Form-Select(id='pageId', field='pageId', group='mainNavItem',
+                                                           options='../pages', optionValue='id', optionText='title.userText',
+                                                           label='Page',
+                                                           fieldStyle=_, optionStyle=_,
+                                                           fieldValues=null, labelClass=null, controlClass=null, multi=_)">Page</div>
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='mainNavItem',
+                                                             cancelUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/cancel', cancelScroll='#main',
+                                                             resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/{{id}}/edit', resetScroll=_,
+                                                             saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/save', saveScroll='#main',
+                                                             deleteUrl=null, deleteScroll=_,
+                                                             spinnerLocation=null)">Buttons</div>
+    </form>
+    {{/mainNavItem}}
+  </div>
 </div>
 
 <div id="fragmentNode" class="panel panel-default">
@@ -52,7 +55,7 @@
       <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='mainNavItemId', field='mainNavItemId', group='navItem', label='MainNav Item',
                                                                       labelClass=null, controlClass=null)">MainNav Item</div>
       <div data-th-replace="tag/form/select :: Form-Select(id='pageId', field='pageId', group='navItem',
-                                                           options='../pages', optionValue='id', optionText='title',
+                                                           options='../pages', optionValue='id', optionText='title.userText',
                                                            label='Page',
                                                            fieldStyle=_, optionStyle=_,
                                                            fieldValues=null, labelClass=null, controlClass=null, multi=_)">Page</div>
@@ -73,17 +76,19 @@
     <form class="form-horizontal">
       <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='id', field='id', group='subNavItem', label='ID',
                                                                      labelClass=null, controlClass=null)">ID</div>
+      <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='mainNavItemId', field='mainNavItemId', group='subNavItem', label='MainNav Item',
+                                                                      labelClass=null, controlClass=null)">MainNav Item</div>
       <div data-th-replace="tag/form/input_static :: Form-InputStatic(id='navItemId', field='navItemId', group='subNavItem', label='Nav Item',
                                                                       labelClass=null, controlClass=null)">Nav Item</div>
       <div data-th-replace="tag/form/select :: Form-Select(id='pageId', field='pageId', group='subNavItem',
-                                                           options='../pages', optionValue='id', optionText='title',
+                                                           options='../pages', optionValue='id', optionText='title.userText',
                                                            label='Page',
                                                            fieldStyle=_, optionStyle=_,
                                                            fieldValues=null, labelClass=null, controlClass=null, multi=_)">Page</div>
-      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='navItem',
+      <div data-th-replace="tag/form/buttons :: Form-Buttons(group='subNavItem',
                                                              cancelUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/cancel', cancelScroll='#main',
-                                                             resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/-1/{{navItemId}}/{{id}}/edit', resetScroll=_,
-                                                             saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/-1/{{navItemId}}/save', saveScroll='#main',
+                                                             resetUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/{{mainNavItemId}}/{{navItemId}}/{{id}}/edit', resetScroll=_,
+                                                             saveUrl=@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/navigation/tree/node/{{mainNavItemId}}/{{navItemId}}/save', saveScroll='#main',
                                                              deleteUrl=null, deleteScroll=_,
                                                              spinnerLocation=null)">Buttons</div>
     </form>

@@ -11,21 +11,22 @@ import org.springframework.util.CollectionUtils;
 import com.armand.cms.core.conf.SingleColor;
 import com.armand.cms.core.persist.model.HistoryModel;
 import lombok.Getter;
+import lombok.Setter;
 
-@Getter
 public class PageDesign extends HistoryModel {
 
+  @Getter
+  @Setter
   private long pageId;
+  @Getter
   private Layout layout = new Layout();
+  @Getter
   private Map<LayoutPosition, List<DesignComponent>> designComponents = new HashMap<>();
 
-  public void setPageId(long pageId) {
-    this.pageId = pageId;
-  }
 
   public void addDesignComponent(DesignComponent component) {
     if (!designComponents.containsKey(component.getLayoutPosition())) {
-      designComponents.put(component.getLayoutPosition(), new ArrayList<DesignComponent>());
+      designComponents.put(component.getLayoutPosition(), new ArrayList<>());
     }
     designComponents.get(component.getLayoutPosition()).add(component);
   }
@@ -46,14 +47,6 @@ public class PageDesign extends HistoryModel {
     return getLayoutPositionComponents(LayoutPosition.Center);
   }
 
-  public SingleColor getCenterComponentsColor() {
-    List<DesignComponent> centerComponents = getCenterComponents();
-    if (!CollectionUtils.isEmpty(centerComponents)) {
-      return centerComponents.get(0).getBackgroundColor();
-    }
-    return SingleColor.White;
-  }
-
   public List<DesignComponent> getRightComponents() {
     return getLayoutPositionComponents(LayoutPosition.Right);
   }
@@ -71,6 +64,14 @@ public class PageDesign extends HistoryModel {
       return designComponents.get(layoutPosition);
     }
     return Collections.emptyList();
+  }
+
+  public SingleColor getCenterComponentsColor() {
+    List<DesignComponent> centerComponents = getCenterComponents();
+    if (!CollectionUtils.isEmpty(centerComponents)) {
+      return centerComponents.get(0).getBackgroundColor();
+    }
+    return SingleColor.White;
   }
 
 }

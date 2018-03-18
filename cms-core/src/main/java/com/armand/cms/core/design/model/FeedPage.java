@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FeedPage extends CmsPage {
+public class FeedPage extends Page {
 
   private long feedItemId;
   private FeedType feedType;

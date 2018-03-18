@@ -26,6 +26,13 @@
     </a>
   </li>
   <li>
+    <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/pages'">
+      <i class="fa fa-blank"
+         data-th-class="'fa ' + ${select eq 'pages' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>
+      Feed Templates
+    </a>
+  </li>
+  <li>
     <a href="#" data-th-href="@{/website/} + ${session.userSettings.selectedWebsiteId} + '/design/preview'">
       <i class="fa fa-blank"
          data-th-class="'fa ' + ${select eq 'preview' ? 'fa-long-arrow-right' : 'fa-blank' }"></i>

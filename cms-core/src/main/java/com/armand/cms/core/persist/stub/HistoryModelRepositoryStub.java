@@ -25,34 +25,34 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 
   @Override
   protected void insertModel(T model) {
-    list.add(model);
+    getList().add(model);
   }
 
   @Override
   protected void updateModel(T current, T model) {
-    int index = list.indexOf(current);
+    int index = getList().indexOf(current);
     if (index >= 0) {
-      list.set(index, model);
+      getList().set(index, model);
     }
   }
 
   @Override
   public void deleteModel(long id) {
     int index = -1;
-    for (int i = 0; i < list.size(); i++) {
-      if (list.get(i).getId() == id) {
+    for (int i = 0; i < getList().size(); i++) {
+      if (getList().get(i).getId() == id) {
         index = i;
         break;
       }
     }
     if (index >= 0) {
-      list.remove(index);
+      getList().remove(index);
     }
   }
 
   @Override
   public T getModel(long id) {
-    for (T model : list) {
+    for (T model : getList()) {
       if (model.getId() == id) {
         return model;
       }
@@ -63,7 +63,7 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
   @Override
   public Fetch<T> getModels(Collection<Long> ids) {
     Fetch<T> fetch = new Fetch<>(ids.size());
-    for (T model : list) {
+    for (T model : getList()) {
       if (ids.contains(model.getId())) {
         fetch.put(model.getId(), model);
       }
@@ -74,7 +74,7 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
   @Override
   public Fetch<T> getModels(Collection<Long> parentIds, String parentField) {
     Fetch<T> fetch = new Fetch<>(parentIds.size());
-    for (T model : list) {
+    for (T model : getList()) {
       if (parentIds.contains(getParentId(model, parentField))) {
         fetch.put(model.getId(), model);
       }
@@ -97,8 +97,8 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
 
   @Override
   public Fetch<T> getAllModels() {
-    Fetch<T> fetch = new Fetch<>(list.size());
-    for (T model : list) {
+    Fetch<T> fetch = new Fetch<>(getList().size());
+    for (T model : getList()) {
       fetch.put(model.getId(), model);
     }
     return fetch;
@@ -128,10 +128,10 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
   private List<T> search(String query) {
     List<T> result;
     if (!StringUtils.hasText(query)) {
-      result = list;
+      result = getList();
     } else {
       result = new ArrayList<>();
-      for (T model : list) {
+      for (T model : getList()) {
         if (searchModel(model, query)) {
           result.add(model);
         }
@@ -152,4 +152,7 @@ public abstract class HistoryModelRepositoryStub<T extends HistoryModel> extends
     return true;
   }
 
+  protected List<T> getList() {
+    return list;
+  }
 }

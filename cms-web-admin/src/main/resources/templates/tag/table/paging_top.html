@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<form data-th-fragment="Table-PagingTop(pageUrl, showButtonAdd)"
+<form data-th-fragment="Table-PagingTop(pageUrl, showButtonAdd, buttonAddUrl, buttonAddScrollTo)"
       class="table-controls">
   <div class="table-search">
     <div class="input-group">
@@ -68,8 +68,7 @@
             data-method="GET"
             data-spinner="true"
             data-spinner-location="#table-ajax"
-            data-scroll="#details"
-            data-th-attr="data-url=${pageUrl} + '/add'">
+            data-th-attr="data-url=${buttonAddUrl} + '/add', data-scroll=${buttonAddScrollTo}">
       <i class="fa fa-plus"></i>Add
     </button>
   </div>

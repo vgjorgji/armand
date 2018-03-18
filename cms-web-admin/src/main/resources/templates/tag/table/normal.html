@@ -4,7 +4,10 @@
 
 <div data-th-fragment="Table-Normal(pageUrl, headers, fields, rowCssClass)">
   <!-- ./table-controls -->
-  <div data-th-replace="tag/table/paging_top :: Table-PagingTop(pageUrl=${pageUrl}, showButtonAdd=true)">Paging Top</div>
+  <div data-th-replace="tag/table/paging_top :: Table-PagingTop(pageUrl=${pageUrl},
+                                                                showButtonAdd=true,
+                                                                buttonAddUrl=${pageUrl},
+                                                                buttonAddScrollTo='#details')">Paging Top</div>
 
   <!-- table -->
   <div class="table-responsive">
